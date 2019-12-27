@@ -1,0 +1,74 @@
+// ITEMS
+
+LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+
+COPY_EXISTING ~Emily/Item/X3EQRL.itm~ ~override/X3EQRL.itm~
+SAY NAME1 @50
+SAY NAME2 @50
+SAY DESC @51 
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+COPY_EXISTING ~Emily/Item/X3EQRX.itm~ ~override/X3EQRX.itm~
+SAY NAME1 @52
+SAY NAME2 @52
+SAY DESC  @53
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+	
+COPY_EXISTING ~Emily/Item/X3EQRLS.itm~ ~override/X3EQRLS.itm~
+SAY NAME1 @59
+SAY NAME2 @59
+SAY DESC @60
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+COPY_EXISTING ~Emily/Item/X3EQRXL.itm~ ~override/X3EQRXL.itm~
+SAY NAME1 @58
+SAY NAME2 @58
+SAY DESC  @59
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+COPY_EXISTING ~Emily/Item/X3EGem.itm~ ~override/X3EGem.itm~
+SAY NAME1 @61
+SAY NAME2 @61
+SAY DESC  @62
+
+COPY_EXISTING ~Emily/Item/X3EJorn.itm~ ~override/X3EJorn.itm~
+SAY NAME1 @63
+SAY NAME2 @63
+SAY DESC  @64	
+
+COPY_EXISTING ~Emily/Item/X3EBLOOD.itm~ ~override/X3EBLOOD.itm~
+SAY NAME1 @65
+SAY NAME2 @65 
+SAY DESC @66 
+
+  // Items 
+  
+ COPY ~%MOD_FOLDER%/eff/X3ECELT.eff~ ~override~ 
+ COPY ~%MOD_FOLDER%/eff/X3EDEMT.eff~ ~override~
+ COPY ~%MOD_FOLDER%/eff/X3ETIEFT.eff~ ~override~  
+ COPY ~%MOD_FOLDER%/eff/X3ERACD.eff~ ~override~ 
+ COPY_EXISTING ~%MOD_FOLDER%/Item/X3ESWRD.itm~ ~override~
+ SAY NAME1 @67
+ SAY NAME2 @67 
+ SAY DESC @68
+ 
+ COPY_EXISTING ~Emily/Item/X3ESB1.itm~ ~override/X3ESB1.itm~
+SAY NAME1 @69
+SAY NAME2 @69 
+SAY DESC @70 
