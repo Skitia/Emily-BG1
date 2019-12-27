@@ -1,0 +1,63 @@
+IF 
+Global("chapter","global",11)
+Global("X32milyQuestSpawn","GLOBAL",1) 
+InMyArea("X32Jacob") 
+Global("X32milyQuestHostile","GLOBAL",0)
+THEN RESPONSE #100 
+SetGlobal("X32milyQuestHostile","GLOBAL",1) 
+ActionOverride("X32Jacob",Enemy())
+END 
+
+IF 
+Dead("X32Jacob")
+InParty("X3mily")
+Global("X32milyJacobDeadComment","BD4000",0)
+THEN 
+RESPONSE #100 
+AddJournalEntry(@105, QUEST_DONE)
+AddexperienceParty(6000)
+SetInterrupt(FALSE)
+SetGlobal("X32milyJacobDeadComment","BD4000",1)
+Wait(1)
+DisplayStringWait("X3mily",~I...I am so sorry Jacob. I wish this never happened.~) 
+SetInterrupt(TRUE)
+END 
+
+IF 
+InParty("X3mily")
+Global("X32milyQuestSpawn","GLOBAL",4)
+Global("X32milyJacobEnemyComment","BD4000",0)
+THEN 
+RESPONSE #100 
+AddJournalEntry(@106, QUEST_DONE)
+AddexperienceParty(6000)
+SetInterrupt(FALSE)
+SetGlobal("X32milyJacobEnemyComment","BD4000",1)
+Wait(1)
+DisplayStringWait("X3mily",~So that's it then...opposite sides of a coming battle. *Sigh*. Let's just continue on.~) 
+SetInterrupt(TRUE)
+END 
+
+IF 
+InParty("X3mily")
+Global("X32milyQuestSpawn","GLOBAL",5)
+Global("X32milyJacobConvincedComment","BD4000",0)
+THEN 
+RESPONSE #100 
+AddJournalEntry(@107, QUEST_DONE)
+AddexperienceParty(6000)
+SetInterrupt(FALSE)
+SetGlobal("X32milyJacobConvincedComment","BD4000",1)
+Wait(1)
+DisplayStringWait("X3mily",~Thank you, <CHARNAME>. Thank you for convincing him.~) 
+SetInterrupt(TRUE)
+END 
+
+IF
+Global("X32milyQuestSpawn","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("X32milyQuestSpawn","GLOBAL",1) 
+CreateCreature("X32JACOB",[3121.2751],SE)
+Continue()
+END 

@@ -1,0 +1,11 @@
+IF
+	Global("SOD_fromimport","global",1)
+	InMyArea("X3mily")
+THEN
+	RESPONSE #100
+		ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+		CutSceneId("X3mily")
+		ActionOverride("X3mily",SetDialogue("X32milyJ"))
+		ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+		
+END

@@ -1,0 +1,36 @@
+IF
+	See([PC])
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SmallWait(5)
+		Enemy()
+END
+
+IF 
+Global("X3DalTalk","GLOBAL",2)
+Global("X3DalReveal","GLOBAL",0)
+THEN 
+	RESPONSE #100 
+		SetGlobal("X3DalReveal","GLOBAL",1)
+		CreateVisualEffectObject("SPHOLY","X3dal")
+		CreateVisualEffectObject("SPHOLY","X3mily")
+		Wait(2)
+		StartDialogueNoSet([PC])		
+END
+
+IF 
+	Dead("X3dal")
+	!Dead("X3EHK3")
+THEN 
+	RESPONSE #100
+		AddJournalEntry(@100053,QUEST)
+END 
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(NearestEnemyOf(Myself))
+END

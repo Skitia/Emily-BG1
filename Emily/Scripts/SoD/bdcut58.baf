@@ -1,0 +1,10 @@
+IF
+  Global("bd_X3mily_kicked_mdd1330","global",1)
+  !Dead("X3mily")
+  !InParty("X3mily")
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveGlobal("bd4400","X3mily",[894.1254])
+    ActionOverride("X3mily",Face(NE))
+END

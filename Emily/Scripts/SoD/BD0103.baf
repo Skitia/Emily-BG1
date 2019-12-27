@@ -1,0 +1,18 @@
+// From Jastey's SUPERB Tutorial. 
+
+IF
+  OR(2)
+  InMyArea("X3mily")
+  InPartyAllowDead("X3mily")
+  GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+  RESPONSE #100
+    ApplySpellRES("bdresurr","X3mily") //resurrection
+    SmallWait(1)
+    ActionOverride("PlayerChest00",TakeCreatureItems("X3mily",BACKPACK))
+    SmallWait(1)
+    ActionOverride("X3mily",LeaveParty())
+    SmallWait(1)
+    ActionOverride("X3mily",DestroySelf())
+    Continue()
+END

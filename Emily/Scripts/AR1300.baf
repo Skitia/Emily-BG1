@@ -1,0 +1,12 @@
+IF
+Global("X3HuntSpawn","GLOBAL",0)
+InParty("X3mily")
+AreaCheck("AR1300")
+THEN
+RESPONSE #100
+SetGlobal("X3HuntSpawn","GLOBAL",1)
+CreateCreature("X3EHK1",[1977.401],SW)
+CreateCreature("X3EHK3",[2019.417],SW)
+CreateCreature("X3EHK2",[2068.447],SW)
+Continue()
+END

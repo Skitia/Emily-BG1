@@ -1,0 +1,18 @@
+IF
+	Global("X32milyTalk","GLOBAL",11)
+	Global("bd_plot","global",495)
+	InParty("X3mily")  
+THEN
+	RESPONSE #100
+		SetGlobal("X32milyTalk","GLOBAL",12)
+END
+
+IF
+	Global("X32milyTalk","GLOBAL",12)
+	InParty("X3mily")  // X3mily
+	IsValidForPartyDialogue("X3mily")  // X3mily
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		ActionOverride("X3mily",StartDialogueNoSet(Player1))
+END

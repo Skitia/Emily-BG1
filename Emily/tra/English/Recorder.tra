@@ -1,0 +1,37 @@
+/* Recorder 1 */
+@0 = ~Your bow is so cute, Recorder.~ 
+@1 = ~Thank you! I love to wear hair bows.~
+@2 = ~Oooh. Maybe we could tie one onto your weapon too?~
+@3 = ~Um, well...~
+@4 = ~Hrm, maybe I could tie ribbons on my arrows. It's just so fashionable.~
+@5 = ~Wouldn't it be wasted though, letting it fly into someone?~
+@6 = ~I guess you're right. Can't waste an artsy arrow on the bandit it's going to pierce into.~
+
+/* Recorder 2 */
+@7 = ~You know Recorder, my father tried to have me get taught the harp.~ 
+@8 = ~You're musically trained, Emily?~
+@9 = ~Well, this is why I said try. I think I broke the harp, and the instructor never came back again. Just shook his head at me.~
+@10 = ~Oh dear. How did you do that?~
+@11 = ~I was practicing shooting an arrow in-between the strings, actually. Silly, I know. But I did manage it the second time.~
+@12 = ~That's um...a little silly, yes.~
+@13 = ~Father definitely settled with singing for me after that.~
+@14 = ~I'd love to hear you sing sometime.~
+@15 = ~Maybe after a lot of wine. I'd not want to remember!~
+
+/* Recorder 3 */ 
+@16 = ~Recorder, don't most bards tend to exaggerate in their tales? Yet you seem focused on collecting the story as true to the core as possible.~ 
+@17 = ~Exaggerating has its place to entertain, but the church wants accurate truths, even of the more swaggering paladins that assist us.~
+@18 = ~It has set me up for disappointment. I almost thought I could do this while wearing some of my cute outfits back at home. But archery in a dress seems too difficult.~
+@19 = ~I'm sorry. Heroines usually aren't as beautiful and flawless as they sound in songs.~
+@20 = ~Oh you don't have to apologize. I'm just going to chastise that old performer that came around the keep.~
+@21 = ~Maybe someday someone will invent a battle dress.~
+@22 = ~If they do, I'm going to pick up outfits for us both. I want to fight cute. Always want to look your best, even if you're dead. Yikes, too grim Emily, too grim.~
+
+/*Recorder 4 */
+@23 = ~You've been doing so much scrawling in that book of yours, Recorder.~
+@24 = ~I'm trying to capture everything. I'll have to clip out a bit, but I'm eager to read over it when everything is over.~
+@25 = ~Out of everything you've got down in it, what is your favorite moment so far?~
+@26 = ~It might seem a bit odd, but...talks like this. Chatting with friends like you when we're passing time before or after rest.~
+@27 = ~Aww, that's such a nice answer. I've enjoyed your company too.~
+@28 = ~I hope to enjoy it for the rest of our time together.~
+

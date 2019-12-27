@@ -1,0 +1,14 @@
+// Talks 8 and 9
+IF
+InParty(Myself)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!AreaType(DUNGEON)
+OR(2)
+Global("X3milyBookTalk","GLOBAL",1)
+Global("X3milyBookTalk","GLOBAL",4)
+THEN
+RESPONSE #100
+IncrementGlobal("X3milyBookTalk","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END

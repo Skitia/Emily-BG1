@@ -1,0 +1,25 @@
+IF
+  Global("bd_plot","global",591)
+  !GlobalTimerNotExpired("bd_mdd1352_ot_timer","bd4100")
+  Global("bd_X3mily_ot","bd4100",0)
+  ReputationLT(Player1,10)
+  InParty("X3mily")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_X3mily_ot","bd4100",1)
+    SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",ONE_ROUND)
+    DisplayStringHead("X3mily",~That...that you could do this....~)
+END
+
+IF
+  Global("bd_plot","global",591)
+  !GlobalTimerNotExpired("bd_mdd1352_ot_timer","bd4100")
+  Global("bd_X3mily_ot","bd4100",0)
+  !ReputationLT(Player1,10)
+  InParty("X3mily")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_X3mily_ot","bd4100",1)
+    SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",9)
+    DisplayStringHead("X3mily",~This doesn't make any sense! <CHARNAME> would never do something so wicked!~)
+END

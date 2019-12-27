@@ -1,0 +1,35 @@
+IF
+	See([PC])
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SmallWait(5)
+		Enemy()
+		ActionOverride("X3EHK2",Enemy())
+		ActionOverride("X3EHK3",Enemy())
+END
+
+IF 
+Global("X3AttackEmily","GLOBAL",1)
+!Dead("X3mily")
+THEN 
+	RESPONSE #100 
+	Attack("X3mily")
+END 	
+IF 
+Global("X3AttackEmily","GLOBAL",1)
+Dead("X3mily")
+THEN 
+	RESPONSE #100 
+	EscapeArea()
+END 	
+
+IF
+    HPPercentLT(Myself,50)
+ THEN
+ RESPONSE #100
+    DisplayString(Myself,@1) // Berserk
+	Spell(Myself,BERSERKER_RAGE)
+	Continue()
+END

@@ -1,0 +1,48 @@
+IF
+    InParty("X3mily")
+	Global("X3milyMoveCamp","BD7100",0)
+THEN
+  RESPONSE #100
+    SetGlobal("X3milyMoveCamp","BD7100",1)
+END
+
+IF
+  Global("X3milyMoveCamp","BD7100",0)
+  Global("X32EmilyMetSoD","GLOBAL",0)
+  !Dead("X3mily")
+  !InPartyAllowDead("X3mily")
+THEN
+  RESPONSE #100
+    SetGlobal("X3milyMoveCamp","BD7100",1)
+    CreateCreature("X32mily",[654.3579],NW)
+    ReallyForceSpellDeadRES("BDREJUVE","X3mily")
+    ChangeEnemyAlly("X3mily",NEUTRAL)
+    ChangeSpecifics("X3mily",ALLIES)
+    ActionOverride("X3mily",SetGlobal("bd_joined","LOCALS",0))
+    ActionOverride("X3mily",SetGlobal("bd_retreat","LOCALS",0))
+    ActionOverride("X3mily",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+    ActionOverride("X3mily",ChangeAIScript("BDFIGH01",GENERAL))
+    Continue()
+END
+
+IF
+  Global("X3milyMoveCamp","BD7100",0)
+  !Global("X32EmilyMetSoD","GLOBAL",0)
+  !Dead("X3mily")
+  !InPartyAllowDead("X3mily")
+THEN
+  RESPONSE #100
+    SetGlobal("X3milyMoveCamp","BD7100",1)
+    MoveGlobal("BD7100","X3mily",[654.3579])
+    ActionOverride("X3mily",Face(NW))
+    ReallyForceSpellDeadRES("BDREJUVE","X3mily")
+    ChangeEnemyAlly("X3mily",NEUTRAL)
+    ChangeSpecifics("X3mily",ALLIES)
+    ActionOverride("X3mily",SetGlobal("bd_joined","LOCALS",0))
+    ActionOverride("X3mily",SetGlobal("bd_retreat","LOCALS",0))
+    ActionOverride("X3mily",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+    ActionOverride("X3mily",ChangeAIScript("BDFIGH01",GENERAL))
+    Continue()
+END

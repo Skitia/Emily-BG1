@@ -1,0 +1,14 @@
+
+IF
+	Global("chapter","global",13)
+	GlobalTimerExpired("bd_jail_visitors_timer","bd0104")
+	Global("X32milyRomanceActive","GLOBAL",2) // Kale/Helga/Emily use a romance check. Recorder should have her epilogue one here, which will always be true.
+	Global("bd_jail_visitors","bd0104",4) //Post Corwin. Recorder should use 0 and be pre Corwin.
+	!Dead("X3mily")  
+THEN
+	RESPONSE #100
+		SetGlobal("bd_jail_visitors","bd0104",5)
+		SetGlobalTimer("bd_jail_visitors2_timer","bd0104",TEN_ROUNDS)
+		MoveGlobal("bd0104","X3mily",[720.620])  //coordinates true for all visiting NPCs
+		ActionOverride("X3mily",ChangeAIScript("bdvisit",OVERRIDE)) //this script will handle the "NPC walks up to the PC's prison door and initiates dialogue"
+END

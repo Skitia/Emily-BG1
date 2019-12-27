@@ -1,0 +1,268 @@
+@0 = ~BG:EE detected - Baeloth interdia.2da append - set Baeloth's banter file (BBAELOTH)~
+@1 = ~Emily~
+@2 = ~“It’s that day of the week, is it?” Emily would quip, before telling you a story of her father’s estate in the lands of Tethyr. She kept mostly out of the spotlight, or so she claims. She was bored of the strict regulatios and etiquette, and when talks of deciding who would be the heir between herself and her brother became tense, it was an easy excuse to ask to leave to help "mend their relationship." She is not fond of her brother, and is not eager for the day she must return to resolve the dilemna of the heir.~
+@3 = ~We've got to get out of here!~ [Emilfear]
+@4 = ~It appears the tales told of your heroism are quite justified.~ [Emilhap]
+/////
+@5 = ~I don't approve of our direction.~
+//////
+@6 = ~We need to seriously consider our actions, or I will not be staying with you.~
+@7 = ~I can't stand this any longer. My heart revolts at your lack of care of others!~
+@8 = ~Come with me.~ [Emilead]
+@9 = ~I need to sit down, just for a bit.~ [Emilrest]
+@10 = ~Some excitement would be welcome.~ [Emilidle]
+@11 = ~Come on, come on!~ [Emilb]
+@12 = ~We fight, for glory!~ [Emilat12]
+@13 = ~Down you go!~ [Emilb2]
+@14 = ~You're in for it now!~ [Emilb3]
+@15 = ~You'll not be the first to regret crossing me.~ [Emilb4]
+@16 = ~Agh!~ [Emildama]
+@17 = ~Not like...this.~ [Emildie]
+@18 = ~Damn, I need some healing!~ [Emilhurt]
+@19 = ~Hmm, I should have picked up some new boots.~ [Emilfor]
+@20 = ~The estate was always a bit away from towns and cities. This is so...congested.~
+@21 = ~Why do dungeons have to be so blasted cold? I'm freezing.~ [Emildun]
+@22 = ~It's a beautiful day, isn't it?~
+@23 = ~All sorts of monstrous things under the moonlight. Careful steps.~ 
+@24 = ~Yes? Is there something you need?~ [Emila]
+@25 = ~Is there something I can do for you?~[Emilc2]
+@26 = ~Let's stay together now.~ [Emilcs3]
+@27 = ~Something you need?~ [Emilcs4]
+@28 = ~Well met.~ [Emilcs5]
+@29 = ~You have my appreciation.~ [Emilra]
+@30 = ~So be it.~ [Emilaa2]
+@31 = ~Now this should be interesting.~ [Emilaa3]
+@32 = ~I'll see what I can do.~ [Emilac3]
+@33 = ~Fair Enough~ [Emilaa4]
+@34 = ~Come with me.~ [Emilead]
+@35 = ~Sounds fine to me.~ [Emilac6]
+@36 = ~Hmm, I don't know.~ [Emilac7]
+@37 = ~Ahaha!~ [Emilcrit]
+@38 = ~Oh bugger!~ [Emilcm]
+@39 = ~My attack does nothing!~ [Emilnoth]
+@40 = ~I am not a pack mule, you know. Notice I lack long ears and hooves.~ [Emilin] 
+@41 = ~No good, my spell failed!~ [Emilspel]
+@42 = ~Finished.~ [Emilstp]
+@43 = ~Time to fade into the background, hmm?~ [Emilhide]
+@44 = ~Sorry.~ [Emilpp]
+//@45 = ~You have my appreciation.~ These are rare lines that we aren't using.
+//@46 = ~Might we chat for a moment?~
+@47 = ~You'll not get away with their death!~
+@48 = ~Adding crossmod banter between Emily and Kale~
+@49 = ~Adding crossmod banter between Emily and Vienxay~
+// Journal 
+@10000	= ~Emily's Tale~
+
+@10001	= ~Emily's Tale
+
+I have accepted the service of a noble archer named Emily within my group. She has joined me in hopes of venturing to Baldur's gate to find her birth mother. Perhaps we may find her there.~
+
+@10002 = ~Emily's Tale
+
+Emily suggests we ask around the the Blade and Stars for her mother's whereabouts. It appears she is really uncertain where she may even be within the city.~
+
+@10003 = ~Emily's Tale
+
+Emily discovered the elf we killed was her mother. She was angry and left our party..~
+
+@10004 = ~Emily's Tale
+
+Emily discovered the elf we killed was her mother. She is angry, but remains with us.~
+
+@10005 = ~Emily's Tale
+
+Apparently the elf we aided was Emily's mother. She gave Emily a journal explaining many details of her absence and story to her, including her Aasimar heritage.~
+
+@100045 = ~The Planar Hunters~ 
+
+@100046 = ~The Planar Hunters
+
+Some Planar Hunters are hunting an elf within the city. They've asked for our aid, but I turned them down.~
+
+@100047 = ~The Planar Hunters
+
+Some Planar Hunters are hunting an elf within the city. They've asked for our aid, and given us a gem that will reveal her, though we only have one, and should be certain.~
+
+@100048 = ~The Planar Hunters 
+
+We used a gem on an elf we believed to be our target, and it seemed to reveal both the elf and Emily. The gem could be faulty, or perhaps Emily may be planar-touched herself.~
+
+@100049 = ~The Planar Hunters 
+
+We betrayed Emily to the Planar Hunters, and accepted our reward.~
+
+@100050 = ~The Planar Hunters 
+
+We killed the elf and accepted our reward.~
+
+@100051 = ~The Planar Hunters 
+
+We killed the Planar Hunters. We should tell the elf of our success.~
+
+@100052 = ~The Planar Hunters 
+
+The elf gave us our gratitude, and Emily a strange book written in celestial. Perhaps she is connected to Emily somehow, though only the book will reveal it once Emily reads through it.~
+
+@100053 = ~The Planar Hunters 
+
+We have killed the elf. We should inform the Planar Hunters.~
+
+@100054 = ~The Planar Hunters 
+
+An elf has asked for our help in taking down planar hunters that seem to be going after her. They should be in Baldur's Gate Southeast section.~
+
+@101 = ~The Planar Hunters 
+
+We have come across some planar hunters hunting Caelar. They gave us a blade for revealing we helped give them another plane touched to them back in Baldur's Gate.~
+
+@102 = ~Recruitment Drive
+
+The Aasimar Emily has joined my party. She reveals she was traveling with a second aasimar named Jacob, but they got split up when they diverged paths to shake off Planar Hunters that were tracking them.~
+
+@103 = ~The Aasimar~
+
+@104 = ~The Aasimar 
+
+We met Emily's former companion, Jacob. He's agreed to talk to us privately. I could attempt to get information from him, or get him to leave the crusade.~
+
+@105 = ~The Aasimar 
+
+Jacob refused to join us. We couldn't risk him revealing us, and attacked.~
+
+@106 = ~The Aasimar 
+
+We couldn't persuade Jacob to take our cause. We can only hope he is not one of the people we have to kill in battle.~
+
+@107 = ~The Aasimar 
+
+We managed to convince Jacob to leave the crusade.~
+
+
+
+
+
+// Items 
+
+@50 = ~Sniper's Longbow~
+@51 = ~This enchanted longbow enhances the user's accuracy and sniping capability, giving the longbow it's name. An enhancement done by Emily, this would be coveted by any sharpshooter. 
+
+STATISTICS:
+
+THACO: +3
+Damage: +2
+Dexterity: +1
+Speed Factor: 5
+Proficiency Type: Longbow
+Type: Two-handed
+Requires: 
+6 Strength
+
+Weight: 3~
+
+@52 = ~Sniper's Crossbow~
+@53 = ~This enchanted crossbow enhances the user's accuracy and sniping capability, giving the crossbow it's adequate name.  An enhancement done by Emily, this would be coveted by any sharpshooter.
+
+STATISTICS:
+
+THACO: +2
+Damage: +4 (Missile)
+Dexterity: +1
+Speed Factor: 7
+Proficiency Type: Crossbow
+Type: Two-handed
+Requires: 
+12 Strength
+
+Weight: 10~
+
+@59 = ~Sniper's Shortbow~
+@60 = ~This enchanted shortbow enhances the user's accuracy and sniping capability, giving the shortbow it's name. An enhancement done by Emily, this would be coveted by any sharpshooter. 
+
+STATISTICS:
+
+THACO: +2
+Damage: +2
+Dexterity: +1
+Speed Factor: 4
+Proficiency Type: Longbow
+Type: Two-handed
+Requires: 
+6 Strength
+
+Weight: 2~
+
+@58 = ~Sniper's Light Crossbow~
+@59 = ~This enchanted crossbow enhances the user's accuracy and sniping capability, giving the crossbow it's adequate name.  An enhancement done by Emily, this would be coveted by any sharpshooter.
+
+STATISTICS:
+
+THACO: +1
+Damage: +1 
+Dexterity: +1
+1 Extra Attack Per round
+Speed Factor: 4
+Proficiency Type: Crossbow
+Type: Two-handed
+Requires: 
+8 Strength
+
+Weight: 5~
+
+// Creatures
+
+@54 = ~Adalgisa~
+@55 = ~Planar Hunter~
+@56 = ~Aasimar~
+@57 = ~aasimar~
+
+//Items again 
+@61 = ~Planar Revealing Gem~
+@62 = ~This precious looking gem appears magical, and oddly fragile. You could easily break it with your hands to unleash its magic, but it certainly seems you can only do it once.~ 
+
+@63 = ~Celestial Journal~
+@64 = ~This journal seems to be entirely written in the language of celestial. It's letters and words remain gibberish to you, but your companion, Emily, appears to be able to read it.~
+
+@65 = ~Aasimar Blood~
+@66 = ~This vial contains the blood of a plane-touched celestial.~
+
+@67 = ~Sword of Purging~
+@68 = ~This blade is little more than a longsword of simple magical enchantment against most enemies. But it's true purpose is against planar entities, demons, devils, and the spawn of these creatures and celestials, being very effective at seeing them destroyed.
+
+STATISTICS:
+
+THACO: +1,+4 Against Aasimar,Tieflings,Demonic Entities
+Damage: +1,+4 Against Aasimar,Tieflings,Demonic Entities 
+Speed Factor: 5
+Proficiency Type: Long sword
+Type: Large Sword
+Requires: 
+10 Strength
+
+Weight: 10~
+
+@69 = ~Enhanced Fleshripper +2~ 
+@70 = ~Despite this short bow's intimidating name, it carries no gruesome history. Kitsana, an elven ranger, designed this bow for her own use and could fire it with astonishing rapidity. One night at camp Kitsana's party each took a turn trying to master the unusually thin bowstring and uniquely curved grip of the weapon. None shot as poorly as the fighter, a braggart named Tirrel, who not only missed his target by a foot but who snapped the bowstring down the length of his forearm and tore off a strip of skin. Kitsana and her party faded into obscurity decades ago but her bow still circulates.
+
+Emily has modified the string of the Fleshripper, enhancing it's ability to help the user be more agile and accurate.
+
+STATISTICS:
+
+Combat abilities:
+– 5% chance per hit of hasting the wielder for 4 rounds
+
+Equipped abilities: 
+– Movement Speed: +2
+- Dexterity: +1
+
+THAC0: +2
+Damage: +2
+Speed Factor: 4
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 3 Strength
+16 Dexterity
+
+Weight: 1~
+
+@71 = ~Jacob~

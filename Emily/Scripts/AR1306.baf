@@ -1,0 +1,10 @@
+IF
+Global("X3EMomSpawn","GLOBAL",0)
+InParty("X3mily")
+AreaCheck("AR1306")
+THEN
+RESPONSE #100
+SetGlobal("X3EMomSpawn","GLOBAL",1)
+CreateCreature("X3dal",[353.565],NE)
+Continue()
+END

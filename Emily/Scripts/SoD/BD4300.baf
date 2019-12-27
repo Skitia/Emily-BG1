@@ -1,0 +1,69 @@
+IF
+	Global("X32milyTalk","GLOBAL",11)
+	Global("bd_plot","global",495)
+	InParty("X3mily")  
+THEN
+	RESPONSE #100
+		SetGlobal("X32milyTalk","GLOBAL",12)
+END
+
+IF
+	Global("X32milyTalk","GLOBAL",12)
+	InParty("X3mily")  // X3mily
+	IsValidForPartyDialogue("X3mily")  // X3mily
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		ActionOverride("X3mily",StartDialogNoSet(Player1))
+END
+
+IF
+	Global("bd_mdd1290d_ot","bd4300",1)
+	Global("bd_mdd1290d_ot_X3mily","bd4300",0)
+	IsValidForPartyDialogue("X3mily")  // X3mily
+THEN
+	RESPONSE #100
+		DisplayStringHead("X3mily",~This is bad. We need to fight with all we've got!~)  
+		SetGlobal("bd_mdd1290d_ot","bd4300",2)
+		SetGlobal("bd_mdd1290d_ot_X3mily","bd4300",1)
+END
+
+
+
+
+IF
+	Global("bd_plot","global",586)
+	!GlobalTimerNotExpired("bd_mdd1341a_ot_timer","bd4300")
+	Global("bd_ot2_X3mily","bd4300",0)
+	IsValidForPartyDialogue("X3mily")  // Corwin
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",2)
+		SetGlobal("bd_ot2_X3mily","bd4300",1)
+		DisplayStringHead("X3mily",~We did it! Gods, I can hardly believe it.~)  // It's done. Thank the gods.
+END
+
+IF
+	Global("bd_MDD892a_ot","bd4300",0)
+	Global("bd_poison_dsc_supplies","global",0)
+	Dead("bdbelben")  // Belben
+	CombatCounter(0)
+	IsValidForPartyDialog("X3mily")  // X3mily
+THEN
+	RESPONSE #100
+		SetGlobal("bd_MDD892a_ot","bd4300",1)
+		SetGlobalTimer("bd_MDD892a_ot_timer","bd4300",ONE_MINUTE)
+		DisplayStringHead("X3mily",~Sometimes, I wish this was all not necessary.~)  // 
+END
+
+IF
+  Global("bd_plot","global",370)
+  !GlobalTimerNotExpired("bd_mdd905a_ot_timer","bd4300")
+  Global("bd_ot_X3mily","bd4300",0)
+  IfValidForPartyDialog("X3mily")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("bd_mdd905a_ot_timer","bd4300",THREE_MINUTES)
+    SetGlobal("bd_ot_X3mily","bd4300",1)
+    DisplayStringHead("X3mily",~We've got to get out of here!~ [Emilfear])
+END

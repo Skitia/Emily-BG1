@@ -1,0 +1,60 @@
+IF
+	See([PC])
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SmallWait(5)
+		Enemy()
+		ActionOverride("X32EHK1",Enemy())
+		ActionOverride("X32EHK2",Enemy())
+		ActionOverride("X32EHK3S",Enemy())
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+		Global("X3SpellFire","LOCALS",0)
+ THEN
+ RESPONSE #100
+ SetGlobal("X3SpellFire","LOCALS",1)
+	ForceSpell(Myself,CLERIC_ARMOR_OF_FAITH)
+	ForceSpell(Myself,CLERIC_BLESS)
+	ForceSpell(Myself,CLERIC_BARKSKIN)
+END
+	
+IF
+    See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_HOLD_PERSON)
+ THEN
+ RESPONSE #100
+	Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DOOM)
+ THEN
+ RESPONSE #100
+	Spell(NearestEnemyOf(Myself),CLERIC_DOOM)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+ THEN
+ RESPONSE #100
+	Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+END
+
+
+
+
+
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(NearestEnemyOf(Myself))
+		Continue()
+END

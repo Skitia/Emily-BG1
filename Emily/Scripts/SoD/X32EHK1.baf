@@ -1,0 +1,30 @@
+IF
+	See([PC])
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SmallWait(5)
+		Enemy()
+		ActionOverride("X32EHK4",Enemy())
+		ActionOverride("X32EHK2",Enemy())
+		ActionOverride("X32EHK3S",Enemy())
+END
+	
+IF
+    HPPercentLT(Myself,50)
+ THEN
+ RESPONSE #100
+    DisplayString(Myself,@1) // Berserk
+	Spell(Myself,BERSERKER_RAGE)
+	Continue()
+END
+
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(NearestEnemyOf(Myself))
+		Continue()
+END

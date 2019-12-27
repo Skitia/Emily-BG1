@@ -1,0 +1,113 @@
+
+
+
+IF // Conditions
+GlobalGT("bd_plot","global",169) // They will only spawn after the hero has spoken to Caelar.
+Global("X32Hunterspawn","GLOBAL",0) // This will only fire once.
+THEN RESPONSE #100 // Actions
+SetGlobal("X32Hunterspawn","GLOBAL",1) // Turn Off. 
+CreateCreature("X32EHK1",[2534.1516],SE) // First Hunter Spawn
+CreateCreature("X32EHK2",[2667.1391],SE) // Second Hunter Spawn 
+CreateCreature("X32EHK3S",[2632.1516],SE) // Third, Lead Hunter Spawn
+CreateCreature("X32EHK4",[2611.1552],SE) // Fourth Hunter Spawn 
+Continue() // Necessary for Extend Tops. 
+END
+
+IF 
+Global("X32PlanarHunterEnemy","GLOBAL",2)
+THEN RESPONSE #100 
+SetGlobal("X32PlanarHunterEnemy","GLOBAL",3)
+ActionOverride("X32EHK1",Enemy()
+ActionOverride("X32EHK2",Enemy()
+ActionOverride("X32EHK3S",Enemy()
+ActionOverride("X32EHK4",Enemy()
+Continue()
+END 
+// Starting method one. 
+IF 
+Dead("X32EHK1") 
+Dead("X32EHK2")
+Dead("X32EHK3S")
+Dead("X32EHK4")
+Global("X32ECutSceneStart","GLOBAL",0)
+THEN RESPONSE #100 
+SetGlobal("X3EKilledThemAll","GLOBAL",1)// We will need this to prevent their later spawn in.
+Wait(1)
+SetGlobal("X32ECutSceneStart","GLOBAL",1)
+Continue()
+END 
+// Starting method two. 
+IF 
+Global("X32ETeleport","GLOBAL",1) // This was a teleport, but is now just a leave.
+THEN RESPONSE #100 
+SetGlobal("X32ETeleport","GLOBAL",2)
+ActionOverride("X32EHK1",EscapeArea()
+ActionOverride("X32EHK2",EscapeArea()
+ActionOverride("X32EHK4",EscapeArea()
+ActionOverride("X32EHK3S",EscapeArea()
+SetGlobal("X32ECutSceneStart","GLOBAL",1)
+Continue()
+END 
+
+IF 
+Global("X32ECutSceneStart","GLOBAL",1)
+!Global("X32milyInBG1","GLOBAL",-1) // ~If this was set she will not spawn.
+BeenInParty("X3mily")
+THEN RESPONSE #100 
+SetGlobal("X32ECutSceneStart","GLOBAL",2)
+ClearAllActions()
+StartCutSceneMode()
+MoveViewObject(Player1,INSTANT)
+Wait(3)
+ZoomLock(TRUE)
+Wait(2)
+	MoveGlobal("BD1000","X3mily",[2759.1231])
+	SmallWait(1) // This line prevents the game from crashing, interestingly enough.
+	CreateCreatureObjectOffset("cutspy","X3mily",[10.10])
+	MoveViewObject("X3mily",VERY_FAST)
+    ApplySpellRES("bdresurr","X3mily")
+    SmallWait(1)
+	ApplySpellRES("bdrejuve","X3mily")
+    ChangeEnemyAlly("X3mily",NEUTRAL)
+    ChangeSpecifics("X3mily",ALLIES)
+    ActionOverride("X3mily",SetGlobal("X3milyJoined","locals",0))
+    ActionOverride("X3mily",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("X3mily",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+    ActionOverride("X3mily",ChangeAIScript("DEFAULT",CLASS))
+    ActionOverride("X3mily",ChangeAIScript("",RACE))
+    ActionOverride("X3mily",ChangeAIScript("",GENERAL))
+    ActionOverride("X3mily",ChangeAIScript("",DEFAULT))
+    ActionOverride("X3mily",SetDialog("X32mily"))
+	ActionOverride("X3mily",SetPlayerSound(Myself,@100002,EXISTANCE5))
+	PlaySound("ACT_07")
+	Wait(1)
+	ActionOverride("X3mily",MoveToObject(Player1))
+	Wait(3)
+	ActionOverride("X3mily",StartDialogueNoSet(Player1))
+	Continue()
+END 
+	
+IF 
+Global("X32ECutSceneStart","GLOBAL",1)
+!Global("X32milyInBG1","GLOBAL",-1) // ~If this was set she will not spawn.
+!BeenInParty("X3mily") // Was not in the party
+THEN RESPONSE #100 
+SetGlobal("X32ECutSceneStart","GLOBAL",2)
+ClearAllActions()
+StartCutSceneMode() 
+MoveViewObject(Player1,INSTANT)
+	Wait(3)
+	ZoomLock(TRUE)
+	Wait(2)
+	CreateCreature("X32mily",[2759.1231],SW)
+	CreateCreatureObjectOffset("cutspy","X3mily",[100.100])
+	MoveViewObject("X3mily",VERY_FAST)
+	PlaySound("ACT_07")
+	ActionOverride("X3mily",MakeGlobal())
+	Wait(1)
+	ActionOverride("X3mily",MoveToObjectOffset(Player1,[10.10]))
+	Wait(2)
+	ActionOverride("X3mily",StartDialogueNoSet(Player1))
+	Continue()
+END 	

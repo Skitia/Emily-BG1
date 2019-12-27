@@ -1,0 +1,34 @@
+/* x3bd3000.baf
+Moves Emily into the Coalition Camp if she was not in party */
+
+IF
+    InParty("X3mily")
+	Global("X3mily_MoveCamp","BD3000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("X3mily_MoveCamp","BD3000",1)
+END
+
+IF
+  Global("X3mily_MoveCamp","bd3000",0)
+  !Dead("X3mily")
+  !InPartyAllowDead("X3mily")
+THEN
+  RESPONSE #100
+    SetGlobal("X3mily_MoveCamp","bd3000",1)
+    MoveGlobal("bd3000","X3mily",[1301.1635]) 
+    ActionOverride("X3mily",Face(N))
+    ReallyForceSpellDeadRES("bdrejuve","X3mily")
+    ChangeEnemyAlly("X3mily",NEUTRAL)
+    ChangeSpecifics("X3mily",ALLIES)
+    ActionOverride("X3mily",SetGlobal("bd_joined","locals",0))
+    ActionOverride("X3mily",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("X3mily",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+    ActionOverride("X3mily",ChangeAIScript("bdasc3",CLASS))
+    ActionOverride("X3mily",ChangeAIScript("BDSHOUT",RACE))
+    ActionOverride("X3mily",ChangeAIScript("BDRANG01",GENERAL))
+    ActionOverride("X3mily",ChangeAIScript("",DEFAULT))
+    ActionOverride("X3mily",SetDialogue("X32mily"))
+    Continue()
+END

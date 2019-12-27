@@ -1,0 +1,248 @@
+IF 
+Global("X3PauseTimer","GLOBAL",0)
+InParty(Myself)
+THEN RESPONSE #100 
+SetGlobal("X3PauseTimer","GLOBAL",1)
+RealSetGlobalTimer("X3PauseTalkTimer","GLOBAL",ONE_MINUTE)
+END 
+
+IF 
+   See([PC])
+   AreaCheck("AR3300")
+   NumTimesTalkedTo(0)
+  THEN
+    RESPONSE #100
+	Dialogue([PC])	
+END 	
+
+// SEX CHANGE
+
+IF
+    InParty(Myself)
+	Gender(Myself,MALE)
+	HasItemEquiped("belt05",Myself)
+    Global("X3milySexChange","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milySexChange","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+
+
+// Quest Reminder.
+IF 
+	InParty(Myself)
+	AreaCheck("AR0800")
+	Global("X3milyQuestStart","Global",0)
+	GlobalLT("X3DalTalk","GLOBAL",1)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milyQuestStart","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END	 
+
+/* This sets the initial timer. REMEMBER the reseting of the timer must happen in the condition of the Dialogue file, not here. */
+IF 
+InParty(Myself)
+Global("X3milyTalk","GLOBAL",0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("X3milyTimer","GLOBAL",3200) // TESTING will have this set at a VERY low number. Actual number will be 3200
+SetGlobal("X3milyTalk","GLOBAL",1)       // Each block must run only once.
+END
+
+// This confusing block controls Emily's timer. We don't need a romance block here, there's no real romance content in the dialog, though I may play with variables in the dialog file itself to remember prior player choices.
+IF
+InParty(Myself)
+RealGlobalTimerExpired("X3milyTimer","GLOBAL")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)    
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)                          
+!See([ENEMY])
+!AreaType(DUNGEON)			  
+OR(6)                       // YOU WILL NEED TO ADD +1 TO THIS OR NUMBER FOR EVERY ADDITONAL TALK YOU ADD          
+Global("X3milyTalk","GLOBAL",1)
+Global("X3milyTalk","GLOBAL",3)
+Global("X3milyTalk","GLOBAL",5)
+Global("X3milyTalk","GLOBAL",7)
+Global("X3milyTalk","GLOBAL",9)
+Global("X3milyTalk","GLOBAL",13)
+THEN
+RESPONSE #100
+IncrementGlobal("X3milyTalk","GLOBAL",1)
+END
+
+// So, if timer expired, everybody's able to talk and there's no battle, we increase the variable by one. Now our X3milyTalk variable is at 2, or 4, or 6... or 20, or 30.
+// EXACTLY like the condition in the beginning of each talk, right?
+// Now all that's left is making Branwen talk to you. We could just add StartDialogueNoSet(Player1) into the last block, but the engine is tricky: if you give a command when Branwen's about to talk, she may miss her dialogue!
+//So we add another block. 
+IF
+RealGlobalTimerExpired("X3PauseTalkTimer","GLOBAL")
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+OR(6)                                    // YOU WILL NEED TO ADD +1 TO THIS OR NUMBER FOR EVERY ADDITONAL TALK YOU ADD  
+Global("X3milyTalk","GLOBAL",2)
+Global("X3milyTalk","GLOBAL",4)
+Global("X3milyTalk","GLOBAL",6)
+Global("X3milyTalk","GLOBAL",8)
+Global("X3milyTalk","GLOBAL",10)
+Global("X3milyTalk","GLOBAL",14) // The 14th talk is arrived to as per normal.
+THEN
+RESPONSE #100
+RealSetGlobalTimer("X3PauseTalkTimer","GLOBAL",ONE_MINUTE)
+PlaySong(0)
+PlaySound("X3ESong") 
+StartDialogueNoSet(Player1)
+END
+// Sixth Talk Set up, this lasts 45 minutes after the last talk, + 1 hour after the quest is over. As of V1.1 this sets up talks 8/9 as well.
+IF
+InParty(Myself)
+RealGlobalTimerExpired("X3milyTimer","GLOBAL")
+Global("X3milyTalk","GLOBAL",11)
+Global("X3milySixthTalk","GLOBAL",1)
+Global("X3milyHour","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobalTimer("X3milyOneHour","GLOBAL",ONE_DAY) // V1.1 Edit: Changing to one day
+IncrementGlobal("X3milyHour","GLOBAL",1)
+END
+
+IF 
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+GlobalTimerExpired("X3milyOneHour","GLOBAL")
+Global("X3milyHour","GLOBAL",1)
+OR(3)
+Global("X3milyBookTalk","GLOBAL",0) // V1.1 Edit: Changing into a separate talk.
+Global("X3milyBookTalk","GLOBAL",3)
+Global("X3milyBookTalk","GLOBAL",6)
+THEN 
+RESPONSE #100 
+IncrementGlobal("X3milyBookTalk","GLOBAL",1)
+END 
+
+// New Talk 6 Setup, v1.1
+IF 
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+Global("X3milyBookTalk","GLOBAL",7)
+Global("X3milyTalk","GLOBAL",11)
+THEN RESPONSE #100 
+IncrementGlobal("X3milyTalk","GLOBAL",1)
+END 
+
+IF 
+Global("X3milyTalk","GLOBAL",12)
+PartyRested()
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+THEN RESPONSE #100 
+PlaySong(0)
+PlaySound("X3ESonD") 
+StartDialogueNoSet(Player1)
+END 
+// low rep
+
+IF
+	InParty(Myself)
+    ReputationLT(Player1,8)
+	Global("X3milyUnhappy","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(2)
+	SetGlobal("X3milyUnhappy","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+// If In Party, Sirene not in party, sees at the temple
+IF
+	InParty(Myself)
+	!InParty("C0Sirene")
+    See("C0Sirene")
+	AreaCheck("AR3400")	
+	Global("X3milySeeSirene","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milySeeSirene","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	AreaCheck("AR3900")	
+	Global("X3milyUlcaster","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milyUlcaster","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	AreaCheck("AR2000")	
+	Global("X3milyBaldurs","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milyBaldurs","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	AreaCheck("AR4900")	
+	Global("X3milyCarnival","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milyCarnival","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	Dead("X3Dal")	
+	Global("X3milyMomDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milyMomDead","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	!Dead("X3Dal")	
+	PartyHasItem("X3EJorn")
+	Global("X3milyMomAlive","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milyMomAlive","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
