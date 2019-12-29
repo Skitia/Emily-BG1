@@ -15,19 +15,19 @@ IF
 	Dialogue([PC])	
 END 	
 
-// SEX CHANGE
+// Craft Timer 
 
-IF
-    InParty(Myself)
-	Gender(Myself,MALE)
-	HasItemEquiped("belt05",Myself)
-    Global("X3milySexChange","GLOBAL",0)
-THEN
-  RESPONSE #100
-	Wait(1)
-	SetGlobal("X3milySexChange","GLOBAL",1)
+IF 
+PartyRested()
+GlobalTimerExpired("X3milyCraftTimer","GLOBAL")
+GlobalGT("X3milyAtWork","GLOBAL",0)
+InParty(Myself)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
 	StartDialogueNoSet(Player1)
 END
+
 
 
 
@@ -244,5 +244,19 @@ THEN
   RESPONSE #100
 	Wait(1)
 	SetGlobal("X3milyMomAlive","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// SEX CHANGE
+
+IF
+    InParty(Myself)
+	Gender(Myself,MALE)
+	HasItemEquiped("belt05",Myself)
+    Global("X3milySexChange","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3milySexChange","GLOBAL",1)
 	StartDialogueNoSet(Player1)
 END
