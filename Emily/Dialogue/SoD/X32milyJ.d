@@ -602,6 +602,18 @@ IF ~~ ThrixTalk6
 IF ~~ EXIT
 END
 
+// Checks for Expired Timer. 
+IF ~GlobalTimerExpired("X3milyCraftTimer","GLOBAL")GlobalGT("X3milyAtWork","GLOBAL",0)~ Emily.PCraftAlert
+SAY ~Hey <CHARNAME>, good news! I just finished with that work you gave me to do.~
+IF ~Global("X3milyAtWork","GLOBAL",1)~ + Emily.PCraftSBoltDone 
+IF ~Global("X3milyAtWork","GLOBAL",2)~ + Emily.PCraftFBoltDone 
+IF ~Global("X3milyAtWork","GLOBAL",3)~ + Emily.PCraftSArrowDone
+IF ~Global("X3milyAtWork","GLOBAL",4)~ + Emily.PCraftFArrowDone
+IF ~Global("X3milyAtWork","GLOBAL",5)~ + Emily.PCraftEagleDone
+IF ~Global("X3milyAtWork","GLOBAL",6)~ + Emily.PCraftHeavyXDone
+IF ~Global("X3milyAtWork","GLOBAL",7)~ + Emily.PCraftLightXDone
+IF ~Global("X3milyAtWork","GLOBAL",8)~ + Emily.PCraftLongXDone
+END
 
 // Dorn Conflict 
 
@@ -1559,62 +1571,62 @@ IF ~Global("X3milyAtWork","GLOBAL",12)~ + Emily.PCraftBDBansheeBowDone
 END 
 
 IF ~~ Emily.PCraftSBoltDone 
-SAY ~Bolts all set! Let me know later if you want me to work on something new.~ 
+SAY  ~See, your bolts are all set! Let me know later if you want me to work on something new.~ 
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("BOLT02",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftFBoltDone 
-SAY ~Bolts all set! Let me know later if you want me to work on something new.~ 
+SAY  ~See, your bolts are all set! Let me know later if you want me to work on something new.~ 
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("BDBOLT01",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftSArrowDone 
-SAY ~Arrows all set! Let me know later if you want me to work on something new.~ 
+SAY ~See, your arrows are all set! Let me know later if you want me to work on something new.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("AROW02",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftFArrowDone 
-SAY ~Arrows all set! Let me know later if you want me to work on something new.~ 
+SAY ~See, your arrows are all set! Let me know later if you want me to work on something new.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("AROW08",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftEagleDone
-SAY ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRLS",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftHeavyXDone
-SAY ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRX",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftLightXDone
-SAY ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRXL",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftLongXDone
-SAY ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRL",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftIBoltDone 
-SAY ~Arrows all set! Let me know later if you want me to work on something new.~ 
+SAY  ~See, your bolts are all set! Let me know later if you want me to work on something new.~ 
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("BDBOLT02",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftIArrowDone 
-SAY ~Arrows all set! Let me know later if you want me to work on something new.~ 
+SAY  ~See, your arrows are all set! Let me know later if you want me to work on something new.~ 
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("AROW09",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftBDFleshBowDone 
-SAY ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3ESB1",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftBDBansheeBowDone 
-SAY ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3Bow04",Player1,1,0,0)~ EXIT  
 END 
 
@@ -2017,7 +2029,7 @@ SAY ~Fletching is a really critical part of archery. The shaft is simple. I mean
 ++ ~It sounds complicated.~ + Emily.PFletchR2 // ~It sounds complicated.~
 ++ ~How is stronger ammunition achieved?~ + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-++ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
@@ -2026,7 +2038,7 @@ SAY ~I watched some of the laborers in the estate. I just might have sneaked som
 ++ ~It sounds complicated.~ + Emily.PFletchR2 // ~It sounds complicated.~
 ++ ~How is stronger ammunition achieved?~ + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-++ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
@@ -2035,7 +2047,7 @@ SAY ~At first. Repetition gives you mastery, and soon enough it's as simple as a
 ++ ~How did you learn?~ + Emily.PFletchR1 // ~How did you learn?~ 
 ++ ~How is stronger ammunition achieved?~ + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-++ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
@@ -2044,7 +2056,7 @@ SAY ~Enchanting, mostly. It's not something I'm versed in, I'm afraid, so its ba
 ++ ~How did you learn?~ + Emily.PFletchR1 // ~How did you learn?~ 
 ++ ~It sounds complicated.~ + Emily.PFletchR2 // ~It sounds complicated.~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-++ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
