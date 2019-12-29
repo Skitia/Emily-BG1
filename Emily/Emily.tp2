@@ -283,9 +283,6 @@ END
 
 BEGIN ~Emily's Music~
 SUBCOMPONENT ~Choose whether or not to have Emily's custom soundtrack play during timed talks.~
-
-	COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
-
 	MKDIR ~music/blank~
 	COPY ~Emily/Music/blank.mus~ ~music~
 		~Emily/Music/blank.acm~ ~music/blank/blanka.acm~
