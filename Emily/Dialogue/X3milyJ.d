@@ -1020,6 +1020,18 @@ SAY @581 // ~I can't say for sure, though I lean no, it must have been faulty. T
 ++ @575 + EBook5 // ~A book with a secret message, perhaps?~
 END 
 
+// Checks for Expired Timer. 
+IF ~GlobalTimerExpired("X3milyCraftTimer","GLOBAL")GlobalGT("X3milyAtWork","GLOBAL",0)~ Emily.PCraftAlert
+SAY @696 // ~Hey <CHARNAME>, good news! I just finished with that work you gave me to do.~
+IF ~Global("X3milyAtWork","GLOBAL",1)~ + Emily.PCraftSBoltDone 
+IF ~Global("X3milyAtWork","GLOBAL",2)~ + Emily.PCraftFBoltDone 
+IF ~Global("X3milyAtWork","GLOBAL",3)~ + Emily.PCraftSArrowDone
+IF ~Global("X3milyAtWork","GLOBAL",4)~ + Emily.PCraftFArrowDone
+IF ~Global("X3milyAtWork","GLOBAL",5)~ + Emily.PCraftEagleDone
+IF ~Global("X3milyAtWork","GLOBAL",6)~ + Emily.PCraftHeavyXDone
+IF ~Global("X3milyAtWork","GLOBAL",7)~ + Emily.PCraftLightXDone
+IF ~Global("X3milyAtWork","GLOBAL",8)~ + Emily.PCraftLongXDone
+END
 
 // Interjections 
 
@@ -1092,8 +1104,9 @@ I_C_T2 Larria 5 X3milyLarria5
 END 
 
 //Carsa 
-I_C_T2 Carsa 4 X3milyCarsa4 
+I_C_T Carsa 4 X3milyCarsa4 
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @514 // ~You are stronger than the voice, miss. Don't give in.~
+== Carsa ~No! Run! Run! Run!~
 END
 
 //Melica
@@ -1543,6 +1556,8 @@ SAY @393 // ~Which one exactly?~
 // CrossMod Choices 
 +~InParty("X3Vien")~+ @289 + Em.Vienxay 
 +~InParty("X3Kale")~+ @290 + Em.Kale 
++~InParty("X3Helga")~+ @697 + Em.Helga
++~InParty("X3Rec")~+ @698 + Em.Recorder
 +~InParty("c0aura")~+ @291 + Em.Aura 
 +~!Race("X3mily",Aasimar)InParty("C0Sirene")~+ @292 + Em.Sirene1 
 +~Race("X3mily",Aasimar)InParty("C0Sirene")~+ @292 + Em.Sirene2 
@@ -1712,6 +1727,16 @@ END
 
 IF ~~ Em.Kale 
 SAY @325 // ~I don't quite understand him. He loves to be heroic, but thinks it's all pointless. His pursuit of heroism almost seems hedonistic.~
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Helga 
+SAY @699 // ~I've never met a dwarven women before, I confess I kind of thought they only were male. Are they all so...crazy for battle? The face she makes after a fight is a little disturbing.~
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Recorder 
+SAY @700 // ~I really like her music. She's so sweet and gentle. I worry someone will take advantage of that.~
 IF ~~ EXIT 
 END 
 
@@ -2061,7 +2086,7 @@ SAY @195 //~Fletching is a really critical part of archery. The shaft is simple.
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-++ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
@@ -2070,7 +2095,7 @@ SAY @204 // ~I watched some of the laborers in the estate. I just might have sne
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-++ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
@@ -2079,7 +2104,7 @@ SAY @205 // ~At first. Repetition gives you mastery, and soon enough it's as sim
 ++ @197 + Emily.PFletchR1 // ~How did you learn?~ 
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-++ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
@@ -2088,22 +2113,22 @@ SAY @206 // ~Enchanting, mostly. It's not something I'm versed in, I'm afraid, s
 ++ @197 + Emily.PFletchR1 // ~How did you learn?~ 
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-++ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
 IF ~~ Emily.PArchery1
-SAY @332 // ~A tip? Don't miss. Hey, I'm serious now. Sometimes that one shot counts.~
+SAY @693 // ~A tip? Don't miss. Hey, I'm serious now. Sometimes that one shot counts.~
 IF ~~ EXIT 
 END
 
 IF ~~ Emily.PArchery2
-SAY @333 // ~Quality equipment can make an enormous difference. Expensive arrows will aid you when it counts.~
+SAY @694 // ~Quality equipment can make an enormous difference. Expensive arrows will aid you when it counts.~
 IF ~~ EXIT 
 END
 
 IF ~~ Emily.PArchery3
-SAY @334 // ~Never stand in front of your front line. That's silly. I saw a goblin do that once. Didn't live long.~
+SAY @695 // ~Never stand in front of your front line. That's silly. I saw a goblin do that once. Didn't live long.~
 IF ~~ EXIT 
 END
 
@@ -2205,12 +2230,12 @@ END
 
 IF ~~ Emily.PSArrowsYes
 SAY @367 // ~No problem. Check back with me in a day.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",3) SetGlobalTimer("X3milyCraftTimer","GLOBAL",ONE_DAY)~ EXIT 
+IF ~~ DO ~ SetGlobalTimer("X3milyCraftTimer","GLOBAL",ONE_DAY)SetGlobal("X3milyAtWork","GLOBAL",3)~ EXIT 
 END 
 
 IF ~~ Emily.PSBoltsYes
 SAY @367 // ~No problem. Check back with me in a day.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",ONE_DAY)~ EXIT 
+IF ~~ DO ~ SetGlobalTimer("X3milyCraftTimer","GLOBAL",ONE_DAY)SetGlobal("X3milyAtWork","GLOBAL",1)~ EXIT 
 END 
 
 IF ~~ Emily.PFArrowsOut 
@@ -2236,12 +2261,12 @@ END
 
 IF ~~ Emily.PFBoltsYes
 SAY @367 // ~No problem. Check back with me in a couple of days.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",2) SetGlobalTimer("X3milyCraftTimer","GLOBAL",TWO_DAYS)~ EXIT 
+IF ~~ DO ~ SetGlobalTimer("X3milyCraftTimer","GLOBAL",TWO_DAYS)SetGlobal("X3milyAtWork","GLOBAL",2)~ EXIT 
 END 
 
 IF ~~ Emily.PFArrowsYes
 SAY @367 // ~No problem. Check back with me in a couple of days.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",4) SetGlobalTimer("X3milyCraftTimer","GLOBAL",TWO_DAYS)~ EXIT 
+IF ~~ DO ~ SetGlobalTimer("X3milyCraftTimer","GLOBAL",TWO_DAYS)SetGlobal("X3milyAtWork","GLOBAL",4)~ EXIT 
 END 
 
 IF ~~ Emily.PBow1 
@@ -2290,29 +2315,29 @@ END
 
 IF ~~ Emily.PBowProceed1
 SAY @391 // ~Okay, I'll get started. I should be done in three days.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",5)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)SetGlobal("X3milyAtWork","GLOBAL",5)SetGlobal("X3milyEnhancedBow","GLOBAL",1)~ EXIT 
 END 
 
 IF ~~ Emily.PBowProceed2
 SAY @391 // ~Okay, I'll get started. I should be done in three days.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",6)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)SetGlobal("X3milyAtWork","GLOBAL",6)SetGlobal("X3milyEnhancedBow","GLOBAL",1)~ EXIT 
 END 
 
 IF ~~ Emily.PBowProceed3
 SAY @391 // ~Okay, I'll get started. I should be done in three days.~
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",7)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)SetGlobal("X3milyAtWork","GLOBAL",7)SetGlobal("X3milyEnhancedBow","GLOBAL",1)~ EXIT 
 END 
 
 IF ~~ Emily.PBowProceed4
 SAY @391 // ~Okay, I'll get started. I should be done in three days.~
-IF ~~ DO ~DestroyItem("BOW07")SetGlobal("X3milyAtWork","GLOBAL",8)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)DestroyItem("BOW07")SetGlobal("X3milyAtWork","GLOBAL",8)SetGlobal("X3milyEnhancedBow","GLOBAL",1)~ EXIT 
 END 
 
 IF ~~ Emily.PCraftCheckN
 SAY @368 // ~I'm not quite done yet. Check with me later.~
 IF ~~ EXIT 
 END 
-// S
+
 // Checks for Expired Timer. 
 IF ~~ Emily.PCraftCheckY
 SAY @369 // ~All done, <CHARNAME>.~ 
@@ -2327,42 +2352,42 @@ IF ~Global("X3milyAtWork","GLOBAL",8)~ + Emily.PCraftLongXDone
 END 
 
 IF ~~ Emily.PCraftSBoltDone 
-SAY @371 // ~Bolts all set! Let me know later if you want me to work on something new.~ 
+SAY @371 // ~See, your bolts are all set! Let me know later if you want me to work on something new.~ 
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("BOLT01",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftFBoltDone 
-SAY @371 // ~Bolts all set! Let me know later if you want me to work on something new.~ 
+SAY @371 // ~See, your bolts are all set! Let me know later if you want me to work on something new.~  
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("BDBOLT01",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftSArrowDone 
-SAY @370 // ~Arrows all set! Let me know later if you want me to work on something new.~ 
+SAY @370 // ~See, your arrows are all set! Let me know later if you want me to work on something new.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("AROW01",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~ Emily.PCraftFArrowDone 
-SAY @370 // ~Arrows all set! Let me know later if you want me to work on something new.~ 
+SAY @370 // ~See, your arrows are all set! Let me know later if you want me to work on something new.~ 
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("AROW08",Player1,80,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftEagleDone
-SAY @392 // ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY @392 // ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRLS",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftHeavyXDone
-SAY @392 // ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY @392 // ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRX",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftLightXDone
-SAY @392 // ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY @392 // ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRXL",Player1,1,0,0)~ EXIT  
 END 
 
 IF ~~  Emily.PCraftLongXDone
-SAY @392 // ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+SAY @392 // ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRL",Player1,1,0,0)~ EXIT  
 END 
 
