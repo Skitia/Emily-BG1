@@ -370,8 +370,8 @@
 @367 = ~No problem. Check back with me in a couple of days~
 @368 = ~I'm not quite done yet. Check with me later.~
 @369 = ~All done, <CHARNAME>.~ 
-@370 = ~Your arrows are all set! Let me know later if you want me to work on something new.~
-@371 = ~Your bolts are all set! Let me know later if you want me to work on something new.~
+@370 = ~See, your arrows are all set! Let me know later if you want me to work on something new.~
+@371 = ~See, your bolts are all set! Let me know later if you want me to work on something new.~
 @372 = ~Fire Arrows then, are you sure? I've only enough components to make a dozen bundles of that type of ammunition total, not counting any I've already used for you.~ 
 @373 = ~I don't seem to have any fire oils or flaming breath. I'll check back later.~
 @374 = ~Yes, go ahead and make me a bundle of fire arrows.~
@@ -392,7 +392,7 @@
 @389 = ~A fine ranged weapon. But are you sure? I can only do this once.~
 @390 = ~Yes, I'm sure.~
 @391 = ~Okay, I'll get started. I should be done in three days.~
-@392 = ~Your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
+@392 = ~See, your weapon is all set. I hope you enjoy it's slight modifications. Should help anyone's accuracy and skill with it.~
 @393 = ~Which one exactly?~
 @394 = ~What would you like to talk about?~ 
 @395 = ~What do you think of me?~
@@ -703,3 +703,12 @@
 @690 = ~I know, I know, but I want to be helpful! At least as much as I can be. I'll get back with you later.~
 @691 = ~You say that now, and then I'm shooting air, and someone else is screaming...okay, maybe I am screaming. Nevermind all that, I'll get back with my idea to you later.~
 @692 = ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. Anyway! I wil get back to you with my idea.~
+// Emily 1.42 Fixes 
+@693 = ~A tip? Don't miss. Hey, I'm serious now. Sometimes that one shot counts.~
+@694 = ~Quality equipment can make an enormous difference. Expensive arrows will aid you when it counts.~
+@695 = ~Never stand in front of your front line. That's silly. I saw a goblin do that once. Didn't live long.~
+@696 = ~Hey <CHARNAME>, good news! I just finished with that work you gave me to do.~
+@697 = ~Helga.~
+@698 = ~Recorder.~
+@699 = ~I've never met a dwarven women before, are they all so...crazy for battle? The face she makes after a fight is a little disturbing.~
+@700 = ~I really like her music. She's so sweet and gentle. I worry someone will take advantage of that.~
