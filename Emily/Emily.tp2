@@ -1,5 +1,5 @@
 BACKUP ~Emily\backup~
-AUTHOR ~Skitia: https://skitias-stories.com/contact~
+AUTHOR ~https://forums.beamdog.com/discussion/74630/mod-kale-npc-for-bg-ee-v1-11/p1?new=1~
 README ~Emily/readme.txt~
 
 VERSION ~1.42~
@@ -283,6 +283,9 @@ END
 
 BEGIN ~Emily's Music~
 SUBCOMPONENT ~Choose whether or not to have Emily's custom soundtrack play during timed talks.~
+
+	COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
+
 	MKDIR ~music/blank~
 	COPY ~Emily/Music/blank.mus~ ~music~
 		~Emily/Music/blank.acm~ ~music/blank/blanka.acm~

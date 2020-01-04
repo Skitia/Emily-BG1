@@ -1283,7 +1283,7 @@ APPEND X3milyJ
 // Non-Required Crossmod: Sees Sirene by the Temple of Lathandar, *Not* in Party 
 IF ~Global("X3milySeeSirene","GLOBAL",1)~ EmilySeeSirene1
 SAY @522 // ~Is that...that's a tiefling, <CHARNAME>. Be careful. The stories about them are...chilling at best. And I always feel the need to destroy such creatures. It's odd.~
-++ @523 + EmilySeesSirene2 // ~She's an innocent, Emily. I'm curious who she is.~
+++ @523 + EmilySeesSirene2 // ~She's an innocent, Emily. I'm not going to hurt her, and I'm curious about her.~
 ++ @524 + EmilySeesSirene3 // ~I'll be careful.~
 ++ @525 + EmilySeesSirene4// ~I'll do as I please.~
 END 

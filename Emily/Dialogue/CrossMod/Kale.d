@@ -15,7 +15,7 @@ DO ~SetGlobal("CrossEmilKale","LOCALS",1)~
 == X3KaleB @21 // ~I'm saying, how mad is she? I were in her place, I'm not sure if I could share a burrow with the lady or the tot.~
 == X3milyB @22 // ~It's complicated. And none of your business. They love eachother, that's all that matters.~
 == X3KaleB @23 // ~Who's to say there aren't others? You think you might have more half-sibs out there? Once around, twice around, they say.~
-== X3milyB @24 // ~This conversation is now over.
+== X3milyB @24 // ~We are not talking about this. This conversation? It is over.~
 EXIT
 
 // Kale 2
