@@ -8,7 +8,7 @@ END
 
 IF 
    See([PC])
-   AreaCheck("AR3300")
+   AreaCheck("%bg1_eet_symbol%3300")
    NumTimesTalkedTo(0)
   THEN
     RESPONSE #100
@@ -34,7 +34,7 @@ END
 // Quest Reminder.
 IF 
 	InParty(Myself)
-	AreaCheck("AR0800")
+	AreaCheck("%bg1_eet_symbol%0800")
 	Global("X3milyQuestStart","Global",0)
 	GlobalLT("X3DalTalk","GLOBAL",1)
 THEN
@@ -182,7 +182,7 @@ IF
 	InParty(Myself)
 	!InParty("C0Sirene")
     See("C0Sirene")
-	AreaCheck("AR3400")	
+	AreaCheck("%bg1_eet_symbol%3400")	
 	Global("X3milySeeSirene","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -193,7 +193,7 @@ END
 
 IF
 	InParty(Myself)
-	AreaCheck("AR3900")	
+	AreaCheck("%bg1_eet_symbol%3900")	
 	Global("X3milyUlcaster","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -204,7 +204,7 @@ END
 
 IF
 	InParty(Myself)
-	AreaCheck("AR2000")	
+	AreaCheck("%bg1_eet_symbol%2000")	
 	Global("X3milyBaldurs","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -215,7 +215,7 @@ END
 
 IF
 	InParty(Myself)
-	AreaCheck("AR4900")	
+	AreaCheck("%bg1_eet_symbol%4900")	
 	Global("X3milyCarnival","GLOBAL",0)
 THEN
   RESPONSE #100

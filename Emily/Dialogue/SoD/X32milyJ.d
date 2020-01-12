@@ -1293,7 +1293,8 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN Emily.PID
  +~HPPercentLT(Myself,50)~+ ~How are you doing?~ + Emily.PHowAreYouHurt // ~How are you doing?~ //(Under 50%)
  ++ ~Let's stop and chat for a bit.~  + Emily.PTalk // ~Let's stop and chat for a bit.~ 
  +~!Global("X3milyCraftTalk","GLOBAL",2)~+ ~Are you able to fletch arrows?~ DO ~SetGlobal("X3milyCraftTalk","GLOBAL",2)~ + Emily.PCraftTalk2 // 
- +~GlobalLT("X3milyAtWork","GLOBAL",1)Global("X3milyCraft","GLOBAL",1)~+ ~Can you make something for me?~ + Emily.PCraft // ~Can you make something for me?~
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ ~Can I check on your progress of your craft?~  + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ ~Can I check on your progress of your craft?~  + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
  ++ ~Nothing at the moment.~  EXIT
@@ -1340,13 +1341,14 @@ IF ~~ EXIT
 END
 
 IF ~~ Emily.PCraftTalk2
-SAY ~I am. Just ask when you want me to fletch something. It's not difficult work, but it can take a day or so, depending on what you ask for.~
-IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)~ + Emily.PCraftTalk3 
+SAY ~I am. Just ask when you want me to fletch something. It's not difficult work, but it can take a while, depending on if its a few arrows or an improvement to a launcher.~
+IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ + Emily.PCraftTalk3 
 END 
 
 IF ~~ Emily.PCraftTalk3 
-SAY ~Would you like me to fletch something now?~
-++ ~Yes, what can you make me?~ + Emily.PCraft
+SAY ~Would you like me to see if we have any launchers we can improve now?~
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Yes, anything you upgrade?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Yes, anything you upgrade?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ ~Maybe later.~ EXIT 
 END 
 
@@ -1471,49 +1473,49 @@ SAY ~I can, but I've only enough materials to enhance one ranged weapon. You sho
 +~PartyHasItemIdentified("BOW07")~+ ~Deadshot Longbow~ + Emily.PBowSure4 // ~This Longbow of the Marksman.~
 +~PartyHasItemIdentified("BDBOW03")~+ ~The Fleshripper~ + Emily.PBowSure5 // ~The Fleshripper.~ 
 +~PartyHasItemIdentified("BDBOW04")~+ ~The Bow of the Banshee~ + Emily.PBowSure6
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END
 
 IF ~~ Emily.PBowSure1 
 SAY ~A fine ranged weapon. But are you sure? I can only do this once.~ // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ ~Yes, I'm sure.~ DO ~TakePartyItem("BOW08")DestroyItem("BOW08")~ + Emily.PBowProceed1  // Yes, I'm sure. 
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure2 
 SAY ~A fine ranged weapon. But are you sure? I can only do this once.~ // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ ~Yes, I'm sure.~ DO ~TakePartyItem("XBOW03")DestroyItem("XBOW03")~ + Emily.PBowProceed2  // Yes, I'm sure. 
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure3 
 SAY ~A fine ranged weapon. But are you sure? I can only do this once.~ // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ ~Yes, I'm sure.~ DO ~TakePartyItem("XBOW06")DestroyItem("XBOW06")~ + Emily.PBowProceed3  // Yes, I'm sure. 
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure4 
 SAY ~A fine ranged weapon. But are you sure? I can only do this once.~ // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ ~Yes, I'm sure.~ DO ~TakePartyItem("BOW07")~ + Emily.PBowProceed4  // Yes, I'm sure. 
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure5 
 SAY ~A fine shortbow. But are you sure? I can only do this once.~ // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ ~Yes, I'm sure.~ DO ~TakePartyItem("BDBOW03")~ + Emily.PBowProceed5  // Yes, I'm sure. 
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure6 
 SAY ~A fine longbow. But are you sure? I can only do this once.~ // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ ~Yes, I'm sure.~ DO ~TakePartyItem("BDBOW04")~ + Emily.PBowProceed6  // Yes, I'm sure. 
-++ ~Let's craft something else instead.~ + Emily.PCraft // ~Let's craft something else instead.~
+++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Some other time then.~ EXIT // ~Some other time then.~
 END 
 
@@ -2029,7 +2031,8 @@ SAY ~Fletching is a really critical part of archery. The shaft is simple. I mean
 ++ ~It sounds complicated.~ + Emily.PFletchR2 // ~It sounds complicated.~
 ++ ~How is stronger ammunition achieved?~ + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
@@ -2038,7 +2041,8 @@ SAY ~I watched some of the laborers in the estate. I just might have sneaked som
 ++ ~It sounds complicated.~ + Emily.PFletchR2 // ~It sounds complicated.~
 ++ ~How is stronger ammunition achieved?~ + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
@@ -2047,7 +2051,8 @@ SAY ~At first. Repetition gives you mastery, and soon enough it's as simple as a
 ++ ~How did you learn?~ + Emily.PFletchR1 // ~How did you learn?~ 
 ++ ~How is stronger ammunition achieved?~ + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 
@@ -2056,7 +2061,8 @@ SAY ~Enchanting, mostly. It's not something I'm versed in, I'm afraid, so its ba
 ++ ~How did you learn?~ + Emily.PFletchR1 // ~How did you learn?~ 
 ++ ~It sounds complicated.~ + Emily.PFletchR2 // ~It sounds complicated.~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ ~Speaking of, can you make me something?~ + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
 

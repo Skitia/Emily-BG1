@@ -483,9 +483,9 @@ IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTim
 END
 
 IF ~~ EmilyT5.Good 
-SAY @158 //  ~There's plenty of supplies around to make arrows, and we come up with some useful items as well to make some nifty arrows, bolts, or bullets.~ 
-= @159 // ~And I could even make bullets or other throwing weapons if it was a real necessity, maybe even improve on a bow.~
-= @160 // ~It will take time of course, but I think this will be an asset, just ask me when you want something made.~
+SAY @158 //  ~With improved launchers, we hit more, and use less ammo, therefore we become more efficient.~ 
+= @159 // ~I've some special string I've managed to spin. It's enough for one launcher, so its best we choose wisely.~
+= @160 // ~And I've figured out how to fletch some arrows for myself so I'm not always using the ones we find or buy. It's a bit slow, and I don't think anyone else could make use of them, but it might help a little. Just tell me to fletch an arrow or talk to me about our launchers sometime, and I'll help as best as I can.~
 ++ @161 + EmilyT5.Will // ~I will, Emily, thanks!~
 ++ @162 + EmilyT5.Not  // ~I don't know if I will need it, but I'll let you know.~
 ++ @163 + EmilyT5.NotArcher // ~I'm not much of an archer.~ 
@@ -508,13 +508,13 @@ IF ~~ + EmilyT5.Anyway
 END 
 
 IF ~~ EmilyT5.NotArcher 
-SAY @167 // ~You could always give it to another companion! Or not. Offer is open anytime.~
+SAY @167 // ~Well, I am, and if nothing else, it will help me better help you. Just let me know!~
 IF ~~ + EmilyT5.Anyway
 END 
 
 IF ~~ EmilyT5.Anyway 
 SAY @685 // ~Anyway, just remember to speak with me if you are ever in need!~
-IF ~~ DO ~ RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)IncrementGlobal("X3milyTalk","GLOBAL",1)SetGlobal("X3milyCraft","GLOBAL",1)~ EXIT
+IF ~~ DO ~RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)IncrementGlobal("X3milyTalk","GLOBAL",1)SetGlobal("X3milyCraft","GLOBAL",1)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
 END
 
 // New Talk 8 
@@ -1369,7 +1369,8 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","
  +~RandomNum(3,3)~+ @353 + Emily.PThinkingAbout1c  //~What are you thinking about?~
  ++ @359 + Emily.PTalk // ~Let's stop and chat for a bit.~ 
  +~Global("X3milyCraftTalk","GLOBAL",1)~+ @170 + Emily.PCraftTalk // ~You wanted to tell me something earlier?~
- +~GlobalLT("X3milyAtWork","GLOBAL",1)Global("X3milyCraft","GLOBAL",1)~+ @172 + Emily.PCraft // ~Can you make something for me?~
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
  ++ @169  EXIT
@@ -1388,8 +1389,8 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","
 
 // This is mostly the same from T5 (Thus same names used, bar P added into it.  
 IF ~~ Emily.PCraftTalk 
-SAY @173 // ~I just wanted to say that I'd be happy to fletcher for you and friends. It might take me a day or two, I'm not the quickest at this, but I should be able to make ammunition to aid our cause.~ 
-= @160 // ~Just ask me when you want something made.~
+SAY @173 // ~I just wanted to say that I'd be happy to try my hand at improving a crossbow or bow we find. If we're going to be effecient with our ammunition, we should do our best to aim well.~ 
+= @160 // ~And I've figured out how to fletch some arrows for myself so I'm not always using the ones we find or buy. It's a bit slow, and I don't think anyone else could make use of them, but it might help a little. Just tell me to fletch an arrow or talk to me about our launchers sometime, and I'll help as best as I can.~
 ++ @161 + EmilyT5.PWill // ~I will, Emily, thanks!~
 ++ @162 + EmilyT5.PNot  // ~I don't know if I will need it, but I'll let you know.~
 ++ @163 + EmilyT5.PNotArcher // ~I'm not much of an archer.~  
@@ -1397,17 +1398,17 @@ END
 
 IF ~~ EmilyT5.PWill 
 SAY @165 // ~Anytime!~ 
-IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)~ EXIT
+IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
 END
 
 IF ~~ EmilyT5.PNot 
 SAY @166 // ~Will do, <CHARNAME>.
-IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)~ EXIT
+IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
 END
 
 IF ~~ EmilyT5.PNotArcher 
 SAY @167 // ~You could always give it to another companion! Or not. Offer is open anytime.~
-IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)~ EXIT
+IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
 END
 
 
@@ -1477,7 +1478,7 @@ SAY  @173 // ~What would you like to talk about?~
 +~GlobalGT("X3milyTalk","GLOBAL",10)Global("X3milyPMotherTopic","GLOBAL",0)~+ @188 DO ~SetGlobal("X3milyPMotherTopic","GLOBAL",1)~ + Emily.PT6Mother // ~What do you think, now that you've met your birth mother?~
 +~GlobalGT("X3milyTalk","GLOBAL",12)Global("X3milyPAasimarTopic","GLOBAL",0)~+ @189 DO ~SetGlobal("X3milyPAasimarTopic","GLOBAL",1)~ + Emily.PT7Aasimar // ~The revelation from your birth mother still seems to bother you a lot.~
 +~Global("X3milyPTethyrTopic","GLOBAL",0)~+ @190 DO ~SetGlobal("X3milyPTethyrTopic","GLOBAL",1)~ + Emily.PTethyr // ~What can you tell me about Tethyr, your homeland?~ For Kale, Gullykin. For Vienxay, Evermeet. 
-+~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~ For Kale, replace with Alora or raging. For Vienxay, replace with Shadowdancing. 
++~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
 +~RandomNum(3,2)~+ @191 + Emily.PArchery2
 +~RandomNum(3,3)~+ @191 + Emily.PArchery3
 +~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @192 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~ For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
@@ -2086,7 +2087,9 @@ SAY @195 //~Fletching is a really critical part of archery. The shaft is simple.
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
+
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
@@ -2104,16 +2107,19 @@ SAY @205 // ~At first. Repetition gives you mastery, and soon enough it's as sim
 ++ @197 + Emily.PFletchR1 // ~How did you learn?~ 
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
+
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
 IF ~~ Emily.PFletchR3 
-SAY @206 // ~Enchanting, mostly. It's not something I'm versed in, I'm afraid, so its basic or element tipped shafts.~
+SAY @206 // ~Enchanting, mostly. It's not easy, but it's what I do on my own arrows.~
 ++ @197 + Emily.PFletchR1 // ~How did you learn?~ 
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
@@ -2271,7 +2277,7 @@ END
 
 IF ~~ Emily.PBow1 
 SAY @382 // ~I can, but we don't have anything that's worthwhile. I've only enough material to make improvements on a single bow, so we shouldn't waste it.~ 
-++ @366 + Emily.PCraft // ~Let's craft something else instead.~
+++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
 ++ @384 EXIT // ~Some other time then.~
 END 
 
@@ -2281,35 +2287,35 @@ SAY @383 // ~I can, but I've only enough materials to enhance one ranged weapon.
 +~PartyHasItemIdentified("XBOW03")~+ @386 + Emily.PBowSure2 // ~This Heavy Crossbow of Accuracy.
 +~PartyHasItemIdentified("XBOW06")~+ @387 + Emily.PBowSure3 // ~This Light Crossbow of Speed.
 +~PartyHasItemIdentified("BOW07")~+ @388 + Emily.PBowSure4 // ~This Longbow of the Marksman.~
-++ @366 + Emily.PCraft // ~Let's craft something else instead.~
+++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
 ++ @384 EXIT // ~Some other time then.~
 END
 
 IF ~~ Emily.PBowSure1 
 SAY @389 // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ @390 DO ~TakePartyItem("BOW08")DestroyItem("BOW08")~ + Emily.PBowProceed1  // Yes, I'm sure. 
-++ @366 + Emily.PCraft // ~Let's craft something else instead.~
+++ @366 + Emily.PBow2 // ~Let's craft something else instead.~
 ++ @384 EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure2 
 SAY @389 // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ @390 DO ~TakePartyItem("XBOW03")DestroyItem("XBOW03")~ + Emily.PBowProceed2  // Yes, I'm sure. 
-++ @366 + Emily.PCraft // ~Let's craft something else instead.~
+++ @366 + Emily.PBow2 // ~Let's craft something else instead.~
 ++ @384 EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure3 
 SAY @389 // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ @390 DO ~TakePartyItem("XBOW06")DestroyItem("XBOW06")~ + Emily.PBowProceed3  // Yes, I'm sure. 
-++ @366 + Emily.PCraft // ~Let's craft something else instead.~
+++ @366 + Emily.PBow2 // ~Let's craft something else instead.~
 ++ @384 EXIT // ~Some other time then.~
 END 
 
 IF ~~ Emily.PBowSure4 
 SAY @389 // ~A fine ranged weapon. But are you sure? I can only do this once.~
 ++ @390 DO ~TakePartyItem("BOW07")~ + Emily.PBowProceed4  // Yes, I'm sure. 
-++ @366 + Emily.PCraft // ~Let's craft something else instead.~
+++ @366 + Emily.PBow2 // ~Let's craft something else instead.~
 ++ @384 EXIT // ~Some other time then.~
 END 
 

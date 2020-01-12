@@ -20,15 +20,15 @@ END
 
 CHAIN X3dal Talk1.1 
 @7 // ~I don't know why you think I know things, but let's talk somewhere quieter, so I can hear you better. Follow me upstairs.~
-DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("AR1307",739,270,NW) ~ EXIT 
+DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("%bg1_eet_symbol%1307",739,270,NW) ~ EXIT 
 
 CHAIN X3dal Talk1.Alina 
 @60 // ~A Name I haven't heard in some time. I would tell you more, but I've a problem needing to be taken care of first. Follow me upstairs.~
-DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("AR1307",739,270,NW) ~ EXIT 
+DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("%bg1_eet_symbol%1307",739,270,NW) ~ EXIT 
 
 CHAIN X3dal Talk1.Work 
 @61 // ~Adventurers? I might have something for you. Follow me upstairs.~
-DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("AR1307",739,270,NW) ~ EXIT 
+DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("%bg1_eet_symbol%1307",739,270,NW) ~ EXIT 
 
 CHAIN IF ~IsValidForPartyDialog("X3mily")
 Global("X3DalTalk","GLOBAL",1)GlobalLT("X3EHK3Talk","GLOBAL",2)~ THEN X3dal Talk2A 

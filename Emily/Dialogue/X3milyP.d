@@ -11,7 +11,7 @@ END
 
 IF ~~ p1.1 
 SAY @10 // ~I'm disappointed, but as you wish. I'll be in the Feldepost Inn, at least for a time until personal business calls. I do hope you find me and change your mind.~
-IF ~~ DO ~EscapeAreaMove("AR3351",625,621,E)~ EXIT 
+IF ~~ DO ~EscapeAreaMove("%bg1_eet_symbol%3351",625,621,E)~ EXIT 
 END 
 
 
