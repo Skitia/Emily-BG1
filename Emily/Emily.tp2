@@ -2,7 +2,7 @@ BACKUP ~Emily\backup~
 AUTHOR ~https://forums.beamdog.com/discussion/74630/mod-kale-npc-for-bg-ee-v1-11/p1?new=1~
 README ~Emily/readme.txt~
 
-VERSION ~1.43~
+VERSION ~1.5~
 AUTO_TRA ~Emily/tra/%s~
 
 ALWAYS
@@ -40,6 +40,14 @@ LANGUAGE ~English~
 BEGIN @56 /* Emily for BG1EE */
   REQUIRE_PREDICATE (GAME_IS ~bgee eet~) @57 /* This component must be installed on BG:EE. */
 
+ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" AR
+END
+
+ACTION_IF GAME_IS ~EET~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" BG
+END
+
 INCLUDE ~Emily/lib/Emil_items.tpa~
 INCLUDE ~Emily/lib/Emil_bg1.tpa~ 
 
@@ -49,7 +57,7 @@ END
 
 		COPY ~%MOD_FOLDER%/portraits/EmilyL.bmp~ ~override/EmilyL.bmp~
 		COPY ~%MOD_FOLDER%/portraits/EmilyM.bmp~ ~override/EmilyM.bmp~
-		COPY ~%MOD_FOLDER%/portraits/EmilyS.bmp~ ~override/EmilyS.bmp~
+		
 
 BEGIN ~Arcane Archer (Fighter Kit)~
 SUBCOMPONENT ~Choose an alternate class for Emily?~
