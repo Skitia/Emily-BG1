@@ -299,7 +299,7 @@ Weight: 0~
 STATISTICS:
 
 Combat Abilities
--Target must make a save versus spell or have their movement speed halved.
+-Target must make a save versus spell or have their movement speed halved for one round.
 
 THACO: +1
 Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
@@ -311,7 +311,7 @@ Weight: 0~
 STATISTICS:
 
 Combat Abilities
--Target must make a save versus spell or have their movement speed halved.
+-Target must make a save versus spell or have their movement speed halved for one round.
 
 THACO: +2
 Damage: 1d6 (missile) +1 Acid/Cold/Fire/Electrical Damage (Save vs. Spell for none)
@@ -340,7 +340,7 @@ Weight: 0~
 STATISTICS:
 
 Combat Abilities
--Target must make a save versus spell or have their movement speed halved.
+-Target must make a save versus spell or have their movement speed halved for one round.
 
 THACO: +1
 Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
@@ -352,7 +352,7 @@ Weight: 0~
 STATISTICS:
 
 Combat Abilities
--Target must make a save versus spell or have their movement speed halved.
+-Target must make a save versus spell or have their movement speed halved for one round.
 
 THACO: +2
 Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
@@ -364,12 +364,12 @@ Weight: 0~
 	
 	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
 	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
-	Level 12: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
-	Level 18: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~
+	Level 12: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
+	Level 18: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~
 @91 = ~Fletch Bolt: Emily fletches five enchanted bolts for her personal use. Only she may make use of the ammunition, and she may only fletch them while not in combat. 
 	As she gains levels, her skill with enchanting and fletching increases, changing the bolts properties:
 	
 	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
 	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
-	Level 12: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
-	Level 18: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~ 
+	Level 12: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
+	Level 18: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~ 
