@@ -266,3 +266,110 @@ Requires:
 Weight: 1~
 
 @71 = ~Jacob~
+
+@72 = ~Enchanted Arrow I~
+@73 = ~Enchanted Arrow II~
+@74 = ~Enchanted Arrow III~
+@75 = ~Enchanted Arrow IV~
+@76 = ~Enchanted Bolt I~
+@77 = ~Enchanted Bolt II~
+@78 = ~Enchanted Bolt III~
+@79 = ~Enchanted Bolt IV~
+@80 = ~Fletch Arrow~ 
+@81 = ~Fletch Bolt~
+@82 = ~This arrow fletched by Emily is a basic enchanted arrow, fast and light. It strikes with the enchantment of four different elements. Only she can make use of this arrow.
+
+STATISTICS:
+
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Bow
+
+Weight: 0~
+@83 = ~This arrow fletched by Emily is a simple enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements. Only Emily can make use of this arrow.
+
+STATISTICS:
+
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Bow
+
+Weight: 0~
+@84 = ~This arrow fletched by Emily is a heavily enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements, and its arrowhead splinters upon contact, possibly slowing its target. Only Emily can make use of this arrow.
+
+STATISTICS:
+
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved.
+
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Bow
+
+Weight: 0~
+@85 = ~This arrow represents Emily's finest fletching. The arrow is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. Only she may make use of its power.
+
+STATISTICS:
+
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved.
+
+THACO: +2
+Damage: 1d6 (missile) +1 Acid/Cold/Fire/Electrical Damage (Save vs. Spell for none)
+Launcher: Bow
+
+Weight: 0~
+@86 = ~This Bolt fletched by Emily is a basic enchanted bolt, fast and light. It strikes with the enchantment of four different elements. Only she can make use of this Bolt.
+
+STATISTICS:
+
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Crossbow
+
+Weight: 0~
+@87 = ~This Bolt fletched by Emily is a simple enchanted bolt, fast, light, and precise. It strikes with the enchantment of four different elements. Only Emily can make use of this Bolt.
+
+STATISTICS:
+
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Crossbow
+
+Weight: 0~
+@88 = ~This Bolt fletched by Emily is a heavily enchanted bolt, fast, light, and precise. It strikes with the enchantment of four different elements, and its Bolthead splinters upon contact, possibly slowing its target. Only Emily can make use of this Bolt.
+
+STATISTICS:
+
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved.
+
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Crossbow
+
+Weight: 0~
+@89 = ~This Bolt represents Emily's finest fletching. The bolt is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. Only she may make use of its power.
+
+STATISTICS:
+
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved.
+
+THACO: +2
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
+Launcher: Crossbow
+
+Weight: 0~
+@90 = ~Fletch Arrow: Emily fletches five enchanted arrows for her personal use. Only she may make use of the ammunition, and she may only fletch them while not in combat. 
+	As she gains levels, her skill with enchanting and fletching increases, changing the arrows properties:
+	
+	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
+	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
+	Level 12: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
+	Level 18: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~
+@91 = ~Fletch Bolt: Emily fletches five enchanted bolts for her personal use. Only she may make use of the ammunition, and she may only fletch them while not in combat. 
+	As she gains levels, her skill with enchanting and fletching increases, changing the bolts properties:
+	
+	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
+	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
+	Level 12: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
+	Level 18: +50% Movement Speed Penalty and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~ 
