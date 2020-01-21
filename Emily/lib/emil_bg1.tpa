@@ -205,12 +205,12 @@ ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107
 
   // Area scripts
 
-      EXTEND_TOP ~ar3300.bcs~ ~Emily/Scripts/%bg1_eet_symbol%3300.baf~
+      EXTEND_TOP ~%bg1_eet_symbol%3300.bcs~ ~Emily/Scripts/AR3300.baf~
         EVALUATE_BUFFER		
 
-	EXTEND_TOP ~ar1300.bcs~ ~Emily/Scripts/%bg1_eet_symbol%1300.baf~
+	EXTEND_TOP ~%bg1_eet_symbol%1300.bcs~ ~Emily/Scripts/AR1300.baf~
         EVALUATE_BUFFER	
-	EXTEND_TOP ~ar1306.bcs~ ~Emily/Scripts/%bg1_eet_symbol%1306.baf~
+	EXTEND_TOP ~%bg1_eet_symbol%1306.bcs~ ~Emily/Scripts/AR1306.baf~
         EVALUATE_BUFFER			
 
 
