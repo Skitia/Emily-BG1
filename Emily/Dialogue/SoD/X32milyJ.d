@@ -417,9 +417,9 @@ END
 
 IF ~~ Talk5.E 
 SAY ~I w- wait? You mean...Oh, how do I say this without making it awkward?~
-IF ~!Race(Player1,HUMAN)ReputationGT(Player1,11)Gender(Player1,MALE)!Alignment(Player1,MASK_EVIL)~ + Talk5.F 
-IF ~Race(Player1,HUMAN)ReputationGT(Player1,11)Gender(Player1,MALE)!Alignment(Player1,MASK_EVIL)~ + Talk5.G 
-IF ~OR(3)ReputationLT(Player1,12)!Gender(Player1,MALE)Alignment(Player1,MASK_EVIL)~ DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.R 
+IF ~!Race(Player1,HUMAN)Global("X32milyRomanceActive","GLOBAL",1)~ + Talk5.F 
+IF ~Race(Player1,HUMAN)Global("X32milyRomanceActive","GLOBAL",1)~ + Talk5.G 
+IF ~!Global("X32milyRomanceActive","GLOBAL",1)~ DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.R 
 END 
 
 IF ~~ Talk5.F 
@@ -1962,12 +1962,12 @@ END
 
 IF ~~ PIDTalk3.B 
 SAY ~Are you trying to get me to blush? I think it's working!~ 
-IF ~Gender(Player1,MALE)CheckStatGT(Player1,11,CHR)~ + PIDTalk3.MH // The horror of using CHA for looks, but oh well. 
+IF ~CheckStatGT(Player1,11,CHR)~ + PIDTalk3.MH // The horror of using CHA for looks, but oh well. 
 IF ~CheckStatLT(Player1,12,CHR)~ + PIDTalk3.C 
 END 
 
 IF ~~ PIDTalk3.MH 
-SAY ~You're not so bad yourself, Mr. Compliments. But we don't have time to exchange flatteries all day, you know. But you've definitely made my day. Thank you.~
+SAY ~You're not so bad yourself, <PRO_LADYLORD> of Compliments. But we don't have time to exchange flatteries all day, you know. But you've definitely made my day. Thank you.~
 ++ ~Let's talk about something else.~  + Emily.PTalk // ~Let's talk about something else.~ 
 ++ ~Let's keep moving.~ EXIT // ~Let's keep moving.~
 END 
