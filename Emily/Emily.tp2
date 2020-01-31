@@ -2,7 +2,7 @@ BACKUP ~Emily\backup~
 AUTHOR ~https://forums.beamdog.com/discussion/74630/mod-kale-npc-for-bg-ee-v1-11/p1?new=1~
 README ~Emily/readme.txt~
 
-VERSION ~1.51~
+VERSION ~1.52~
 AUTO_TRA ~Emily/tra/%s~
 
 ALWAYS
@@ -14,7 +14,7 @@ END
 ALWAYS
 ACTION_IF FILE_EXISTS_IN_GAME ~neera.dlg~ THEN BEGIN
   /*Tell the player it is using BG:EE stuff */
-  PRINT @1 /* BG:EE install detected */
+  PRINT @100 /* BG:EE install detected */
   INCLUDE ~Emily\lib\liam_bgee_vars.tpa~
 END ELSE BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~FW0100.are~ THEN BEGIN
