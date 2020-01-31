@@ -1,8 +1,9 @@
 @0    = ~Not used~
-@1    = ~BG:EE install detected~
-@52    = ~Tutu install detected.~
+@1 = ~Emily~
+@100    = ~BG:EE install detected~
+@52    = ~EET install detected.~
 @53    = ~BGT install detected.~
-@54    = ~Please install on BG:EE, Tutu or BGT.~
+@54    = ~Please install on BG:EE or EET.~
 @56    = ~Emily NPC for BG1EE~
 @57    = ~This component must be installed on BG:EE.~
 
