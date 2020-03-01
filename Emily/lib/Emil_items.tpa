@@ -1,7 +1,42 @@
-// ITEMS
-
 LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
 
+// BAM 
+COPY ~Emily/Item/cX3En.bam~ ~override/cX3En.bam~
+COPY ~Emily/Item/iX3En.bam~ ~override/iX3En.bam~
+
+// ITEMS
+COPY ~Emily/Item/X3EN.itm~ ~override/X3EN.itm~ 
+SAY NAME1 @92 // ~Emily's Wing Necklace~
+SAY NAME2 @92 // ~Emily's Wing Necklace~
+SAY DESC @93 /* ~Emily's Wing Necklace: This silver wing threaded into a necklace contains warm, soothing magic.
+When a hand is put onto another being, the wearer of the necklace may let its magic thread from them into their target, curing them of any paralysis once, where it will then 
+need time to restore its magic within after a period of rest. This necklace is the only possession Emily has that she believes is from her birth mother, and she is unwilling to part with it for any reason.
+
+STATISTICS:
+
+Charge abilities (Once per day):
+-Cure Paralysis
+
+Weight: 1~*/
+ OUTER_SET strref = RESOLVE_STR_REF (@96) // ~Sorry, <CHARNAME>. I can't give that up.~
+APPEND item_use.2da ~X3EHEAD Emily %strref% 3~
+	 
+COPY ~Emily/Item/X3EHEAD.itm~ ~override/X3EHEAD.itm~ 
+SAY NAME1 @94 // ~Emily's Silver Circlet~
+SAY NAME2 @94 // ~Emily's Silver Circlet~
+SAY DESC  @95 /* ~Emily's Silver Circlet: These silver circlets are required to be worn by the nobility of House Castilla, and gifted to them when they reach adulthood. Each is enchanted with magic unique to the wearer. 
+Emily's Silver Circlet enhances her concentration with the bow, allowing her hits to be sharper. However, unlike a helmet, circlets do not protect against critical hits.
+
+STATISTICS:
+
+Equipped abilities:
+-Ranged Critical Chance: +5%
+-Does not protect against critical hits
+
+Weight: 1~ */
+OUTER_SET strref = RESOLVE_STR_REF (@96) // ~Sorry, <CHARNAME>. I can't give that up.~
+APPEND item_use.2da ~X3EHEAD Emily %strref% 3~
+	  
 COPY_EXISTING ~Emily/Item/X3EQRL.itm~ ~override/X3EQRL.itm~
 SAY NAME1 @50
 SAY NAME2 @50
@@ -57,7 +92,9 @@ SAY NAME1 @65
 SAY NAME2 @65 
 SAY DESC @66 
 
-  // Items 
+
+
+
   
  COPY ~%MOD_FOLDER%/eff/X3ECELT.eff~ ~override~ 
  COPY ~%MOD_FOLDER%/eff/X3EDEMT.eff~ ~override~
@@ -193,3 +230,5 @@ COPY	"%MOD_FOLDER%/Item/X3EFB.spl" override
 	SAY NAME1 @81
 	SAY NAME2 @81
 	SAY 0x50 @91
+	
+LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~	
