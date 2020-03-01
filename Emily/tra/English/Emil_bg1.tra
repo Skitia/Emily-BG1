@@ -266,7 +266,7 @@ Requires:
 Weight: 1~
 
 @71 = ~Jacob~
-
+// All of the below Arrow/Bolt Items are no longer used in crafting, and only exist in saves which used them prior to 1.53
 @72 = ~Enchanted Arrow I~
 @73 = ~Enchanted Arrow II~
 @74 = ~Enchanted Arrow III~
@@ -373,3 +373,27 @@ Weight: 0~
 	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
 	Level 12: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
 	Level 18: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~ 
+// New Items for 1.53+
+@92 = ~Emily's Wing Necklace~
+@93 = ~Emily's Wing Necklace: This silver wing threaded into a necklace contains warm, soothing magic.
+When a hand is put onto another being, the wearer of the necklace may let its magic thread from them into their target, curing them of any paralysis once, where it will then 
+need time to restore its magic within after a period of rest. This necklace is the only possession Emily has that she believes is from her birth mother, and she is unwilling to part with it for any reason.
+
+STATISTICS:
+
+Charge abilities (Once per day):
+-Cure Paralysis
+
+Weight: 1~
+@94 = ~Emily's Silver Circlet~
+@95 = ~Emily's Silver Circlet: These silver circlets are worn by the nobility of House Castilla, and gifted to them when they reach adulthood. Each is enchanted with magic unique to the wearer. 
+Emily's Silver Circlet enhances her concentration with the bow, allowing her hits to be sharper. However, unlike a helmet, circlets do not protect against critical hits.
+
+STATISTICS:
+
+Equipped abilities:
+-Ranged Critical Chance: +5%
+-Does not protect against critical hits
+
+Weight: 1~ 
+@96 = ~Sorry, <CHARNAME>. I can't give that up.~
