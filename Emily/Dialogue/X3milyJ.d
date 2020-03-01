@@ -414,107 +414,108 @@ IF ~~ + EmilyT4.Think
 END 
 
 IF ~~ EmilyT4.Store 
-SAY @140 // ~That's nice, <CHARNAME>. But maybe...~
+SAY @140 // ~That's nice, <CHARNAME>. I could also use a pair of new boots...and so many other things that will cause us to run out of gold faster. Good thing you're in charge of the funds.~
 IF ~~ + EmilyT4.Think 
 END 
 
 IF ~~ EmilyT4.Basic 
-SAY @141 // ~Skill won't do anything against magic wards. We should be tactical about this.~
+SAY @141 // ~Skill won't do anything against magic wards. And plain arrows look plain. Hrm, that sounds rather silly of me.~
 IF ~~ + EmilyT4.Think 
 END 
 
 IF ~~ EmilyT4.Funds 
-SAY @142 // ~I understand, <CHARNAME>. 
+SAY @142 // ~I understand, <CHARNAME>. It's good you're in charge of the funds. I'd have us in a bit of trouble with my urge, I just love getting a new pair of boots.~
 IF ~~ + EmilyT4.Think 
 END 
 
 IF ~~ EmilyT4.Think 
-SAY @143 // ~Let me think of a resolution. The last thing we want is to run out of arrows.~
-= @686 // ~I will get back with you if I come up with something.~
-++ @687 + Emily.T4A // ~You don't have to, Emily~
-++ @688 + Emily.T4B  // ~I think we will be all right, really.~
-++ @689 + Emily.T4C // ~I can see the point in that. Let me know what you come up with.~
+SAY @143 // ~I guess that is what make battle dangerous. Someone else could have better, top notch equipment over us, someone more wicked and malicious.~
+= @686 // ~It makes me wonder if training can overcome quality equipment.~
+++ @687 + Emily.T4A // ~Equipment is no good if you don't know how to use it properly.~
+++ @688 + Emily.T4B  // ~Once they fall, their good equipment is our equipment for the taking.~
+++ @689 + Emily.T4C // ~I can see the worry in that. Hopefully we can manage.~
 END 
 
 IF ~~ Emily.T4A 
-SAY @690 // ~I know, I know, but I want to be helpful! At least as much as I can be. I'll get back with you later.~
+SAY @690 // ~You have a point their, leader. Let's hope all of our enemies are so poorly trained.~
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
 END 
 
 IF ~~ Emily.T4B
-SAY @691 // ~You say that now, and then I'm shooting air, and someone else is screaming...okay, maybe I am screaming. Nevermind all that, I'll get back with my idea to you later.~
+SAY @691 // ~Isn't that stealing? Sort of? I mean if they're dead? It does make me feel guilty sometimes when we take things from the dead...I know, it's weird! You know what? Forget I said anything.~
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
 END 
 
 IF ~~ Emily.T4C
-SAY @692 // ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. Anyway! I wil get back to you with my idea.~
-IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
+SAY @692 // ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. At least we've managed this long, unless the gods are toying with us and just like watching us struggle.~IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
 END 
 
 // Talk 5 
-/* When this talk ends, Talk 6 requires:
-1. Timer Expired 
-2. Not in Area where Mother is 
-3. Quest Complete 
-4. Talk 5 Had. 
+/* 2/29/2020 Change: Crafting is removed from Emily, so this talk is instead about Emily's Necklace.
+Some of these dialogue names therefore may seem odd.
 */
 IF ~Global("X3milyTalk","GLOBAL",10)~ EmilyT5
-SAY @150 // ~Well, I think I've come up with a solution to our fletcher issues.~
-++ @151 + EmilyT5.Solution // ~What is it?~ 
-++ @152 + EmilyT5.BuyingOut // ~Is it buying out all of the stores?~
+SAY @150 // ~Did I tell you about the necklace I am wearing?~
+++ @151 + EmilyT5.Solution // ~I've seen you use it before. It holds some sort of magic, doesn't it?~ 
+++ @152 + EmilyT5.BuyingOut // ~No, you've never mentioned it.~
 ++ @153 + EmilyT5.NotNow // ~This isn't the time.~
 END 
 
 IF ~~ EmilyT5.Solution 
-SAY @154 // ~I'll be *the* fletcher! Briliant, right?~
-++ @155 + EmilyT5.Good // ~That's a good idea, but how will that work?~
-++ @156 + EmilyT5.Bad // ~Are you sure you've thought this through? We don't have the supplies.~
-++ @157 + EmilyT5.Bad // ~It sounds underwhelming.~
+SAY @154 // ~I always just remember it around my neck. I think it was from my birth mother, but my father would never really say. Honestly, I had no idea it could free someone who was frozen by the will of a mage until I accidentally came across two apprentice boys dueling in the courtyard.~
+++ @155 + EmilyT5.Good // ~What happened next?~
+++ @156 + EmilyT5.Bad // ~What were you doing so near a magic duel?~
+++ @157 + EmilyT5.Exactly // ~Let me guess, one of them got paralyzed?~
 END 
 
 IF ~~ EmilyT5.BuyingOut 
-SAY @158 // ~You are a silly one, buying out every store. We'd need a huge wagon.~
+SAY @158 // ~Really? I thought I might have explained why I press my hand around it a lot. It's not because I'm weird, I swear.~
 IF ~~ + EmilyT5.Solution 
 END 
 /* Unlike other "Let's talk later" chats, this one can be re-visited with P.I.D. */ 
 IF ~~ EmilyT5.NotNow
-SAY @159 // ~Well, just talk to me when you have time then, hmm?~
-IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)SetGlobal("X3milyCraftTalk","GLOBAL",1)~ EXIT
+SAY @159 // ~Oh. I understand, then. Another time!~
+IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
 END
 
 IF ~~ EmilyT5.Good 
-SAY @158 //  ~With improved launchers, we hit more, and use less ammo, therefore we become more efficient.~ 
-= @159 // ~I've some special string I've managed to spin. It's enough for one launcher, so its best we choose wisely.~
-= @160 // ~And I've figured out how to fletch some arrows for myself so I'm not always using the ones we find or buy. It's a bit slow, and I don't think anyone else could make use of them, but it might help a little. Just tell me to fletch an arrow or talk to me about our launchers sometime, and I'll help as best as I can.~
-++ @161 + EmilyT5.Will // ~I will, Emily, thanks!~
-++ @162 + EmilyT5.Not  // ~I don't know if I will need it, but I'll let you know.~
-++ @163 + EmilyT5.NotArcher // ~I'm not much of an archer.~ 
+SAY @158 //  ~I can't remember the boy's name, Richard maybe, he got paralyzed. The other boy found it so funny and started poking him. I went in and told him he should release him, then when I put my hand on Richard, my necklace glowed, and he was freed.~ 
+= @159 // ~The boy was so shocked he just started staring at me like I had something funny on my face. He didn't see Richard get so furious he punched him right in the jaw.~
+= @160 // ~The house guards had to separate them, and I got chastised for being late to my lesson.~
+++ @161 + EmilyT5.Will // ~That was a funny discovery of its power.~
+++ @162 + EmilyT5.Not  // ~You got chastised for that? You did nothing wrong.~
+++ @163 + EmilyT5.NotArcher // ~That's it? I was expecting a grander story.~ 
 END 
 
 IF ~~ EmilyT5.Bad 
-SAY @164 // ~Oh, so little faith, <CHARNAME>! 
+SAY @164 // ~Well I was on my way to a lesson from one of the Ladies, but they were half-naked for some reason, and I was noticing their torso was like carved mountain. On a mage, even, can you believe it? So very distracting, that, in an enjoyable way.~
+IF ~~ + EmilyT5.Good 
+END 
+
+// New! 
+IF ~~ EmilyT5.Exactly 
+SAY @701 // ~Exactly. You, <CHARNAME>, are a good listener.~ 
 IF ~~ + EmilyT5.Good 
 END 
 
 IF ~~ EmilyT5.Will 
-SAY @165 // ~Anytime! We are friends. At least I hope so.~ 
+SAY @165 // ~That's what I thought. When you don't have the ability to figure out how something works, it could manifest itself in an odd moment.~ 
 IF ~~ + EmilyT5.Anyway
 END 
 
 IF ~~ EmilyT5.Not 
-SAY @166 // ~Will do, <CHARNAME>.
-= ~Anyway, just remember to speak with me if you are ever in need!~
+SAY @166 // ~I know! I was even helping. Surely if a lady is being a hero, she can be late. Especially for helping a cute boy. You're only a young girl once.~
 IF ~~ + EmilyT5.Anyway
 END 
 
 IF ~~ EmilyT5.NotArcher 
-SAY @167 // ~Well, I am, and if nothing else, it will help me better help you. Just let me know!~
+SAY @167 // ~Well, I'm not the best story teller, it's just a childhood memory. Childhoods aren't usually so dark and grim. At least you'd hope not.~
 IF ~~ + EmilyT5.Anyway
 END 
 
 IF ~~ EmilyT5.Anyway 
-SAY @685 // ~Anyway, just remember to speak with me if you are ever in need!~
-IF ~~ DO ~RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)IncrementGlobal("X3milyTalk","GLOBAL",1)SetGlobal("X3milyCraft","GLOBAL",1)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
+SAY @685 // ~Anyway, I know the road awaits us. We can swap some more tales another time.~
+IF ~~ DO ~RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)IncrementGlobal("X3milyTalk","GLOBAL",1)~ EXIT
 END
 
 // New Talk 8 
@@ -1368,9 +1369,9 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","
  +~RandomNum(3,2)~+ @353 + Emily.PThinkingAbout1b //~What are you thinking about?~
  +~RandomNum(3,3)~+ @353 + Emily.PThinkingAbout1c  //~What are you thinking about?~
  ++ @359 + Emily.PTalk // ~Let's stop and chat for a bit.~ 
- +~Global("X3milyCraftTalk","GLOBAL",1)~+ @170 + Emily.PCraftTalk // ~You wanted to tell me something earlier?~
-+~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
-+~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
+ //+~Global("X3milyCraftTalk","GLOBAL",1)~+ @170 + Emily.PCraftTalk // ~You wanted to tell me something earlier?~
+//+~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
+//+~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
  ++ @169  EXIT
@@ -1481,7 +1482,7 @@ SAY  @173 // ~What would you like to talk about?~
 +~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
 +~RandomNum(3,2)~+ @191 + Emily.PArchery2
 +~RandomNum(3,3)~+ @191 + Emily.PArchery3
-+~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @192 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~ For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
+//+~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @192 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~ For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
 +~GlobalGT("X3milyTalk","GLOBAL",10)!Dead("X3dal")Global("X3milyPCarryTopic","GLOBAL",0)~+ @171 DO ~SetGlobal("X3milyPCarryTopic","GLOBAL",1)~ + Emily.PCarry /* Can I carry your pack? */ // This appears post quest, mother Alive only. 
 
 END 
