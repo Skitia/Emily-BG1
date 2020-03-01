@@ -205,7 +205,7 @@ Global("bd_joined","locals",0)~ THEN join_again
 END
 
 IF ~Global("bd_joined","locals",0)~ THEN join_again
-  SAY ~Hey there, <CHARNAME>. The expedition seems quite happy to have a fletcher help out. I would prefer to be out there with you, though.~
+  SAY ~Hey there, <CHARNAME>. It's nice to chat with these other expeditioners, I'm glad to fight alongside them. I would prefer to be out there with you, though.~
   ++ ~And I would love to have you once more.~ + kickout_4
   ++ ~Just remain here and await my return, all right?~ + kickout_3
   ++ ~Keep fletching. We'll need every arrow.~ + kickout_30 
