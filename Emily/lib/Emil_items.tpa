@@ -19,7 +19,7 @@ Charge abilities (Once per day):
 
 Weight: 1~*/
  OUTER_SET strref = RESOLVE_STR_REF (@96) // ~Sorry, <CHARNAME>. I can't give that up.~
-APPEND item_use.2da ~X3EHEAD Emily %strref% 3~
+APPEND item_use.2da ~X3EN Emily %strref% 3~
 	 
 COPY ~Emily/Item/X3EHEAD.itm~ ~override/X3EHEAD.itm~ 
 SAY NAME1 @94 // ~Emily's Silver Circlet~
