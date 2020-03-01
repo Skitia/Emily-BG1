@@ -142,33 +142,32 @@
 @137 = ~We're pinched for funds right now.~
 @138 = ~It is. Do you have any ideas?~
 @139 = ~I guess we're fine, but we could do better.~
-@140 = ~That's nice, <CHARNAME>. But maybe...~
-@141 = ~Skill won't do anything against magic wards. We should be tactical about this.~
-@142 = ~I understand, <CHARNAME>.~ 
-@143 = ~Let me think of a resolution. I'll get back to you later.~ 
+@140 = ~That's nice, <CHARNAME>. I could also use a pair of new boots...and so many other things that will cause us to run out of gold faster. Good thing you're in charge of the funds.~
+@141 = ~Skill won't do anything against magic wards. And plain arrows look plain. Hrm, that sounds rather silly of me.~
+@142 = ~I understand, <CHARNAME>. It's good you're in charge of the funds. I'd have us in a bit of trouble with my urge, I just love getting a new pair of boots.~
+@143 = ~I guess that is what make battle dangerous. Someone else could have better, top notch equipment over us, someone more wicked and malicious.~ 
 @144 = ~Finally, we're in the city.~
 @145 = ~Perhaps a good place to start would be the Blade and Stars Inn. We could ask if anyone's heard of my mother there. Someone's bound to recognize her name.~
-@150 = ~Well, I think I've come up with a solution to our fletcher issues.~
-@151 = ~What is it?~ 
+@150 = ~Did I tell you about the necklace I am wearing?~
+@151 = ~No, you've never mentioned it.~
 @152 = ~Is it buying out all of the stores?~
 @153 = ~This isn't the time.~
-@154 = ~I'll be *the* fletcher! Brilliant, right?~
-@155 = ~That's a good idea, but how will that work?~
+@154 = ~I always just remember it around my neck. I think it was from my birth mother, but my father would never really say. Honestly, I had no idea it could free someone who was frozen by the will of a mage until I accidentally came across two apprentice boys dueling in the courtyard.~
+@155 = ~What happened there?~
 @156 = ~Are you sure you've thought this through? We don't have the supplies.~
 @157 = ~It sounds underwhelming.~
-@158 = ~You are a silly one, buying out every store. We'd need a huge wagon.~
-@159 = ~Well, just talk to me when you have time then, hmm?~
-@158 = ~There's plenty of supplies around to make arrows, and we come up with some useful items as well to make some nifty arrows, bolts, or bullets.~
-@159 = ~And I could even make bullets or other throwing weapons if it was a real necessity, maybe even improve on a bow.~
-@160 = ~And I've figured out how to fletch some arrows for myself so I'm not always using the ones we find or buy. It's a bit slow, and I don't think anyone else could make use of them, but it might help a little. Just tell me to fletch an arrow or talk to me about our launchers sometime, and I'll help as best as I can.~
-@161 = ~I will, Emily, thanks!~
-@162 = ~I don't know if I will need it, but I'll let you know.~
-@163 = ~I'm not much of an archer.~ 
-@164 = ~Oh, so little faith, <CHARNAME>!~ 
-@165 = ~Anytime!~ 
-@166 = ~Will do, <CHARNAME>.~
-@167 = ~Well, I am, and if nothing else, it will help me better help you. Just let me know!~
-@168 = ~Something you need?~ [Emilcs4]
+@158 = ~Really? I thought I might have explained why I press my hand around it a lot. It's not because I'm weird, I swear.~
+@159 = ~Oh. I understand, then. Another time!~
+@158 =  ~I can't remember the boy's name, Richard maybe, he got paralyzed. The other boy found it so funny and started poking him. I went in and told him he should release him, then when I put my hand on Richard, my necklace glowed, and he was freed.~ 
+@159 = ~The boy was so shocked he just started staring at me like I had something funny on my face. He didn't see Richard get so furious he punched him right in the jaw.~
+@160 = ~The house guards had to seperate them, and I got chastised for being late to my lesson.~
+@161 = ~Boys will be boys, I guess.~
+@162 = ~You got chastised for that? You did nothing wrong.~
+@163 = ~That's it? I was expecting a grander story.~ 
+@164 = ~Well, they were half-naked for some reason, and I was going through changes and really noticing their torso was like carved mountain. On a mage, even, can you believe it? So very distracting, that, in a good way.~ 
+@165 = ~That's what I thought. When you don't have the ability to figure out how something works, it could manifest itself in an odd moment.~ 
+@166 = ~I know! I was even helping. Surely if a lady is being a hero, she can be late. Especially for helping a cute boy. You're only a young girl once.~
+@167 = ~Well, I'm not the best story teller, it's just a childhood memory. Childhoods aren't usually so dark and grim. At least you'd hope not.~@168 = ~Something you need?~ [Emilcs4]
 @169 = ~I need nothing at the moment.~ 
 @170 = ~You wanted to tell me something earlier?~
 @171 = ~You seem burdened. Would you like me to carry your pack for a while?~ 
@@ -695,14 +694,14 @@
 //1.31 Fixes 
 @684 = ~Selfish indulgence? Why, I ought to have you educated on excellence in fashionable attire.~
 // Same Exit line for 1.41 
-@685 = ~Anyway, just remember to speak with me if you are ever in need!~
-@686 = ~I will get back with you if I come up with something.~
-@687 = ~You don't have to, Emily~
+@685 =  ~Anyway, I know the road awaits us. We can swap some more tales another time.~
+@686 = ~It makes me wonder if training can overcome quality equipment.~
+@687 = ~Equipment is no good if you don't know how to use it properly.~
 @688 = ~I think we will be all right, really.~
 @689 = ~I can see the point in that. Let me know what you come up with.~
-@690 = ~I know, I know, but I want to be helpful! At least as much as I can be. I'll get back with you later.~
-@691 = ~You say that now, and then I'm shooting air, and someone else is screaming...okay, maybe I am screaming. Nevermind all that, I'll get back with my idea to you later.~
-@692 = ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. Anyway! I wil get back to you with my idea.~
+@690 = ~You have a point their, leader. Let's hope all of our enemies are so poorly trained.~
+@691 = ~Isn't that stealing? Sort of? I mean if they're dead? It does make me feel guilty sometimes when we take things from the dead...I know, it's weird! You know what? Forget I said anything.~
+@692 = ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. At least we've managed this long, unless the gods are toying with us and just like watching us struggle.~
 // Emily 1.42 Fixes 
 @693 = ~A tip? Don't miss. Hey, I'm serious now. Sometimes that one shot counts.~
 @694 = ~Quality equipment can make an enormous difference. Expensive arrows will aid you when it counts.~
@@ -712,3 +711,5 @@
 @698 = ~Recorder.~
 @699 = ~I've never met a dwarven women before, are they all so...crazy for battle? The face she makes after a fight is a little disturbing.~
 @700 = ~I really like her music. She's so sweet and gentle. I worry someone will take advantage of that.~
+// New 2020 Stuff 
+@701 = ~Exactly. You, <CHARNAME>, are a good listener.~
