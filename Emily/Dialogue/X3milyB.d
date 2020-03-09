@@ -429,13 +429,13 @@ See("X3mily")
 CombatCounter(0)
 !See([ENEMY])
 Global("X3milyImoen1","GLOBAL",1)~ THEN X3milyB X3milyImoen2
-@130 // ~Imoen, I'm missing my comb, have you seen it?~
+@226 // ~Imoen, I'm missing my comb, have you seen it?~
 DO ~SetGlobal("X3milyImoen1","GLOBAL",2)~
-== BIMOEN @131 // ~Nope. Why you asking?~
-== X3milyB @132 // ~Odd. Hey, your hair is looking splendid this morning. What did you do differently?~
-== BIMOEN @133 // ~Oh nothing, nothing. Just gave it a good ol' co- aww, puff rats.~
-== X3milyB @134 // ~You can keep it, now! You could have just said you didn't pack one for yourself.~
-== BIMOEN @135 // ~Aww, thanks Emily.~ 
+== BIMOEN @227 // ~Nope. Why you asking?~
+== X3milyB @228 // ~Odd. Hey, your hair is looking splendid this morning. What did you do differently?~
+== BIMOEN @229 // ~Oh nothing, nothing. Just gave it a good ol' co- aww, puff rats.~
+== X3milyB @230 // ~You can keep it, now! You could have just said you didn't pack one for yourself.~
+== BIMOEN @231 // ~Aww, thanks Emily.~ 
 EXIT 
 
 // Ajantis 2 
