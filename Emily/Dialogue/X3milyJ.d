@@ -1476,8 +1476,8 @@ SAY  @173 // ~What would you like to talk about?~
 +~GlobalGT("X3milyTalk","GLOBAL",6)Global("X3milyPFatherTopic","GLOBAL",1)~+ @185 DO ~SetGlobal("X3milyPFatherTopic","GLOBAL",1)~  + Emily.PT3Father // ~So, tell me a bit about your father. You seem to think well of him.~
 +~GlobalGT("X3milyTalk","GLOBAL",8)Global("X3milyPBrotherTopic","GLOBAL",0)~+ @186 DO ~SetGlobal("X3milyPBrotherTopic","GLOBAL",1)~  + Emily.PT4Brother // ~Your relationship with your brother, is there nothing in it you enjoy?~
 +~GlobalGT("X3milyTalk","GLOBAL",10)Global("X3milyPParentsTopic","GLOBAL",0)~+ @187 DO ~SetGlobal("X3milyPParentsTopic","GLOBAL",1)~  + Emily.PT5Parents // ~When will your parents expect you back?~
-+~GlobalGT("X3milyTalk","GLOBAL",10)Global("X3milyPMotherTopic","GLOBAL",0)~+ @188 DO ~SetGlobal("X3milyPMotherTopic","GLOBAL",1)~ + Emily.PT6Mother // ~What do you think, now that you've met your birth mother?~
-+~GlobalGT("X3milyTalk","GLOBAL",12)Global("X3milyPAasimarTopic","GLOBAL",0)~+ @189 DO ~SetGlobal("X3milyPAasimarTopic","GLOBAL",1)~ + Emily.PT7Aasimar // ~The revelation from your birth mother still seems to bother you a lot.~
++~GlobalGT("X3milyTalk","GLOBAL",12)Global("X3milyPMotherTopic","GLOBAL",0)~+ @188 DO ~SetGlobal("X3milyPMotherTopic","GLOBAL",1)~ + Emily.PT6Mother // ~What do you think, now that you've met your birth mother?~
++~GlobalGT("X3milyTalk","GLOBAL",14)Global("X3milyPAasimarTopic","GLOBAL",0)~+ @189 DO ~SetGlobal("X3milyPAasimarTopic","GLOBAL",1)~ + Emily.PT7Aasimar // ~The revelation from your birth mother still seems to bother you a lot.~
 +~Global("X3milyPTethyrTopic","GLOBAL",0)~+ @190 DO ~SetGlobal("X3milyPTethyrTopic","GLOBAL",1)~ + Emily.PTethyr // ~What can you tell me about Tethyr, your homeland?~ For Kale, Gullykin. For Vienxay, Evermeet. 
 +~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
 +~RandomNum(3,2)~+ @191 + Emily.PArchery2
