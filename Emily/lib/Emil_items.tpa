@@ -58,8 +58,8 @@ SAY DESC  @53
     END
 	
 COPY_EXISTING ~Emily/Item/X3EQRLS.itm~ ~override/X3EQRLS.itm~
-SAY NAME1 @59
-SAY NAME2 @59
+SAY NAME1 @99
+SAY NAME2 @99
 SAY DESC @60
   LPF ALTER_EFFECT
       INT_VAR
@@ -92,7 +92,15 @@ SAY NAME1 @65
 SAY NAME2 @65 
 SAY DESC @66 
 
-
+COPY_EXISTING ~Emily/Item/X3Bow04.itm~ ~override/X3Bow04.itm~
+SAY NAME1 @97
+SAY NAME2 @97
+SAY DESC @98 
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
 
 
   
@@ -117,49 +125,19 @@ SAY DESC @70
 SAY NAME1 @72
 SAY NAME2 @72
 SAY DESC @82
-    LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (@1)
-	STR_VAR
-	  resource = X3mily
-END
+
 
  COPY_EXISTING ~%MOD_FOLDER%/Item/x3EArro2.itm~ ~override/x3EArro2.itm~
 SAY NAME1 @73
 SAY NAME2 @73
 SAY DESC @83
-    LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (@1)
-	STR_VAR
-	  resource = X3mily
-END
+
 
  COPY_EXISTING ~%MOD_FOLDER%/Item/x3EArro3.itm~ ~override/x3EArro3.itm~
 SAY NAME1 @74
 SAY NAME2 @74
 SAY DESC @84
-    LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (@1)
-	STR_VAR
-	  resource = X3mily
-END
+
 
  COPY_EXISTING ~%MOD_FOLDER%/Item/x3EArro4.itm~ ~override/x3EArro4.itm~
 SAY NAME1 @75
@@ -170,49 +148,19 @@ COPY_EXISTING ~%MOD_FOLDER%/Item/x3EBolt1.itm~ ~override/x3EBolt1.itm~
 SAY NAME1 @76
 SAY NAME2 @76
 SAY DESC @86
-    LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (@1)
-	STR_VAR
-	  resource = X3mily
-END
+
 
  COPY_EXISTING ~%MOD_FOLDER%/Item/x3EBolt2.itm~ ~override/x3EBolt2.itm~
 SAY NAME1 @77
 SAY NAME2 @77
 SAY DESC @87
-    LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (@1)
-	STR_VAR
-	  resource = X3mily
-END
+
 
  COPY_EXISTING ~%MOD_FOLDER%/Item/x3EBolt3.itm~ ~override/x3EBolt3.itm~
 SAY NAME1 @78
 SAY NAME2 @78
 SAY DESC @88
-    LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (@1)
-	STR_VAR
-	  resource = X3mily
-END
+
 
  COPY_EXISTING ~%MOD_FOLDER%/Item/x3EBolt4.itm~ ~override/x3EBolt4.itm~
 SAY NAME1 @79

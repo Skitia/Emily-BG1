@@ -65,6 +65,7 @@ LAF HANDLE_AUDIO END
 
 OUTER_SET aas_lcase = RESOLVE_STR_REF(@56 /* aasimar */)
 OUTER_SET aas_ucase = RESOLVE_STR_REF(@56 /* Aasimar */)
+
 APPEND ~racetext.2da~ ~AASIMAR   185        %aas_lcase%       -1         %aas_ucase%          -1~ UNLESS ~AASIMAR~
 
 // Character 
