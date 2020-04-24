@@ -1293,8 +1293,8 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN Emily.PID
  +~HPPercentLT(Myself,50)~+ ~How are you doing?~ + Emily.PHowAreYouHurt // ~How are you doing?~ //(Under 50%)
  ++ ~Let's stop and chat for a bit.~  + Emily.PTalk // ~Let's stop and chat for a bit.~ 
 // +~!Global("X3milyCraftTalk","GLOBAL",2)~+ ~Are you able to fletch arrows?~ DO ~SetGlobal("X3milyCraftTalk","GLOBAL",2)~ + Emily.PCraftTalk2 // 
-//+~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
-//+~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ ~Can I check on your progress of your craft?~  + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ ~Can I check on your progress of your craft?~  + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
  ++ ~Nothing at the moment.~  EXIT
@@ -1649,7 +1649,7 @@ SAY  ~What would you like to talk about?~
 +~RandomNum(3,1)~+ ~Can you give me any tips about archery?~  + Emily.PArchery1 // ~Can you give me any tips about archery?~ 
 +~RandomNum(3,2)~+ ~Can you give me any tips about archery?~  + Emily.PArchery2
 +~RandomNum(3,3)~+ ~Can you give me any tips about archery?~  + Emily.PArchery3
-//+~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ ~Can you tell me more about Fletching?~ DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~ For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
++~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ ~Can you tell me more about Fletching?~ DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~ For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
 END 
 
 IF ~~ Emily.PCompanionThoughts 

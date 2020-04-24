@@ -447,7 +447,8 @@ IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTim
 END 
 
 IF ~~ Emily.T4C
-SAY @692 // ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. At least we've managed this long, unless the gods are toying with us and just like watching us struggle.~IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
+SAY @692 // ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. At least we've managed this long, unless the gods are toying with us and just like watching us struggle.~
+IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
 END 
 
 // Talk 5 
@@ -866,6 +867,90 @@ SAY @450 // ~Well...you are a very noble caring man. The idea is tempting, it's 
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1)SetGlobal("X3milyPIDOFF","GLOBAL",0)~ EXIT 
 END 
 
+// New Craft Talk: Chapter 3, is in Beregost 
+IF ~Global("X3milyCraft","GLOBAL",1)~ EmilyT.Craft
+SAY @702 // ~You know, it's funny how we're back in the same place we met, Beregost. It's not been so long, but...I'm glad to be along, and not stuck in a keep.~
+++ @703 + Craft.1 // ~Aye, though we still have a long way to go before our road is finished, I fear.~
+++ @704 + Craft.2 // ~You've been a valuable contribution. I think I should be the one glad to have you along.~
+++ @705 + Craft.3 // ~We don't have time for idle banter, Emily.~
+++ @706 + Craft.4 // ~You've said as much before. I'm glad to know you're enjoying being a pretend commoner.~
+END 
+
+IF ~~ Craft.1 
+SAY @707 // ~Ha, all the more opportunities to get lost in the wonders of the wilderness, then. But, I did have something I want to mention to you.~
+IF ~~ + Craft.5
+END 
+
+IF ~~ Craft.2 
+SAY @708 // ~I...that's nice to hear, <CHARNAME>. I was always worried after I left home I would be too green to succeed at this. But anyway, I had something I wanted to speak about.~
+IF ~~ + Craft.5
+END 
+
+IF ~~ Craft.3 
+SAY @709 // ~Wait, I didn't mean to just talk, talk, talk. I did have something to mention.~
+IF ~~ + Craft.5
+END 
+
+IF ~~ Craft.4
+SAY @710 // ~Sometimes <CHARNAME>, you're a bit of a donkey's hindquarters. I don't even know why I am about to mention this, but it will help our group I hope.~
+IF ~~ + Craft.5
+END 
+
+IF ~~ Craft.5 
+SAY @711 // ~A little while before I left, I had a meeting with an elf who claimed to be a friend of my blood mother. I admit, his presence helped spark my desire to find her at all.~
+= @712 // ~He taught me how to enchant arrows with the weave and be an even better archer than I was. Father didn't trust him, but I was able to secure an audience with him once a tenday. I always asked him questions about my mother, but he would never answer.~
+= @713 // ~He seemed only intent to teach me about wielding the arcane and combining it with archery, because it was "What she would have taught me." One lesson around that was doing this with fletching, which I knew a little about.~
+++ @714 + Craft.6 // ~What became of the elf after your training?~
+++ @715 + Craft.7 // ~You can make arrows, then?~
+++ @716 + Craft.7 // ~What are you getting at?~ 
++~!InParty("X3Rec")~+ @717 + Craft.8 //~Emily...you're getting a longwinded here.~ 
++~InParty("X3Rec")~+ @718 + Craft.9 // ~Emily...you're getting a longwinded here.~ 
+END 
+
+IF ~~ Craft.6
+SAY @719 // ~He had an audience with my father one day, and then never came back. A few days later, I was leaving the keep wtih my father's permission to search for my mother. I think he told him what he knew, and that I should go find her. But I'll never know, really.~
+= @720 // ~What he taught me that stuck though, was making arrows and bolts. I've got a bit of supplies from our travels, and I think I could make a few batches, if you'd like. I only have so many materials, and can only do so many at once, but if we're low on quality ammunition, it's another option.~
+++ @724 + Craft.10  // ~Thank you Emily. This could be useful.~
+++ @725 + Craft.11 // ~How many batches do you think you could make?~
+++ @726 + Craft.12 // ~I don't think that will be necessary.~
+END 
+
+IF ~~ Craft.7
+SAY @721 // ~I can make arrows or bolts with the lessons I was taught. They're not the same as the ones we'll find in stores, and I can only make so many batches before I run out of materials. But it may help us if we run into a situation where we're low on quality ammunition.~
+++ @724 + Craft.10  // ~Thank you Emily. This could be useful.~
+++ @725 + Craft.11 // ~How many batches do you think you could make?~
+++ @726 + Craft.12 // ~I don't think that will be necessary.~
+END 
+
+IF ~~ Craft.8 
+SAY @722 // ~Oops, I do that sometimes. I do like to tell a good story now and then. Let me get to my point.~
+IF ~~ + Craft.7
+END 
+
+IF ~~ Craft.9
+SAY @723 // ~Oops, I didn't mean to drawl on. Maybe I should ask Recorder for tips on how to tell a story more elegantly. Let me get to my point.~
+IF ~~ + Craft.7
+END 
+
+IF ~~ Craft.10 
+SAY @728 // ~Well, I aim to be useful, and not just with my bow. I know, bad joke.~
+IF ~~ + Craft.13 
+END 
+
+IF ~~ Craft.11 
+SAY @729 // ~I've enough materials to make twenty batches of a dozen bolts or arrows at a time. Once I'm out, I won't be able to make anymore, but it should be nifty in a pinch.~
+IF ~~ + Craft.13 
+END 
+
+IF ~~ Craft.12 
+SAY @730 // ~Well, you never know. Or maybe you do know. The offer is always open.~
+IF ~~ + Craft.13 
+END 
+
+IF ~~ Craft.13 
+SAY @727 // ~I even have a bit of string I could use to modify and improve a bow or crossbow. Just not...any bow or crossbow? We wouldn't want to waste good bow string. Just talk to me when you have a bow or crossbow you want to see if we can modify a bit.~
+IF ~~ DO ~SetGlobal("X3milyCraftTalk","GLOBAL",1)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
+END  
 
 // Quest Reminder Upon Entering Baldur's Gate
 
@@ -1370,8 +1455,8 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","
  +~RandomNum(3,3)~+ @353 + Emily.PThinkingAbout1c  //~What are you thinking about?~
  ++ @359 + Emily.PTalk // ~Let's stop and chat for a bit.~ 
  //+~Global("X3milyCraftTalk","GLOBAL",1)~+ @170 + Emily.PCraftTalk // ~You wanted to tell me something earlier?~
-//+~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
-//+~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
++~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
++~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
  ++ @169  EXIT
@@ -1482,7 +1567,7 @@ SAY  @173 // ~What would you like to talk about?~
 +~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
 +~RandomNum(3,2)~+ @191 + Emily.PArchery2
 +~RandomNum(3,3)~+ @191 + Emily.PArchery3
-//+~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @192 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~ For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
++~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @192 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~  
 +~GlobalGT("X3milyTalk","GLOBAL",10)!Dead("X3dal")Global("X3milyPCarryTopic","GLOBAL",0)~+ @171 DO ~SetGlobal("X3milyPCarryTopic","GLOBAL",1)~ + Emily.PCarry /* Can I carry your pack? */ // This appears post quest, mother Alive only. 
 
 END 
@@ -2099,7 +2184,7 @@ SAY @204 // ~I watched some of the laborers in the estate. I just might have sne
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
+//+~GlobalLT("X3milyAtWork","GLOBAL",1)~+ @203 + Emily.PCraft // ~Speaking of, can you make me something?~ 
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
@@ -2108,19 +2193,14 @@ SAY @205 // ~At first. Repetition gives you mastery, and soon enough it's as sim
 ++ @197 + Emily.PFletchR1 // ~How did you learn?~ 
 ++ @200 + Emily.PFletchR3 // ~How is stronger ammunition achieved?~
 ++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-+~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
-+~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
-
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
 IF ~~ Emily.PFletchR3 
 SAY @206 // ~Enchanting, mostly. It's not easy, but it's what I do on my own arrows.~
+++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
 ++ @197 + Emily.PFletchR1 // ~How did you learn?~ 
 ++ @199 + Emily.PFletchR2 // ~It sounds complicated.~
-++ @202 + Emily.PTalk // ~Let's talk about something else.~ 
-+~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
-+~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
 ++ @201 EXIT // ~Let's keep moving.~
 END 
 
