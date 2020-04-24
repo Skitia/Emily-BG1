@@ -697,8 +697,8 @@
 @685 =  ~Anyway, I know the road awaits us. We can swap some more tales another time.~
 @686 = ~It makes me wonder if training can overcome quality equipment.~
 @687 = ~Equipment is no good if you don't know how to use it properly.~
-@688 = ~I think we will be all right, really.~
-@689 = ~I can see the point in that. Let me know what you come up with.~
+@688 = ~Once they fall, their good equipment is our equipment for the taking.~
+@689 = ~I can see the worry in that. Hopefully we can manage.~
 @690 = ~You have a point their, leader. Let's hope all of our enemies are so poorly trained.~
 @691 = ~Isn't that stealing? Sort of? I mean if they're dead? It does make me feel guilty sometimes when we take things from the dead...I know, it's weird! You know what? Forget I said anything.~
 @692 = ~See? I am so glad you agree. Because sometimes I do worry my thoughts are odd. At least we've managed this long, unless the gods are toying with us and just like watching us struggle.~
@@ -713,3 +713,34 @@
 @700 = ~I really like her music. She's so sweet and gentle. I worry someone will take advantage of that.~
 // New 2020 Stuff 
 @701 = ~Exactly. You, <CHARNAME>, are a good listener.~
+// Return of Crafting 
+@702 = ~You know, it's funny how we're back in the same place we met, Beregost. It's not been so long, but...I'm glad to be along, and not stuck in a keep.~
+@703 = ~Aye, though we still have a long way to go before our road is finished, I fear.~
+@704 = ~You've been a valuable contribution. I think I should be the one glad to have you along.~
+@705 = ~We don't have time for idle banter, Emily.~
+@706 = ~You've said as much before. I'm glad to know you're enjoying being a pretend commoner.~
+@707 = ~Ha, all the more opportunities to get lost in the wonders of the wilderness, then. But, I did have something I want to mention to you.~
+@708 = ~I...that's nice to hear, <CHARNAME>. I was always worried after I left home I would be too green to succeed at this. But anyway, I had something I wanted to speak about.~
+@709 = ~Wait, I didn't mean to just talk, talk, talk. I did have something to mention.~
+@710 = ~Sometimes <CHARNAME>, you're a bit of a donkey's hindquarters. I don't even know why I am about to mention this, but it will help our group I hope.~
+@711 = ~A little while before I left, I had a meeting with an elf who claimed to be a friend of my blood mother. I admit, his presence helped spark my desire to find her at all.~
+@712 = ~He taught me how to enchant arrows with the weave and be an even better archer than I was. Father didn't trust him, but I was able to secure an audience with him once a tenday. I always asked him questions about my mother, but he would never answer.~
+@713 = ~He seemed only intent to teach me about wielding the arcane and combining it with archery, because it was "What she would have taught me." One lesson around that was doing this with fletching, which I knew a little about.~
+@714 = ~What became of the elf after your training?~ 
+@715 = ~You can make arrows, then?~
+@716 = ~What are you getting at?~
+@717 = ~Emily...you're getting a longwinded here.~ 
+@718 = ~Emily...you're getting a longwinded here.~ 
+@719 = ~He had an audience with my father one day, and then never came back. A few days later, I was leaving the keep wtih my father's permission to search for my mother. I think he told him what he knew, and that I should go find her. But I'll never know, really.~
+@720 = ~What he taught me that stuck though, was making arrows and bolts. I've got a bit of supplies from our travels, and I think I could make a few batches, if you'd like. I only have so many materials, and can only do so many at once, but if we're low on quality ammunition, it's another option.~
+@721 = ~I can make arrows or bolts with the lessons I was taught. They're not the same as the ones we'll find in stores, and I can only make so many batches before I run out of materials. But it may help us if we run into a situation where we're low on quality ammunition.~ 
+@722 = ~Oops, I do that sometimes. I do like to tell a good story now and then. Let me get to my point.~
+@723 = ~Oops, I didn't mean to drawl on. Maybe I should ask Recorder for tips on how to tell a story more elegantly. Let me get to my point.~
+@724 = ~Thank you Emily. This could be useful.~
+@725 = ~How many batches do you think you could make?~ 
+@726 = ~I don't think that will be necessary.~ 
+@727 = ~I even have a bit of string I could use to modify and improve a bow or crossbow. Just not...any bow or crossbow? We wouldn't want to waste good bow string. Just talk to me when you have a worthy launcher you want to improve.~
+@728 = ~Well, I aim to be useful, and not just with my bow. I know, bad joke.~
+@729 = ~I've enough materials to make twenty batches of a dozen bolts or arrows over time. Once I'm out, I won't be able to make anymore, but it should be nifty in a pinch.~
+@730 = ~Well, you never know. Or maybe you do know. The offer is always open.~
+

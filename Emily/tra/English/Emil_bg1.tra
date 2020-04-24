@@ -143,70 +143,81 @@ We managed to convince Jacob to leave the crusade.~
 
 // Items 
 
-@50 = ~Sniper's Longbow~
-@51 = ~This enchanted longbow enhances the user's accuracy and sniping capability, giving the longbow it's name. An enhancement done by Emily, this would be coveted by any sharpshooter. 
+@50 = ~The Dead Shot +2, Enhanced~
+@51 = ~Longbow of Marksmanship: The Dead Shot
+Driven by years of rivalry, the dukes of Spandeliyon and Delthuntle decided to organize a private contest that would proclaim the better archer between them. Both boasted the power of their magical bows, but that wasn't enough for Edwall Dest, Duke of Spandeliyon. He arranged for the theft of his opponent's bow, and on the day of the contest, he couldn't help gloat in his advantage. The Duke of Delthuntle, known only as Raymond, demanded a demonstration of Edwall's skill on a scarecrow that he had placed. Edwall Dest drew his longbow and released the arrow with determination, not stopping to think how uncannily the target resembled himself. The missile split the large voodoo doll's head in twain, and at that moment, Edwall's head did much the same.
 
 STATISTICS:
 
-THACO: +3
+THAC0: +3
 Damage: +2
 Dexterity: +1
 Speed Factor: 5
 Proficiency Type: Longbow
 Type: Two-handed
-Requires: 
-6 Strength
+Requires:
+ 6 Strength
 
-Weight: 3~
+Weight: 2~
 
-@52 = ~Sniper's Crossbow~
-@53 = ~This enchanted crossbow enhances the user's accuracy and sniping capability, giving the crossbow it's adequate name.  An enhancement done by Emily, this would be coveted by any sharpshooter.
+@52 = ~The Army Scythe +1, Enhanced~
+@53 = ~Light Crossbow of Speed: The Army Scythe
+A short-lived outpost of humans in the Frozen Forest unearthed this weapon, and many others, from the ruins of an ancient settlement deep within that cold land. Never knowing the names of their extinct benefactors, the colonists used these "tools" to carve a large territory for themselves, though in the end it was for naught. Crushed by a superior number of hobgoblins, these unfortunate souls have joined the ancients in their anonymity.
+
+Emily has modified The Army Scythe, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
 
-THACO: +2
-Damage: +4 (Missile)
+Combat abilities:
+– 1 extra attack per round
+
+THAC0: +1
+Damage: +1
+Speed Factor: 4
+Proficiency Type: Crossbow
+Type: Two-handed
+Requires:
+ 8 Strength
+
+Weight: 5~
+
+@58 = ~The Guide +2, Enhanced~
+@59 = ~Enhanced Heavy Crossbow of Accuracy: The Guide
+A favored siege weapon of King Shastir Longeve, crossbows of this type were designed for the systematic removal of defensive forces thought safe behind the battlements of castles. Scant few of these weapons survive to this day, mainly due to the eventual annihilation of the king's forces by a coalition of subjugated lands.
+
+Emily has modified the string of The Guide, enhancing it's ability to help the user be more agile and accurate.
+
+STATISTICS:
+
+THAC0: +5
+Damage: +2
 Dexterity: +1
 Speed Factor: 7
 Proficiency Type: Crossbow
 Type: Two-handed
-Requires: 
-12 Strength
+Requires:
+ 12 Strength
 
 Weight: 10~
 
-@59 = ~Sniper's Shortbow~
-@60 = ~This enchanted shortbow enhances the user's accuracy and sniping capability, giving the shortbow it's name. An enhancement done by Emily, this would be coveted by any sharpshooter. 
+@99 = ~Enhanced Protector of the Dryads +2~
+@60 = ~Enhanced Eagle Bow: Protector of the Dryads 
+In order to protect their community from an encroaching orc logging encampment, the hero Hannable the White was given this magnificent bow by the dryads of Gulthmere Forest. A deadly confrontation followed when the loggers dared to try to cut down a great oak tree, nearly killing the dryad linked to it. With the help of powerful forest animals, Hannable slew entire bands of orcs before any more damage was inflicted upon the wood. The orcs were forced to abandon their plans, lest they suffer the continued wrath of Hannable and the forest. Needless to say, the hero who aided the grateful dryads lived happily... nay, VERY happily ever after!
+
+Emily has modified the string of the Eagle Bow, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
 
-THACO: +2
+THAC0: +2
 Damage: +2
 Dexterity: +1
 Speed Factor: 4
-Proficiency Type: Longbow
+Proficiency Type: Shortbow
 Type: Two-handed
-Requires: 
-6 Strength
+Requires:
+ 6 Strength
 
 Weight: 2~
-
-@58 = ~Sniper's Light Crossbow~
-@59 = ~This enchanted crossbow enhances the user's accuracy and sniping capability, giving the crossbow it's adequate name.  An enhancement done by Emily, this would be coveted by any sharpshooter.
-
-STATISTICS:
-
-THACO: +1
-Damage: +1 
-Dexterity: +1
-1 Extra Attack Per round
-Speed Factor: 4
-Proficiency Type: Crossbow
-Type: Two-handed
-Requires: 
-8 Strength
-
-Weight: 5~
 
 // Creatures
 
@@ -277,7 +288,7 @@ Weight: 1~
 @79 = ~Enchanted Bolt IV~
 @80 = ~Fletch Arrow~ 
 @81 = ~Fletch Bolt~
-@82 = ~This arrow fletched by Emily is a basic enchanted arrow, fast and light. It strikes with the enchantment of four different elements. Only she can make use of this arrow.
+@82 = ~This arrow fletched by Emily is a basic enchanted arrow, fast and light. It strikes with the enchantment of four different elements. 
 
 STATISTICS:
 
@@ -285,7 +296,7 @@ Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for no
 Launcher: Bow
 
 Weight: 0~
-@83 = ~This arrow fletched by Emily is a simple enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements. Only Emily can make use of this arrow.
+@83 = ~This arrow fletched by Emily is a simple enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements. 
 
 STATISTICS:
 
@@ -294,7 +305,7 @@ Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for no
 Launcher: Bow
 
 Weight: 0~
-@84 = ~This arrow fletched by Emily is a heavily enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements, and its arrowhead splinters upon contact, possibly slowing its target. Only Emily can make use of this arrow.
+@84 = ~This arrow fletched by Emily is a heavily enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements, and its arrowhead splinters upon contact, possibly slowing its target. 
 
 STATISTICS:
 
@@ -306,7 +317,7 @@ Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for no
 Launcher: Bow
 
 Weight: 0~
-@85 = ~This arrow represents Emily's finest fletching. The arrow is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. Only she may make use of its power.
+@85 = ~This arrow represents Emily's finest fletching. The arrow is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. 
 
 STATISTICS:
 
@@ -359,14 +370,14 @@ Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for no
 Launcher: Crossbow
 
 Weight: 0~
-@90 = ~Fletch Arrow: Emily fletches five enchanted arrows for her personal use. Only she may make use of the ammunition, and she may only fletch them while not in combat. 
+@90 = ~Fletch Arrow: Emily fletches a dozen enchanted arrows. She may only fletch while not in combat. 
 	As she gains levels, her skill with enchanting and fletching increases, changing the arrows properties:
 	
 	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
 	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
 	Level 12: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
 	Level 18: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~
-@91 = ~Fletch Bolt: Emily fletches five enchanted bolts for her personal use. Only she may make use of the ammunition, and she may only fletch them while not in combat. 
+@91 = ~Fletch Bolt: Emily fletches a dozen enchanted bolts. She may only fletch them while not in combat. 
 	As she gains levels, her skill with enchanting and fletching increases, changing the bolts properties:
 	
 	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
@@ -397,3 +408,26 @@ Equipped abilities:
 
 Weight: 1~ 
 @96 = ~Sorry, <CHARNAME>. I can't give that up.~
+
+@97 = ~Enhanced Bow of the Banshee +2~
+
+@98 = ~A wooden face carved mid-scream stares out from the shaft of this hardwood bow. It's whispered that the half-orc archer Zavruk had an elven soul bound into the bow, but the bow's lack of a necromantic aura casts doubt on the story. What's certain is that the bowstring makes a horrible screeching noise whenever fired, instilling fear in the wielder's enemies.
+
+Emily has modified the string of the Bow of the Banshee, enhancing it's ability to help the user be more agile and accurate.
+
+STATISTICS:
+
+Combat abilities:
+– 10% chance per hit of casting Cloak of Fear centered on the wielder
+– Deals 1 extra point of magic damage to panicked targets
+
+THAC0: +3
+Damage: +2
+Dexterity: +1
+Speed Factor: 5
+Proficiency Type: Longbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 3~
