@@ -2,7 +2,7 @@ BACKUP ~Emily\backup~
 AUTHOR ~https://forums.beamdog.com/discussion/74672/v1-54-emily-a-half-elf-archer-for-bg-ee-sod#latest~
 README ~Emily/readme.txt~
 
-VERSION ~1.55~
+VERSION ~1.56~
 AUTO_TRA ~Emily/tra/%s~
 
 ALWAYS
@@ -10,28 +10,21 @@ ALWAYS
   INCLUDE ~Emily/lib/functions.tph~
 END
 
-// Crossplatform var stuff blatantly stolen from cmorgan/gavin/bg1npc/isra!
+// 
 ALWAYS
-ACTION_IF FILE_EXISTS_IN_GAME ~neera.dlg~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
   /*Tell the player it is using BG:EE stuff */
   PRINT @100 /* BG:EE install detected */
   INCLUDE ~Emily\lib\liam_bgee_vars.tpa~
 END ELSE BEGIN
-  ACTION_IF FILE_EXISTS_IN_GAME ~FW0100.are~ THEN BEGIN
-    /* Tell the player it is using Tutu stuff */
-    PRINT @52 /* Tutu install detected. */
-    INCLUDE ~Emily\lib\g3_tutu_cpmvars.tpa~
-  END ELSE BEGIN
-    ACTION_IF FILE_EXISTS_IN_GAME ~AR7200.are~ THEN BEGIN
-        /* Tell the player it is using BGT stuff */
-        PRINT @53 /* BGT install detected. */
-        INCLUDE ~Emily\lib\g3_bgt_cpmvars.tpa~
-        /* Tell the player it is not Tutu or BGT */
-    END ELSE BEGIN FAIL @54 /* Please install on BG:EE, Tutu or BGT. */
+ 	ACTION_IF GAME_IS ~eet~ THEN BEGIN 
+		INCLUDE  ~EET/other/cpmvars/eet_cpmvars.tpa~
+  PRINT @52 /* BG:EET install detected */
+    END ELSE BEGIN FAIL @54 /* Please install on BG:EE or EET. */
     END
   END
 END
-END
+
 
 LANGUAGE ~English~
          ~english~

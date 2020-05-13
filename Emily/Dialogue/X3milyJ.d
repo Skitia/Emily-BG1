@@ -463,7 +463,7 @@ SAY @150 // ~Did I tell you about the necklace I am wearing?~
 END 
 
 IF ~~ EmilyT5.Solution 
-SAY @154 // ~I always just remember it around my neck. I think it was from my birth mother, but my father would never really say. Honestly, I had no idea it could free someone who was frozen by the will of a mage until I accidentally came across two apprentice boys dueling in the courtyard.~
+SAY @154 // ~I always just remember wearing it around my neck. I think it was from my birth mother, but my father would never really say. Honestly, I had no idea it could free someone who was frozen by the will of a mage until I accidentally came across two apprentice boys dueling in the courtyard.~
 ++ @155 + EmilyT5.Good // ~What happened next?~
 ++ @156 + EmilyT5.Bad // ~What were you doing so near a magic duel?~
 ++ @157 + EmilyT5.Exactly // ~Let me guess, one of them got paralyzed?~
@@ -868,7 +868,7 @@ IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1)SetGlobal("X3milyPIDOFF","GLOB
 END 
 
 // New Craft Talk: Chapter 3, is in Beregost 
-IF ~Global("X3milyCraft","GLOBAL",1)~ EmilyT.Craft
+IF ~Global("X3milyCraftTalk","GLOBAL",1)~ EmilyT.Craft
 SAY @702 // ~You know, it's funny how we're back in the same place we met, Beregost. It's not been so long, but...I'm glad to be along, and not stuck in a keep.~
 ++ @703 + Craft.1 // ~Aye, though we still have a long way to go before our road is finished, I fear.~
 ++ @704 + Craft.2 // ~You've been a valuable contribution. I think I should be the one glad to have you along.~
@@ -903,8 +903,8 @@ SAY @711 // ~A little while before I left, I had a meeting with an elf who claim
 ++ @714 + Craft.6 // ~What became of the elf after your training?~
 ++ @715 + Craft.7 // ~You can make arrows, then?~
 ++ @716 + Craft.7 // ~What are you getting at?~ 
-+~!InParty("X3Rec")~+ @717 + Craft.8 //~Emily...you're getting a longwinded here.~ 
-+~InParty("X3Rec")~+ @718 + Craft.9 // ~Emily...you're getting a longwinded here.~ 
++~!InParty("X3Rec")~+ @717 + Craft.8 //~Can you get to the point of this tale?~ 
++~InParty("X3Rec")~+ @718 + Craft.9 // ~Can you get to the point of this tale?~ 
 END 
 
 IF ~~ Craft.6
@@ -949,7 +949,7 @@ END
 
 IF ~~ Craft.13 
 SAY @727 // ~I even have a bit of string I could use to modify and improve a bow or crossbow. Just not...any bow or crossbow? We wouldn't want to waste good bow string. Just talk to me when you have a bow or crossbow you want to see if we can modify a bit.~
-IF ~~ DO ~SetGlobal("X3milyCraftTalk","GLOBAL",1)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
+IF ~~ DO ~SetGlobal("X3milyCraft","GLOBAL",1)SetGlobal("X3milyCraftTalk","GLOBAL",2)AddSpecialAbility("X3EFA")AddSpecialAbility("X3EFB")~ EXIT
 END  
 
 // Quest Reminder Upon Entering Baldur's Gate
@@ -1336,7 +1336,7 @@ I_C_T RIELTA 5 X3milyRielta5
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @671 // ~I know this slimy man deserves death. But not here. Not in this way. Let him go. His time will come.~
 END
 
-I_C_T2 SENIYA 1 X3milySeniya1 
+I_C_T SENIYA 1 X3milySeniya1 
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @672 // ~Please, this doesn't bring anyone justice.~
 == SENIYA @673 // ~My mind is made!~
 END

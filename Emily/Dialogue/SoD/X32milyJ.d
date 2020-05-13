@@ -38,7 +38,7 @@ END
 
 // Talk 1. Six Talks Total. Most are non-romance required.
 IF ~Global("X32milyTalk","GLOBAL",2)~ Talk1 
-SAY ~I hope Jacob is all right, I really do.~ 
+SAY ~I hope Jacob is all right, I really do.~ [X3ESong]
 ++ ~I nearly forgot you were traveling with another. What happened to him?~ + T1.1
 ++ ~Are you talking to yourself?~ + T1.2
 ++ ~Who?~ + T1.3
@@ -123,7 +123,7 @@ END
 // Talk 2
 
 IF ~Global("X32milyTalk","GLOBAL",4)~ Talk2 
-SAY ~<CHARNAME>. Is it stressful, hiding what you are?~
+SAY ~<CHARNAME>. Is it stressful, hiding what you are?~ [X3ESong]
 ++ ~A child of Bhaal? Inconvenient, but necessary, though some already know.~ + Talk2.A 
 ++ ~I can not choose who I am. This is just how it is.~ + Talk2.B 
 ++ ~I hardly hide anything, Emily. I embrace my heritage.~ + Talk2.C 
@@ -209,7 +209,7 @@ IF ~~ DO ~SetGlobalTimer("X32milyGameTalkTimer","GLOBAL",THREE_DAYS)RealSetGloba
 END
 
 IF ~Global("X32milyTalk","GLOBAL",6)~ Talk3
-SAY ~I miss my easel. All this fighting really makes me appreciate simple, silly things like painting.~
+SAY ~I miss my easel. All this fighting really makes me appreciate simple, silly things like painting.~ [X3ESong]
 ++ ~You're a painter? That's surprising.~ + Talk3.A 
 ++ ~That couldn't sound more dull.~ + Talk3.B
 ++ ~What's wrong with fighting?~ + Talk3.C 
@@ -282,7 +282,7 @@ IF ~~ DO ~SetGlobalTimer("X32milyGameTalkTimer","GLOBAL",THREE_DAYS)RealSetGloba
 END
 
 IF ~Global("X32milyTalk","GLOBAL",8)~ Talk4
-SAY ~It's almost strange. I thought we'd run into more Planar Hunters, but not a trace.~
+SAY ~It's almost strange. I thought we'd run into more Planar Hunters, but not a trace.~ [X3ESong]
 ++ ~The crusade is everywhere. There's no chance of them acting out an attack successfully.~ + Talk4.A
 ++ ~You're worried about them still?~ + Talk4.B
 +~Dead("X32EHK3S")~+ ~After the last group fell, they probably know better.~ + Talk4.C 
@@ -360,8 +360,8 @@ IF ~~ DO ~SetGlobalTimer("X32milyGameTalkTimer","GLOBAL",THREE_DAYS)RealSetGloba
 END
 
 
-IF ~Global("X32milyTalk","GLOBAL",10)~ Talk5 // This talk only fires if romance was at 1.
-SAY ~I am curious, <CHARNAME>. Any plans after this is over?~
+IF ~Global("X32milyTalk","GLOBAL",10)~ Talk5 
+SAY ~I am curious, <CHARNAME>. Any plans after this is over?~ [X3ESong]
 ++ ~Why do you ask?~ + Talk5.A 
 ++ ~I've not thought that far ahead.~ + Talk5.A  
 ++ ~Traveling, probably.~ + Talk5.A 

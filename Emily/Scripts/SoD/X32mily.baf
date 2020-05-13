@@ -1,11 +1,3 @@
-IF 
-Global("X32PauseTimer","GLOBAL",0)
-InParty(Myself)
-THEN RESPONSE #100 
-SetGlobal("X32PauseTimer","GLOBAL",1)
-RealSetGlobalTimer("X32PauseTalkTimer","GLOBAL",ONE_MINUTE)
-END 
-
 // Craft Timer 
 
 IF 
@@ -86,7 +78,8 @@ END
 
 // Trigger 
 IF 
-OR(2) 
+InParty(Myself)
+InParty("Dorn")
 Global("X32milyDornConflict","LOCALS",1)	
 THEN RESPONSE #100 
 StartDialogueNoSet(Player1)
@@ -109,9 +102,7 @@ IF
 	InParty(Myself)
 	!Alignment(Player1,MASK_EVIL)
 	ReputationGT(Player1,10)
-	!Race(Player1,DWARF)
-	!Race(Player1,HALFLING)
-	!Race(Player1,GNOME)
+	Gender(Player1,MALE)
 	Global("X32milyMatch","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -133,6 +124,7 @@ IncrementGlobal("X32milyTalk","GLOBAL",1)
 END 
 
 IF 
+InParty(Myself)
 GlobalTimerExpired("X32milyGameTalkTimer","GLOBAL")
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -146,6 +138,7 @@ IncrementGlobal("X32milyTalk","GLOBAL",1)
 END 
 
 IF 
+InParty(Myself)
 GlobalTimerExpired("X32milyGameTalkTimer","GLOBAL")
 RealGlobalTimerExpired("X32milyRealTalkTimer","GLOBAL")
 See(Player1)
@@ -165,7 +158,7 @@ END
 
 
 IF
-RealGlobalTimerExpired("X32PauseTalkTimer","GLOBAL")
+InParty(Myself)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -179,9 +172,7 @@ Global("X32milyTalk","GLOBAL",6)
 Global("X32milyTalk","GLOBAL",8)
 Global("X32milyTalk","GLOBAL",10)
 THEN RESPONSE #100 
-RealSetGlobalTimer("X32PauseTalkTimer","GLOBAL",60)
 PlaySong(0)
-PlaySound("X3ESong") 
 StartDialogueNoSet(Player1)
 END 
 

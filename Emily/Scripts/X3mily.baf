@@ -1,10 +1,3 @@
-IF 
-Global("X3PauseTimer","GLOBAL",0)
-InParty(Myself)
-THEN RESPONSE #100 
-SetGlobal("X3PauseTimer","GLOBAL",1)
-RealSetGlobalTimer("X3PauseTalkTimer","GLOBAL",ONE_MINUTE)
-END 
 
 IF 
    See([PC])
@@ -134,7 +127,6 @@ THEN
 RESPONSE #100
 RealSetGlobalTimer("X3PauseTalkTimer","GLOBAL",ONE_MINUTE)
 PlaySong(0)
-PlaySound("X3ESong") 
 StartDialogueNoSet(Player1)
 END
 // Sixth Talk Set up, this lasts 45 minutes after the last talk, + 1 hour after the quest is over. As of V1.1 this sets up talks 8/9 as well.
@@ -196,7 +188,7 @@ CombatCounter(0)
 !AreaType(DUNGEON)
 THEN RESPONSE #100 
 PlaySong(0)
-PlaySound("X3ESonD") 
+//PlaySound("X3ESonD") 
 StartDialogueNoSet(Player1)
 END 
 
