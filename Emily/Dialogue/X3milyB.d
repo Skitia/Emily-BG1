@@ -262,11 +262,11 @@ See("Montaron")
 CombatCounter(0)
 !See([ENEMY])
 Global("X3milyMontaron1","GLOBAL",0)~ THEN X3milyB X3milyMontaron1
-@76 // ~Normally I've a soft spot for halflings but you Montaron...you disturb me.~
+@376 // ~Normally I've a soft spot for halflings but you Montaron...you disturb me.~
 DO ~SetGlobal("X3milyMontaron1","GLOBAL",1)~
-== BMONTA @77 // ~Shut it and keep your distance, goody archer. Your only use to the party is a packmule.~
-== X3milyB @78 // ~That's a good way to speak to not make friends, Montaron.~
-== BMONTA @79 // ~Just leave me be, unless you want trouble.~
+== BMONTA @377 // ~Shut it and keep your distance, goody archer. Your only use to the party is a packmule.~
+== X3milyB @378 // ~That's a good way to speak to not make friends, Montaron.~
+== BMONTA @379 // ~Just leave me be, unless you want trouble.~
 EXIT
 
 // Quayle

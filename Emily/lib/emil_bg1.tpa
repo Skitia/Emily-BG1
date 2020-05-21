@@ -269,6 +269,23 @@ THEN BEGIN
 COMPILE ~Emily/dialogue/CrossMod/Vienxay.d~
 END   
 
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0AURA.dlg~
+THEN BEGIN
+  PRINT @110 // Adding crossmod banter between Aura and Emily
+COMPILE ~Emily/dialogue/CrossMod/Aura.d~
+END  
+
+ACTION_IF FILE_EXISTS_IN_GAME ~X3HelgaB.dlg~
+THEN BEGIN
+  PRINT @111 // Adding crossmod banter between Helga and Emily
+COMPILE ~Emily/dialogue/CrossMod/Helga.d~
+END  
+
+ACTION_IF FILE_EXISTS_IN_GAME ~X3RecB.dlg~
+THEN BEGIN
+  PRINT @112 // Adding crossmod banter between Recorder and Emily
+COMPILE ~Emily/dialogue/CrossMod/Recorder.d~
+END  
 
 
 LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
