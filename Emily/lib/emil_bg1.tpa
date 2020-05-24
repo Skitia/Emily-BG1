@@ -287,5 +287,11 @@ THEN BEGIN
 COMPILE ~Emily/dialogue/CrossMod/Recorder.d~
 END  
 
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0Drake.dlg~
+THEN BEGIN
+  PRINT @113 // Adding crossmod banter between Drake and Emily
+COMPILE ~Emily/dialogue/CrossMod/Drake.d~
+END  
+
 
 LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
