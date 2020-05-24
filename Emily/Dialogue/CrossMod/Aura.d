@@ -6,6 +6,26 @@ See("C0Aura")
 !StateCheck("X3mily",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
+Global("CrossEmilAura","LOCALS",0)~ THEN X3milyB emily-aura0
+@0 //~Do you have any siblings Aura?~
+DO ~SetGlobal("CrossEmilAura","LOCALS",1)~
+== BC0Aura @1 // ~Oh, I do. Five. There's Luna, Juno, Eridanus, and the twins, Filo and Lita.~
+== X3milyB @2 // ~Five?! How in the world do you all get along?~
+== BC0Aura @3 // ~Well we had our minor scuffles. My sister Luna poked fun at me sometimes, but we always looked out for eachother.~
+== X3milyB @4 // ~I have only one, and I can't say we are on the sort of terms where we'd say I love you with a straight face. Not that I don't love him, it's just...well infighting.~
+== X3milyB @5 // ~But you have five, and still get along. I admire that. Maybe there's hope for me.~
+== BC0Aura @6 // ~I think if you try, and talk it out from the heart, you might find things click just like two gears spinning together in synch.~
+== X3milyB @7 // ~When I return home, maybe I'll try that. But I have a feeling one conversation just won't do it.~
+EXIT 
+
+// Aura-Emily 2
+CHAIN IF WEIGHT #-1
+~IsValidForPartyDialogue("C0Aura")
+See("C0Aura")
+!StateCheck("C0Aura",CD_STATE_NOTVALID)
+!StateCheck("X3mily",CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
 Global("CrossEmilAura","LOCALS",1)~ THEN X3milyB emily-aura1
 @8//~Aura, your Sunshooter is the most amazing piece of fletchery I have ever seen. And your arrows... those healing arrows and... erm, the other ones, what was the word?~
 DO ~SetGlobal("CrossEmilAura","LOCALS",2)~
@@ -19,7 +39,7 @@ DO ~SetGlobal("CrossEmilAura","LOCALS",2)~
 == X3milyB @16 //~It's a deal, then. I can't wait!~
 EXIT
 
-// Aura-Emily 2
+// Aura-Emily 3
 CHAIN IF WEIGHT #-1
 ~IsValidForPartyDialogue("C0Aura")
 See("C0Aura")
