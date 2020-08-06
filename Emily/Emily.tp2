@@ -6,7 +6,6 @@ VERSION ~1.59~
 AUTO_TRA ~Emily/tra/%s~
 
 ALWAYS
-  INCLUDE ~Emily/lib/eet.tph~
   INCLUDE ~Emily/lib/functions.tph~
 END
 
