@@ -247,7 +247,9 @@ COPY ~%MOD_FOLDER%/creatures/X3EHK1.cre~ ~override/X3EHK1.cre~
 COPY ~%MOD_FOLDER%/creatures/X3EHK2.cre~ ~override/X3EHK2.cre~
   SAY NAME1 @55 //~Hired Killer~
   SAY NAME2 @55 //~Hired Killer~
-
+  WRITE_ASCII 0x248 ~X3EHK2~ #8  //override script
+  WRITE_ASCII 0x280 ~X3EHK2~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3EHK1~ #8   //Dialogue file
 COPY ~%MOD_FOLDER%/creatures/X3EHK3.cre~ ~override/X3EHK3.cre~
   SAY NAME1 @55 //~Hired Killer~
   SAY NAME2 @55 //~Hired Killer~
