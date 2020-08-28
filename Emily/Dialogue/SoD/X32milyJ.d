@@ -257,7 +257,7 @@ Into your arms, as your prize of victory"~
 END 
 
 IF ~~ Talk3.G 
-SAY ~Heehee! That's rather sweet of you to say.~
+SAY ~Haha! That's rather sweet of you to say.~
 IF ~~ + Talk3.Exit2 
 END 
 

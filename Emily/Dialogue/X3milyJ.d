@@ -523,9 +523,9 @@ END
 /* This occurs before old Talk 6, and one day after the end of Emily's quest and 45 RL minutes after talk 5. */
 IF ~Global("X3milyBookTalk","GLOBAL",2)~ NewTalk8
 SAY @588 // ~Hey, do you have a moment? I wanted to share what I learned so far. It's so exciting!~
-+~!Dead("X3Dal")~+ @151 + Emily.8ListenAlive // ~What is it?~
++~!Dead("X3Dal")~+ @42 + Emily.8ListenAlive // ~What is it?~
 +~!Dead("X3Dal")~+ @589 + Emily.8ListenAlive // ~How can I say no to an excited face like that?~
-+~Dead("X3Dal")~+ @151 + Emily.8ListenDead // ~What is it?~
++~Dead("X3Dal")~+ @42 + Emily.8ListenDead // ~What is it?~
 +~Dead("X3Dal")~+ @589 + Emily.8ListenDead // ~How can I say no to an excited face like that?~
 ++ @590 + Emily.8Sleep // ~Gods no, I just want to get some rest.~
 END  
@@ -590,7 +590,7 @@ END
 //New Talk 9 
 IF ~Global("X3milyBookTalk","GLOBAL",5)~ NewTalk9
 SAY @606 // ~<CHARNAME>, <CHARNAME>!~ 
-++ @151 + EmilyTalk9 // ~What is it?~
+++ @42 + EmilyTalk9 // ~What is it?~
 ++ @607 + EmilyTalk9 // ~An excited Emily must mean she has more details to share from the journal?~
 ++ @608 + EmilyTalkRest9 // ~Again, Emily? I am tired.~
 END 
@@ -1241,8 +1241,26 @@ END
 
 //Innkeeper ask: Flat Interjects 
 INTERJECT INNKE3 0 X3milyINNKE30 
-== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)~
 == INNKE3 @568
+DO ~AddJournalEntry(@10006,QUEST)~
+== X3milyJ @569
+EXIT
+
+INTERJECT INNKE3 1 X3milyINNKE31 
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)~
+== INNKE3 @568
+DO ~AddJournalEntry(@10006,QUEST)~
+== X3milyJ @569
+EXIT
+
+INTERJECT INNKE3 2 X3milyINNKE32 
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)~
+== INNKE3 @568
+DO ~AddJournalEntry(@10006,QUEST)~
 == X3milyJ @569
 EXIT
 
