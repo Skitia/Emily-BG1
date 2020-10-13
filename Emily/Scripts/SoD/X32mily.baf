@@ -86,6 +86,7 @@ StartDialogueNoSet(Player1)
 END 
 // Experience 
 IF
+  XPLT(Myself,161000)
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
   !AreaCheck("BD0120")
