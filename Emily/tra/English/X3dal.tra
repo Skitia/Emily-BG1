@@ -1,10 +1,10 @@
 @0 = ~Excuse me, did you want something?~
-@1 = ~I'm looking for an elf named Adalgisa. Since you're hooded, a bit shady, I want to question you.~
+@1 = ~I'm looking for an elf named Adalgisa. You look like you might know who that is.~
 @3 = ~You look like a elven archer.~
 @4 = ~You seem the wrong person, sorry.~ 
 @5 = ~You are quite perceptive! Was it the bow?~
 @6 = ~No need for the sarcasm, I'm just trying to see if you are who I'm looking for.~
-@1 = ~I'm looking for an elf. Since you're hooded, a bit shady, I want to question you.~
+@1 = ~I'm looking for an elf. Since you might fit the description, I want to question you.~
 @2 = ~You seem you might know a thing or two. Some planar hunters sent me to find a plane-touched elf.~
 @7 = ~I don't know why you think I know things, but let's talk somewhere quieter, so I can hear you better. Follow me upstairs.~
 @8 = ~So let me guess, you meet with those odd Planar Hunters, and they sent you on a goose chase for the wrong elf?~

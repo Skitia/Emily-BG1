@@ -396,7 +396,7 @@
 @393 = ~Which one exactly?~
 @394 = ~What would you like to talk about?~ 
 @395 = ~What do you think of me?~
-@396 = ~This book...it confirms everything I feared. She was...touched, an Aasimar, and so am I. She was my mother. And now she is dead, because we killed her.~
+@396 = ~Gods, this is worse than I feared. She was...touched, an Aasimar, and so am I. She was my mother. And now she is dead, because we killed her. That man's wrath upon us was deserved.~
 @397 = ~I am sorry.~
 @398 = ~Sorry. Sorry isn't good enough.~
 @399 = ~I don't know if I can forgive you for what transpired. And I don't know if I can stay around any longer.~
@@ -416,15 +416,15 @@
 @413 = ~What now, then?~
 @414 = ~It's nice to know I've a powerful ally.~
 @415 = ~I did not know.~
-@416 = ~The book says that? Interesting.~
+@416 = ~Interesting.~
 @417 = ~If you are going to cry, do it somewhere else.~
 @418 = ~You are heartless.~
 @419 = ~Interesting? My mother is *Dead*. Because of your decision. And that is your response?~
 @420 = ~This doesn't change anything. You will always be Emily to me.~
-@421 = ~I didn't, entirely. I guess you always suspect, golden eyes aren't exactly normal, and but it's so subtle I never thought about it.~
+@421 = ~I didn't, entirely. I knew golden eyes aren't exactly normal, but it was so minor I never thought about it, at least until now.~
 @422 = ~Power? Knowing doesn't make me more powerful. Just...more understanding of things now.~
 @423 = ~You've no idea how reassuring that is to hear.~ 
-@424 = ~I'm going to keep reading this journal, but from here it's your business we should set on out. So, lead on, fearless leader!~
+@424 = ~I know my business is concluded, but honestly, with crazy people attacking, and your own business unfinished, I'll still stick around. It's only fair for what you've done for me.~
 @425 = ~ I...~
 @426 = ~I'd rather not recall what happened to her. Please, let's just move on.~
 @427 = ~I wish we had more time together. I hope we cross paths again. I've more questions than answers.~
@@ -568,7 +568,7 @@
 @564 = ~Look, we can discuss it later if you really remain unconvinced, but for right now, let's just go.~
 // Proofreading
 @565 = ~I'm not sure.~
-@566 = ~This book...it confirms everything I believed. She was...she was her. The mother I have been seeking for so long. And she didn't tell me.~
+@566 = ~I still can't believe it. Adalgisa was...she was her. The mother I have been seeking for so long. And she didn't tell me, even with these crazy people attacking us.~
 @567 = ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
 @568 = ~We don't get many of that type here, besides G'axir. Try the inn southeast of us, might find elves there to ask.~
 @569 = ~Thank you, sir.~
@@ -744,4 +744,19 @@
 @728 = ~Well, I aim to be useful, and not just with my bow. I know, bad joke.~
 @729 = ~I've enough materials to make twenty batches of a dozen bolts or arrows over time. Once I'm out, I won't be able to make anymore, but it should be nifty in a pinch.~
 @730 = ~Well, you never know. Or maybe you do know. The offer is always open.~
-
+//New 1.62 Update:
+@731 = ~So, I've finished the book. And still after everything...I haven't gotten any further then a name, Rodwyn.~
+@732 = ~Ironically she was going to see him in the Feldpost inn, where I was staying, and mentioned he once traveled with father. He might be the only chance to learn something more from this.~
+@733 = ~If I didn't ever meet him, he probably stuck to the upper floors. I hope it's not too much to ask, but...could we see if he's still there?~
+@734 = ~Only if there's time, Emily.~
+@735 = ~Of course. We'll leave as soon as we can.~
+@736 = ~We can't do that right now, Emily.~
+@737 = ~I understand. I know this is almost a goose chase at this point. I thought it would be easier.~
+@738 = ~What if you never find her?~
+@739 = ~Have you considered she doesn't want to meet you?~
+@740 = ~Don't lose hope. You'll learn something, I'm sure.~
+@741 = ~Thank you. I know this is almost a goose chase at this point. I hope we learn something more.~
+@742 = ~I don't know. I am kind of all in on this working. If it doesn't...I don't have any other paths.~
+@743 = ~I can't think that. Gods, what would be the use of that? I truly hope I can learn something.~
+@744 = ~I truly hope so, <CHARNAME>.~
+@745 = ~So, lead on, fearless leader!~

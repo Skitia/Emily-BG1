@@ -1,0 +1,13 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("X3HL",Attack("X3Rodwyn"))
+		Wait(1)
+		Kill("X3Rodwyn")
+		Wait(1)
+		EndCutSceneMode()
+		SetInterrupt(TRUE)		
+		ActionOverride("X3HL",StartDialogueNoSet(Player1))
+END

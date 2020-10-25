@@ -8,6 +8,21 @@ IF
 	Dialogue([PC])	
 END 	
 
+// Talks 10
+IF
+PartyRested()
+InParty(Myself)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+GlobalTimerExpired("X3milyOneHour","GLOBAL")
+Global("X3milyBookTalk","GLOBAL",6)
+THEN
+RESPONSE #100
+IncrementGlobal("X3milyBookTalk","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+
 // Craft Timer 
 
 IF 
@@ -161,6 +176,8 @@ RESPONSE #100
 IncrementGlobal("X3milyBookTalk","GLOBAL",1)
 END 
 
+
+
 // New Talk 6 Setup, v1.1
 IF 
 InParty(Myself)
@@ -170,15 +187,17 @@ See(Player1)
 CombatCounter(0)
 !See([ENEMY])
 !AreaType(DUNGEON)
-Global("X3milyBookTalk","GLOBAL",7)
+Dead("X3Rodwyn")
 Global("X3milyTalk","GLOBAL",11)
+OR(2)
+Dead("X3dal")
+Dead("X3HL")
 THEN RESPONSE #100 
 IncrementGlobal("X3milyTalk","GLOBAL",1)
 END 
 
 IF 
 Global("X3milyTalk","GLOBAL",12)
-PartyRested()
 InParty(Myself)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID) 
