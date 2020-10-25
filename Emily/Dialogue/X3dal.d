@@ -177,7 +177,7 @@ CHAIN X3milyJ Talk3.Mother
 == X3dal @53 // ~Read it, and you will understand. Forgive me I must leave, before sorrow overtakes me.~
 == X3milyJ @54 // ~Wait! I've so many more questions.~
 == X3dal @55 // ~~I'm sorry, but I must go. Goodbye.~~
-DO ~GiveItemCreate("X3EJorn","X3mily",0,0,0)AddJournalEntry(@100052,QUEST_DONE)EscapeArea()AddexperienceParty(12000)SetGlobal("X3milySixthTalk","GLOBAL",1)~
+DO ~AddexperienceParty(12000)SetGlobal("X3milySixthTalk","GLOBAL",1)GiveItemCreate("X3EJorn","X3mily",0,0,0)AddJournalEntry(@100052,QUEST_DONE)EscapeArea()~
 EXIT /* Emily is given her mother's journal. It should be added as an irremovable item in her inventory IF Possible.*/
 
 

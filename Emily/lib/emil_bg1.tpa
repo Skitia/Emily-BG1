@@ -184,11 +184,13 @@ END
 
 // JOURNAL
 
-ADD_JOURNAL TITLE (%Emily's Tale%) @10001 @10002 @10003 @10004 @10005  USING ~Emily/tra/english/emil_bg1.tra~
+ADD_JOURNAL TITLE (%Emily's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10015 @10016 @10017 USING ~Emily/tra/english/emil_bg1.tra~
 
 ADD_JOURNAL TITLE (@100045) @100046 @100047 @100048 @100049 @100050 @100051 @100052 @100053 @100054 USING ~Emily/tra/english/emil_bg1.tra~
 
 ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107 
+
+
 // DIALOGUE
 
 
@@ -200,6 +202,9 @@ ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3EHK2.d~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3EHK1.d~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3dal.d~
+   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3Adv.d~
+    COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3Rodwyn.d~
+	    COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3HL.d~
 // SCRIPTS
 
 
@@ -212,6 +217,8 @@ ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107
 	EXTEND_TOP ~%bg1_eet_symbol%1300.bcs~ ~Emily/Scripts/AR1300.baf~
         EVALUATE_BUFFER	
 	EXTEND_TOP ~%bg1_eet_symbol%1306.bcs~ ~Emily/Scripts/AR1306.baf~
+        EVALUATE_BUFFER	
+	EXTEND_TOP ~%bg1_eet_symbol%3352.bcs~ ~Emily/Scripts/AR3352.baf~
         EVALUATE_BUFFER			
 
 
@@ -220,6 +227,7 @@ ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107
   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3mily.baf~
   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3milyD.baf~
   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK3.baf~
+    COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3ECUT01.baf~
     COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK2.baf~
 	  COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK1.baf~
    COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3dal.baf~ 
@@ -256,7 +264,42 @@ COPY ~%MOD_FOLDER%/creatures/X3EHK3.cre~ ~override/X3EHK3.cre~
   WRITE_ASCII 0x248 ~X3EHK3~ #8  //override script
   WRITE_ASCII 0x280 ~X3EHK3~ #32  //DV
   WRITE_ASCII 0x2cc ~X3EHK3~ #8   //Dialogue file
-  
+COPY ~%MOD_FOLDER%/creatures/X3RODWYN.cre~ ~override/X3RODWYN.cre~
+  SAY NAME1 @119 //~Rodwyn~
+  SAY NAME2 @119 //~Rodwyn~
+  WRITE_ASCII 0x248 ~X3RODWYN~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RODWYN~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RODWYN~ #8   //Dialogue file  
+COPY ~%MOD_FOLDER%/creatures/X3Adv1.cre~ ~override/X3Adv1.cre~
+  SAY NAME1 @118 //~Adventurer~
+  SAY NAME2 @118 //~Adventurer~
+  WRITE_ASCII 0x248 ~X3Adv1~ #8  //override script
+  WRITE_ASCII 0x280 ~X3Adv1~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3Adv~ #8   //Dialogue file    
+COPY ~%MOD_FOLDER%/creatures/X3Adv2.cre~ ~override/X3Adv2.cre~
+  SAY NAME1 @118 //~Adventurer~
+  SAY NAME2 @118 //~Adventurer~
+  WRITE_ASCII 0x248 ~X3Adv2~ #8  //override script
+  WRITE_ASCII 0x280 ~X3Adv2~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3Adv~ #8   //Dialogue file      
+COPY ~%MOD_FOLDER%/creatures/X3HL.cre~ ~override/X3HL.cre~
+  SAY NAME1 @120 //~Planar Hunter Leader~
+  SAY NAME2 @120 //~Planar Hunter Leader~
+  WRITE_ASCII 0x248 ~X3HL~ #8  //override script
+  WRITE_ASCII 0x280 ~X3HL~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3HL~ #8   //Dialogue file     
+COPY ~%MOD_FOLDER%/creatures/X3H1.cre~ ~override/X3H1.cre~
+  SAY NAME1 @55 //~Planar Hunter~
+  SAY NAME2 @55 //~Planar Hunter~
+  WRITE_ASCII 0x248 ~X3H1~ #8  //override script
+  WRITE_ASCII 0x280 ~X3H1~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3H1~ #8   //Dialogue file    
+COPY ~%MOD_FOLDER%/creatures/X3H2.cre~ ~override/X3H2.cre~
+  SAY NAME1 @55 //~Planar Hunter~
+  SAY NAME2 @55 //~Planar Hunter~
+  WRITE_ASCII 0x248 ~X3H2~ #8  //override script
+  WRITE_ASCII 0x280 ~X3H2~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3H2~ #8   //Dialogue file     
 /////////////////////Cross Mod Content////////////////////////////
 
 ACTION_IF FILE_EXISTS_IN_GAME ~x3KaleB.dlg~

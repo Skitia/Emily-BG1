@@ -675,18 +675,54 @@ SAY @634 // ~Right. Best we get some sleep. Rest well, <CHARNAME>.~
 IF ~~ DO ~SetGlobalTimer("X3milyOneHour","GLOBAL",ONE_DAY)IncrementGlobal("X3milyBookTalk","GLOBAL",1)RestParty()~ EXIT 
 END 
 
-// Talk 6 Edit: Now Technically after Talk 7 and 8.
-/* Occurs immediately after the quest ends. There is a short timer from end of quest to this talk appearing.
-This needs to be split into two chains, one for dead mother and one for alive. */ 
-IF ~!Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)~ Emily.6Alive1.1 
-SAY @640 // ~I know we are only just stirring, but I need to speak to you.~
-++ @641 + Emily.6Alive // ~You seem bothered. Tell me what ails you?~
-++ @642 + Emily.6Alive // ~What is it now?~
-++ @643 + Emily.6Alive // ~Go ahead, it is all right.~
+// Talk 10, occurs after talk 9. Occurs post rest.
+
+IF ~Global("X3milyBookTalk","GLOBAL",7)~ EmilyTalk10
+SAY @731
+= @732
+= @733
+++ @734 DO ~IncrementGlobal("X3milyBookTalk","GLOBAL",1)AddJournalEntry(@10015,QUEST)~ + EmilyTalk10.1
+++ @735 DO ~IncrementGlobal("X3milyBookTalk","GLOBAL",1)AddJournalEntry(@10015,QUEST)~+ EmilyTalk10.2
+++ @736 DO ~IncrementGlobal("X3milyBookTalk","GLOBAL",1)AddJournalEntry(@10015,QUEST)~ + EmilyTalk10.1
 END 
 
-IF ~~ Emily.6Alive 
-SAY @566 // ~This book...it confirms everything I believed. She was...she was her. The mother I have been seeking for so long. And she didn't tell me.~
+IF ~~ EmilyTalk10.1 
+SAY @737
+++ @738 + EmilyTalk10.3
+++ @739 + EmilyTalk10.4 
+++ @740 + EmilyTalk10.5
+END 
+
+IF ~~ EmilyTalk10.2
+SAY @741
+++ @738 + EmilyTalk10.3
+++ @739 + EmilyTalk10.4
+++ @740 + EmilyTalk10.5 
+END 
+
+IF ~~ EmilyTalk10.3
+SAY @742
+IF ~~ EXIT 
+END 
+
+IF ~~ EmilyTalk10.4 
+SAY @743 
+IF ~~ EXIT 
+END 
+
+IF ~~ EmilyTalk10.5 
+SAY @744 
+IF ~~ EXIT 
+END 
+ 
+
+
+// Talk 6 Edit: Now Technically after Talk 10
+/* Occurs immediately after the quest ends. There is a short timer from end of quest to this talk appearing.
+This needs to be split into two chains, one for dead mother and one for alive. */ 
+
+IF ~!Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)~ Emily.6Alive 
+SAY @566 // ~I still can't believe it. Adalgisa was...she was her. The mother I have been seeking for so long. And she didn't tell me, even with these crazy people attacking us.~
 ++ @397 + Emily.6ASorry // ~I am sorry.~
 ++ @482 + Emily.6ASorry // ~I had a feeling. I should have said something.~
 ++ @644 + Emily.6ABook // ~So you are just like her, then, in blood.~
@@ -702,7 +738,7 @@ SAY @485 // ~It's not your fault. You didn't do anything wrong.~
 END 
 
 IF ~~ Emily.6ABook 
-SAY @409 // ~I am Aasimar. I understand that much from what the text says. It makes so many things more clear now.~
+SAY @409 // ~I am Aasimar. I understand that much now. It makes so many things more clear now.~
 = @410 // ~This doesn't change anything, does it? I don't want you to think I'm weird.~
 ++ @412 + Emily.6ASuspect // ~So you never knew?~
 ++ @413 + Emily.6AYou // ~What now, then?~
@@ -726,7 +762,8 @@ IF ~~ + Emily.6AYou
 END 
 
 IF ~~ Emily.6AYou 
-SAY @424 // ~I'm going to keep reading this journal, but from here it's your business we should set on out. So, lead on, fearless leader!~
+SAY @424 // ~I know my business is concluded, but honestly, with crazy people attacking, and your own business unfinished, I'll still stick around. It's only fair for what you've done for me.~
+= @745
 /* Emily's Race from this moment is correctly set as Aasimar.*/ 
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)ChangeRace("X3mily",AASIMAR)~ EXIT 
 END 
@@ -739,19 +776,11 @@ SAY @411 // ~I want to believe she gave me this because she wanted me to underst
 +~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When I used that gem, it revealed you have planar blood as well.~
 END 
 
-//New Emily Talk "6" Start (Technically Talk 8 now) 
-IF ~Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)~ Emily.1.1.6Dead
-SAY @636 // ~<CHARNAME>? Can we speak? I've been...reading all night. I couldn't even sleep. Oh what have we done?~
-++ @637 + Emily.6Dead // ~What's wrong, Emily?~
-++ @638 + Emily.6Dead// ~I really don't want to deal with this right after waking.~
-++ @639 + Emily.6Dead // ~What did you learn that has you this way?~
-END 
-
-IF ~~ Emily.6Dead
-SAY @396 // ~This book...it confirms everything I feared. She was...touched, an Aasimar, and so am I. She was my mother. And now she is dead, because we killed her.~
+IF ~Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)~ Emily.6Dead
+SAY @396 // ~Gods, this is worse than I feared. She was...touched, an Aasimar, and so am I. She was my mother. And now she is dead, because we killed her. That man's wrath upon us was deserved.~
 ++ @397 + Emily.6DSorry // ~I am sorry.~
 ++ @415 + Emily.6DForgive // ~I did not know.~
-++ @416 + Emily.6DInteresting // ~The book says that? Interesting.~
+++ @416 + Emily.6DInteresting // ~Interesting.~
 ++ @417 + Emily.6DWhine // ~If you are going to cry, do it somewhere else.~
 END 
 
