@@ -170,7 +170,6 @@ Global("X3milyHour","GLOBAL",1)
 OR(3)
 Global("X3milyBookTalk","GLOBAL",0) // V1.1 Edit: Changing into a separate talk.
 Global("X3milyBookTalk","GLOBAL",3)
-Global("X3milyBookTalk","GLOBAL",6)
 THEN 
 RESPONSE #100 
 IncrementGlobal("X3milyBookTalk","GLOBAL",1)
