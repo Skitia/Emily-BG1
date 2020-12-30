@@ -245,8 +245,8 @@ Weight: 2~
 
 STATISTICS:
 
-THACO: +1,+4 Against Aasimar,Tieflings,Demonic Entities
-Damage: +1,+4 Against Aasimar,Tieflings,Demonic Entities 
+THACO: +1,+4 against aasimar, tieflings, and demonic entities
+Damage: +1,+4 against aasimar, tieflings, and demonic entities 
 Speed Factor: 5
 Proficiency Type: Long sword
 Type: Large Sword
