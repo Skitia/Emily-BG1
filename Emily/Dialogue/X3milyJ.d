@@ -764,7 +764,7 @@ END
 IF ~~ Emily.6AYou 
 SAY @424 // ~I know my business is concluded, but honestly, with crazy people attacking, and your own business unfinished, I'll still stick around. It's only fair for what you've done for me.~
 = @745
-/* Emily's Race from this moment is correctly set as Aasimar.*/ 
+/* Emily's Race from this moment is correctly set as Aasimar, if it hasn't already for some reason*/ 
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)ChangeRace("X3mily",AASIMAR)~ EXIT 
 END 
 
@@ -1103,8 +1103,8 @@ END
 IF ~Global("X3milyMomAlive","GLOBAL",1)~ EMomAlive
 SAY @570 // ~Strange...this book, it's written in a different language.~
 ++ @571 + EBook4 // ~Can I see it?~
-+~Global("X3DalReveal","GLOBAL",1)~+ @583 + EGlow3 // ~Explain why you were glowing. Are you plane-touched, too?~
-++ @584 + EBook4 // ~Perhaps it contains power.~ 
++~Global("X3DalReveal","GLOBAL",1)~+ @783 + EGlow3 // ~Explain why you were glowing. Are you plane-touched, too?~
+++ @784 + EBook4 // ~Perhaps it contains power.~ 
 END 
 
 IF ~~ EBook4 
