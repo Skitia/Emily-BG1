@@ -253,7 +253,7 @@ So one problem with Tra-ification is making an error. I marked Emily's response 
 I'd rather not go and move all the numbers up one because of this mistake, so I'll just insert the next available number.*/
 IF ~~EmilyT3.Father
 SAY @146 // ~I often think of my father. This trip was his idea, getting away from home for a while.~
-= @147 // ~It took a lot of trust from him, for him to tell about the contact he received from my mother, to tell me her name, Alina, a beautiful name.~
+= @147 // ~It took a lot of trust from him, for him to tell about the contact he received from my mother, to tell me her name, Alina. I love that name.~
 = @148 // ~He saw how much a drain all of the talk of heirdom was on me, and my desire to leave the walls for a while, and encouraged it. I love him a lot for that.~
 +~Global("X3T3EmilBrother","GLOBAL",0)~+ @87 DO ~IncrementGlobal("X3T3EmilBrother","GLOBAL",1)~ + EmilyT3.Brother // ~And yet your relationship with your brother seems much less warm.~
 /* Fath1 won't be copied over to any other block, so we won't use a global variable to check for repeat, while Glad, Mean, and Done are exit blocks. */
