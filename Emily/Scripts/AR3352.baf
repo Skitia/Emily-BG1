@@ -1,19 +1,19 @@
 IF
 Global("X3milyBookTalk","GLOBAL",8)
-Global("X3EFinalQuestSpawn","AR3352",0)
+Global("X3EFinalQuestSpawn","GLOBAL",0)
 THEN
 RESPONSE #100
-SetGlobal("X3EFinalQuestSpawn","AR3352",1)
+SetGlobal("X3EFinalQuestSpawn","GLOBAL",1)
 CreateCreature("X3Rodwyn",[387.752],SE)
 Continue()
 END
 //For Alina-Murdered Branch:
 IF 
 Global("X3milyBookTalk","GLOBAL",8)
-Global("X3EFinalQuestSpawn","AR3352",1)
+Global("X3EFinalQuestSpawn","GLOBAL",1)
 Dead("X3dal")
 THEN RESPONSE #100 
-SetGlobal("X3EFinalQuestSpawn","AR3352",2)
+SetGlobal("X3EFinalQuestSpawn","GLOBAL",2)
 CreateCreature("X3Adv1",[498.624],SW)
 CreateCreature("X3Adv2",[434.786],NE)
 Continue()
