@@ -14,7 +14,7 @@ CHAIN X3milyJ DeadAdal
 == X3Rodwyn @4
 == X3milyJ @5
 == X3Rodwyn @6
-DO ~AddJournalEntry(@10016,QUEST_DONE)ActionOverride("X3Adv1",Enemy())ActionOverride("X3Adv2",Enemy())Enemy()~
+DO ~ChangeRace("X3mily",AASIMAR)AddJournalEntry(@10016,QUEST_DONE)ActionOverride("X3Adv1",Enemy())ActionOverride("X3Adv2",Enemy())Enemy()~
 EXIT 
 
 CHAIN X3milyJ LivingAdal

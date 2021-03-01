@@ -580,7 +580,7 @@
 @573 = ~It seems incomprehensible to me.~
 @574 = ~It's written in celestial, though I cannot understand a word of it.~
 @575 = ~A book with a secret message, perhaps?~
-@585 = ~And yet...I can understand it as easily as any other normal book.~
+
 @576 = ~I'll take some time to read it. Maybe it will reveal something.~
 @577 = ~Let me know what you learn.~
 @578 = ~As you wish.~
@@ -760,3 +760,4 @@
 @743 = ~I can't think that. Gods, what would be the use of that? I truly hope I can learn something.~
 @744 = ~I truly hope so, <CHARNAME>.~
 @745 = ~So, lead on, fearless leader!~
+@746 = ~And yet...I can understand it as easily as any other normal book.~

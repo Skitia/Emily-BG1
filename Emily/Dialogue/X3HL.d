@@ -27,9 +27,9 @@ CHAIN X3HL OnlyCon4
 @11
 END 
 IF ~IsValidForPartyDialogue("X3mily")~ EXTERN X3milyJ OnlyCon5  
-IF ~~ DO ~AddJournalEntry(@10017,QUEST_DONE)ActionOverride("X3H1",Enemy())ActionOverride("X3H2",Enemy())Enemy()~ EXIT 
+IF ~~ DO ~ChangeRace("X3mily",AASIMAR)AddJournalEntry(@10017,QUEST_DONE)ActionOverride("X3H1",Enemy())ActionOverride("X3H2",Enemy())Enemy()~ EXIT 
 
 CHAIN X3milyJ OnlyCon5 
 @12
 == X3HL @13
-DO ~AddJournalEntry(@10017,QUEST_DONE)ActionOverride("X3H1",Enemy())ActionOverride("X3H2",Enemy())Enemy()~ EXIT 
+DO ~ChangeRace("X3mily",AASIMAR)AddJournalEntry(@10017,QUEST_DONE)ActionOverride("X3H1",Enemy())ActionOverride("X3H2",Enemy())Enemy()~ EXIT 

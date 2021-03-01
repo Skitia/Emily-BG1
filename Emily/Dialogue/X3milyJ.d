@@ -1115,7 +1115,7 @@ SAY @572 // ~Here, take a look at it, what do you think?~
 END 
 
 IF ~~ EBook5 
-SAY @585 // ~And yet...I can understand it as easily as any other normal book.~
+SAY @746 // ~And yet...I can understand it as easily as any other normal book.~
 = @576 // ~I'll take some time to read it. Maybe it will reveal something.~
 ++ @577 + EBook6 // ~Let me know what you learn.~
 ++ @578 + EBook6 // ~As you wish.~
