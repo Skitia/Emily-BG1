@@ -426,7 +426,7 @@ IF ~~ Talk5.F
 SAY ~I...think you are wonderful. Really. But I come from a family with expectations of me. It's bad enough I'm not human and I have to hide the ears around them.~
 = ~...I'd love to be more, but my family, and the other nobles would judge you for your race and class, and the entire point for going home would probably be ruined by that judgment.~
 ++ ~Does their opinion really outweigh how we feel? I didn't think such things mattered to you.~ + Talk5.H
-++ ~I...I see. So this isn't possible?~ + Talk5.I 
+++ ~I...I see. So this isn't possible?~ + Talk5.H 
 ++ ~I understand. Perhaps friendship is best.~ DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I 
 ++ ~I was joking. I didn't mean it seriously.~ DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.M 
 END 
