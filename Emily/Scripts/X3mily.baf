@@ -123,7 +123,6 @@ END
 // Now all that's left is making Branwen talk to you. We could just add StartDialogueNoSet(Player1) into the last block, but the engine is tricky: if you give a command when Branwen's about to talk, she may miss her dialogue!
 //So we add another block. 
 IF
-RealGlobalTimerExpired("X3PauseTalkTimer","GLOBAL")
 InParty(Myself)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID) 
@@ -140,7 +139,6 @@ Global("X3milyTalk","GLOBAL",10)
 Global("X3milyTalk","GLOBAL",14) // The 14th talk is arrived to as per normal.
 THEN
 RESPONSE #100
-RealSetGlobalTimer("X3PauseTalkTimer","GLOBAL",ONE_MINUTE)
 PlaySong(0)
 StartDialogueNoSet(Player1)
 END
