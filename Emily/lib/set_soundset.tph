@@ -1,0 +1,140 @@
+// Set up the soundset separately.
+
+// SELECT_ACTION4-7 sound slots are only used as such in BG2(EE), in BG(EE) these slots are used for the annoyed responses
+// when the player clicks on their portrait multiple times. Because Emily has more than 3 action responses,
+// her soundset setup needs to differ between the two installations to function properly.
+// EE 2.6 also repurposed 4 priorly unused sound slots to function as SELECT_ACTION4-7 in BGEE, we'll be using these.
+
+// Baldur's Gate
+
+ACTION_IF GAME_IS ~bgee eet~ BEGIN
+	COPY_EXISTING ~X3mily.cre~ ~override/X3mily.cre~
+		SAY BIO @2 
+		SAY MORALE @3 // ~We've got to get out of here.~
+		SAY HAPPY @4 // ~It appears the tales told of your heroism are quite justified.~
+		SAY UNHAPPY_ANNOYED @5 // ~I don't approve of our direction.~
+		SAY UNHAPPY_SERIOUS @6 // ~We need to seriously consider our actions, or I will not be staying with you.~
+		SAY UNHAPPY_BREAKING_POINT @7 // ~I can't stand this any longer. My heart revolts at your lack of care of others!~
+		SAY LEADER @8 // ~Come with me.~
+		SAY TIRED @9 // ~I need to sit down, just for a bit.~
+		SAY BORED @10 // ~Some excitement would be welcome.~
+		SAY BATTLE_CRY1 @11 // ~Come on, come on!~
+		SAY BATTLE_CRY2 @12 // ~We fight, for glory!~
+		SAY BATTLE_CRY3 @13 // ~Down you go!~
+		SAY BATTLE_CRY4 @14 // ~You're in for it now!~
+		SAY BATTLE_CRY5 @15 // ~You'll not be the first to regret crossing me.~
+		SAY DAMAGE @16 // ~Agh~
+		SAY DYING @17 // ~Not like this...~
+		SAY HURT @18 // ~Damn, I need some healing.~
+		SAY AREA_FOREST @19 // ~Hmm, I should have picked up some new boots.~
+		SAY AREA_CITY @20 // ~The estate was always a bit away from towns and cities. This is so...congested.~
+		SAY AREA_DUNGEON @21 // ~Why do dungeons have to be so blasted cold? I'm freezing.~
+		SAY AREA_DAY @22 // ~It's a beautiful day, isn't it?~
+		SAY AREA_NIGHT @23 // ~All sorts of monstrous things under the moonlight. Careful steps.~
+		SAY SELECT_COMMON1 @24 // ~Yes? Is there something you need?~
+		SAY SELECT_COMMON2 @25 // ~Is there something I can do for you?~
+		SAY SELECT_COMMON3 @26 // ~Let's stay together now.~
+		SAY SELECT_COMMON4 @27 // ~Something you need?~
+		SAY SELECT_COMMON5 @28 // ~Well met.~
+		SAY SELECT_COMMON6 @29 //~You have my appreciation.~ 
+		SAY SELECT_ACTION1 @30 // ~So be it.~
+		SAY SELECT_ACTION2 @31 // ~Now this should be interesting.~
+		SAY SELECT_ACTION3 @32 // ~I'll see what I can do.~
+		SAY CRITICAL_HIT @37 // ~Ahaha!~
+		SAY CRITICAL_MISS @38 // ~Oh bugger!~
+		SAY TARGET_IMMUNE @39 // ~My attack does nothing!~
+		SAY INVENTORY_FULL @40 // ~I am not a pack mule, you know. Notice I lack long ears and hooves.~
+		SAY SPELL_DISRUPTED @41 // ~No good, my spell failed!~ 
+		SAY SET_A_TRAP @42 // ~Finished.~ 
+		SAY HIDDEN_IN_SHADOWS @43 // ~Time to fade into the background, hmm?~ 
+		SAY PICKED_POCKET @44 // ~Sorry.~ 
+		SAY REACT_TO_DIE_GENERAL @47 //~You'll not get away with their death!~
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~bgee~ BEGIN
+	COPY_EXISTING ~X3mily.cre~ ~override/X3mily.cre~
+		SAY 0x1E0 @33 // ~Fair enough~ [AURAh]				//  SAY BGEE_ACTION4 @33
+		SAY 0x1E4 @34 //~Come with me.~						//  SAY BGEE_ACTION5 @34
+		SAY 0x1E8 @35 // ~Sounds fine to me.~				//  SAY BGEE_ACTION6 @35
+		SAY 0x1EC @36 // ~Hmm, I don't know.~				//  SAY BGEE_ACTION7 @36
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~eet~ BEGIN
+	COPY_EXISTING ~X3mily.cre~ ~override/X3mily.cre~
+		SAY SELECT_ACTION4 @33 // ~Fair enough~ [AURAh]
+		SAY SELECT_ACTION5 @34 //~Come with me.~
+		SAY SELECT_ACTION6 @35 // ~Sounds fine to me.~
+		SAY SELECT_ACTION7 @36 // ~Hmm, I don't know.~
+	BUT_ONLY
+END
+
+
+// Siege of Dragonspear
+
+ACTION_IF FILE_EXISTS_IN_GAME ~X32mily.cre~
+THEN BEGIN
+	ACTION_IF GAME_IS ~bgee eet~ BEGIN
+		COPY_EXISTING ~X32mily.cre~ ~override/X32mily.cre~
+			SAY BIO @2 
+			SAY MORALE @3 // ~We've got to get out of here.~
+			SAY HAPPY @4 // ~It appears the tales told of your heroism are quite justified.~
+			SAY UNHAPPY_ANNOYED @5 // ~I don't approve of our direction.~
+			SAY UNHAPPY_SERIOUS @6 // ~We need to seriously consider our actions, or I will not be staying with you.~
+			SAY UNHAPPY_BREAKING_POINT @7 // ~I can't stand this any longer. My heart revolts at your lack of care of others!~
+			SAY LEADER @8 // ~Come with me.~
+			SAY TIRED @9 // ~I need to sit down, just for a bit.~
+			SAY BORED @10 // ~Some excitement would be welcome.~
+			SAY BATTLE_CRY1 @11 // ~Come on, come on!~
+			SAY BATTLE_CRY2 @12 // ~We fight, for glory!~
+			SAY BATTLE_CRY3 @13 // ~Down you go!~
+			SAY BATTLE_CRY4 @14 // ~You're in for it now!~
+			SAY BATTLE_CRY5 @15 // ~You'll not be the first to regret crossing me.~
+			SAY DAMAGE @16 // ~Agh~
+			SAY DYING @17 // ~Not like this...~
+			SAY HURT @18 // ~Damn, I need some healing.~
+			SAY AREA_FOREST @19 // ~Hmm, I should have picked up some new boots.~
+			SAY AREA_CITY @20 // ~The estate was always a bit away from towns and cities. This is so...congested.~
+			SAY AREA_DUNGEON @21 // ~Why do dungeons have to be so blasted cold? I'm freezing.~
+			SAY AREA_DAY @22 // ~It's a beautiful day, isn't it?~
+			SAY AREA_NIGHT @23 // ~All sorts of monstrous things under the moonlight. Careful steps.~
+			SAY SELECT_COMMON1 @24 // ~Yes? Is there something you need?~
+			SAY SELECT_COMMON2 @25 // ~Is there something I can do for you?~
+			SAY SELECT_COMMON3 @26 // ~Let's stay together now.~
+			SAY SELECT_COMMON4 @27 // ~Something you need?~
+			SAY SELECT_COMMON5 @28 // ~Well met.~
+			SAY SELECT_COMMON6 @29 //~You have my appreciation.~ 
+			SAY SELECT_ACTION1 @30 // ~So be it.~
+			SAY SELECT_ACTION2 @31 // ~Now this should be interesting.~
+			SAY SELECT_ACTION3 @32 // ~I'll see what I can do.~
+			SAY CRITICAL_HIT @37 // ~Ahaha!~
+			SAY CRITICAL_MISS @38 // ~Oh bugger!~
+			SAY TARGET_IMMUNE @39 // ~My attack does nothing!~
+			SAY INVENTORY_FULL @40 // ~I am not a pack mule, you know. Notice I lack long ears and hooves.~
+			SAY SPELL_DISRUPTED @41 // ~No good, my spell failed!~ 
+			SAY SET_A_TRAP @42 // ~Finished.~ 
+			SAY HIDDEN_IN_SHADOWS @43 // ~Time to fade into the background, hmm?~ 
+			SAY PICKED_POCKET @44 // ~Sorry.~ 
+			SAY REACT_TO_DIE_GENERAL @47 //~You'll not get away with their death!~
+		BUT_ONLY
+	END
+
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		COPY_EXISTING ~X32mily.cre~ ~override/X32mily.cre~
+			SAY 0x1E0 @33 // ~Fair enough~ [AURAh]				//  SAY BGEE_ACTION4 @33
+			SAY 0x1E4 @34 //~Come with me.~						//  SAY BGEE_ACTION5 @34
+			SAY 0x1E8 @35 // ~Sounds fine to me.~				//  SAY BGEE_ACTION6 @35
+			SAY 0x1EC @36 // ~Hmm, I don't know.~				//  SAY BGEE_ACTION7 @36
+		BUT_ONLY
+	END
+
+	ACTION_IF GAME_IS ~eet~ BEGIN
+		COPY_EXISTING ~X32mily.cre~ ~override/X32mily.cre~
+			SAY SELECT_ACTION4 @33 // ~Fair enough~ [AURAh]
+			SAY SELECT_ACTION5 @34 //~Come with me.~
+			SAY SELECT_ACTION6 @35 // ~Sounds fine to me.~
+			SAY SELECT_ACTION7 @36 // ~Hmm, I don't know.~
+		BUT_ONLY
+	END
+END
