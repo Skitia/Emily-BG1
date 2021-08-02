@@ -231,6 +231,7 @@ ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107
     COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK2.baf~
 	  COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK1.baf~
    COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3dal.baf~ 
+   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EReset.baf~ 
 APPEND ~pdialog.2da~
 ~X3mily        X3milyP	X3milyJ X3milyD~
 UNLESS ~X3mily~
