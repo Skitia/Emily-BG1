@@ -1297,6 +1297,7 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN Emily.PID
 +~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ ~Can you upgrade a launcher for me?~ + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ ~Can I check on your progress of your craft?~  + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ ~Can I check on your progress of your craft?~  + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
+ ++ ~Your voice sounds funny.~ + FixString
  ++ ~Nothing at the moment.~  EXIT
  END 
  
@@ -2080,5 +2081,12 @@ IF ~~ Emily.PArchery3
 SAY ~Never stand in front of your front line. That's silly. I saw a hobgoblin do that once. Didn't live long.~
 IF ~~ EXIT 
 END
+
+IF ~~ FixString
+SAY ~Haha. It's just a normal voice. Really! Really r-*cough*. *Hem*. Nevermind, let me just clear my throat. One second!~
+IF ~~ DO ~ClearAllActions() 
+      StartCutSceneMode() 
+      StartCutScene("X3EReset")~ EXIT 
+END 
  
 END
