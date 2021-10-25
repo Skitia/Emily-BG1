@@ -1,7 +1,7 @@
 BEGIN X3mily
 
 CHAIN IF ~Global("X3milyMet","GLOBAL",0)~ THEN X3mily b1 
-@0 //~Hey, I've been trying to get to Baldur's Gate. You wouldn't happen to be heading that way, would you?~ 
+@0 //~Hey, I've been trying to get to Baldur's Gate. You wouldn't happen to be heading that way, would you?~ [X3EIntro]
 DO ~SetGlobal("X3milyMet","GLOBAL",1)~ 
 == X3mily @2 // ~I heard my mother is there and I want to find her. I just need a company to go with, the roads aren't safe with the iron crisis. I'm capable, but not foolish.~
 END

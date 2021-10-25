@@ -61,7 +61,7 @@ END
 
 IF ~~ Talk1.7
 SAY ~Really? I'd love to. My bow is yours.~
-IF ~~ DO ~AddJournalEntry(@102,INFO)ActionOverride("cutspy",DestroySelf())
+IF ~~ DO ~AddJournalEntry(@1002,INFO)ActionOverride("cutspy",DestroySelf())
 JoinParty()~ EXIT
 END
 
@@ -134,7 +134,7 @@ END
 
 IF ~~ Talk2.join
 SAY ~Really? I'd love to. My bow is yours.~
-IF ~~ DO ~AddJournalEntry(@102,INFO)
+IF ~~ DO ~AddJournalEntry(@1002,INFO)
 JoinParty()~ EXIT
 END
 
@@ -199,7 +199,7 @@ IF ~OR(2)
 AreaCheck("BD0120")
 AreaCheck("BD0130")
 Global("bd_joined","locals",0)~ THEN join_again
-  SAY ~Why do dungeons have to be so blasted cold? I'm freezing. Please tell me you want me to walk with you again.~ [Emildun]
+  SAY ~Why is every dungeon so blasted cold? I'm freezing. Please tell me you want me to walk with you again.~ [Emildun]
   ++ ~Yes, please come along once more.~ + kickout_4
   ++ ~Just remain here and await my return, all right?~ + kickout_3
 END

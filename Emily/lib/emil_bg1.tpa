@@ -78,6 +78,52 @@ COPY ~%MOD_FOLDER%/creatures/X3mily.cre~ ~override/X3mily.cre~
   WRITE_ASCII 0x2cc ~X3mily~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~EmilyM~ #8   //small portrait
   WRITE_ASCII 0x3c ~EmilyL~ #8   //medium portrait
+  SAY BIO @2 
+  SAY MORALE @3 // ~I need to fall back.~
+  SAY HAPPY @4 // ~I am quite pleased with how you have lead us. We are actually making a difference.~
+  SAY UNHAPPY_ANNOYED @5 // ~I didn't think things would be like this when I left home.~ [X3Eann]
+  SAY UNHAPPY_SERIOUS @6 // ~You need to seriously consider our actions. I have had just about enough.~ [X3Eser]
+  SAY UNHAPPY_BREAKING_POINT @7 // ~That's it! I have morals and values, and I am done breaking them.~ [X3Ebreak]
+  SAY LEADER @8 // ~Me, leader? Oh this is going to be so *fun*.~
+  SAY TIRED @9 // ~I admit I might be a spoiled noble, but I am *really* tired. Can we rest?~
+  SAY BORED @10 // ~I'm more bored than I was in Lady Liliana's Lady lessons. And they were boring.~
+  SAY BATTLE_CRY1 @11 // ~You've made a grave mistake.~
+  SAY BATTLE_CRY2 @12 // ~I won't miss.~
+  SAY BATTLE_CRY3 @13 // ~I hope you didn't invite them~
+  SAY BATTLE_CRY4 @14 // ~My aim will be true.~
+  SAY BATTLE_CRY5 @15 // ~It's that time again, isn't it?~
+  SAY DAMAGE @16 // ~Agh~
+  SAY DYING @17 // ~I'm... so sorry...~
+  SAY HURT @18 // ~I need a healing spell.~ 
+  SAY AREA_FOREST @19 // ~Back in House Castilla, I only ever got to see the trees. It's so much better to be in the forest.~
+  SAY AREA_CITY @20 // ~It's kind of exciting to be in the city. Maybe we could do some shopping?~ 
+  SAY AREA_DUNGEON @21 // ~Why do dungeons have to be so blasted cold? I'm freezing.~
+  SAY AREA_DAY @22 // ~Today, I feel excited. And a little hungry.~ [X3Eday]
+  SAY AREA_NIGHT @23 // ~I feel so deviant walking around in the night. So much different than my upbringing.~ [X3Edark]
+  SAY SELECT_COMMON1 @24 // ~Emily Castilla, at your service! Or Emilia if you want to be fancy.~
+  SAY SELECT_COMMON2 @25 // ~My quiver is ready.~
+  SAY SELECT_COMMON3 @26 // ~Hey there.~
+  SAY SELECT_COMMON4 @27 // ~Yes, yes?~
+  SAY SELECT_COMMON5 @28 // ~So, what is the order this time?~
+  SAY SELECT_COMMON6 @29 //~I'm here to help.~ 
+  SAY SELECT_ACTION1 @30 // ~On it.~
+  SAY SELECT_ACTION2 @31 // ~Sounds simple enough.~ [Emilaa3]
+  SAY SELECT_ACTION3 @32 // ~Okay.~
+  SAY SELECT_ACTION4 @33 // ~With precision.~ [Emilaa4] 
+  SAY SELECT_ACTION5 @34 //~On my way.~ 
+  SAY SELECT_ACTION6 @35 // ~And I thought you were going to give me something hard to do.~
+  SAY SELECT_ACTION7 @36 // ~Hmm, Maybe later. Ha, Of course I will.~
+  SAY CRITICAL_HIT @37 // ~Bullseye.~
+  SAY CRITICAL_MISS @38 // ~Come on, *come on*!~
+  SAY TARGET_IMMUNE @39 // ~This isn't working.~
+  SAY INVENTORY_FULL @40 // ~I can't carry anymore.~
+  SAY SPELL_DISRUPTED @41 // ~I knew I shouldn't have skipped magic theory!~ 
+  SAY SET_A_TRAP @42 // ~Finished.~ 
+  SAY HIDDEN_IN_SHADOWS @43 // ~Invisible as the wind.~ [Emilhide]
+  SAY PICKED_POCKET @44 // ~Sorry.~ 
+  SAY SELECT_RARE1 @45 // ~I do miss Tethyr. Terribly, sometimes.~ [X3ERar1]
+  SAY SELECT_RARE2 @46 // ~If we get a chance, I'd love to get a new pair of cute boots. These are worn out.~ [X3ERar2]
+  SAY REACT_TO_DIE_GENERAL @47 //~Their death won't be in vain. I promise.~ [X3Ereact]
 
 ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
 THEN BEGIN
@@ -89,9 +135,53 @@ COPY ~Emily/creatures/SoD/X32mily.cre~ ~override/X32mily.cre~
   WRITE_ASCII 0x2cc ~X32mily~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~EmilyM~ #8   //small portrait
   WRITE_ASCII 0x3c ~EmilyL~ #8   //medium portrait
+  SAY BIO @2 
+  SAY MORALE @3 // ~We've got to get out of here.~
+  SAY HAPPY @4 // ~It appears the tales told of your heroism are quite justified.~
+  SAY UNHAPPY_ANNOYED @5 // ~I don't approve of our direction.~
+  SAY UNHAPPY_SERIOUS @6 // ~We need to seriously consider our actions, or I will not be staying with you.~
+  SAY UNHAPPY_BREAKING_POINT @7 // ~I can't stand this any longer. My heart revolts at your lack of care of others!~
+  SAY LEADER @8 // ~Come with me.~
+  SAY TIRED @9 // ~I need to sit down, just for a bit.~
+  SAY BORED @10 // ~Some excitement would be welcome.~
+  SAY BATTLE_CRY1 @11 // ~Come on, come on!~
+  SAY BATTLE_CRY2 @12 // ~We fight, for glory!~
+  SAY BATTLE_CRY3 @13 // ~Down you go!~
+  SAY BATTLE_CRY4 @14 // ~You're in for it now!~
+  SAY BATTLE_CRY5 @15 // ~You'll not be the first to regret crossing me.~
+  SAY DAMAGE @16 // ~Agh~
+  SAY DYING @17 // ~Not like this...~
+  SAY HURT @18 // ~Damn, I need some healing.~
+  SAY AREA_FOREST @19 // ~Hmm, I should have picked up some new boots.~
+  SAY AREA_CITY @20 // ~The estate was always a bit away from towns and cities. This is so...congested.~
+  SAY AREA_DUNGEON @21 // ~Why do dungeons have to be so blasted cold? I'm freezing.~
+  SAY AREA_DAY @22 // ~It's a beautiful day, isn't it?~
+  SAY AREA_NIGHT @23 // ~All sorts of monstrous things under the moonlight. Careful steps.~
+  SAY SELECT_COMMON1 @24 // ~Yes? Is there something you need?~
+  SAY SELECT_COMMON2 @25 // ~Is there something I can do for you?~
+  SAY SELECT_COMMON3 @26 // ~Let's stay together now.~
+  SAY SELECT_COMMON4 @27 // ~Something you need?~
+  SAY SELECT_COMMON5 @28 // ~Well met.~
+  SAY SELECT_COMMON6 @29 //~You have my appreciation.~ 
+  SAY SELECT_ACTION1 @30 // ~So be it.~
+  SAY SELECT_ACTION2 @31 // ~Now this should be interesting.~
+  SAY SELECT_ACTION3 @32 // ~I'll see what I can do.~
+  SAY SELECT_ACTION4 @33 // ~Fair enough~ [AURAh]
+  SAY SELECT_ACTION5 @34 //~Come with me.~
+  SAY SELECT_ACTION6 @35 // ~Sounds fine to me.~
+  SAY SELECT_ACTION7 @36 // ~Hmm, I don't know.~
+  SAY CRITICAL_HIT @37 // ~Ahaha!~
+  SAY CRITICAL_MISS @38 // ~Oh bugger!~
+  SAY TARGET_IMMUNE @39 // ~My attack does nothing!~
+  SAY INVENTORY_FULL @40 // ~I am not a pack mule, you know. Notice I lack long ears and hooves.~
+  SAY SPELL_DISRUPTED @41 // ~No good, my spell failed!~ 
+  SAY SET_A_TRAP @42 // ~Finished.~ 
+  SAY HIDDEN_IN_SHADOWS @43 // ~Time to fade into the background, hmm?~ 
+  SAY PICKED_POCKET @44 // ~Sorry.~ 
+  SAY REACT_TO_DIE_GENERAL @47 //~You'll not get away with their death!~
 END 
 
-INCLUDE ~Emily/lib/set_soundset.tph~
+
 
 
 // JOURNAL
@@ -100,7 +190,7 @@ ADD_JOURNAL TITLE (%Emily's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10
 
 ADD_JOURNAL TITLE (@100045) @100046 @100047 @100048 @100049 @100050 @100051 @100052 @100053 @100054 USING ~Emily/tra/english/emil_bg1.tra~
 
-ADD_JOURNAL TITLE (@103) @103 @104 @105 @106 @107 
+ADD_JOURNAL TITLE (@1003) @1003 @1004 @1005 @1006 @1007 
 
 
 // DIALOGUE

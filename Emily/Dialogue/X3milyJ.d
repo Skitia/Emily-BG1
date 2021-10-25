@@ -1,7 +1,7 @@
 BEGIN X3milyJ
 /* Talk 1. */
 IF ~Global("X3milyTalk","GLOBAL",2)~ EmilyT1.1Edit  // This is the new start for Emily 1.1
-SAY @583 // ~Might we chat for a bit? I was wondering where you hailed from. You don't sound like you're from where I am.~ [EmilSay]
+SAY @583 // ~Might we chat for a bit? I was wondering where you hailed from. You don't sound like you're from where I am.~ 
 ++ @584 + Emily.T1A // ~I am from Candlekeep.~
 ++ @585 + Emily.T1B // ~I'm from the great kingdom of Aw, and lived in a floating city full of flying pigs and talking sheep.~
 ++ @586 + EmilyT1.5 // ~It isn't interesting. What about your own home?~
@@ -1490,7 +1490,7 @@ END
 
 // Player Initiated Dialogue 
 
-IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","GLOBAL",1)~ THEN BEGIN Emily.PID 
+IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","GLOBAL",1) !AreaCheck("BD0120")!AreaCheck("BD0130") GlobalLT("Chapter","GLOBAL",8)~ THEN BEGIN Emily.PID 
  SAY @168 // ~Something you need?~
  + ~HPPercentGT(Myself,74)RandomNum(3,1)~ + @225 + Emily.PHowAreYou1 // ~How are you doing?~
  + ~HPPercentGT(Myself,74)RandomNum(3,2)~ + @225 + Emily.PHowAreYou2 // ~How are you doing?~
@@ -1510,7 +1510,7 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","
  ++ @169  EXIT
  END 
  
- IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) Global("X3milyPIDOFF","GLOBAL",1)~ THEN BEGIN Emily.PID2
+ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) Global("X3milyPIDOFF","GLOBAL",1) GlobalLT("Chapter","GLOBAL",8) !AreaCheck("BD0120")!AreaCheck("BD0130")~ THEN BEGIN Emily.PID2
  SAY @486 // ~(Emily pointedly looks away at you. There is strain of sorrow and anger on her face.)~
  ++ @487 EXIT // ~(Leave her be.)~
  ++ @488 + Emily.PID2No // ~(Try to speak with her.)~

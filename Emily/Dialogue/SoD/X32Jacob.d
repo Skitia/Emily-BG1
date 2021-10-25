@@ -20,7 +20,7 @@ CHAIN X32Jacob QuestA
 ~Preparing for the coming battle, lass? The nine hells themselves...Even I get a bit of dread.~
 == X32milyJ ~Jacob...about that, is there somewhere we can talk that is private?~
 == X32Jacob ~Mmm. Over here. Let's head east.~
-DO ~AddJournalEntry(@104, QUEST)SetGlobal("X32milyQuestSpawn","GLOBAL",3)MoveToPoint([4595.2421])~ 
+DO ~AddJournalEntry(@1004, QUEST)SetGlobal("X32milyQuestSpawn","GLOBAL",3)MoveToPoint([4595.2421])~ 
 EXIT 
 
 CHAIN X32milyJ QuestB 

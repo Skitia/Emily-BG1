@@ -1281,8 +1281,8 @@ IF ~~ EXIT
 END 
 
 //New P.I.D. will exclude Chapter Advice. 
-IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN Emily.PID
- SAY ~Something you need?~ [Emilcs4] // ~Something you need?~ 
+IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) GlobalGT("Chapter","GLOBAL",7)GlobalLT("CHAPTER","GLOBAL",13)~ THEN BEGIN Emily.PID
+ SAY ~So, what is the order this time?~ [Emilcs5] // ~Something you need?~ 
  + ~HPPercentGT(Myself,74)RandomNum(6,1)~ + ~How are you doing?~ + Emily.PHowAreYou1 // ~How are you doing?~
  + ~HPPercentGT(Myself,74)RandomNum(6,2)~ + ~How are you doing?~ + Emily.PHowAreYou2 // ~How are you doing?~
  + ~HPPercentGT(Myself,74)RandomNum(6,3)~ + ~How are you doing?~ + Emily.PHowAreYou3 // ~How are you doing?~
