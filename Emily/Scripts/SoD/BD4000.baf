@@ -14,7 +14,7 @@ InParty("X3mily")
 Global("X32milyJacobDeadComment","BD4000",0)
 THEN 
 RESPONSE #100 
-AddJournalEntry(@105, QUEST_DONE)
+AddJournalEntry(@1005, QUEST_DONE)
 AddexperienceParty(6000)
 SetInterrupt(FALSE)
 SetGlobal("X32milyJacobDeadComment","BD4000",1)
@@ -29,7 +29,7 @@ Global("X32milyQuestSpawn","GLOBAL",4)
 Global("X32milyJacobEnemyComment","BD4000",0)
 THEN 
 RESPONSE #100 
-AddJournalEntry(@106, QUEST_DONE)
+AddJournalEntry(@1006, QUEST_DONE)
 AddexperienceParty(6000)
 SetInterrupt(FALSE)
 SetGlobal("X32milyJacobEnemyComment","BD4000",1)
@@ -44,7 +44,7 @@ Global("X32milyQuestSpawn","GLOBAL",5)
 Global("X32milyJacobConvincedComment","BD4000",0)
 THEN 
 RESPONSE #100 
-AddJournalEntry(@107, QUEST_DONE)
+AddJournalEntry(@1007, QUEST_DONE)
 AddexperienceParty(6000)
 SetInterrupt(FALSE)
 SetGlobal("X32milyJacobConvincedComment","BD4000",1)
