@@ -65,5 +65,5 @@ THEN
   RESPONSE #100
     SetGlobalTimer("bd_mdd905a_ot_timer","bd4300",THREE_MINUTES)
     SetGlobal("bd_ot_X3mily","bd4300",1)
-    DisplayStringHead("X3mily",~We've got to get out of here!~ [Emilfear])
+    DisplayStringHead("X3mily",~We've got to get out of here!~)
 END
