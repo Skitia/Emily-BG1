@@ -21,7 +21,7 @@
 @18 = ~I need a healing spell.~ [Emilhurt]
 @19 = ~Back in House Castilla, I only ever got to see the trees. It's so much better to be in the forest.~ [Emilfor]
 @20 = ~It's kind of exciting to be in the city. Maybe we could do some shopping?~ [X3Ecity]
-@21 = ~Why do dungeons have to be so blasted cold? I'm freezing.~ [Emildun]
+@21 = ~Why is every dungeon so blasted cold?~ [Emildun]
 @22 = ~Today, I feel excited. And a little hungry.~ [X3Eday]
 @23 = ~I feel so deviant walking around in the night. So much different than my upbringing.~ [X3Edark]
 @24 = ~Emily Castilla, at your service! Or Emilia if you want to be fancy.~ [Emila]
@@ -42,7 +42,7 @@
 @39 = ~This isn't working.~ [Emilnoth]
 @40 = ~I can't carry anymore.~ [Emilin] 
 @41 = ~I knew I shouldn't have skipped magic theory!~ [Emilspel]
-@42 = ~Finished.~ [Emilstp]
+@42 = ~~
 @43 = ~Invisible as the wind.~ [Emilhide]
 @44 = ~Sorry.~ [Emilpp]
 @45 = ~I do miss Tethyr. Terribly, sometimes.~ [X3ERar1]
