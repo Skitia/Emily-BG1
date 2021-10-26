@@ -16,7 +16,7 @@ IF
     HasItem("potn10",Myself)
  THEN
  RESPONSE #100
-	DisplayStringHead(Myself,@17) //quaffs a potion
+	DisplayStringHead(Myself,31249) //quaffs a potion
 	UseItem("potn10",Myself)
 	Continue()
 END

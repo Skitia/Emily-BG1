@@ -3,7 +3,7 @@ See(Player1)
 Global("X32Hunterspawn","GLOBAL",1)// They have spawned 
 THEN RESPONSE #100 
 SetGlobal("X32Hunterspawn","GLOBAL",2)//Turn Off 
-DisplayStringHead("X32EHK3S",~You!~)
+DisplayStringHead("X32EHK3S",@31)
 Dialogue(Player1)
 END
 

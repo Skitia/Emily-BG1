@@ -7,5 +7,5 @@ THEN
 	RESPONSE #100
 		SetGlobal("bd_hellevator_ot_X3mily","bd4601",1)
 		SetGlobalTimer("bd_hellevator_timer","bd4601",7)
-		DisplayStringHead("X3mily",~This...is making me really nervous.~)
+		DisplayStringHead("X3mily",@0)
 END

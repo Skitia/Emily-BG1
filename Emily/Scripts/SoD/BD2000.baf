@@ -8,7 +8,7 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("bd_mdd410z_ot_timer","bd2000",THREE_MINUTES)
 		SetGlobal("bd_ot_X3mily","bd2000",1)
-		DisplayStringHead("X3mily",~Let's deal with these!~)  
+		DisplayStringHead("X3mily",@0)  
 END
 
 IF
@@ -20,5 +20,5 @@ THEN
 	RESPONSE #100
 		SetGlobal("X3_betrayal_discussion","bd2000",1)
 		SetGlobalTimer("bd_betrayal_discuss_timer","bd2000",ONE_MINUTE)
-		DisplayStringHead("X3mily",~This is tragic. How could you do this, <CHARNAME>?~)  // ~This is tragic. How could you do this, <CHARNAME>?~
+		DisplayStringHead("X3mily",@1)  // @1
 END

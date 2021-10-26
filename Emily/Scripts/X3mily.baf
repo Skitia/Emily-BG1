@@ -42,34 +42,34 @@ IF
 Switch("X3ECraft","GLOBAL")
 THEN RESPONSE #1 // 1
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~Done and done!~)
+DisplayStringHead(Myself,@2000)
 RESPONSE #4 // 3
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~12 pieces of ammunition, ready for use!~)
+DisplayStringHead(Myself,@2001)
 RESPONSE #7 // 5
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~A fresh batch of ammunition ready.~)
+DisplayStringHead(Myself,@2002)
 RESPONSE #10 // 7
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~There! Finished.~)
+DisplayStringHead(Myself,@2003)
 RESPONSE #14 // 10
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~I'm about half-way through my supplies, <CHARNAME>.~)
+DisplayStringHead(Myself,@2004)
 RESPONSE #18 // 13
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~Eugh, I might have pricked my finger. I'll slow down next time.~)
+DisplayStringHead(Myself,@2005)
 RESPONSE #23 // 17
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~I've got enough for three more batches. Let's use them up wisely.~)
+DisplayStringHead(Myself,@2006)
 RESPONSE #25 // 18
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~You should repay me with a nice pair of new boots for all this fletching. I'm kidding! Kind of.~)
+DisplayStringHead(Myself,@2007)
 RESPONSE #27 // 19
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~Just a warning, I've only enough supplies for only one more quiver, then I'm all out.~)
+DisplayStringHead(Myself,@2008)
 RESPONSE #29 // 20
 IncrementGlobal("X3ECraft","GLOBAL",1)
-DisplayStringHead(Myself,~That's the last of the supplies. Let's use these last ones well.~)
+DisplayStringHead(Myself,@2009)
 RemoveSpellRES("X3EFA")
 RemoveSpellRES("X3EFB")
 END 

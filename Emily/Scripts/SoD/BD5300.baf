@@ -8,5 +8,5 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("bd_sdd350b_ot_timer","bd2000",THREE_MINUTES)
 		SetGlobal("bd_ot_X3mily","bd5300",1)
-		DisplayStringHead("X3mily",~We will stop you!~) 
+		DisplayStringHead("X3mily",@0) 
 END

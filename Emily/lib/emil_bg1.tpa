@@ -342,4 +342,4 @@ COMPILE ~Emily/dialogue/CrossMod/Drake.d~
 END  
 
 
-LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+LOAD_TRA ~Emily/tra/English/Emily.tra~

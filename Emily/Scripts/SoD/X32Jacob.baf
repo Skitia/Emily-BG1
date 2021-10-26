@@ -3,6 +3,6 @@ See("X3mily")
 Global("X32milyQuestSpawn","GLOBAL",1) // They have spawned 
 THEN RESPONSE #100 
 SetGlobal("X32milyQuestSpawn","GLOBAL",2) //Turn Off 
-DisplayStringHead("X32mily",~Lass...Emily?~)
+DisplayStringHead("X32mily",@57)
 Dialogue(Player1)
 END

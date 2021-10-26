@@ -23,7 +23,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("X32milyCryptComment1","GLOBAL",2)
-	DisplayStringHead("X3mily",~After this <CHARNAME>, I need to return home. Father will be wondering why I've been behind on reporting in.~)
+	DisplayStringHead("X3mily",@0)
 END
 
 // SoD - talk after Korlasz
@@ -50,5 +50,5 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("X32milyCryptComment2","GLOBAL",2)
-	DisplayStringHead("X3mily",~This has been a wonderful journey. I will miss this.~)
+	DisplayStringHead("X3mily",@1)
 END

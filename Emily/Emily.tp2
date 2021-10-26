@@ -2,7 +2,7 @@ BACKUP ~Emily\backup~
 AUTHOR ~https://forums.beamdog.com/discussion/74672/v1-54-emily-a-half-elf-archer-for-bg-ee-sod#latest~
 README ~Emily/readme.txt~
 
-VERSION ~1.64~
+VERSION ~1.65~
 AUTO_TRA ~Emily/tra/%s~
 
 ALWAYS
@@ -51,9 +51,9 @@ END
 		COPY ~%MOD_FOLDER%/portraits/EmilyM.bmp~ ~override/EmilyM.bmp~
 		
 
-BEGIN ~Arcane Archer (Fighter Kit)~
-SUBCOMPONENT ~Choose an alternate class for Emily?~
-REQUIRE_COMPONENT ~ArtisansKitpack.tp2~ ~0~ ~This component requires Artisan's Kitpack to be installed~
+BEGIN @48
+SUBCOMPONENT @49
+REQUIRE_COMPONENT ~ArtisansKitpack.tp2~ ~0~ @50
 
 COPY ~%MOD_FOLDER%/creatures/X3milyAA.cre~ ~override/X3mily.cre~
   SAY NAME1 @1 //~Emily~
@@ -168,9 +168,9 @@ COPY ~Emily/creatures/SoD/X32milyA.cre~ ~override/X32mily.cre~
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~c0aa~))  
 END 
 
-BEGIN ~Arcane Archer/Mage (Fighter/Mage Kit))~
-SUBCOMPONENT ~Choose an alternate class for Emily?~
-REQUIRE_COMPONENT ~ArtisansKitpack.tp2~ ~0~ ~This component requires Artisan's Kitpack to be installed~
+BEGIN @51
+SUBCOMPONENT @49
+REQUIRE_COMPONENT ~ArtisansKitpack.tp2~ ~0~ @50
 
 COPY ~%MOD_FOLDER%/creatures/X3milyAM.cre~ ~override/X3mily.cre~
   SAY NAME1 @1 //~Emily~
@@ -283,8 +283,8 @@ COPY ~Emily/creatures/SoD/X32milyM.cre~ ~override/X32mily.cre~
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~c0aa~))  
 END 
 
-BEGIN ~Emily's Music~
-SUBCOMPONENT ~Choose whether or not to have Emily's custom soundtrack play during timed talks.~
+BEGIN @52
+SUBCOMPONENT @53
 
 	COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
 

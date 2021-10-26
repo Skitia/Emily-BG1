@@ -1,4 +1,4 @@
-@0    = ~Not used~
+@0 = ~Not used~
 @1 = ~Emily~
 @100    = ~BG:EE install detected~
 @52    = ~EET install detected.~
@@ -57,3 +57,9 @@
 @45 = ~I do miss Tethyr. Terribly, sometimes.~ [X3ERar1]
 @46 = ~Let's play poke the aasimar.~ [X3ERar2]
 @47 = ~Their death won't be in vain. I promise.~ [X3Ereact]
+@48 = ~Arcane Archer (Fighter Kit)~
+@49 = ~Choose an alternate class for Emily?~
+@50 = ~This component requires Artisan's Kitpack to be installed.~
+@51 = ~Arcane Archer/Mage (Fighter/Mage Kit)~
+@52 = ~Emily's Music~
+@53 = ~Choose whether or not to have Emily's custom soundtrack play during timed talks.~

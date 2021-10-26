@@ -19,7 +19,7 @@ AddexperienceParty(6000)
 SetInterrupt(FALSE)
 SetGlobal("X32milyJacobDeadComment","BD4000",1)
 Wait(1)
-DisplayStringWait("X3mily",~I...I am so sorry Jacob. I wish this never happened.~) 
+DisplayStringWait("X3mily",@0) 
 SetInterrupt(TRUE)
 END 
 
@@ -34,7 +34,7 @@ AddexperienceParty(6000)
 SetInterrupt(FALSE)
 SetGlobal("X32milyJacobEnemyComment","BD4000",1)
 Wait(1)
-DisplayStringWait("X3mily",~So that's it then...opposite sides of a coming battle. *Sigh*. Let's just continue on.~) 
+DisplayStringWait("X3mily",@1) 
 SetInterrupt(TRUE)
 END 
 
@@ -49,7 +49,7 @@ AddexperienceParty(6000)
 SetInterrupt(FALSE)
 SetGlobal("X32milyJacobConvincedComment","BD4000",1)
 Wait(1)
-DisplayStringWait("X3mily",~Thank you, <CHARNAME>. Thank you for convincing him.~) 
+DisplayStringWait("X3mily",@2) 
 SetInterrupt(TRUE)
 END 
 
