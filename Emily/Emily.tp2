@@ -43,7 +43,7 @@ END
 
 INCLUDE ~Emily/lib/Emil_items.tpa~
 INCLUDE ~Emily/lib/Emil_bg1.tpa~ 
-INCLUDE ~Emily/lib/Isaac.tpa~
+//INCLUDE ~Emily/lib/Isaac.tpa~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~ THEN BEGIN
 INCLUDE ~Emily/lib/Emil_sod.tpa~ 
