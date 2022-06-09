@@ -7,6 +7,7 @@ AUTO_TRA ~Emily/tra/%s~
 
 ALWAYS
   INCLUDE ~Emily/lib/functions.tph~
+  INCLUDE ~Emily/lib/fl#add_kit_ee.tpa~
 END
 
 // 
@@ -42,6 +43,7 @@ END
 
 INCLUDE ~Emily/lib/Emil_items.tpa~
 INCLUDE ~Emily/lib/Emil_bg1.tpa~ 
+INCLUDE ~Emily/lib/Isaac.tpa~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~ THEN BEGIN
 INCLUDE ~Emily/lib/Emil_sod.tpa~ 
@@ -50,7 +52,7 @@ END
 		COPY ~%MOD_FOLDER%/portraits/EmilyL.bmp~ ~override/EmilyL.bmp~
 		COPY ~%MOD_FOLDER%/portraits/EmilyM.bmp~ ~override/EmilyM.bmp~
 		
-
+/*
 BEGIN @48
 SUBCOMPONENT @49
 REQUIRE_COMPONENT ~ArtisansKitpack.tp2~ ~0~ @50
@@ -224,7 +226,7 @@ COPY ~%MOD_FOLDER%/creatures/X3milyAM.cre~ ~override/X3mily.cre~
   SAY HIDDEN_IN_SHADOWS @43 // ~Time to fade into the background, hmm?~ 
   SAY PICKED_POCKET @44 // ~Sorry.~ 
   SAY REACT_TO_DIE_GENERAL @47 //~You'll not get away with their death!~
-  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~c0aa~))  
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~c0aa2~))  
 
 ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
 THEN BEGIN
@@ -280,9 +282,9 @@ COPY ~Emily/creatures/SoD/X32milyM.cre~ ~override/X32mily.cre~
   SAY HIDDEN_IN_SHADOWS @43 // ~Time to fade into the background, hmm?~ 
   SAY PICKED_POCKET @44 // ~Sorry.~ 
   SAY REACT_TO_DIE_GENERAL @47 //~You'll not get away with their death!~
-  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~c0aa~))  
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~c0aa2~))  
 END 
-
+*/
 BEGIN @52
 SUBCOMPONENT @53
 
@@ -308,3 +310,9 @@ LAF HANDLE_AUDIO
     sox_path = ~Emily/music~
 END
 
+/*
+BEGIN @48
+SUBCOMPONENT @49
+REQUIRE_COMPONENT ~ArtisansKitpack.tp2~ ~0~ @50
+
+*/
