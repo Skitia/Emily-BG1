@@ -1,5 +1,5 @@
 @0    = ~Phew, I'm glad they are gone. Though damn it. How am I going to get across and  catch up to Jacob now that the bridge is destroyed?~
-@1    = ~Emily? Is that you?~
+@1    = ~It's nice to see you again, Emily.~
 @2    = ~Why are you trying to get across?~
 @3    = ~Phew, I'm glad they are gone. Sorry for arriving so late to help. Though damn it. How am I going to get across and  catch up to Jacob now that the bridge is destroyed?~
 @4    = ~<CHARNAME>? Sorry, I've been so tired from running I didn't recognize you.~
@@ -90,3 +90,7 @@
 @89   = ~And maybe if I close my eyes on the nights to come, I can dream about that.~
 @90   = ~I can dream and pretend it is a reality. But...it won't be.~
 @91   = ~I'll be going home now, <CHARNAME>. But I'll never forget you.~
+@92   = ~And I would love to have you, Emily.~
+@93   = ~Thank you for helping me with those planar hunters. They have been quite the thorn. Though damn it. How am I going to get across and  catch up to Jacob now that the bridge is destroyed?~
+@94   = ~Is it time? It's a bit boring just standing here.~
+@95   = ~I'd like for you to wait at the camp instead.~
