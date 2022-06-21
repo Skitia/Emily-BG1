@@ -6,7 +6,7 @@
 
 
 
-APPEND ~bddialog.2da~ ~X3mily X32mily X32milyJ X32ilyD~ 
+APPEND ~bddialog.2da~ ~X3mily X32mily X32milyJ X32milyD~ 
   UNLESS ~X3mily~
 
 
