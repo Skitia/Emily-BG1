@@ -1,16 +1,49 @@
 /* Emily's SoD greetings dialogue */
 BEGIN x32mily
 
+IF ~AreaCheck("bd4300")GlobalGT("bd_plot","global",585)~ THEN BEGIN Emily.BattleOver 
+SAY @47
+IF ~~ EXIT 
+END 
+
+IF ~Global("X3milyNeverJoined","locals",1)~ THEN BEGIN X3milyNeverJoined 
+SAY @51
+++ @92 + kickout_4
+++ @50 + kickout_3 
+++ @53 + kickout_30
+END 
+
+IF ~~ THEN BEGIN kickout_3
+  SAY @41
+  IF ~~ THEN DO ~SetGlobal("bd_joined","locals",0)~ EXIT
+END
+
+IF ~~ THEN BEGIN kickout_4
+  SAY @42
+  IF ~~ THEN DO ~JoinParty()~ EXIT
+END
+
+IF ~~ THEN BEGIN kickout_30
+  SAY @54
+  IF ~~ THEN DO ~SetGlobal("bd_joined","locals",0)~ EXIT
+END
+
 IF ~AreaCheck("BD1000")Global("X32EmilyMetSoD","GLOBAL",0)!Dead("X32EHK3S")~ THEN BEGIN Talk1 
 SAY @0
 ++ @1 DO ~SetGlobal("X32milyInBG1","GLOBAL",1)SetGlobal("X32EmilyMetSoD","GLOBAL",1)~ + Talk1.1 
 +~OR(2)!Global("X32milyInBG1","GLOBAL",1)!BeenInParty("X3mily")~+ @2 DO ~SetGlobal("X32EmilyMetSoD","GLOBAL",1)~ + Talk1.2
 END 
 
-IF ~AreaCheck("BD1000")Global("X32EmilyMetSoD","GLOBAL",0)Dead("X32EHK3S")~ THEN BEGIN Talk1 
+IF ~AreaCheck("BD1000")Global("X32EmilyMetSoD","GLOBAL",0)Dead("X32EHK3S")!Global("X32PlanarHunterEnemy","GLOBAL",4)~ THEN BEGIN Talk1 
 SAY @3
 ++ @1 DO ~SetGlobal("X32milyInBG1","GLOBAL",1)SetGlobal("X32EmilyMetSoD","GLOBAL",1)~ + Talk1.1 
 +~OR(2)!Global("X32milyInBG1","GLOBAL",1)!BeenInParty("X3mily")~+ @2 DO ~SetGlobal("X32EmilyMetSoD","GLOBAL",1)~ + Talk1.2
+END
+
+IF ~AreaCheck("BD1000")Global("X32EmilyMetSoD","GLOBAL",0)Dead("X32EHK3S")Global("X32PlanarHunterEnemy","GLOBAL",4)~ THEN BEGIN Talk1 
+SAY @93
+++ @1 DO ~SetGlobal("X32PlanarHunterEnemy","GLOBAL",5)SetGlobal("X32milyInBG1","GLOBAL",1)SetGlobal("X32EmilyMetSoD","GLOBAL",1)~ + Talk1.1 
++~OR(2)!Global("X32milyInBG1","GLOBAL",1)!BeenInParty("X3mily")~+ @2 DO ~SetGlobal("X32PlanarHunterEnemy","GLOBAL",5)SetGlobal("X32EmilyMetSoD","GLOBAL",1)~ + Talk1.2
 END
 
 IF ~~ Talk1.1 
@@ -73,7 +106,7 @@ END
 
 IF ~~ Talk1.9
 SAY @21
-IF ~~ DO ~ChangeAIScript("bdparty",RACE)SetGlobal("bd_joined","locals",0)SetGlobal("bd_npc_camp","locals",1)ActionOverride("cutspy",DestroySelf())~
+IF ~~ DO ~ChangeAIScript("bdparty",RACE)SetGlobal("bd_joined","locals",0)SetGlobal("X3milyNeverJoined","locals",1)SetGlobal("bd_npc_camp","locals",1)ActionOverride("cutspy",DestroySelf())~
 EXIT
 END
 
@@ -122,7 +155,7 @@ END
 
 IF ~~ Talk2.8
 SAY @35
-IF ~~ DO ~ChangeAIScript("bdparty",RACE)SetGlobal("bd_joined","locals",0)SetGlobal("bd_npc_camp","locals",1)~
+IF ~~ DO ~ChangeAIScript("bdparty",RACE)SetGlobal("bd_joined","locals",0)SetGlobal("X3milyNeverJoined","locals",1)SetGlobal("bd_npc_camp","locals",1)~
 EXIT
 END
 
@@ -139,9 +172,9 @@ JoinParty()~ EXIT
 END
 
 
-/* x32milyP.dlg, Emily's kickout dialogue for SoD */
 
-BEGIN ~x32milyP~
+
+
 
 /* By all checks this will never fire. */
 IF ~AreaCheck("bd4700")
@@ -161,15 +194,7 @@ IF ~OR(2)
   ++ @40 + kickout_4
 END
 
-IF ~~ THEN BEGIN kickout_3
-  SAY @41
-  IF ~~ THEN DO ~SetGlobal("bd_joined","locals",0)~ EXIT
-END
 
-IF ~~ THEN BEGIN kickout_4
-  SAY @42
-  IF ~~ THEN DO ~JoinParty()~ EXIT
-END
 
 /* kicked out somewhere else (not bd4700.are in Avernus, not Korlasz's tomb) */
 IF ~GlobalGT("bd_joined","locals",0)~ THEN BEGIN kickout_5
@@ -179,20 +204,17 @@ IF ~GlobalGT("bd_joined","locals",0)~ THEN BEGIN kickout_5
      OR(2)
        !Range("ff_camp",999)
        NextTriggerObject("ff_camp")
-     !IsOverMe("xxBiff")~ + @44 DO ~SetGlobal("bd_npc_camp","locals",1)~ + kickout_6
+     !IsOverMe("X3mily")~ + @44 DO ~SetGlobal("bd_npc_camp","locals",1)~ + kickout_6
   ++ @45 + kickout_3
   ++ @40 + kickout_4
 END
+
+
 
 IF ~~ THEN BEGIN kickout_6
   SAY @46
   IF ~~ THEN DO ~SetGlobal("bd_joined","locals",0)~ EXIT
 END
-
-IF ~AreaCheck("bd4300")GlobalGT("bd_plot","global",585)~ THEN BEGIN Emily.BattleOver 
-SAY @47
-IF ~~ EXIT 
-END 
 
 /* join-up after leaving the group */
 IF ~OR(2)
@@ -204,16 +226,20 @@ Global("bd_joined","locals",0)~ THEN join_again
   ++ @50 + kickout_3
 END
 
-IF ~Global("bd_joined","locals",0)~ THEN join_again
+IF ~Global("bd_joined","locals",0)Range("ff_camp",90)~ THEN join_again
   SAY @51
   ++ @52 + kickout_4
   ++ @50 + kickout_3
   ++ @53 + kickout_30 
 END
 
-IF ~~ THEN BEGIN kickout_30
-  SAY @54
-  IF ~~ THEN DO ~SetGlobal("bd_joined","locals",0)~ EXIT
+IF ~Global("bd_joined","locals",0)!Range("ff_camp",90)~ THEN join_again
+  SAY @94
+ + ~GlobalGT("bd_npc_camp_chapter","global",1)
+     GlobalLT("bd_npc_camp_chapter","global",5)
+     !IsOverMe("X3mily")~ + @95 DO ~SetGlobal("bd_npc_camp","locals",1)~ + kickout_6
+  ++ @52 + kickout_4
+  ++ @50 + kickout_3
 END
 
 
@@ -312,3 +338,4 @@ SAY @88
 = @91
 IF ~~ EXIT
 END
+
