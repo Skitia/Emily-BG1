@@ -1259,7 +1259,7 @@ RESPONSE #60
 RESPONSE #70 
 	DisplayStringHead("X3mily",@215)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
-	SetGlobal("X32milyX3Rec1","MYAREA",60)	
+	SetGlobal("X32milyX3Rec1","MYAREA",80)	
 RESPONSE #80 
 	DisplayStringHead("X3Rec",@216)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
