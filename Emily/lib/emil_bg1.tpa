@@ -56,9 +56,12 @@ END
 
 //AUDIO
 
-
-
-LAF HANDLE_AUDIO END
+LAF HANDLE_AUDIO
+  STR_VAR
+    audio_path = ~Emily/Audio/Emily~
+    oggdec_path = ~Emily/Audio~
+    sox_path = ~Emily/Audio/Emily~
+END
 
 //Emily's Race Change to Aasimar.
 /*She Starts as Half-Elf. This change will only take place once it is revealed during her quest.*/
@@ -186,11 +189,14 @@ END
 
 // JOURNAL
 
-ADD_JOURNAL TITLE (%Emily's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10015 @10016 @10017 USING ~Emily/tra/english/emil_bg1.tra~
+ADD_JOURNAL TITLE (%Emily's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10015 @10016 @10017 @10018 @10019 @10020 @10021 @10022 @10023 @10024 @10025 USING ~Emily/tra/english/emil_bg1.tra~
+ADD_JOURNAL TITLE (@60000) @60001 @60002 @60003 @60004 @60005 @60006 @60007 @60008 @60009 @60010 @60011 @60012 @60013 @60014 @60015
 
-ADD_JOURNAL TITLE (@100045) @100046 @100047 @100048 @100049 @100050 @100051 @100052 @100053 @100054 USING ~Emily/tra/english/emil_bg1.tra~
+ADD_JOURNAL TITLE (@100045) @100046 @100047 @100048 @100049 @100050 @100051 @100052 @100053 @100054 @100055 @100056 @100057 @100058 USING ~Emily/tra/english/emil_bg1.tra~
 
 ADD_JOURNAL TITLE (@1003) @1004 @1005 @1006 @1007 
+
+ADD_JOURNAL TITLE (@60016) @60017 @60018 @60019 @60020 @60021 @60022 @60023 @60024 @60025 @60026 @60027 @60028
 
 
 // DIALOGUE
@@ -198,6 +204,7 @@ ADD_JOURNAL TITLE (@1003) @1004 @1005 @1006 @1007
 
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3milyB.d~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3mily.d~
+  PRINT ~This is Emily's J File.~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3milyj.d~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3milyp.d~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/X3EHK3.d~
@@ -229,11 +236,14 @@ ADD_JOURNAL TITLE (@1003) @1004 @1005 @1006 @1007
   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3mily.baf~
   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3milyD.baf~
   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK3.baf~
+    COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3Adv1.baf~
     COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3ECUT01.baf~
     COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK2.baf~
 	  COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EHK1.baf~
    COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3dal.baf~ 
-   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EReset.baf~ 
+   COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3EmiR.baf~ 
+      COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3Rodwyn.baf~ 
+	        COMPILE EVALUATE_BUFFER ~Emily/Scripts/X3HL.baf~ 
 APPEND ~pdialog.2da~
 ~X3mily        X3milyP	X3milyJ X3milyD~
 UNLESS ~X3mily~
@@ -250,20 +260,20 @@ COPY ~%MOD_FOLDER%/creatures/X3dal.cre~ ~override/X3dal.cre~
   WRITE_ASCII 0x280 ~X3dal~ #32  //DV
   WRITE_ASCII 0x2cc ~X3dal~ #8   //Dialogue file
 COPY ~%MOD_FOLDER%/creatures/X3EHK1.cre~ ~override/X3EHK1.cre~
-  SAY NAME1 @55 //~Hired Killer~
-  SAY NAME2 @55 //~Hired Killer~
+  SAY NAME1 @127 //~Planar Hunter~
+  SAY NAME2 @127 //~Planar Hunter~
   WRITE_ASCII 0x248 ~X3EHK1~ #8  //override script
   WRITE_ASCII 0x280 ~X3EHK1~ #32  //DV
   WRITE_ASCII 0x2cc ~X3EHK1~ #8   //Dialogue file
 COPY ~%MOD_FOLDER%/creatures/X3EHK2.cre~ ~override/X3EHK2.cre~
-  SAY NAME1 @55 //~Hired Killer~
-  SAY NAME2 @55 //~Hired Killer~
+  SAY NAME1 @126 //~Planar Hunter~
+  SAY NAME2 @126 //~Planar Hunter~
   WRITE_ASCII 0x248 ~X3EHK2~ #8  //override script
   WRITE_ASCII 0x280 ~X3EHK2~ #32  //DV
   WRITE_ASCII 0x2cc ~X3EHK1~ #8   //Dialogue file
 COPY ~%MOD_FOLDER%/creatures/X3EHK3.cre~ ~override/X3EHK3.cre~
-  SAY NAME1 @55 //~Hired Killer~
-  SAY NAME2 @55 //~Hired Killer~
+  SAY NAME1 @125 //~Planar Hunter Camilla~
+  SAY NAME2 @125 //~Planar Hunter Camilla~
   WRITE_ASCII 0x248 ~X3EHK3~ #8  //override script
   WRITE_ASCII 0x280 ~X3EHK3~ #32  //DV
   WRITE_ASCII 0x2cc ~X3EHK3~ #8   //Dialogue file
@@ -294,52 +304,18 @@ COPY ~%MOD_FOLDER%/creatures/X3HL.cre~ ~override/X3HL.cre~
 COPY ~%MOD_FOLDER%/creatures/X3H1.cre~ ~override/X3H1.cre~
   SAY NAME1 @55 //~Planar Hunter~
   SAY NAME2 @55 //~Planar Hunter~
-  WRITE_ASCII 0x248 ~X3H1~ #8  //override script
+  WRITE_ASCII 0x248 ~X3HL~ #8  //override script
   WRITE_ASCII 0x280 ~X3H1~ #32  //DV
   WRITE_ASCII 0x2cc ~X3H1~ #8   //Dialogue file    
 COPY ~%MOD_FOLDER%/creatures/X3H2.cre~ ~override/X3H2.cre~
   SAY NAME1 @55 //~Planar Hunter~
   SAY NAME2 @55 //~Planar Hunter~
-  WRITE_ASCII 0x248 ~X3H2~ #8  //override script
+  WRITE_ASCII 0x248 ~X3HL~ #8  //override script
   WRITE_ASCII 0x280 ~X3H2~ #32  //DV
   WRITE_ASCII 0x2cc ~X3H2~ #8   //Dialogue file     
 /////////////////////Cross Mod Content////////////////////////////
 
-ACTION_IF FILE_EXISTS_IN_GAME ~x3KaleB.dlg~
-THEN BEGIN
-  PRINT @48 // Adding crossmod banter between Kale and Emily
-COMPILE ~Emily/dialogue/CrossMod/Kale.d~
-END 
 
-ACTION_IF FILE_EXISTS_IN_GAME ~x3VienB.dlg~
-THEN BEGIN
-  PRINT @49 // Adding crossmod banter between Emily and Vienxay
-COMPILE ~Emily/dialogue/CrossMod/Vienxay.d~
-END   
-
-ACTION_IF FILE_EXISTS_IN_GAME ~BC0AURA.dlg~
-THEN BEGIN
-  PRINT @110 // Adding crossmod banter between Aura and Emily
-COMPILE ~Emily/dialogue/CrossMod/Aura.d~
-END  
-
-ACTION_IF FILE_EXISTS_IN_GAME ~X3HelgaB.dlg~
-THEN BEGIN
-  PRINT @111 // Adding crossmod banter between Helga and Emily
-COMPILE ~Emily/dialogue/CrossMod/Helga.d~
-END  
-
-ACTION_IF FILE_EXISTS_IN_GAME ~X3RecB.dlg~
-THEN BEGIN
-  PRINT @112 // Adding crossmod banter between Recorder and Emily
-COMPILE ~Emily/dialogue/CrossMod/Recorder.d~
-END  
-
-ACTION_IF FILE_EXISTS_IN_GAME ~BC0Drake.dlg~
-THEN BEGIN
-  PRINT @113 // Adding crossmod banter between Drake and Emily
-COMPILE ~Emily/dialogue/CrossMod/Drake.d~
-END  
 
 
 LOAD_TRA ~Emily/tra/English/Emily.tra~

@@ -3,17 +3,21 @@
 //////////////////////////Siege of Dragonspear////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-
-
+LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+/* Also includes Isaac's data. */
 
 APPEND ~bddialog.2da~ ~X3mily X32mily X32milyJ X32milyD~ 
   UNLESS ~X3mily~
 
+APPEND ~bddialog.2da~ ~X3Isaac X32Isaa X32IsaaJX32IsaaD~ 
+  UNLESS ~X3Isaac~
 
 ////////////////DIALOGUES
 
 COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32mily.d~
 COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32milyJ.d~
+COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32Isaa.d~
+COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32IsaaJ.d~
 COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32Jacob.d~
 COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32EHK3S.d~
 
@@ -21,13 +25,14 @@ COMPILE EVALUATE_BUFFER ~Emily/dialogue/SoD/X32EHK3S.d~
 
 // Non-Area Scripts 
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32mily.baf~
+COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32Isaa.baf~
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32Jacob.baf~
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32EHK3S.baf~
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32EHK2.baf~
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32EHK1.baf~
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32EHK4.baf~
 COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32EBANT.baf~
-
+COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32IBANT.baf~
 ////////////////Area SCRIPTS
   EXTEND_TOP ~bd0063.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0063.baf~
   EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~
@@ -54,10 +59,11 @@ COMPILE EVALUATE_BUFFER ~Emily/Scripts/SoD/X32EBANT.baf~
 COPY ~%MOD_FOLDER%/creatures/SOD/X32EHK1.cre~ ~override/X32EHK1.cre~
   SAY NAME1 @55 // ~Planar Hunter~
   SAY NAME2 @55 // ~Planar Hunter~
+  WRITE_ASCII 0x280 ~X32EHK1~ #32  //DV  
 COPY ~%MOD_FOLDER%/creatures/SOD/X32EHK2.cre~ ~override/X32EHK2.cre~
   SAY NAME1 @55 // ~Planar Hunter~
   SAY NAME2 @55 // ~Planar Hunter~
-
+  WRITE_ASCII 0x280 ~X32EHK2~ #32  //DV 
 COPY ~%MOD_FOLDER%/creatures/SOD/X32EHK3S.cre~ ~override/X32EHK3S.cre~
   SAY NAME1 @55 // ~Planar Hunter~
   SAY NAME2 @55 // ~Planar Hunter~
@@ -67,9 +73,12 @@ COPY ~%MOD_FOLDER%/creatures/SOD/X32EHK3S.cre~ ~override/X32EHK3S.cre~
 COPY ~%MOD_FOLDER%/creatures/SOD/X32EHK4.cre~ ~override/X32EHK4.cre~
   SAY NAME1 @55 // ~Planar Hunter~
   SAY NAME2 @55 // ~Planar Hunter~  
+  WRITE_ASCII 0x280 ~X32EHK4~ #32  //DV   
 COPY ~%MOD_FOLDER%/creatures/SOD/X32Jacob.cre~ ~override/X32Jacob.cre~
   SAY NAME1 @71 // ~Jacob~
   SAY NAME2 @71 // ~Jacob~
   WRITE_ASCII 0x248 ~X32Jacob~ #8  //override script
   WRITE_ASCII 0x280 ~X32Jacob~ #32  //DV
   WRITE_ASCII 0x2cc ~X32Jacob~ #8   //Dialogue file    
+  
+LOAD_TRA ~Emily/tra/English/Emily.tra~  
