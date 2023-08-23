@@ -149,22 +149,6 @@ We have killed the elf. We should inform the Planar Hunters.~
 
 An elf has asked for our help in taking down planar hunters that seem to be going after her. They should be in Baldur's Gate Southeast section.~
 
-@100055 = ~The Planar Hunters 
-
-A group of Isaac's fellow planar hunters seek an elf's blood, and Isaac her journal. We've already killed her, we just need to get both items.~
-
-@100056 = ~The Planar Hunters 
-
-A group of Isaac's fellow planar hunters seek an elf's blood, and Isaac her journal. We've already killed her and given her blood to the hunters, but we should go back and find the journal if we can.~
-
-@100057 = ~The Planar Hunters 
-
-We used a gem on an elf we believed to be our target, and it revealed her for what she truly was. Let's see what she has to say now.~
-
-@100058 = ~The Planar Hunters 
-
-The elf gave us our gratitude. She will stay a while longer until she believes it is safe to depart Baldur's Gate.~
-
 @101 = ~The Planar Hunters 
 
 We have come across some planar hunters hunting Caelar. They gave us a blade for revealing we helped give them another plane touched to them back in Baldur's Gate.~
@@ -191,59 +175,8 @@ We couldn't persuade Jacob to take our cause. We can only hope he is not one of 
 
 We managed to convince Jacob to leave the crusade.~
 
-@1008 = ~The Aasimar 
 
-A fellow Planar Hunter of Isaac's revealed that Jacob was in Dragonspear, to the east side of the encampment.~
 
-@60016 = ~Neverending Chase~
-
-@60017 = ~Neverending Chase
-
-We encountered the aasimar Jacob that Isaac was seeking. We were lucky he did not out us to the rest of Caelar's forces. Despite his hostility, he's agreed to tell us where Mavis is if we give him a special blade held by the Planar Hunter Bernadette. Presumably, it would give him an advantage in the fight against the Planar Hunters.~
-
-@60018 = ~Neverending Chase 
-
-We killed the aasimar Jacob, making Isaac's hunt cold once again.~
-
-@60019 = ~Neverending Chase 
-
-We killed the aasimar Jacob. Emily reluctantly told Isaac that Mavis was in Althkata. He left to hunt her there.~
-
-@60020 = ~Neverending Chase 
-
-We killed the aasimar Jacob. Emily reluctantly told Isaac that Mavis was in Althkata. When the fight against Caelar is over, Isaac will resume his hunt for her.~
-
-@60021 = ~Neverending Chase
-
-We gave the aasimar Jacob the sword he sought. He told us Mavis was in Althkata. When the fight against Caelar is over, Isaac will resume his hunt for her.~
-
-@60022 = ~Neverending Chase
-
-Bernadette gave us the blade that Jacob seeks. We should return to him with the blade in hand.~
-
-@60023 = ~Neverending Chase
-
-We encountered the aasimar Jacob that Isaac was seeking. We were lucky he did not out us to the rest of Caelar's forces. Despite his hostility, he's agreed to tell us where Mavis is if we give him a special blade held by the Planar Hunter Bernadette. Presumably, it would give him an advantage in the fight against the Planar Hunters. He has bid us unwelcome for the present, and if we return and he see us without the blade, he will treat us like an enemy.~
-
-@60024 = ~Neverending Chase
-
-There will be no time to find Jacob and question him about Mavis's location now. Isaac will have to find Mavis's trail on his own.~
-
-@60025 = ~Neverending Chase 
-
-Emily revealed to Isaac that Mavis was in Althkata. When the fight against Caelar is over, Isaac will resume his hunt for her.~
-
-@60026 = ~Neverending Chase 
-
-Frustrated after the lack of my support after finding out that Emily knew all along and was unwilling to tell him Mavis's location, Isaac left the party. The trail may be cold, but he will never stop trying to find Mavis for his revenge.~
-
-@60027 = ~Neverending Chase 
-
-We found out after Jacob's death that Emily knew where Mavis was all along. She refused to share, and left the party instead. Isaac will have to track her down after this is over to have a chance in finding Mavis.~
-
-@60028 = ~Neverending Chase 
-
-We found out after Jacob's death that Emily knew where Mavis was all along. She refused to share, but the two seem agreed to focus on Caelar for now. Isaac's revenge on Mavis can wait.~
 
 
 // Items 
@@ -586,66 +519,3 @@ Weight: 1~
 @2007 = ~You should repay me with a nice pair of new boots for all this fletching. I'm kidding! Kind of.~
 @2008 = ~Just a warning, I've only enough supplies for only one more quiver, then I'm all out.~
 @2009 = ~That's the last of the supplies. Let's use these last ones well.~
-
-@60000 = ~Isaac's Hunt~
-@60001 = ~Isaac's Hunt
-
-We've invited Isaac, a Planar Hunter seeking to hunt down a tiefling named Mavis. He seems honorable, though he also tried to kill us. It remains to be seen if he can be trusted.~ 
-@60002 = ~Isaac's Hunt
-
-Isaac mentioned how we can get started in his hunt for Mavis. He knows of two people who were last in contact with her, a mage named Yusmin who is staying in the Red Sheaf, and a merchant Avarn, who is staying in the Jovial Juggler. We should talk with one of them to find out where she is. Neither will cooperate with a planar hunter, so we should keep Isaac out of their sight when we speak to them.~
-@60003 = ~Isaac's Hunt 
-
-Yusmin attacked us, refusing to give any information on Mavis's whereabouts.~
-@60004 = ~Isaac's Hunt 
-
-Yusmin revealed to us a lead. An apprentice of Mavis's associate named Vern is waiting in Nashkel at the Belching Dragon Tavern for some spell components that Yusmin has no desire to deliver. We can track down Vern there and get answers on where Mavis may be.~
-@60005 = ~Isaac's Hunt 
-
-Avarn saw we were with Isaac and refused to work with us.~
-@60006 = ~Isaac's Hunt 
-
-Avarn revealed to us a lead. An apprentice of Mavis's associate named Vern is waiting in Nashkel for some gems that Avarn has no desire to deliver. We can track down Vern there and get answers on where Mavis may be.~
-@60007 = ~Isaac's Hunt 
-
-Avarn attacked us, refusing to give any information on Mavis's whereabouts.~
-
-@60008 = ~Isaac's Hunt 
-
-Isaac's hunt now turns to Baldur's Gate, where Caim's apprentice reports his master and Mavis are currently located, meeting with an Aasimar. He suggests we move there when we can and find some associates of his, who will be within the city.~
-
-@60009 = ~Isaac's Hunt 
-
-Vern was slain. Isaac says the only hope he has left is to regroup with his associates, hoping they have some idea where the hunt can turn to next.~
-
-@60010 = ~Isaac's Hunt 
-
-Fed up with our failures with his hunt for Mavis, Isaac has left the party.~
-
-@60011 = ~Isaac's Hunt 
-
-Vern was slain. Fed up with our failures, we moved to finish our fight we started against one another.~
-
-@60012 = ~Isaac's Hunt 
-
-Isaac met up with his fellow planar hunter's in Baldur's Gate, who informed him they seen the aasimar associate in the district, and advised checking the local inns. They suggested through her, dead or alive, we can learn where Mavis is.~
-
-@60013 = ~Isaac's Hunt 
-
-We told Isaac that his fellows were slain by us. Infuriated, he attacked us.~
-
-@60014 = ~Isaac's Hunt 
-
-Isaac learned that Mavis is around the temple in Beregost. He is eager to face off with her there.~
-
-@60015 = ~Isaac's Hunt 
-
-We finally came face to face with Mavis. But before Isaac could have his revenge, her cohort, Caim, teleported her and the gnome Arbex to somewhere unknown. We killed Caim, but he succeeded in making the hunt cold. For now, the pursuit of Mavis is at an end.~
-
-@100103  = ~^REmily slightly disapproves.^-~
-@100106  = ~^REmily disapproves.^-~
-@100109  = ~^REmily greatly disapproves.^-~
-@100113  = ~^GEmily slightly approves^-~
-@100116  = ~^GEmily approves^-~
-@100119  = ~^GEmily greatly approves^-~
-@10099 = ~^0xFFFF00FFYou have established a deep bond with Emily. Your synergy has improved her capabilities.^-~

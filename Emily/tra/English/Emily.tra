@@ -6,8 +6,8 @@
 @54    = ~Please install on BG:EE or EET.~
 @56    = ~Emily NPC for BG1EE~
 @57    = ~This component must be installed on BG:EE.~
-
-@100002 = ~Biography Test~
+@100001 = ~“It’s that day of the week, is it?” Emily would quip, before telling you a story of her father’s estate in the lands of Tethyr. She kept mostly out of the spotlight, or so she claims. She was bored of the strict regulatios and etiquette, and when talks of deciding who would be the heir between herself and her brother became tense, it was an easy excuse to ask to leave to help "mend their relationship." She becomes quiet when she mentions her mother, and only says she wishes dearly she got to know her more.~
+@100002 = ~Isaac speaks first of family when you ask about him. One of five children, his family knew poverty, and stealing was not condoned, but encouraged. But Isaac yearned for more honorable pursuits, and he was proud to found the Planar Hunter's alongside his six friends: Mavis, Ivan, Bernadette, Caim, Demetria, and Frederick. But the friendships soon ended when Mavis murdered his best friend Frederick and his group of led Planar Hunters, and Isaac swore revenge. No matter what it takes, no matter how many lives, he desires nothing more than to see Mavis pay. His gaze lowers, and he admits the hunt grows cold, and he is desperately hoping that his bad luck reverses its fortune.~
 
 @2 = ~“It’s that day of the week, is it?” Emily would quip, before telling you a story of her father’s estate in the lands of Tethyr. She kept mostly out of the spotlight, or so she claims. She was bored of the strict regulatios and etiquette, and when talks of deciding who would be the heir between herself and her brother became tense, it was an easy excuse to ask to leave to help "mend their relationship." She is not fond of her brother, and is not eager for the day she must return to resolve the dilemna of the heir.~
 @3 = ~I need to fall back.~ [Emilfear]
@@ -63,3 +63,7 @@
 @51 = ~Arcane Archer/Mage (Fighter/Mage Kit)~
 @52 = ~Emily's Music~
 @53 = ~Choose whether or not to have Emily's custom soundtrack play during timed talks.~
+@54 = ~Artisan's Kitpack: Invisible Blade~
+@55 = ~Artisan's Kitpack: (BG:EE) Give Isaac the Artisan's Kitpack version of Invisible Blade?~
+@58 = ~The Invisible Blade Kit must be installed.~
+@59 = ~Skitia's Invisible Blade Kit (Default)~

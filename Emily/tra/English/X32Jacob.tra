@@ -9,7 +9,7 @@
 @8    = ~Just another mercenary.~
 @9    = ~Preparing for the coming battle, lass? The nine hells themselves...Even I get a bit of dread.~
 @10   = ~Jacob...about that, is there somewhere we can talk that is private?~
-@11   = ~Mmm. Over here. Let's head east.~
+@11   = ~Let's head east. We'll have a bit of privacy over there.~
 @12   = ~Oh, now you're going along with it, are you? You're as bad as he is.~
 @13   = ~Very funny, ha, ha.~
 @14   = ~So what is it, lass?~
@@ -39,11 +39,12 @@
 @38   = ~Protect Emily for me. She's a good friend. I'd hate to see her hurt.~
 @39   = ~Take care of yourself, Jacob. Please.~
 @40   = ~You worry too much, lass. I'm a more capable man than you realize.~
-@41   = ~Maybe. Well...be safe, my friend.~
-@42   = ~Aye, take care of yourself. And protect Emily for me, <PRO_GIRLBOY>. She's a good friend. I'd hate to see her hurt.~
+//These two lines seem redundant. 
+// @41   = ~Maybe. Well...be safe, my friend.~
+// @42   = ~Aye, take care of yourself. And protect Emily for me, <PRO_GIRLBOY>. She's a good friend. I'd hate to see her hurt.~
 @43   = ~I do not see any reason then to help you. I will remain with the crusade.~
 @44   = ~Jacob...does this mean...?~
-@45   = ~I will avoid harming you at all costs, Emily. But I cannot not speak to you further, out of loyalty.~
+@45   = ~I will avoid harming you if I can, Emily. But I cannot not speak to you further, out of loyalty.~
 @46   = ~It does not have to be like that, Jacob!~
 @47   = ~There is nothing wrong with fighting for what you believe in, lass. There is a potential good in what Caelar does, even if you cannot see.~
 @48   = ~I will believe in that, as you should.~
@@ -56,3 +57,103 @@
 @55   = ~What are you doing, <CHARNAME>?! Please, stop!~
 @56   = ~Your friend has made their intentions. I am sorry lass, only one of us can leave this confrontation alive.~
 @57   = ~Lass...Emily?~
+// Isaac
+@58   = ~What's this then? There's no way...~
+@59   = ~I know you from anywhere, planar hunter. Nothing you do can fool me. Don't think to cause trouble, the entire camp will be on you in seconds.~
+@60   = ~I'm not here to hurt you, aasimar, despite what my people would want. I want Mavis.~
+@61   = ~Mavis isn't here, lad.~
+@62   = ~But you know where she is.~
+@63   = ~And you think I will just tell you? Think again.~
+@64   = ~What would it take for you to tell us?~
+@65   = ~This isn't going to work, Isaac.~
+@66   = ~I don't understand. Why does he protect her?~
+@67   = ~I don't. The truth is that I don't like the woman at all.~
+@68   = ~Then why don't you tell us where she is?~
+@69   = ~Why don't you like Mavis?~
+@70   = ~Forget it. If you won't talk, you die.~
+@71  = ~I won't. Because I like Planar Hunters less.~
+@72  = ~You don't have a plan beyond this, do you, lad? You were, what, gather some fellows, find me, then that I would talk out of fear? I don't *fear* you, Planar Hunter.~
+@73  = ~I hold all the cards, Isaac. Now it's time for me to decide what happens to you.~
+@74  = ~Fine by me. You've caused the deaths of enough of my people, Jacob.~
+@75  = ~Assist me! We have intruders!~
+@76  = ~I'll give you one way out of this. A Planar Hunter escaped our forces. They carry a blade that could be extremely useful against the enemies we will face. Trade the blade, and you can have your information.~
+@77  = ~Who is the Planar Hunter?~
+@78  = ~You're not getting anything.~
+@79  = ~We'll be back with the blade.~
+@80  = ~He would know.~
+@81  = ~Bernadette. If she's still in camp.~
+@82  = ~Bernadette perhaps. If we can find her. If she lost the fight, she'll have sought refuge with the Coalition.~
+@83  = ~I'll wait for your return. Until then, you aren't welcome here.~
+
+@84  = ~I don't like giving him our property. But it's better than the alternative.~
+
+
+
+
+
+@85  = ~Do you have the blade?~
+@86  = ~Yes.~
+@87  = ~No.~
+@88  = ~Deal's off. Time to die.~
+@89  = ~Perfect. Planar Hunter, I don't know why you aren't on our side. We are facing the same creatures you vow to destroy.~
+@90  = ~They are in their own realm. There, they can be as they please.~
+@91  = ~Mavis is far south from here, lad. She was heading to Althkata last I checked. She asked for my company, but there were other matters at my attention.~
+@92  = ~You better not be lying. Or I will find you, lad.~
+@93  = ~No information until I have the blade.~
+@94  = ~I fear our next meeting will be a violent one regardless, one way or another. We will see who ends up dead.~
+//Emily in Party when Isaac returns.
+@95  = ~Lass? You are with the coalition. Let me finish this business with the Planar Hunter, and we can speak.~
+@96  = ~What are you doing? Jacob has every reason to distrust us, but you pursue violence over working something out? There's no reason for it!~
+// Uses the Emily route->Attack Jacob after this.
+//Otherwise, pivots to Emily's conversation with Jacob.
+//If both are in party:
+@97  = ~Emily? Could it be? But the Planar Hunter? What are they doing here? Are they your prisoner?~
+@98  = ~Laughable. We both want words with you, aasimar. Talk quickly so we can get it over with.~
+@99  = ~Ignore him. Jacob, can we talk privately?~
+@100 = ~Not with him around.~
+@101 = ~I don't need privacy for my business. I'll speak to him first.~
+@102 = ~We can't both talk to him at the same time. He's my friend, and I doubt he wants anything to do with you.~
+@103 = ~Emily, go ahead. Isaac, wait away.~
+@104 = ~Let Isaac speak. I'm sure his business is short.~ // Pivots to I'm not here to hurt you line.
+@105 = ~Thank you, <CHARNAME>.~
+@106 = ~Follow me over here. Keep the Planar Hunter away.~
+
+
+@107 = ~I'm not talking while the Planar Hunter is here. Not until Emily's had her words~
+//If he lives at the end, and Isaac in party, add:
+@108 = ~I guess I can talk to that Isaac guy. What does the lad want?~
+@109 = ~He wants to find Mavis.~
+@110 = ~You know where she went, Emily. She offered both of us to follow.~
+@111 = ~I know but...honestly I wanted to see if he would stay his hand first, and I wasn't sure if I wanted to contribute to more bloodshed. But he's been loyal, and he'll find out one way or another.~
+@112 = ~It's your choice, lass. He's wasting his time. Their feud really should come to an end before more die for it.~
+@113 = ~He'll never stop. Not until it kills him.~
+//Isaac will inquire if their business is done, and Emily will tell him. Otherwise, it will transition to Isaac being mad at Jacob being dead, and she'll tell him in exasperation.
+//Wait for Jacob not to be in the area, then have Isaac start conversation.
+
+//Missing lines from just Isaac line.
+@114 = ~Bernadette would have what he is looking for. If she's still in camp. Let's hope as much.~
+@115 = ~Bernadette would have such a blade. If she lost against Jacob, she or one of her men may be in the coalition camp. Let's see if we can find them.~
+@116 = ~I'll wait for your return. Don't think of doing anything stupid. Emily doesn't deserve to be hurt if you act foolish, and I still need words with her when our business is complete.~ //Emily only version.
+//From Emily-Jacob Farewell, Isaac not talked to yet.
+@117 = ~Good luck lass. You're going to need it with the planar hunter behind you.~
+//Emily Validity Check Failed Line 
+@118 = ~Where's the lass Emily? We can't talk if she's not here.~
+// Additional lines for violence outcome.
+@119 = ~I was worried about Isaac. I should have been worried about you, the "Hero" of Baldur's Gate. What a misnomer.~
+@120 = ~Are you so naive you did not see their true character, Emily? No, I can scarecly believe that, lass. You've been turned as well.~
+@121 = ~Jacob, listen to me, please I-~
+@122 = ~I dislike Mavis. But I dislike Planar Hunters more. And so, I've no reason to give you what you want.~
+@123 = ~Because she looked at me like I was some sort of plague to be cured. She is mad. But not as mad, and not as evil as the Planar Hunters. Why ever would I aid you?~
+//Warning lines 
+@124 = ~Do not come back here without the blade. If I see you again, we'll treat you as nothing more than spies.~
+@125 = ~I have been patient enough. We have an intruder! Take them down!~
+//Ready for Emily 
+@126 = ~Now that our business is done, we should speak, lass Emily.~
+//Post Emily Quest, Isaac
+@127 = ~You again, planar hunter?~
+@128 = ~Fine. I already told Emily my loyalties would change. I suppose if she sees fit to support your side, you can have your damn information, lad.~
+@129 = ~Be safe out there.~
+@130 = ~We have nothing else to talk about.~
+@131 = ~Aye. Just keep the planar hunter away. I don't know why you travel with him, Emily, he's of a no good lot.~
+@132 = ~We all make sacrifices sometimes, Jacob.~
+@133 = ~I'll give you a way out of this, but only because Emily is a friend, despite her choices. One of your planar hunters carries a blade that could be extremely useful against the enemies we will face. Trade the blade, and you can have your information.~

@@ -1,0 +1,100 @@
+@0 = ~invisible blade~
+@1 = ~Invisible Blade~
+@2 = ~INVISIBLE BLADE: The invisible blade, sometimes called dagger masters, are deadly rogues who prefer to use tiny blades, especially daggers, in combat. Able to find the most lethal stabbing points, they enjoy a frightful reputation, able to kill skillfully and gracefully while forgoing the encumbrance of armor entirely.
+	
+	Advantages:
+	-May achieve grand mastery (5 slots) in dagger.
+	-While wielding a dagger, gains +5% critical chance and +1 to Thaco.
+	-Adds Intelligence to Armor Class in addition to Dexterity.
+	-May use the Bleeding Wound ability once per day. Gains one use at level four, and then every four levels thereafter.
+	
+	BLEEDING WOUND: Each successful hit within the next five rounds will cause additional 2d4 bleeding (piercing) damage after one round. The number of rounds the additional bleeding damage occurs increases with level. Does not stack.
+
+	1st: 2d4 bleeding damage after 6 seconds (Save vs. Death negates.)
+	5th: 2d4 bleeding damage after every 6 seconds for 12 seconds. (Save vs. Death at -1 negates.)
+	9th: 2d4 bleeding damage after every 6 seconds for 18 seconds. (Save vs. Death at -2 negates.)
+	13th: 2d4 bleeding damage after every 6 seconds for 24 seconds. (Save vs. Death at -3 negates.)
+	
+	-May use the Uncanny Feint ability once per day. Gains one use at level one, and then every four levels thereafter.
+	
+	UNCANNY FEINT: Each successful hit within the next five rounds will surprise the enemy, lowering their missile and piercing armor by -1 for 4 rounds with no save, stacking. Additionally, if wielding a dagger, gain half an attack per round at level 7, and a full additional attack per round at level 15 for the duration. 
+
+	Disadvantages:
+	-May not wear any armor.
+	-May not wear gauntlets or bracers.
+	-May not use ranged weapons except throwing daggers and other thrown weapons.
+	-May only distribute 20 skill points per level among thieving skills.~
+@3 = ~Bleeding Wound~
+@4 = ~BLEEDING WOUND: Each successful hit within the next five rounds will cause additional 2d4 bleeding (piercing) damage after one round. The number of rounds the additional bleeding damage occurs increases with level.
+
+	1st: 2d4 bleeding damage after 6 seconds (Save vs. Death negates.)
+	5th: 2d4 bleeding damage after every 6 seconds for 12 seconds. (Save vs. Death at -1 negates.)
+	9th: 2d4 bleeding damage after every 6 seconds for 18 seconds. (Save vs. Death at -2 negates.)
+	13th: 2d4 bleeding damage after every 6 seconds for 24 seconds. (Save vs. Death at -3 negates.)~
+@5 = ~Uncanny Feint~
+@6 = ~UNCANNY FEINT: Each succesful hit within the next five rounds will suprise the enemy, lowering their missile and piercing armor by -1 for 4 rounds with no save, stacking. Additionally, if wielding a dagger, gain half an attack per round at level 7, and a full additional attack per round at level 15 for the duration.~
+@7 = ~Take flight.~ [X3IFear]
+@8 = ~I am proud to have pledged my loyalty.~ [X3IHappy]
+@9 = ~It is not so bad to think before we act.~ [X3IAnnoy]
+@10 = ~Beware of being the gentle soul.~ [X3ISer]
+@11 = ~It is past the time that we part ways.~ [X3IBreak]
+@12 = ~I will lead without question.~ [X3ILead]
+@13 = ~I grow weary. I must rest.~ [X3IRest]
+@14 = ~If we are to idle, share your thoughts with me.~ [X3Idle]
+@15 = ~Die!~ [X3IBat1]
+@16 = ~I'm afraid I have to kill you.~ [X3IBat2]
+@17 = ~No one will escape.~ [X3IBat3]
+@18 = ~This is the end of your life.~ [X3IBat4]
+@19 = ~Fight me!~ [X3IBat5]
+@20 = ~~ [X3IDam]
+@21 = ~...Death...is peace.~ [X3IDeath]
+@22 = ~Healing. Now.~ [X3IHeal]
+@23 = ~Listen well to what wanders in the undergrowth.~ [X3IFor]
+@24 = ~I am unused to such large crowds of people. It unsettles me.~ [X3ICity]
+@25 = ~Let us see what monstrosity awaits us down here.~ [X3IDun]
+@26 = ~Another day seen. Another day lived.~ [X3IDay]  
+@27 = ~Darkness, my old friend.~ [X3INight]
+@28 = ~What do you want?~ [X3ICom1]
+@29 = ~How can I be of service to you?~ [X3ICom2]
+@30 = ~Let us begin.~ [X3ICom3]
+@31 =  ~I am honored to serve.~ [X3ICom4]
+@32 = ~My blade is yours.~ [X3ICom5]
+@33 = ~The command?~ [X3ICom6]
+@34 = ~You shall have it.~ [X3IAct1]
+@35 = ~I am honored.~ [X3IAct2] 
+@36 = ~Without question.~ [X3IAct3]
+@37 = ~As you see fit.~ [X3IAct4]
+@38 = ~Done.~ [X3IAct5]
+@39 = ~Your will will be done.~ [X3IAct6]
+@40 = ~I can.~ [X3IAct7]
+@41 = ~Die!~ [X3ICrit]
+@42 = ~~ [X3ICritM]
+@43 = ~We must use a different approach.~ [X3Immune]
+@44 = ~There is nothing more I can carry.~ [X3Inv]
+@45 = ~My spell!~ [X3ISpell]
+@46 = ~Trap set.~ [X3ISpell]
+@47 = ~I am dark of shadow.~ [X3IHide]
+@48 = ~What do we have here?~ [X3IPick]
+@49 = ~I am your right hand.~ [X3IRare1]
+@50 = ~Loyalty above all else.~ [X3IRare2] 
+@51 = ~They will be mourned.~ [X3IDead]
+@52 = ~Isaac~
+@53 = ~Isaac speaks first of family when you ask about him. One of three children, his family knew poverty, and stealing was not condoned, but encouraged. But Isaac yearned for more honorable pursuits, and he was proud to found the Planar Hunter's alongside his friends, Mavis, Ivan, Bernadette, Demetria, and Frederick. But the friendships soon ended when Mavis murdered Frederick and his group of led Planar Hunters, and Isaac swore revenge. No matter what it takes, no matter how many lives, he desires nothing more than to see Mavis pay.~
+@54 = ~Planar Hunter~
+@55 = ~Yusmin~
+@56 = ~Avarn~
+@57 = ~Vern~
+@58 = ~Caim~
+@59 = ~Mavis~
+@60 = ~Arbex~
+@61 = ~Lesser Fire Elemental~
+@62 = ~Fire Elemental~
+@63 = ~Greater Fire Elemental~
+@64 = ~Elder Fire Elemental~
+@600603  = ~^RIsaac slightly disapproves.^-~
+@600606  = ~^RIsaac disapproves.^-~
+@600609  = ~^RIsaac greatly disapproves.^-~
+@600613  = ~^GIsaac slightly approves^-~
+@600616  = ~^GIsaac approves^-~
+@600619  = ~^GIsaac greatly approves^-~
+@60099   = ~^0xFFFF00FFYou have established a deep bond with Isaac. Your synergy has improved his capabilities.^-~

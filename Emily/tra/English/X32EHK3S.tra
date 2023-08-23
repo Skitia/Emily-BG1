@@ -30,3 +30,103 @@
 @29   = ~It is no competition to get rid of these dangerous outsiders. So long as she is killed before more lives are doomed  by her honeyed words.~
 @30   = ~A male sorcerer and female archer. They seemed to be heading to join Caelar. We don't need them grouping together and making it worse, so we will find another way across.~
 @31   = ~You!~
+//Isaac Been In Party Branch
+@32 = ~I'm afraid that tiefling is off limits, Bernadette. I prefer not to bleed my blade with those I've traveled with before.~
+@33 = ~Trusting tieflings, Isaac? How very unlike you.~
+@34 = ~It is not a matter of trust, but honor. The Planar Hunters have become far too despised as it is.~
+@35 = ~<CHARNAME>, it is a pleasure to see you once more. Tell me, have you seen two aasimar running about?~
+// Isaac not been in party Branch
+@36 = ~Our previous targets were not with the armies of Baldur's Gate. This one is.~
+@37 = ~You make a good point, Isaac, but I do not like it.~
+@38 = ~It is our best option. The Planar Hunters have become far too despised as it is.~
+@39 = ~In fact, I think this <PRO_MANWOMAN> is the so called Hero of Baldur's Gate. It is a pleasure to make your acquaintance. Tell me, have you seen two aasimar running about?~
+//Emily been in Party
+@40 = ~One you will be familiar with, the archer, Emily. The other, a sorcerer named Jacob.~
+//Emily not been in party
+@41 = ~One is an archer named Emily. The other is a sorcerer named Jacob.~
+// If Isaac In Party for Main Branch 
+@42 = ~I would not blame them, Bernadette. It was clearly the fear of Caelar's men that saw that bridge collapsed.~
+@43 = ~And I know this <PRO_MANWOMAN>. We have traveled before, and they have proved their honor to me. Tell me <CHARNAME>, have you seen two aasimar running about?~
+@44 = ~And I recognize this <PRO_MANWOMAN>. They are the Hero of Baldur's Gate. They have proved themselves worthy of some respect. I am Isaac, and it is a pleasure to make your acquaintence. Now tell me, have you seen two aasimar running about?~
+//Then same options as Emily in party/not in party.
+@45 = ~Emily is nearby? I would very much like to find her.~
+@46 = ~I'm not familiar with either of them.~
+@47 = ~I'm not helping you, Isaac.~ // Isaac cannot be recruited until the next chapter.
+@48 = ~But you are willing to kill Caelar, yes? That is the point of your battle. That is, if we do not kill her first.~
+@49 = ~You have made your choice, and so we shall search on. Farewell, <CHARNAME>. I doubt we will meet again.~
+//Play Emily cutscene after this line.
+@50 = ~It seems our luck has changed, or hers has rotten. Hiding. She moved from the north to the eastern tree.~
+@51 = ~And I know this <PRO_MANWOMAN>. We have traveled before, and they have proved their honor to me. Tell me, <CHARNAME>, have you seen an aasimar sorcerer by the name of Jacob about? He is today's hunt.~
+@52 = ~In fact, I think this <PRO_MANWOMAN> is the so called Hero of Baldur's Gate. I am Isaac. It is a pleasure to make your acquaintance. We are hunting an aasimar named Jacob, a sorcerer of some skill. Have you heard of or seen this man?~
+@53 = ~I'm not familiar with anyone of the name Jacob.~
+@54 = ~Why are you hunting this Jacob?~
+@55 = ~I'm suprised you don't recognize me, Isaac. You've not changed much.~
+@56 = ~I am sorry. The hunt has been long and sleep too short. It is a pleasure to meet you once more. Are you familiar with who we are hunting?~
+@57 = ~He is the last person I know of to have spoken with Mavis since I lost track of her. He may know where she is. It appears however, he made it across the bridge before it was exploded. Likely he has integrated with his forces.~
+@58 = ~Even if he has, he will not escape.~
+@59 = ~Indeed. But it is possible the expedition here pursuing Caelar may also see to battle with not only him, but Caelar, another desired target. It is for that reason I think I will integrate with this expedition, and regroup with your party as they make progress, Bernadette.~
+@60 = ~Are you sure, Isaac? This is my cell, but you are the highest ranking Planar Hunter. You may stay with us if you please.~
+@61 = ~I am. I think I may even be of assistant to you, Hero of Baldur's Gate, if you will have me. My experience with the plane-touched could be invaluable to you. Though all that needs to be known is they are all dangerous, and all distrustable.~
+@62 = ~I'd love to have you, Isaac.~
+@63 = ~I don't need your assistance.~
+@64 = ~Suit yourself, I will make myself useful with your expedition. I expect many of them may be green warriors, in need of some experience. If you change your mind, my loyalty will be yours.~
+@65 = ~Good. Then you have my loyalty, so long as you help me with my own cause. Let's get to work.~
+@66 = ~Good luck, Isaac. If we get any more information, we'll report back to you.~
+@6002 = ~Recruitment Drive
+
+The Planar Hunter Isaac has joined my party. He reveals he was hunting an aasimar named Jacob before Caelar's followers destroyed the bridge crossing. He very much desires to see Caelar dead.~
+@67 = ~Isaac! We are cursed. It is the only explanation for the woes that keep befalling us.~
+@68 = ~What happened, Bernadette? What are you doing here? Where are the rest of your men?~
+@69 = ~I have words for Isaac. Not any of you.~
+@70 = ~Dead. We saw Jacob in their camp, but we couldn't even make it to him. We lack the training, the equipment. We can't fight the fight.~
+@71 = ~I swear, your group verges on the incompetent.~
+@72 = ~Then it's up to us to do your work, isn't it?~
+@73 = ~I can't imagine why a small group of three unskilled people would think it wise to charge an entire army.~
+@74 = ~At least you made it out alive.~
+@75 = ~I hate how true that is becoming. Our group needs more training. We need Demetria's forces, but they're still in Cormyr.~
+@76 = ~They were overeager. They saw a few, and didn't realize right behind them was the very, very many. They had potential, just not the brains.~
+@77 = ~We'll take it from here, Bernadette. You did your best.~
+@78 = ~Our group will have the best chance of finding a way in and interrogating Jacob.~
+@79 = ~Without killing him.~
+@80 = ~We'll still see about that.~
+@81 = ~If you're able to get into the encampment, Jacob's on the east side. I will reconvene with Demetria's group once I've recovered. It's time the Planar Hunters gathered and re-evaluated everything. I hope you learn something of Mavis, Isaac. It would be nice to get back to the way things were before.~
+@82 = ~I'm afraid that's not possible. Not until she's dead. Not until she's paid for everything.~
+@83 = ~What if Jacob is a dead end? You will have to learn to live, Isaac.~
+@84 = ~You'll get her, Isaac. Just have to keep going.~
+@85 = ~We should move on.~
+@86 = ~Indeed. We have work to do.~
+@87 = ~I know I will. I will, or I will die.~
+@88 = ~It won't be a dead end. Not if I have a say in it.~
+@89 = ~Goodbye Isaac. I will see you when this is over.~
+@90 = ~I have no idea how you tolerate her in your presence. She stands for everything wrong in this world.~
+@91 = ~I wonder myself, sometimes. Were you able to get a sighing of our quarry?~
+@92 = ~Isaac. Isaac!~
+//Back for the blade.
+@93 = ~You return. Did you find what you were looking for?~
+@94 = ~Not yet.~
+@95 = ~Indeed. Jacob is dead.~
+@96 = ~Yes, actually. We need your blade.~
+@97 = ~I imagine it's not easy. Good luck out there.~
+@98 = ~Good riddance. If you can get Caelar next, this world will have gotten quite the clean up.~
+@99 = ~I've stayed long enough, I think. Demetria is owed a visit and I am tired of being looked at like a refugee. Kill Caelar good for me.~
+@100 = ~We'll see eachother soon, Bernadette. Farewell.~
+@101 = ~We never learned about Mavis's location, Bernadette. She's still out there, making greater distance from us.~
+@102 = ~Oh, boohoo. You'll find her trail again, Isaac. If there's one thing I know about you, you're stubborn to see this through. See the bigger picture. Caelar is the greater enemy right now.~
+@103 = ~...You are right. I'll worry about Mavis later.~
+@104 = ~That's a sensible man.~
+@105 = ~You want what now? My sword? What for?~
+@106 = ~A trade with Jacob for information about Isaac's quarry, Mavis.~
+@107 = ~It's the only way for me to learn about Mavis, Bernadette. I need your aid on this.~
+@108 = ~I want to hear it from Isaac himself. Bring him here if you're going to talk nonsense.~
+@109 = ~We need your blade, Bernadette.~
+@110 = ~*Sigh*. You are a fool, Isaac, with your priorities set wrong. But here, you may have it. If he tries to break your deal, put him far down under the ground for me.~
+@111 = ~You...are allowing us this, Bernadette?~
+@112 = ~What use would arguing be? Besides, you will deal with Caelar, and she is the greater enemy right now.~
+@113 = ~Then your companions spoke true. You are quite mad, Isaac.~
+//THen go to line 99.
+//Jacob is already dead lines:
+@114 = ~Your efforts were a waste. Jacob is dead by my hand.~
+@115 = ~I'm sorry we didn't act sooner. Jacob is taken care of.~
+@116 = ~You've killed Jacob? Good riddance, though now the trail is cold.~
+@117 = ~He was my friend. There's no need to be so dismissive of him. He was a good man.~
+@118 = ~He got my comrades killed. If we were elsewhere, I'd see the same fate done to you, girl.~
