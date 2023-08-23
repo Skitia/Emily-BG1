@@ -26,7 +26,7 @@ IF  ~IsValidForPartyDialogue("X3Isaac")~ EXTERN X3IsaacJ UpstairsBranch
 IF  ~!IsValidForPartyDialogue("X3Isaac")~ EXIT 
 
 CHAIN X3IsaacJ UpstairsBranch 
-@94 // ~Once we're upstairs, I'll use my outsider detecting gem. That will get her talking real fast, before we get the blood my fellows need.~
+@94
 END 
 ++ @95 + UpstairsWhy
 ++ @102 EXIT 
@@ -34,19 +34,15 @@ END
 CHAIN X3IsaacJ UpstairsWhy 
 @96
 END 
-++ @99 + UpstairsAnd
-++ @97 + UpstairsIf
+++ @97 + UpstairsAnd
+++ @98 + UpstairsIf
 ++ @100 EXIT 
 
 CHAIN X3IsaacJ UpstairsAnd 
-@98
-EXTERN X3IsaacJ UpstairsExit
+@99
+EXTERN X3IsaacJ UpstairsIf
 
-CHAIN X3IsaacJ UpstairsIf
-@156
-EXTERN X3IsaacJ UpstairsExit
-
-CHAIN X3IsaacJ UpstairsExit
+CHAIN X3IsaacJ Upstairs
 @101
 EXIT 
 
@@ -59,9 +55,8 @@ CHAIN X3dal Talk1.Work
 @61 // ~Adventurers? I might have something for you. Follow me upstairs.~
 DO ~SetGlobal("X3DalTalk","GLOBAL",1)EscapeAreaMove("%bg1_eet_symbol%1307",739,270,NW) ~ EXIT 
 
-
-//OR(2)IsValidForPartyDialog("X3mily")IsValidForPartyDialog("X3Isaac")
-CHAIN IF ~Global("X3DalTalk","GLOBAL",1)GlobalLT("X3EHK3Talk","GLOBAL",2)~ THEN X3dal Talk2A 
+CHAIN IF ~OR(2)IsValidForPartyDialog("X3mily")IsValidForPartyDialog("X3Isaac")
+Global("X3DalTalk","GLOBAL",1)GlobalLT("X3EHK3Talk","GLOBAL",2)~ THEN X3dal Talk2A 
 @62 // ~Thank you for following me. In truth, I could use the help.
 == X3Dal @63 // ~My name is Adalgisa. I've been stalked by this cult. They call themselves Planar Hunters, believing I am planetouched, a creature like a tiefling, or the like. Deluded in mind, they are.~
 END 
@@ -74,9 +69,7 @@ DO ~SetGlobal("X3DalTalk","GLOBAL",2)AddJournalEntry(@100048,QUEST)~ EXIT
 
 CHAIN X3IsaacJ Talk2IsaacThere 
 @104
-END
-IF ~IsValidForPartyDialog("X3mily")~ DO ~SetGlobal("X3DalTalk","GLOBAL",2)AddJournalEntry(@100048,QUEST)~ EXIT
-IF ~!IsValidForPartyDialog("X3mily")~ DO ~SetGlobal("X3DalTalk","GLOBAL",2)AddJournalEntry(@100057,QUEST)~ EXIT
+DO ~SetGlobal("X3DalTalk","GLOBAL",2)AddJournalEntry(@100048,QUEST)~ EXIT
 
 CHAIN X3dal Talk2AIsaacFree
 @64 // ~They're here in the city, and I can't leave without them following me and attacking.~
@@ -115,17 +108,15 @@ END
 +~Dead("X3EHK3")~+ @33 EXTERN X3dal Talk3.Defeat // ~They've been defeated.~
 ++ @75 EXIT // ~Nothing, no news.~
 +~!Dead("X3EHK3")~+ @76 EXTERN X3dal Talk2.Battle // ~They told me everything. You are going to die, elf.~
-+~IsValidForPartyDialogue("X3mily")!Dead("X3EHK3")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~
-+~!IsValidForPartyDialogue("X3mily")!Dead("X3EHK3")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100057,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~
++~!Dead("X3EHK3")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~
 
-//OR(2)IsValidForPartyDialog("X3mily")InParty("X3Isaac")
-CHAIN IF ~Global("X3DalTalk","GLOBAL",1)GlobalGT("X3EHK3Talk","GLOBAL",1)~ THEN X3dal Talk2 
+CHAIN IF ~OR(2)IsValidForPartyDialog("X3mily")InParty("X3Isaac")
+Global("X3DalTalk","GLOBAL",1)GlobalGT("X3EHK3Talk","GLOBAL",1)~ THEN X3dal Talk2 
 @8 // ~So let me guess, you meet with those odd Planar Hunters, and they sent you on a goose chase for the wrong elf?~
 END 
 IF ~IsValidForPartyDialog("X3Isaac")~ EXTERN X3IsaacJ Talk2IsaacThere
 ++ @9 EXTERN X3dal Talk2.Listen // ~How do you know about these Planar Hunters?~
-+~IsValidForPartyDialog("X3mily")PartyHasItem("X3EGem")~+ @10 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~I've means to prove it, which I will use. (Use the gem)~
-+~!IsValidForPartyDialog("X3mily")PartyHasItem("X3EGem")~+ @10 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100057,QUEST)~ EXIT // ~I've means to prove it, which I will use. (Use the gem)~
++~PartyHasItem("X3EGem")~+ @10 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~I've means to prove it, which I will use. (Use the gem)~
 ++ @11 EXTERN X3dal Talk2.Sure // ~What makes you so sure it's not you?~
 ++ @12 EXTERN X3milyJ Talk2.BattleWarn // ~I'm certain it's you, and I'm not wasting any more time with this game. Prepare yourself.~
 
@@ -147,16 +138,14 @@ CHAIN X3dal Talk2.Spare
 @18 // ~I don't bend to greed. You can be sensible and hear me out, or you can try to kill me.~
 END 
 ++ @19 EXTERN X3dal Talk2.Listen // ~I'll hear out your side, then. 
-+~IsValidForPartyDialog("X3mily")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~
-+~!IsValidForPartyDialog("X3mily")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100057,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~
++~PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~
 ++ @21 EXTERN X3dal Talk2.Battle  // ~Too bad, it's time to die elf..~
 
 CHAIN X3dal Talk2.Sure 
 @22 // ~What evidence do you have? You should be more careful before pointing fingers.~
 END 
 ++ @19 EXTERN X3dal Talk2.Listen // ~I'll hear out your side, then. 
-+~IsValidForPartyDialog("X3mily")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~ /*Check the gem hasn't been used, if it's not in inventory, it shouldn't be selectable.*/
-+~!IsValidForPartyDialog("X3mily")PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100057,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~ /*Check the gem hasn't been used, if it's not in inventory, it shouldn't be selectable.*/
++~PartyHasItem("X3EGem")~+ @20 DO ~SetGlobal("X3DalTalk","GLOBAL",2)ActionOverride(Player1,DestroyItem("X3EGem"))AddJournalEntry(@100048,QUEST)~ EXIT // ~Let's see what you really are. (Use the Gem)~ /*Check the gem hasn't been used, if it's not in inventory, it shouldn't be selectable.*/
 ++ @12 EXTERN X3milyJ Talk2.BattleWarn // ~I'm certain it's you, and I'm not wasting any more time with this game. Prepare yourself.~
 
 CHAIN IF ~Global("X3DalTalk","GLOBAL",2)~ THEN X3dal Talk.Gem 
@@ -225,10 +214,9 @@ CHAIN X3IsaacJ IsaacAgrees
 == X3IsaacJ @144
 == X3dal @145
 == X3milyJ @146
-== X3dal @151 // ~I know Alina. The journal I gave you...she gave me. She has many entries in it. You should read it.~
-== X3IsaacJ @152 
-DO ~SetGlobal("X3IQuest","GLOBAL",7)AddJournalEntry(@60014,QUEST)~
-== X3milyJ @153
+== X3dal @152 // ~I know Alina. The journal I gave you...she gave me. She has many entries in it. You should read it.~
+== X3IsaacJ @153 
+== X3milyJ @154
 EXTERN X3dal SorryMustGo
 
 
@@ -237,12 +225,12 @@ CHAIN X3dal Talk2.Listen
 == X3dal @25 // ~Because that blood is useful to them. They use it for experiments, to try to enhance themselves. Most don't stop them when they watch them butcher and torture the devil blooded and demon blooded.~
 == X3dal @26 // ~In fact, the planar hunters are often sanctioned. It's brought me against the law, stopping them at times, running, spying, defeating them.~
 == X3dal @27 // ~I can't offer you no gold for switching sides, only that it is the right thing to do against rather horrible excuses for people.~
-== X3milyJ IF ~IsValidForPartyDialogue("X3mily")~ THEN @28 // ~<CHARNAME>, I feel she's telling the truth. Let's work with her.~
+== X3milyJ @28 // ~<CHARNAME>, I feel she's telling the truth. Let's work with her.~
 END 
-+~InPartyAllowDead("X3Isaac")~+ @105 EXTERN X3dal Talk2.IsaacInParty
-+~!InPartyAllowDead("X3Isaac")~+ @29 EXTERN X3dal Talk2.Okay // ~Very well, we'll help you with these hunters.~ 
++~InParty("X3Isaac")~+ @105 EXTERN X3dal Talk2.IsaacInParty
++~!InParty("X3Isaac")~+ @29 EXTERN X3dal Talk2.Okay // ~Very well, we'll help you with these hunters.~ 
 ++ @21 EXTERN X3dal Talk2.Battle  // ~Too bad, it's time to die, elf.~
-+~!InPartyAllowDead("X3Isaac")IsValidForPartyDialogue("X3mily")~+ @30 EXTERN X3dal Talk2.Okay // ~If Emily believes you, then so will I.~
++~!InParty("X3Isaac")~+ @30 EXTERN X3dal Talk2.Okay // ~If Emily believes you, then so will I.~
 
 CHAIN X3dal Talk2.IsaacInParty 
 @106
@@ -262,7 +250,7 @@ CHAIN X3dal LieAboutIt
 = @114
 END 
 IF ~IsValidForPartyDialogue("X3mily")~ EXTERN X3milyJ Talk3.MotherVariation2
-IF ~!IsValidForPartyDialogue("X3mily")~ DO ~SetGlobal("X3IQuest","GLOBAL",6)SetGlobal("X3IsaacLiedTo","GLOBAL",1)SetGlobal("X3DalTalk","GLOBAL",5)AddexperienceParty(12000)GiveItem("X3EBlood",Player1)GiveItemCreate("X3EJorn",Player1,0,0,0)~ EXIT 
+IF ~!IsValidForPartyDialogue("X3mily")~ DO ~AddexperienceParty(12000)GiveItem("X3EBlood",Player1)SetGlobal("X3milySixthTalk","GLOBAL",1)GiveItemCreate("X3EJorn",Player1,0,0,0)~ EXIT 
 
 
 
@@ -278,7 +266,8 @@ CHAIN X3dal Talk2.Okay
 @31 // ~Return to me here when you have dealt with them. Thank you and...sorry for my earlier demeanor. I am weary of mercenaries, assassins, and hunters.~
 DO ~SetGlobal("X3DalTalk","GLOBAL",3)~ EXIT 
 
-CHAIN IF ~Global("X3DalTalk","GLOBAL",3)~ THEN X3dal Talk3 
+CHAIN IF ~IsValidForPartyDialog("X3mily")
+Global("X3DalTalk","GLOBAL",3)~ THEN X3dal Talk3 
 @32 // ~Have you succeeded?~
 END 
 +~Dead("X3EHK3")~+ @33 EXTERN X3dal Talk3.Defeat // ~They've been defeated.~
@@ -291,33 +280,21 @@ EXIT
 
 CHAIN X3dal Talk3.Defeat 
 @37 // ~You've done a good thing. You've saved many from a terrible fate. I'll make my exit before they realize more of their number are missing from the city.~
-DO ~SetGlobal("X3DalTalk","GLOBAL",5)~
 == X3dal @38 // ~I have nothing to give but my gratitude, and a prayer that you will be successful in your endeavors.~
 END 
-+~IsValidForPartyDialogue("X3mily")~+ @39 DO ~AddexperienceParty(8000)~ EXTERN X3milyJ Talk3.Mother // ~Perhaps you can help us with something else. We are seeking my companion's mother, with little luck so far.~
-++ @40 DO ~AddexperienceParty(8000)~ EXTERN X3dal Talk3.Safe // ~Be safe.~
-++ @41 DO ~AddexperienceParty(8000)~ EXTERN X3dal Talk3.Nothing // ~Dissapointing. Perhaps I should not have helped you.~
+++ @39 EXTERN X3milyJ Talk3.Mother // ~Perhaps you can help us with something else. We are seeking my companion's mother, with little luck so far.~
+++ @40 EXTERN X3dal Talk3.Safe // ~Be safe.~
+++ @41 EXTERN X3dal Talk3.Nothing // ~Dissapointing. Perhaps I should not have helped you.~
 
 CHAIN X3dal Talk3.Nothing 
-@42 // ~Then for whatever reason you did, you have my thanks.~
-END
-IF ~IsValidForPartyDialogue("X3mily")~ EXTERN X3milyJ WaitBefore
-IF ~!IsValidForPartyDialogue("X3mily")~ EXTERN X3dal WaitLonger
-
-CHAIN X3milyJ WaitBefore
-@43 // ~Wait! Before you go, I want to ask something.~ 
+@42 // ~Then for whatever reason you did, you have my thanks. Now, I must depart.~
+== X3milyJ @43 // ~Wait! Before you go, I want to ask something.~ 
 EXTERN X3milyJ Talk3.Mother 
 
 CHAIN X3dal Talk3.Safe 
-@44 // ~Safety is a luxury I do not have a lot of these days.~
-END
-IF ~IsValidForPartyDialogue("X3mily")~ EXTERN X3milyJ WaitBefore
-IF ~!IsValidForPartyDialogue("X3mily")~ EXTERN X3dal WaitLonger
-
-CHAIN X3dal WaitLonger 
-@155
-DO ~AddJournalEntry(@100058,QUEST_DONE)~
-EXIT 
+@44 // ~Safety is a luxury I do not have a lot of these days. Goodbye.~
+== X3milyJ @43 // ~Wait! Before you go, I want to ask something.~ 
+EXTERN X3milyJ Talk3.Mother 
 
 CHAIN X3milyJ Talk3.Mother 
 @45 // ~It's more of a longshot than I thought, but I'm looking for my mother, an elf named Alina.~
@@ -331,19 +308,19 @@ CHAIN X3milyJ Talk3.Mother
 == X3dal @53 // ~Read it, and you will understand. Forgive me I must leave, before sorrow overtakes me.~
 == X3milyJ @54 // ~Wait! I've so many more questions.~
 == X3dal @55 // ~~I'm sorry, but I must go. Goodbye.~~
-DO ~AddexperienceParty(4000)SetGlobal("X3milySixthTalk","GLOBAL",1)GiveItemCreate("X3EJorn","X3mily",0,0,0)AddJournalEntry(@100052,QUEST_DONE)EscapeArea()~
+DO ~AddexperienceParty(12000)SetGlobal("X3milySixthTalk","GLOBAL",1)GiveItemCreate("X3EJorn","X3mily",0,0,0)AddJournalEntry(@100052,QUEST_DONE)EscapeArea()~
 EXIT /* Emily is given her mother's journal. It should be added as an irremovable item in her inventory IF Possible.*/
 
-CHAIN IF ~OR(2)!IsValidForPartyDialogue("X3Isaac")Global("X3IsaacLiedTo","GLOBAL",2)Global("X3DalTalk","GLOBAL",5)~ THEN X3dal Concluded 
+CHAIN IF ~OR(2)!IsValidForPartyDialogue("X3Isaac")Global("X3IsaacLiedTo","LOCALS",1)~ THEN X3dal Concluded 
 @78
 END
-+~IsValidForPartyDialogue("X3mily")~+ @39 EXTERN X3milyJ Talk3.MotherVariation // ~Perhaps you can help us with something else. We are seeking my companion's mother, with little luck so far.~
+++ @39 EXTERN X3milyJ Talk3.MotherVariation // ~Perhaps you can help us with something else. We are seeking my companion's mother, with little luck so far.~
 ++ @79 EXIT 
 
-CHAIN IF ~IsValidForPartyDialogue("X3Isaac")Global("X3IsaacLiedTo","GLOBAL",1)~ THEN X3dal ConcludedIsaacThere 
+CHAIN IF ~IsValidForPartyDialogue("X3Isaac")Global("X3IsaacLiedTo","LOCALS",0)~ THEN X3dal ConcludedIsaacThere 
 @78
-DO ~SetGlobal("X3IsaacLiedTo","GLOBAL",2)~
-== X3IsaacJ @80
+DO ~SetGlobal("X3IsaacLiedTo","LOCALS",1)~
+== X3IsaacJ @79
 END // Isaac will disapprove.
 ++ @81 EXTERN X3IsaacJ GotWhatNeeded
 ++ @87 EXTERN X3IsaacJ WasBest
@@ -370,7 +347,7 @@ CHAIN X3dal TryShotThen
 @85
 == X3IsaacJ @86
 END 
-+~IsValidForPartyDialogue("X3mily")~+ @39 EXTERN X3milyJ Talk3.MotherVariation // ~Perhaps you can help us with something else. We are seeking my companion's mother, with little luck so far.~
+++ @39 EXTERN X3milyJ Talk3.MotherVariation // ~Perhaps you can help us with something else. We are seeking my companion's mother, with little luck so far.~
 ++ @79 EXIT 
 
 CHAIN X3milyJ Talk3.MotherVariation 

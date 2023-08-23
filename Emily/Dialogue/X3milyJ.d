@@ -1,4 +1,9 @@
+BEGIN X3IsaacJ
+//Preset Isaac when we need it.
 BEGIN X3milyJ
+
+
+
 /* Talk 1. */
 IF ~Global("X3milyTalk","GLOBAL",2)~ EmilyT1.1Edit  // This is the new start for Emily 1.1
 SAY @583 // ~Might we chat for a bit? I was wondering where you hailed from. You don't sound like you're from where I am.~ 
@@ -74,7 +79,7 @@ END
 IF ~~ EmilyT1.8
 SAY @23 // ~Well, I physically can, but, it's...tense right now. Father is...getting older, and wants to pass his responsibilities on. But only one sibling can be the heir of the estate, and make all the important calls.
 = @24 // ~Let's just say neither me or my brother are the most liked options by friends and servants? You either have me, the bastard rumored to be born out of wedlock to the woman he didn't marry, or the selfish entitled bastard, my brother.
-++ @25 + EmilyT1.11 // ~And is the rumor true? You don't seem to be from Baldur's gate, but your mother is there.~
++~!Race("X3mily",Aasimar)~+ @25 + EmilyT1.11 // ~And is the rumor true? You don't seem to be from Baldur's gate, but your mother is there.~
 ++ @26 + EmilyT1.12 // ~Succession should be by blood, shouldn't it?~
 ++ @27 + EmilyT1.13 // ~Leadership isn't give to those who think they deserve it, but by those who act like leaders.~
 ++ @28 + EmilyT1.4 // ~It sounds complicated. Come on, let's continue, we've delayed long enough.~
@@ -330,14 +335,26 @@ SAY @108 // ~I only know what I know from father, really. They met before he was
 = @109 // ~I think it was one reason why he was pushed to marry soon after.~
 = @110 // ~Their departure was bitter, but their...meetings had produced me. He was settling, and she still wanted to adventure, and a child alone would be too dangerous. So she asked a big favor of my other mother...and she consented.~
 = @111 // ~It was a bit of magical deception, but no one knew, everyone thought that my father's wife conceived before marriage and they rushed it. Some wonder still...hence the issues of heirdom.~
-= @112 // ~I wonder if she will even remember me, when I finally find her?~
+IF ~Race("X3mily",Aasimar)~ + EmilyT3.MomBioQuestDone
+IF ~!Race("X3mily",Aasimar)~ + EmilyT3.MomBioNormal
+END 
+
+IF ~~ EmilyT3.MomBioNormal 
+SAY @112 // ~I wonder if she will even remember me, when I finally find her?~
 ++ @113 + EmilyT3.Remember // ~She will. I have faith.~
 ++ @90 + EmilyT3.Glad // ~Your familial issues seem difficult, but I'm glad you're with me.~
 +~Global("X3T3EmilMothRaise","GLOBAL",0)~+ @99 DO ~IncrementGlobal("X3T3EmilMothRaise","GLOBAL",1)~ + EmilyT3.MomRaise // ~Tell me of the woman who raised you.~
 ++ @92 + EmilyT3.Mean // ~Seems like another sappy depiction of a noble brat's upbringing.~
 ++ @93 + EmilyT3.Done // ~Thank you for telling me. We should continue on.~
 END 
-
+//Since it can be possible to do Emily's quest faster than get to this dialogue with Isaac, this branch is added.
+IF ~~ EmilyT3.MomBioQuestDone
+SAY @785 // ~I just wish we had an opportunity to get to know eachother. I guess that will never be.~
+++ @90 + EmilyT3.Glad // ~Your familial issues seem difficult, but I'm glad you're with me.~
++~Global("X3T3EmilMothRaise","GLOBAL",0)~+ @99 DO ~IncrementGlobal("X3T3EmilMothRaise","GLOBAL",1)~ + EmilyT3.MomRaise // ~Tell me of the woman who raised you.~
+++ @92 + EmilyT3.Mean // ~Seems like another sappy depiction of a noble brat's upbringing.~
+++ @93 + EmilyT3.Done // ~Thank you for telling me. We should continue on.~
+END 
 IF ~~ EmilyT3.Remember
 SAY @114 // ~That's nice of you to say, <CHARNAME>. I hope you're right.~
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1) RealSetGlobalTimer("X3milyTimer","GLOBAL",3200)~ EXIT
@@ -380,11 +397,6 @@ END
 
 IF ~~ EmilyT4.Short 
 SAY @128 // ~Ha. Well, it's just as deadly as the long bow, if you're skilled at it, and lighter. A good answer.~
-IF ~~ + EmilyT4.Archer 
-END
-
-IF ~~ EmilyT4.Axe 
-SAY @129 // ~A throwing axe? They're so heavy, and harder to carry ammunition around. I have to disagree with that one.~
 IF ~~ + EmilyT4.Archer 
 END
 
@@ -726,13 +738,13 @@ SAY @566 // ~I still can't believe it. Adalgisa was...she was her. The mother I 
 ++ @397 + Emily.6ASorry // ~I am sorry.~
 ++ @482 + Emily.6ASorry // ~I had a feeling. I should have said something.~
 ++ @644 + Emily.6ABook // ~So you are just like her, then, in blood.~
-+~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When I used that gem, it revealed you have planar blood as well.~
++~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When we used that gem, it revealed you have planar blood as well.~
 ++ @484 + Emily.6AThere // ~It was cowardly of her not to say it from the start, and to just give you a book!~
 END 
 
 IF ~~ Emily.6ASorry  
 SAY @485 // ~It's not your fault. You didn't do anything wrong.~
-+~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When I used that gem, it revealed you have planar blood as well.
++~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When we used that gem, it revealed you have planar blood as well.
 ++ @644 + Emily.6ABook // ~So you are just like her, then, in blood.~
 ++ @484 + Emily.6AThere // ~She does not seem there for you. She seems dedicated to this mission of hers.~
 END 
@@ -773,10 +785,10 @@ IF ~~ Emily.6AThere
 SAY @411 // ~I want to believe she gave me this because she wanted me to understand, but did not have time, or...maybe I am just pretending, and you are right.~
 ++ @397 + Emily.6ASorry // ~I am sorry.~
 ++ @644 + Emily.6ABook // ~So you are just like her, then, in blood.~
-+~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When I used that gem, it revealed you have planar blood as well.~
++~Global("X3DalReveal","GLOBAL",1)~+ @483 + Emily.6ABook // ~When we used that gem, it revealed you have planar blood as well.~
 END 
 
-IF ~Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)~ Emily.6Dead
+IF ~Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)!Global("X3EmiRodwynMessageSpawn","GLOBAL",3)~ Emily.6Dead
 SAY @396 // ~Gods, this is worse than I feared. She was...touched, an Aasimar, and so am I. She was my mother. And now she is dead, because we killed her. That man's wrath upon us was deserved.~
 ++ @397 + Emily.6DSorry // ~I am sorry.~
 ++ @415 + Emily.6DForgive // ~I did not know.~
@@ -837,6 +849,30 @@ SAY @408 // ~I will go. That will be the best for all of us. Goodbye. I hope to 
 IF ~~ DO ~LeaveParty()EscapeArea()~ EXIT 
 END  
 
+IF ~Dead("X3Dal")Global("X3milyTalk","GLOBAL",12)GlobalGT("X3EmiRodwynMessageSpawn","GLOBAL",2)~ Emily.6Dead
+SAY @756 // ~Gods, this is worse than I feared. She was...touched, an Aasimar, and so am I. She was my mother. And now she is dead.~
+IF ~Global("X3EmiSpareIsaac","GLOBAL",1)~ + Emily.6IsaacSpared
+IF ~GlobalGT("X3EmiRodwynIsaacDuel","GLOBAL",0)~ + Emily.6IsaacKilled
+IF ~Global("X3EmiRodwynIsaacDuel","GLOBAL",0)Global("X3EmiSpareIsaac","GLOBAL",0)~ + Emily.6DifficultToForgive 
+END 
+
+IF ~~ Emily.6IsaacSpared 
+SAY @757
+IF ~~ + Emily.6DifficultToForgive 
+END 
+
+IF ~~ Emily.6IsaacKilled
+SAY @758
+IF ~~ + Emily.6DifficultToForgive 
+END 
+
+IF ~~ Emily.6DifficultToForgive 
+SAY @759
+++ @400 + Emily.6DKnow // ~She was hardly forthright with information. How were we to know?! (If the PC's reputation is less than 17, Emily will leave the party from this line)
+++ @401 + Emily.6DRedeem // ~If I could go back and undo it, I could, but I can't. Please stay, and let me redeem myself.~ (If the PC's reputation is less than 17, Emily will leave the party from this line)
+++ @402 + Emily.6DGo // ~She was never there for you, and clearly was up to no good. Let her memory go.~ (If the PC's reputation is less than 17, Emily will leave the party from this line)
+++ @403 + Emily.6DLeave // ~Then go. You are hardly necessary for us.~ 
+END 
 // Final Talk 
 
 IF ~Global("X3milyTalk","GLOBAL",14)~ Emily.T7
@@ -879,7 +915,7 @@ IF ~~ + Emily.7Continue
 END 
 
 IF ~~ Emily.7J3
-SAY @446 // ~Definitely just. That sort of relationship isn't for me. Especially with you...not after mother fell because of us.~
+SAY @446 // ~Definitely just. That sort of relationship isn't for me. Especially with you...not after losing mother.~
 = @447 // ~Look, if things get difficult as we approach the end of this, talk to me, I'll be your friend, and your ear still. I won't ignore you in your time of need.~
 IF ~~ DO ~IncrementGlobal("X3milyTalk","GLOBAL",1)SetGlobal("X3milyPIDOFF","GLOBAL",0)~ EXIT 
 END  
@@ -1045,33 +1081,102 @@ END
 
 IF ~Global("X3milyMomDead","GLOBAL",1)~ EMomDead
 SAY @545 // ~Why...why did we do this? We're just murderers.~
-++ @546 DO ~CreateItem("X3EJorn",0,0,0)SetGlobal("X3milyMomDead","GLOBAL",2)~ + EMomDead2 // ~She was a danger to people, she was blooded.~
-++ @547 DO ~CreateItem("X3EJorn",0,0,0)SetGlobal("X3milyMomDead","GLOBAL",2)~ + EMomDead4 // ~Because that was what our job was.~
-++ @548  DO ~CreateItem("X3EJorn",0,0,0)SetGlobal("X3milyMomDead","GLOBAL",2)~ + EMomDead3 // ~Because I said so.~
+++ @546 DO ~SetGlobal("X3milyMomDead","GLOBAL",2)~ + EMomDead2 // ~She was a danger to people, she was blooded.~
+++ @547 DO ~SetGlobal("X3milyMomDead","GLOBAL",2)~ + EMomDead4 // ~Because that was what our job was.~
+++ @548  DO ~SetGlobal("X3milyMomDead","GLOBAL",2)~ + EMomDead3 // ~Because I said so.~
 END 
 
 IF ~~ EMomDead2 
 SAY @549 // ~No. No she wasn't dangerous. And what is so terrible about having celestial blood?~
-IF ~~ + EBook1
+IF ~PartyHasItem("X3EJorn")~ + EBook1
+IF ~!PartyHasItem("X3EJorn")~ + NoEBook1
 END 
 
 IF ~~ EMomDead3 
 SAY @555 // ~Your order frankly was stupid, leader.~
-IF ~~ + EBook1 
+IF ~PartyHasItem("X3EJorn")~ + EBook1
+IF ~!PartyHasItem("X3EJorn")~ + NoEBook1
 END 
 
 IF ~~ EMomDead4 
 SAY @556 // ~From those people? Are they even trustable?~
-IF ~~ + EBook1 
+IF ~PartyHasItem("X3EJorn")~ + EBook1
+IF ~!PartyHasItem("X3EJorn")~ + NoEBook1
 END 
 
-IF ~~ EBook1
-SAY @550 // ~Strange She has this book on her, and it's...written in a language I'm not familiar with, but I can understand it.~
-= @551 // ~I'll keep it for myself. Let's just...get out of here.~
-++ @552 + EBook2 // ~Tell me more about the book. I'd like to see it.~
-+~Global("X3DalReveal","GLOBAL",1)~+ @553 + EGlow // ~Explain why you were glowing. Are you plane-touched, too?~
-++ @554 EXIT  // ~Very well, let's go.~
+IF ~~ NoEBook1 
+SAY @760
+IF ~~ EXIT
+END  
+
+//Rodwyn Died, no "duel" sequence. 
+CHAIN IF ~Global("X3EmiRodwynDeadConvo","LOCALS",1)GlobalLT("X3milyTalk","GLOBAL",12)~ THEN X3milyJ RodwynDied
+@775
+DO ~SetGlobal("X3EmiRodwynDeadConvo","LOCALS",2)~
 END 
+IF ~Global("IsaacBetrayParty","GLOBAL",1)~ + SorryIsaac
+IF ~Global("IsaacLoyalEmily","GLOBAL",1)~ + ThankYouIsaac
+IF ~Global("X3EmiSpareIsaac","GLOBAL",1)~ EXTERN X3IsaacJ SpareIsaac
+IF ~!Global("IsaacBetrayParty","GLOBAL",1)OR(2)!Global("IsaacLoyalEmily","GLOBAL",1)!IsValidForPartyDialogue("X3Isaac")OR(2)!IsValidForPartyDialogue("X3Isaac")!Global("X3EmiSpareIsaac","GLOBAL",1)~ + RodwynDeadEnd
+
+CHAIN X3milyJ RodwynDeadEnd 
+@776 
+EXIT 
+
+CHAIN X3milyJ SorryIsaac 
+@777
+EXTERN X3milyJ RodwynDeadEnd 
+
+CHAIN X3milyJ ThankYouIsaac
+@780
+== X3IsaacJ @781
+EXTERN X3milyJ RodwynDeadEnd 
+
+CHAIN X3IsaacJ SpareIsaac 
+@778
+== X3milyJ @779
+EXTERN X3milyJ RodwynDeadEnd 
+
+CHAIN IF ~Global("X3milyMomDead","GLOBAL",2)PartyHasItem("X3EJorn")~ THEN X3milyJ EBook1
+@550 // ~Strange She has this book on her, and it's...written in a language I'm not familiar with, but I can understand it.~
+DO ~SetGlobal("X3milyMomDead","GLOBAL",3)~
+= @551 // ~I'll keep it for myself. Let's just...get out of here.~
+END 
+IF ~IsValidForPartyDialogue("X3Isaac")GlobalLT("X3IQuest","GLOBAL",7)~ EXTERN X3IsaacJ IsaacBookBranch
+++ @552  + EBook2 // ~Tell me more about the book. I'd like to see it.~
++~Global("X3DalReveal","GLOBAL",1)~+ @553  + EGlow // ~Explain why you were glowing. Are you plane-touched, too?~
+++ @554  EXIT  // ~Very well, let's go.~
+
+CHAIN X3IsaacJ IsaacBookBranch
+@761
+== X3milyJ @762 
+END 
+IF ~PartyHasItem("X3EBlOOD")~ EXTERN X3IsaacJ X3IsaacQuestProgress
+IF ~!PartyHasItem("X3EBLOOD")~ EXTERN X3IsaacJ X3IsaacQuestDelay
+
+CHAIN X3IsaacJ X3IsaacQuestDelay 
+@763
+== X3milyJ @764
+== X3IsaacJ @774
+EXTERN X3milyJ IsaacSuggestsBetrayal
+
+CHAIN X3IsaacJ X3IsaacQuestProgress
+@765
+DO ~SetGlobal("X3ItemCheck","LOCALS",3)AddJournalEntry(@60014,QUEST)SetGlobal("X3IQuest","GLOBAL",7)~
+== X3milyJ @766 
+== X3IsaacJ @767
+EXTERN X3milyJ IsaacSuggestsBetrayal
+
+CHAIN X3milyJ IsaacSuggestsBetrayal 
+@768 
+== X3IsaacJ @769
+== X3milyJ @770
+== X3IsaacJ @771
+== X3milyJ @772
+== X3IsaacJ @773
+EXIT 
+
+APPEND X3milyJ 
 
 IF ~~ EBook2 
 SAY @557 // ~You can look at it if you wish, but...do you really understand these letters?~
@@ -1081,7 +1186,7 @@ SAY @557 // ~You can look at it if you wish, but...do you really understand thes
 END 
 
 IF ~~ EBook3 
-SAY @560 // ~I don't know. I thought this was elven text, but perhaps its something else. WHatever it is, it feels familiar to me.~
+SAY @560 // ~I don't know. I thought this was elven text, but perhaps its something else. Whatever it is, it feels familiar to me.~
 +~Global("X3DalReveal","GLOBAL",1)~+ @553 + EGlow // ~Explain why you were glowing. Are you plane-touched, too?~
 ++ @554 EXIT  // ~Very well, let's go.~
 END 
@@ -1103,7 +1208,7 @@ END
 IF ~Global("X3milyMomAlive","GLOBAL",1)~ EMomAlive
 SAY @570 // ~Strange...this book, it's written in a different language.~
 ++ @571 + EBook4 // ~Can I see it?~
-+~Global("X3DalReveal","GLOBAL",1)~+ @783 + EGlow3 // ~Explain why you were glowing. Are you plane-touched, too?~
++~Global("X3DalReveal","GLOBAL",1)~+ @553 + EGlow3 // ~Explain why you were glowing. Are you plane-touched, too?~
 ++ @784 + EBook4 // ~Perhaps it contains power.~ 
 END 
 
@@ -1148,7 +1253,23 @@ IF ~Global("X3milyAtWork","GLOBAL",7)~ + Emily.PCraftLightXDone
 IF ~Global("X3milyAtWork","GLOBAL",8)~ + Emily.PCraftLongXDone
 END
 
+IF ~Global("X3EmiRodwynIsaacDuel","GLOBAL",2)
+Dead("X3Isaac")
+Dead("X3Rodwyn")~ Emily.WonDuel
+SAY @754
+= @755
+IF ~~ DO ~SetGlobal("X3EmiRodwynIsaacDuel","GLOBAL",3)~ EXIT 
+END 
+
+END 
+
 // Interjections 
+CHAIN X3milyJ EmilyT4.Axe 
+@129 // ~A throwing axe? They're so heavy, and harder to carry ammunition around. I have to disagree with that one.~
+== X3IsaacJ IF ~IsValidForPartyDialogue("X3Isaac")~ THEN @281
+== X3milyJ IF ~IsValidForPartyDialogue("X3Isaac")~ THEN @282
+EXTERN X3milyJ EmilyT4.Archer 
+
 
 // Death Knight 
 I_C_T2 DEATH2 0 X3milyDeath20 // 
@@ -1209,7 +1330,7 @@ END
 // Dorn Pre-joining. 
 I_C_T2 Dorn 16 X3milyDornPJ16
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @510 // ~I can't agree with this. A blackguard with us? He's nothing but a killer.~
-== Dorn IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @511 // ~Calm yourself. I'm sure my skills will not interfere with your...mewling arrows.~
+== %DORN_BCS% IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @511 // ~Calm yourself. I'm sure my skills will not interfere with your...mewling arrows.~
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @512 // ~Hrmph~.
 END
 
@@ -1258,19 +1379,62 @@ END
 
 I_C_T2 Gallor 6 X3milyGallor6 
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @521 // ~I'm no wizard, but that's a name even I recognize. What is he doing here, I wonder.~
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",4)~
 END
 
 I_C_T2 Gallor 7 X3milyGallor7
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @521 // ~I'm no wizard, but that's a name even I recognize. What is he doing here, I wonder.~
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",4)~
 END
+
+ADD_TRANS_ACTION GALLOR BEGIN 2 END BEGIN END ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~
+
 
 I_C_T HURGAN 7 X3milyHurgan7
 == X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @529
 END 
 
+
+// Berrun
+I_C_T Berrun 8 X3milyBerrun8
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @840 // ~It's a good thing bows are mostly made out of wood. Still, a lot of people are being impacted by this. Anything we can do will make a great difference.~
+END
+
+// Berrun
+I_C_T Berrun 11 X3milyBerrun11
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @840 // ~It's a good thing bows are mostly made out of wood. Still, a lot of people are being impacted by this. Anything we can do will make a great difference.~
+END
+
+// Berrun
+I_C_T Berrun 12 X3milyBerrun12
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @840 // ~It's a good thing bows are mostly made out of wood. Still, a lot of people are being impacted by this. Anything we can do will make a great difference.~
+END
+
+// Berrun
+I_C_T Berrun 13 X3milyBerrun13
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @840 // ~It's a good thing bows are mostly made out of wood. Still, a lot of people are being impacted by this. Anything we can do will make a great difference.~
+END
+
+// Berrun
+I_C_T Berrun 19 X3milyBerrun19
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @840 // ~It's a good thing bows are mostly made out of wood. Still, a lot of people are being impacted by this. Anything we can do will make a great difference.~
+END
+
+//New Dunkin 
+I_C_T DUNKIN 0 X3milyDUNKIN0
+== X3milyJ IF ~!InParty("X3Isaac") InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @836
+END
+
+//Brage 
+I_C_T Brage 2 X3milyBrage2
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @839
+END 
+ADD_TRANS_ACTION Brage BEGIN 4 END BEGIN END ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~
+ADD_TRANS_ACTION Brage BEGIN 5 END BEGIN END ~SetGlobal("X3EmilyAppChange","GLOBAL",3)~ 
+
 //Innkeeper ask: Flat Interjects 
 INTERJECT INNKE3 0 X3milyINNKE30 
-== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0)GlobalLT("X3milySixthTalk","GLOBAL",1)!Dead("X3dal")~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
 DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)~
 == INNKE3 @568
 DO ~AddJournalEntry(@10006,QUEST)~
@@ -1278,7 +1442,7 @@ DO ~AddJournalEntry(@10006,QUEST)~
 EXIT
 
 INTERJECT INNKE3 1 X3milyINNKE31 
-== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0)GlobalLT("X3milySixthTalk","GLOBAL",1)!Dead("X3dal")~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
 DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)~
 == INNKE3 @568
 DO ~AddJournalEntry(@10006,QUEST)~
@@ -1286,11 +1450,57 @@ DO ~AddJournalEntry(@10006,QUEST)~
 EXIT
 
 INTERJECT INNKE3 2 X3milyINNKE32 
-== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0) !Global("X3milyMomDead","GLOBAL",1)!Global("X3milyMomAlive","GLOBAL",1)~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0)GlobalLT("X3milySixthTalk","GLOBAL",1)!Dead("X3dal")~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
 DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)~
 == INNKE3 @568
 DO ~AddJournalEntry(@10006,QUEST)~
 == X3milyJ @569
+EXIT
+
+INTERJECT INNKE3 0 X3milyINNKE30 
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0)GlobalLT("X3milySixthTalk","GLOBAL",1)Dead("X3Dal")~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)SetGlobal("X3EmiRodwynMessageSpawn","GLOBAL",1)~
+== INNKE3 @751
+== X3milyJ @752
+== INNKE3 @753
+EXIT
+
+INTERJECT INNKE3 1 X3milyINNKE31 
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0)GlobalLT("X3milySixthTalk","GLOBAL",1)Dead("X3Dal")~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)SetGlobal("X3EmiRodwynMessageSpawn","GLOBAL",1)~
+== INNKE3 @751
+== X3milyJ @752
+== INNKE3 @753
+EXIT
+
+INTERJECT INNKE3 2 X3milyINNKE32 
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",0)GlobalLT("X3milySixthTalk","GLOBAL",1)Dead("X3Dal")~ THEN @567 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",1)SetGlobal("X3EmiRodwynMessageSpawn","GLOBAL",1)~
+== INNKE3 @751
+== X3milyJ @752
+== INNKE3 @753
+EXIT
+
+//Bartender Ask 
+INTERJECT BART12 0 X3milyBART12
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",1)GlobalLT("X3milySixthTalk","GLOBAL",1)!Dead("X3dal")~ THEN @782 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",2)~
+== BART12 @783
+== X3milyJ @786
+EXIT
+
+INTERJECT BART12 1 X3milyBART12
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",1)GlobalLT("X3milySixthTalk","GLOBAL",1)!Dead("X3dal")~ THEN @782 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",2)~
+== BART12 @783
+== X3milyJ @784
+EXIT
+
+INTERJECT BART12 2 X3milyBART12
+== X3milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID) Global("X3EmiMotherAsk","GLOBAL",1)GlobalLT("X3milySixthTalk","GLOBAL",1)!Dead("X3dal")~ THEN @782 // ~Sir, have you ever had any elven patrons? Perhaps named Alina?~
+DO ~SetGlobal("X3EmiMotherAsk","GLOBAL",2)~
+== BART12 @783
+== X3milyJ @784
 EXIT
 
 I_C_T2 KARLAT 1 X3milyKArlat1 
@@ -1497,15 +1707,13 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !Global("X3milyPIDOFF","
  + ~HPPercentGT(Myself,74)RandomNum(3,3)~ + @225 + Emily.PHowAreYou3 // ~How are you doing?~
  +~HPPercentLT(Myself,75)HPPercentGT(Myself,49)~+ @225 + Emily.PHowAreYouInjured // ~How are you doing?~ //(Under 75%, Over 50%)
  +~HPPercentLT(Myself,50)~+ @225 + Emily.PHowAreYouHurt // ~How are you doing?~ //(Under 50%)
- +~RandomNum(3,1)~+ @353 + Emily.PThinkingAbout1a //~What are you thinking about?~
- +~RandomNum(3,2)~+ @353 + Emily.PThinkingAbout1b //~What are you thinking about?~
- +~RandomNum(3,3)~+ @353 + Emily.PThinkingAbout1c  //~What are you thinking about?~
  ++ @359 + Emily.PTalk // ~Let's stop and chat for a bit.~ 
  //+~Global("X3milyCraftTalk","GLOBAL",1)~+ @170 + Emily.PCraftTalk // ~You wanted to tell me something earlier?~
 +~Global("X3milyEnhancedBow","GLOBAL",0)!PartyHasItemIdentified("BOW08")!PartyHasItemIdentified("BOW07")!PartyHasItemIdentified("XBOW06")!PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow1  // ~Could you upgrade a launcher for me? No bow qualifies. 
 +~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @172 + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckN // ~Can I check on your progress of your craft?~ // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @357 + Emily.PCraftCheckY // ~Can I check on your progress of your craft?~ // Ready. 
+ +~GlobalGT("X3EmilyApp","GLOBAL",44)Gender(Player1,MALE)~+ @790 + Flirt
  ++ @747 + FixString
  ++ @169  EXIT
  END 
@@ -1612,12 +1820,8 @@ SAY  @173 // ~What would you like to talk about?~
 +~GlobalGT("X3milyTalk","GLOBAL",12)Global("X3milyPMotherTopic","GLOBAL",0)~+ @188 DO ~SetGlobal("X3milyPMotherTopic","GLOBAL",1)~ + Emily.PT6Mother // ~What do you think, now that you've met your birth mother?~
 +~GlobalGT("X3milyTalk","GLOBAL",14)Global("X3milyPAasimarTopic","GLOBAL",0)~+ @189 DO ~SetGlobal("X3milyPAasimarTopic","GLOBAL",1)~ + Emily.PT7Aasimar // ~The revelation from your birth mother still seems to bother you a lot.~
 +~Global("X3milyPTethyrTopic","GLOBAL",0)~+ @190 DO ~SetGlobal("X3milyPTethyrTopic","GLOBAL",1)~ + Emily.PTethyr // ~What can you tell me about Tethyr, your homeland?~ For Kale, Gullykin. For Vienxay, Evermeet. 
-+~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
-+~RandomNum(3,2)~+ @191 + Emily.PArchery2
-+~RandomNum(3,3)~+ @191 + Emily.PArchery3
 +~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @192 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // ~Can you tell me more about Fletching?~  
 +~GlobalGT("X3milyTalk","GLOBAL",10)!Dead("X3dal")Global("X3milyPCarryTopic","GLOBAL",0)~+ @171 DO ~SetGlobal("X3milyPCarryTopic","GLOBAL",1)~ + Emily.PCarry /* Can I carry your pack? */ // This appears post quest, mother Alive only. 
-
 END 
 
 IF ~~ Emily.PC1Advice 
@@ -1696,15 +1900,11 @@ SAY @393 // ~Which one exactly?~
 +~InParty("c0aura")~+ @291 + Em.Aura 
 +~!Race("X3mily",Aasimar)InParty("C0Sirene")~+ @292 + Em.Sirene1 
 +~Race("X3mily",Aasimar)InParty("C0Sirene")~+ @292 + Em.Sirene2 
++~!Race("X3mily",Aasimar)InParty("X3Isaac")~+ @292 + Em.Isaac1
++~Race("X3mily",Aasimar)InParty("X3Isaace")~+ @292 + Em.Isaac2 
 + ~InParty("L#1DVER")~ + @293 + Em.Verrsza
 +~InParty("#Ishy")~ + 683 + Em.Ishy
 // Myself 
-/* There are 4 versions of this:
-High Reputation (13), High Approval.
-Low Reputation (8), Low Approval. 
-Low Reputation (8), High Approval. 
-Low Approval, but Above 8 Reputation (Standard)
-For now, just script high and low reputation*/
 +~ReputationGT(Player1,12)~+ @294 + Em.Me1 
 +~ReputationLT(Player1,13)~+ @294 + Em.Me2
 ++ ~Nevermind~ EXIT  
@@ -1887,6 +2087,16 @@ END
 
 IF ~~ Em.Sirene2 
 SAY @328 // ~I want to like her. And I do a little. But I just feel that boiling inside to destroy her, because of what I am. But I promise I won't.~
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Isaac1
+SAY @788 // ~Her heritage makes me very uneasy. She's a paladin, a good woman, but something just makes me want to see her taken down. A bit weird, isn't it?~ 
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Isaac2 
+SAY @789 // ~I want to like her. And I do a little. But I just feel that boiling inside to destroy her, because of what I am. But I promise I won't.~
 IF ~~ EXIT 
 END 
 
@@ -2526,11 +2736,209 @@ SAY @392 // ~See, your weapon is all set. I hope you enjoy it's slight modificat
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3EQRL",Player1,1,0,0)~ EXIT  
 END 
 
+IF ~~ Flirt 
+SAY @791 
+ +~RandomNum(3,1)~+ @353 + Emily.PThinkingAbout1a //~What are you thinking about?~
+ +~RandomNum(3,2)~+ @353 + Emily.PThinkingAbout1b //~What are you thinking about?~
+ +~RandomNum(3,3)~+ @353 + Emily.PThinkingAbout1c  //~What are you thinking about?~
++~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
++~RandomNum(3,2)~+ @191 + Emily.PArchery2
++~RandomNum(3,3)~+ @191 + Emily.PArchery3
++~RandomNum(3,1)~+ @793 + Watch1
++~RandomNum(3,2)~+ @793 + Watch2
++~RandomNum(3,3)!Race("X3mily",AASIMAR)~+ @793 + Watch3A
++~RandomNum(3,3)Race("X3mily",AASIMAR)~+ @793 + Watch3B
++~RandomNum(3,1)~+ @794 + TellJoke1
++~RandomNum(3,2)~+ @794 + TellJoke2
++~RandomNum(3,3)~+ @794 + TellJoke3
++~RandomNum(3,1)~+ @795 + Tickle1
++~RandomNum(3,2)~+ @795 + Tickle2
++~RandomNum(3,3)~+ @795 + Tickle3
++~RandomNum(3,1)~+ @796 + Brush1
++~RandomNum(3,2)~+ @796 + Brush2
++~RandomNum(3,3)~+ @796 + Brush3
++~RandomNum(3,1)~+ @797 + Hair1
++~RandomNum(3,2)~+ @797 + Hair2
++~RandomNum(3,3)~+ @797 + Hair3
++~RandomNum(3,1)~+ @798 + Archer1
++~RandomNum(3,2)~+ @798 + Archer2
++~RandomNum(3,3)~+ @798 + Archer3
++~RandomNum(3,1)~+ @799 + Drink1
++~RandomNum(3,2)~+ @799 + Drink2
++~RandomNum(3,3)~+ @799 + Drink3
++~RandomNum(3,1)~+ @800 + With1
++~RandomNum(3,2)~+ @800 + With2
++~RandomNum(3,3)~+ @800 + With3
++~RandomNum(3,1)~+ @801 + Smile1
++~RandomNum(3,2)~+ @801 + Smile2
++~RandomNum(3,3)~+ @801 + Smile3
++~RandomNum(3,1)~+ @802 + Eyes1
++~RandomNum(3,2)~+ @802 + Eyes2
++~RandomNum(3,3)~+ @802 + Eyes3
+++ @792 EXIT 
+END 
+
+IF ~~ Watch1 
+SAY @804
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch2
+SAY @805
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch3A
+SAY @806
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch3B
+SAY @807
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke1 
+SAY @808
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke2 
+SAY @809 
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke3 
+SAY @810
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle1 
+SAY @811 
+= @812
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle2 
+SAY @813
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle3 
+SAY @814
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush1 
+SAY @815
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush2 
+SAY @816
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush3
+SAY @817
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair1
+SAY @818 
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair2 
+SAY @819
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair3 
+SAY @820 
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer1 
+SAY @821
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer2 
+SAY @822
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer3 
+SAY @823
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink1 
+SAY @824
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink2
+SAY @825
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink3 
+SAY @826
+IF ~~ EXIT 
+END 
+
+IF ~~ With1 
+SAY @827
+IF ~~ EXIT 
+END 
+
+IF ~~ With2
+SAY @828
+IF ~~ EXIT 
+END 
+
+IF ~~ With3 
+SAY @829
+IF ~~ EXIT 
+END
+
+IF ~~ Smile1
+SAY @830
+IF ~~ EXIT 
+END 
+
+IF ~~ Smile2
+SAY @831
+IF ~~ EXIT 
+END 
+
+IF ~~ Smile3 
+SAY @832
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes1
+SAY @833
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes2
+SAY @834
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes3 
+SAY @835
+IF ~~ EXIT 
+END 
+
 IF ~~ FixString
 SAY @748
 IF ~~ DO ~ClearAllActions() 
       StartCutSceneMode() 
-      StartCutScene("X3EReset")~ EXIT 
+      StartCutScene("X3EmiR")~ EXIT 
 END 
 
 

@@ -39,7 +39,7 @@ CHAIN IF ~InParty("X3Vien")
 See("X3Vien")
 !StateCheck("X3mily",CD_STATE_NOTVALID)
 !StateCheck("X3Vien",CD_STATE_NOTVALID)
-Global("X3VienQuestEnd","GLOBAL",2) // Replace this with the right variable to mark Vienxay's quest. 
+Dead("X3VMAS")
 Global("CrossEmilVien","LOCALS",2)~ THEN X3milyB ViEmiBanter3
 @24 // ~So, what are you going to do, now that this business with your master is resolved.~
 DO ~SetGlobal("CrossEmilVien","LOCALS",3)~
@@ -65,3 +65,65 @@ DO ~SetGlobal("CrossEmilVien","LOCALS",4)~
 == X3milyB @34 // ~I need to process this in peace. Can you just...treat me as the Emily you knew before?~
 == X3VienB @35 // ~If you so badly want to be demoted on my tier of respect, by all means.~
 EXIT 
+
+// Vienxay 1
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Vien",CD_STATE_NOTVALID)
+Global("CrossIsaacVien","LOCALS",0)~ THEN X3VienB ViIsaBanter1
+@36 // ~Isaac, you look strong. Very strong.~
+DO ~SetGlobal("CrossEmilVien","LOCALS",1)~
+== X3IsaacB @37
+== X3VienB @38
+== X3IsaacB @39
+== X3VienB @40
+== X3IsaacB @41
+== X3VienB @42
+== X3IsaacB @43
+EXIT 
+
+// Vienxay 2
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Vien",CD_STATE_NOTVALID)
+Global("CrossIsaacVien","LOCALS",1)~ THEN X3IsaacB ViIsaBanter2
+@44 // ~I saw you at the Candlekeep Inn, before Ector and I left and ran into <CHARNAME>.~
+DO ~SetGlobal("CrossEmilVien","LOCALS",2)~
+== X3VienB @45
+== X3IsaacB @46
+== X3VienB @47
+== X3IsaacB @48
+== X3VienB @49
+== X3IsaacB @50
+EXIT 
+
+// Vienxay 3 
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Vien",CD_STATE_NOTVALID)
+Global("CrossIsaacVien","LOCALS",2)~ THEN X3VienB ViIsaBanter3
+@51 // ~I saw you at the Candlekeep Inn, before Ector and I left and ran into <CHARNAME>.~
+DO ~SetGlobal("CrossEmilVien","LOCALS",3)~
+== X3IsaacB @52
+== X3VienB @53
+== X3IsaacB @54
+== X3VienB @55
+EXIT
+
+// Vienxay 4
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+Dead("X3VMAS")
+Dead("X3Caim")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Vien",CD_STATE_NOTVALID)
+Global("CrossIsaacVien","LOCALS",3)~ THEN X3IsaacB ViIsaBanter4
+@56 // ~I saw you at the Candlekeep Inn, before Ector and I left and ran into <CHARNAME>.~
+DO ~SetGlobal("CrossEmilVien","LOCALS",4)~
+== X3VienB @57
+== X3IsaacB @58
+== X3VienB @59
+EXIT

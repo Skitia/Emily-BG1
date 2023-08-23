@@ -1,0 +1,385 @@
+CHAIN IF ~Global("X3IQuest","GLOBAL",3)~ THEN X3IsaacJ VernQuest
+@36
+DO ~SetGlobal("X3IQuest","GLOBAL",4)~
+END 
+IF ~Global("X3IQuestTask1Pass","GLOBAL",1)~ EXTERN X3IsaacJ PlanVern
+IF ~!Global("X3IQuestTask1Pass","GLOBAL",1)~ EXTERN X3IsaacJ SeeVern
+
+CHAIN X3IsaacJ PlanVern 
+@37
+= @38
+= @51
+END 
+++ @39 + WhyOutside
+++ @40 + WhyNotTalk
+++ @45 + AfterHeTalks
+++ @46 + LetsFindVern
+
+CHAIN X3IsaacJ WhyOutside 
+@42 
+EXTERN X3IsaacJ ButIfYourWay
+
+CHAIN X3IsaacJ WhyNotTalk 
+@47 
+EXTERN X3IsaacJ ButIfYourWay
+
+CHAIN X3IsaacJ AfterHeTalks
+@44
+EXIT 
+
+CHAIN X3IsaacJ LetsFindVern 
+@48
+EXIT 
+
+CHAIN X3IsaacJ SeeVern
+@49
+= @50
+= @51
+END 
+++ @39 + WhyOutside
+++ @40 + WhyNotTalkFail
+++ @45 + AfterHeTalks
+++ @46 + LetsFindVern
+
+CHAIN X3IsaacJ WhyNotTalkFail 
+@41
+EXTERN X3IsaacJ ButIfYourWay
+
+CHAIN X3IsaacJ ButIfYourWay
+@43
+END 
+++ @45 + AfterHeTalks
+++ @46 + LetsFindVern
+
+//Vern Dead 
+CHAIN IF ~Global("X3IQuestTask2Pass","GLOBAL",1)Global("X3IQuest","GLOBAL",4)Dead("X3Vern")~ THEN X3IsaacJ VernQuestEndDead
+@53
+EXTERN X3IsaacJ VernQuestEndAssociates
+
+//Vern Alive
+CHAIN IF ~Global("X3IQuestTask2Pass","GLOBAL",1)Global("X3IQuest","GLOBAL",4)!Dead("X3Vern")~ THEN X3IsaacJ VernQuestEndAlive
+@52
+EXTERN X3IsaacJ VernQuestEndAssociates
+
+CHAIN X3IsaacJ VernQuestEndAssociates 
+@74
+DO ~AddJournalEntry(@60008,QUEST)SetGlobal("X3IQuest","GLOBAL",5)~
+EXIT 
+
+CHAIN IF ~Global("X3IQuestTask2Pass","GLOBAL",2)Global("X3IQuest","GLOBAL",4)~ THEN X3IsaacJ VernQuestNotSee
+@54
+END 
+++ @71 + VernQuestNotSeeAssociates 
+
+CHAIN X3IsaacJ VernQuestNotSeeAssociates
+@72
+= @73
+DO ~AddJournalEntry(@60008,QUEST)SetGlobal("X3IQuest","GLOBAL",5)~
+EXIT 
+
+//Fail 
+
+CHAIN IF ~Global("X3IQuestTask2Pass","GLOBAL",0)Global("X3IQuest","GLOBAL",4)Dead("X3Vern")~ THEN X3IsaacJ VernQuestEndFail 
+@55
+DO ~SetGlobal("X3IQuest","GLOBAL",5)~
+END 
+++ @56 + VernWastedEffort
+++ @57 + VernWastedEffort
+++ @58 + VernWastedEffort
+
+CHAIN X3IsaacJ VernWastedEffort
+@59
+END 
+IF ~!Global("X3IQuestTask1Pass","GLOBAL",1)~ EXTERN X3IsaacJ Quest1AlsoFailed
+IF ~Global("X3IQuestTask1Pass","GLOBAL",1)~ EXTERN X3IsaacJ OhWellOnToQuestThree
+
+CHAIN X3IsaacJ Quest1AlsoFailed 
+@60 
+END 
+++ @61 + HaveNotForgotten
+++ @62 + NotGoodEnough
+++ @63 + MakeAGoodPoint
+++ @64 + HaveNotForgotten
+
+CHAIN X3IsaacJ HaveNotForgotten 
+@66
+EXTERN X3IsaacJ Quest2IsaacLeaves 
+
+CHAIN X3IsaacJ NotGoodEnough 
+@65
+EXTERN X3IsaacJ Quest2IsaacLeaves 
+
+CHAIN X3IsaacJ Quest2IsaacLeaves 
+@67
+END 
+++ @75 + Quest2IsaacFights
+++ @76 + Quest2IsaacGoes
+++ @77 + DecisionMade
+
+CHAIN X3IsaacJ DecisionMade 
+@80
+EXTERN X3IsaacJ Quest2IsaacGoes 
+
+CHAIN X3IsaacJ Quest2IsaacGoes 
+@79
+DO ~AddJournalEntry(@60010,QUEST_DONE)LeaveParty()EscapeArea()~
+EXIT 
+
+CHAIN X3IsaacJ Quest2IsaacFights 
+@78
+DO ~AddJournalEntry(@60011,QUEST_DONE)LeaveParty()Enemy()Attack(Player1)~
+EXIT 
+
+
+CHAIN X3IsaacJ MakeAGoodPoint 
+@68
+EXTERN X3IsaacJ OhWellOnToQuestThree
+
+CHAIN X3IsaacJ OhWellOnToQuestThree
+@69 
+DO ~AddJournalEntry(@60009,QUEST)~
+= @70
+EXIT
+// Two versions, the one where you found out nothing.
+// And the one where you knew he was here.
+
+CHAIN IF ~!AreaCheck("%bg1_eet_symbol%5800")AreaType(OUTDOOR)
+Global("X3IQuest","GLOBAL",1)~ THEN X3IsaacJ QuestStart
+@0
+DO ~SetGlobal("X3IQuest","GLOBAL",2)~
+= @1
+= @2 
+END 
+++ @3 + AboutYusmin 
+++ @4 + AboutAvarn
+++ @5 + QuestHowToGetToTalk
+++ @12 + QuestUnderstood
+
+
+CHAIN X3IsaacJ AboutYusmin 
+@7
+= @8
+END 
+++ @4 + AboutAvarn
+++ @5 + QuestHowToGetToTalk
+++ @13 + QuestUnderstood
+
+CHAIN X3IsaacJ AboutAvarn
+@9
+= @10
+END 
+++ @3 + AboutYusmin 
+++ @5 + QuestHowToGetToTalk
+++ @13 + QuestUnderstood
+
+CHAIN X3IsaacJ QuestHowToGetToTalk
+@6
+END 
+++ @3 + AboutYusmin 
+++ @4 + AboutAvarn
+++ @13 + QuestUnderstood
+
+CHAIN X3IsaacJ QuestUnderstood 
+@11
+DO ~AddJournalEntry(@60002,QUEST)~
+EXIT 
+
+CHAIN IF ~Global("X3IQuestProgress","GLOBAL",1)~ THEN X3IsaacJ QuestProgress1
+@16
+DO ~SetGlobal("X3IQuestProgress","GLOBAL",2)~
+END 
+IF ~Global("X3YusminSawIsaac","GLOBAL",1)Global("X3AvarnSawIsaac","GLOBAL",1)~ EXTERN X3IsaacJ IsaacAware
+IF ~!Global("X3IQuestTask1Pass","GLOBAL",1)OR(2)!Global("X3YusminSawIsaac","GLOBAL",1)!Global("X3AvarnSawIsaac","GLOBAL",1)~ EXTERN X3IsaacJ NothingLearned 
+IF ~Global("X3IQuestTask1Pass","GLOBAL",1)~ EXTERN X3IsaacJ Learned
+
+CHAIN X3IsaacJ Learned 
+@26
+END 
+++ @35 + SomethingLearned
+ 
+CHAIN X3IsaacJ SomethingLearned 
+@30
+= @31
+END 
+++ @32 EXIT 
+++ @33 + KnowMore 
+
+CHAIN X3IsaacJ KnowMore 
+@34
+EXIT 
+  
+
+CHAIN X3IsaacJ NothingLearned 
+@26
+END 
+++ @27 + NothingLearnedSadly
+
+CHAIN X3IsaacJ NothingLearnedSadly 
+@29 
+//No approval gain or loss.
+EXIT 
+
+
+CHAIN X3IsaacJ IsaacAware 
+@17
+END 
+++ @18 + IApologize
+++ @19 + TheyAreDead
+++ @20 + DoNotQuestion
+++ @21 + Forgot
+
+CHAIN X3IsaacJ FindIfLucky
+@22 
+//Severe loss of approval here.
+EXIT 
+
+CHAIN X3IsaacJ Forgot 
+@23 
+EXTERN X3IsaacJ FindIfLucky
+
+CHAIN X3IsaacJ DoNotQuestion
+@24
+EXTERN X3IsaacJ FindIfLucky
+
+CHAIN X3IsaacJ TheyAreDead 
+@25
+EXTERN X3IsaacJ FindIfLucky
+
+CHAIN X3IsaacJ IApologize
+@26 
+EXTERN X3IsaacJ FindIfLucky
+
+//Planar Hunters died 
+
+CHAIN IF ~Global("X3HuntSpawn","GLOBAL",2)~ THEN X3IsaacJ PlanarHuntersDiedBranch
+@81
+END 
+IF ~IsValidForPartyDialogue("X3mily")Dead("X3Rodwyn")~ EXTERN X3milyJ PHDiedEmily1
+IF ~IsValidForPartyDialogue("X3mily")!Dead("X3Rodwyn")~ EXTERN X3milyJ PHDiedEmily2
+IF ~!IsValidForPartyDialogue("X3mily")~ EXTERN X3IsaacJ PHDiedNoEmily
+
+CHAIN X3IsaacJ PHDiedNoEmily
+@82
+END 
+++ @83 + PHDiedAttack
+++ @84 + PHDiedEvil
+++ @85 + PHDiedAttack
+++ @86 + PHDiedLying
+++ @87 + PHDiedMurdered 
+++ @88 + PHDiedGem
+
+CHAIN X3IsaacJ PHDiedGem 
+@89
+= @90
+END 
+++ @83 + PHDiedAttack
+++ @84 + PHDiedEvil
+++ @85 + PHDiedAttack
+++ @86 + PHDiedLying
+++ @87 + PHDiedMurdered 
+
+CHAIN X3IsaacJ PHDiedLying
+@91 
+END 
+++ @83 + PHDiedAttack
+++ @84 + PHDiedEvil
+++ @85 + PHDiedAttack
+++ @92 + PHDiedLyingLeave
+++ @87 + PHDiedMurdered 
+
+CHAIN X3IsaacJ PHDiedLyingLeave 
+@93
+DO ~LeaveParty()EscapeArea()~
+EXIT 
+
+CHAIN X3IsaacJ PHDiedMurdered 
+@94
+= @95
+DO ~LeaveParty()Enemy()~
+EXIT 
+
+CHAIN X3IsaacJ PHDiedEvil 
+@96
+EXTERN X3IsaacJ PHDiedAttack 
+
+CHAIN X3IsaacJ PHDiedAttack 
+@114
+END 
+IF ~OR(2)!Global("X3IQuestTask1Pass","GLOBAL",1)!Global("X3IQuestTask2Pass","GLOBAL",1)~ EXTERN X3IsaacJ PHDiedIsaacAttacks
+IF ~Global("X3IQuestTask1Pass","GLOBAL",1)Global("X3IQuestTask2Pass","GLOBAL",1)~ X3IsaacJ PHDiedIsaacHopeless
+
+CHAIN X3IsaacJ PHDiedIsaacAttacks 
+@97
+DO ~LeaveParty()Enemy()~
+EXIT 
+
+CHAIN X3IsaacJ PHDiedIsaacHopeless 
+@112
+= @113
+DO ~~ // This is the only path that allows you to continue the path without losing Isaac.
+EXIT 
+
+CHAIN X3milyJ PHDiedEmily1
+@98
+EXTERN X3IsaacJ PHDiedEmily
+
+CHAIN X3milyJ PHDiedEmily2
+@99
+EXTERN X3IsaacJ PHDiedEmily
+
+CHAIN X3IsaacJ PHDiedEmily
+@100
+== X3milyJ @101
+== X3IsaacJ @102
+== X3milyJ @103
+== X3IsaacJ @104
+== X3milyJ @105
+== X3IsaacJ @106
+== X3milyJ @107
+== X3IsaacJ @108
+== X3milyJ @109
+== X3IsaacJ @110
+== X3milyJ @111
+DO ~~ EXIT 
+
+CHAIN IF ~Global("X3EmiRodwynIsaacDuel","GLOBAL",1)Dead("X3mily")Dead("X3Rodwyn")~ THEN X3IsaacJ WonRodwynDuel
+@115
+= @116
+DO ~SetGlobal("X3EmiRodwynIsaacDuel","GLOBAL",3)~
+EXIT 
+
+CHAIN IF ~Global("X3IsaacAdalBetrayal","GLOBAL",1)~ THEN X3IsaacJ OneLinerAdal
+@117
+DO ~SetGlobal("X3IsaacAdalBetrayal","GLOBAL",2)LeaveParty()Enemy()Attack(Player1)~
+= @118
+EXIT 
+
+CHAIN IF ~Global("X3IsaacAdaLie","GLOBAL",1)~ THEN X3IsaacJ Adalie
+@119
+END 
+++ @120 + Adalie2
+
+CHAIN X3IsaacJ Adalie2
+@121
+= @122
+END 
+IF ~IsValidForPartyDialogue("X3mily")~ EXTERN X3milyJ Adalie3
+IF ~InPartyAllowDead("X3mily")~ EXIT 
+IF ~!InPartyAllowDead("X3mily")!IsValidForPartyDialogue("X3mily")~ DO ~TakePartyItem("X3EJORN")DestroyItem("X3EJORN")~ EXIT 
+
+CHAIN X3milyJ Adalie3 
+@123
+== X3IsaacJ @124
+== X3milyJ @125
+EXIT 
+
+
+APPEND X3IsaacJ
+// GENDER CHANGE, Make sure this is below talks. 
+IF ~Global("X3IsaacSexChange","GLOBAL",1)~ IGender
+SAY @14
+= @15
+IF ~~ DO ~SetGlobal("X3IsaacSexChange","GLOBAL",2)~ EXIT
+END
+
+END 

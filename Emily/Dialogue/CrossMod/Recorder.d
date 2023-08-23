@@ -1,4 +1,4 @@
-// Recorder 1
+// Emily - Recorder 1
 CHAIN IF ~InParty("X3mily")
 InParty("X3Rec")
 See("X3mily")
@@ -15,7 +15,7 @@ DO ~SetGlobal("CrossEmilRec","LOCALS",1)~
 == X3milyB @6 // ~I guess you're right. Can't waste an artsy arrow on the bandit it's going to pierce into.~
 EXIT
 
-// Recorder 2 
+// Emily - Recorder 2 
 
 CHAIN IF ~InParty("X3mily")
 InParty("X3Rec")
@@ -35,7 +35,7 @@ DO ~SetGlobal("CrossEmilRec","LOCALS",2)~
 == X3milyB @15 // ~Maybe after a lot of wine. I'd not want to remember!~
 EXIT
 
-// Recorder 3
+// Emily - Recorder 3
 CHAIN IF ~InParty("X3mily")
 InParty("X3Rec")
 See("X3Rec")
@@ -52,7 +52,7 @@ DO ~SetGlobal("CrossEmilRec","LOCALS",3)~
 == X3milyB @22 // ~If they do, I'm going to pick up outfits for us both. I want to fight cute. Always want to look your best, even if you're dead. Yikes, too grim Emily, too grim.~
 EXIT
 
-// Recorder 4
+// Emily - Recorder 4
 CHAIN IF ~InParty("X3mily")
 InParty("X3Rec")
 See("X3Rec")
@@ -67,3 +67,78 @@ DO ~SetGlobal("CrossEmilRec","LOCALS",4)~
 == X3milyB @27 // ~Aww, that's such a nice answer. I've enjoyed your company too.~
 == X3RecB @28 // ~I hope to enjoy it for the rest of our time together.~
 EXIT
+
+// Isaac - Recorder 1
+CHAIN IF ~InParty("X3Isaac")
+InParty("X3Rec")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Rec",CD_STATE_NOTVALID)
+Global("CrossIsaacRec","GLOBAL",0)~ THEN X3RecB RisaacBanter1
+@29 // ~I understand you are from Neverwinter, Isaac? I have heard nothing but beautiful compliments of the place.~
+DO ~SetGlobal("CrossIsaacRec","GLOBAL",1)~
+== X3IsaacB @30
+== X3RecB @31
+== X3IsaacB @32
+== X3RecB @33
+== X3IsaacB @34
+EXIT 
+
+//Recorder 2
+CHAIN IF ~InParty("X3Isaac")
+InParty("X3Rec")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Rec",CD_STATE_NOTVALID)
+Global("CrossIsaacRec","GLOBAL",1)~ THEN X3IsaacB RisaacBanter2
+@35 // ~Most bards are swindlers, but I've never seen you take a thing.~
+DO ~SetGlobal("CrossIsaacRec","GLOBAL",2)~
+== X3RecB @36
+== X3IsaacB @37
+== X3RecB @38
+== X3IsaacB @39
+== X3RecB @40
+== X3IsaacB @41
+== X3RecB @42
+EXIT 
+
+//Recorder 3
+
+CHAIN IF ~InParty("X3Isaac")
+InParty("X3Rec")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Rec",CD_STATE_NOTVALID)
+Global("CrossIsaacRec","GLOBAL",1)~ THEN X3IsaacB RisaacBanter2
+@43 // ~What secret are you hiding, Recorder?~
+DO ~SetGlobal("CrossIsaacRec","GLOBAL",2)~
+== X3RecB @44
+== X3IsaacB @45
+== X3RecB @46
+== X3IsaacB @47
+== X3RecB @48
+== X3IsaacB @49
+EXIT 
+
+//Recorder 4
+
+CHAIN IF ~InParty("X3Isaac")
+InParty("X3Rec")
+InParty("X3mily")
+Race("X3mily",Aasimar)
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Rec",CD_STATE_NOTVALID)
+Global("CrossIsaacRec","GLOBAL",3)~ THEN X3RecB RisaacBanter4
+@50 // ~What secret are you hiding, Recorder?~
+DO ~SetGlobal("CrossIsaacRec","GLOBAL",4)~
+== X3IsaacB @51
+== X3RecB @52
+== X3IsaacB @53
+== X3RecB @54
+== X3IsaacB @55
+== X3RecB @56
+== X3IsaacB @57
+== X3RecB @58
+== X3IsaacB @59
+EXIT 

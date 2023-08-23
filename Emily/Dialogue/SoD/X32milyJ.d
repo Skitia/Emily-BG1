@@ -552,17 +552,17 @@ END
 // THRIX
 
 IF ~Global("X32milySacrifice","bd4500",1)~ ThrixTalk0
-SAY @191
-+ ~!Global("X32_thrix_mark_Emily","global",1)~ + @192 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk2
-+ ~Global("X32_thrix_mark_Emily","global",1)~ + @193 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
-+ ~!Global("X32_thrix_mark_Emily","global",1)~ + @194 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk3
-+ ~Global("X32_thrix_mark_Emily","global",1)~ + @195 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
-+ ~!Global("X32_thrix_mark_Emily","global",1)~ + @196 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk4
-+ ~Global("X32_thrix_mark_Emily","global",1)~ + @196 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
+SAY @61
++ ~!Global("X32_thrix_mark_Emily","global",1)~ + @62 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk2
++ ~Global("X32_thrix_mark_Emily","global",1)~ + @63 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
++ ~!Global("X32_thrix_mark_Emily","global",1)~ + @64 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk3
++ ~Global("X32_thrix_mark_Emily","global",1)~ + @64 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
++ ~!Global("X32_thrix_mark_Emily","global",1)~ + @65 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk4
++ ~Global("X32_thrix_mark_Emily","global",1)~ + @65 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
 END
 
 IF ~~ ThrixTalk1
- SAY @197
+ SAY @66
 IF ~OR(2)
 Global("X32milyRomanceActive","GLOBAL",1)
 Global("X32milyRomanceActive","GLOBAL",2)~ + ThrixTalk5
@@ -571,12 +571,12 @@ IF ~!Global("X32milyRomanceActive","GLOBAL",1)
 END
 
 IF ~~ ThrixTalk2
- SAY @198
+ SAY @67
 IF ~~ + ThrixTalk6
 END
 
 IF ~~ ThrixTalk3
- SAY @199
+ SAY @68
 IF ~~ + ThrixTalk6
 END
 
@@ -1294,6 +1294,7 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) GlobalGT("Chapter","GLOB
 +~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @271 + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @272  + Emily.PCraftCheckN // @272 // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @272  + Emily.PCraftCheckY // @272 // Ready. 
+ +~OR(2)Global("X32milyRomanceActive","GLOBAL",1)Global("X32milyRomanceActive","GLOBAL",2)~+ @790 + Flirt
  ++ @273 + FixString
  ++ @274  EXIT
  END 
@@ -1644,9 +1645,6 @@ SAY  @334
 +~Global("X3milyFlirtTalk","GLOBAL",0)Global("X32milyRomanceActive","GLOBAL",1)~+ @339 DO ~SetGlobal("X3milyFlirtTalk","GLOBAL",1)~ + Emily.PIDTalk3
 //Old P.I.D. Talks
 +~Global("X3milyPTethyrTopic","GLOBAL",0)~+ @340 DO ~SetGlobal("X3milyPTethyrTopic","GLOBAL",1)~ + Emily.PTethyr // @340 For Kale, Gullykin. For Vienxay, Evermeet. 
-+~RandomNum(3,1)~+ @341  + Emily.PArchery1 // @341 
-+~RandomNum(3,2)~+ @341  + Emily.PArchery2
-+~RandomNum(3,3)~+ @341  + Emily.PArchery3
 +~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @342 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // @342 For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
 END 
 
@@ -1742,21 +1740,6 @@ SAY @379
 IF ~~ EXIT 
 END 
 
-IF ~~ Em.Glint 
-SAY @380
-IF ~~ EXIT 
-END 
-
-IF ~~ Em.Corwin 
-SAY @381
-IF ~~ EXIT 
-END 
-
-IF ~~ Em.MKhiin 
-SAY @382
-IF ~~ EXIT 
-END 
-
 IF ~~ Em.Helga 
 SAY @383
 IF ~~ EXIT 
@@ -1774,6 +1757,21 @@ END
 
 IF ~~ Em.Vienxay 
 SAY @386
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Glint 
+SAY @380
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Corwin 
+SAY @381
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.MKhiin 
+SAY @382
 IF ~~ EXIT 
 END 
 
@@ -2079,11 +2077,243 @@ SAY @470
 IF ~~ EXIT 
 END
 
+IF ~~ Emily.PThinkingAbout1a
+SAY @837 // ~I am thinking about food. I'm getting this feeling of hunger in my stomach. What's for our next meal anyway?~
+IF ~~ EXIT  
+END
+
+IF ~~ Emily.PThinkingAbout1b
+SAY @838 // ~I'm just thinking of some of the poor people I've managed to help since I've set out. So much suffering, everywhere. It never seems to end.~
+IF ~~ EXIT  
+END
+
+IF ~~ Emily.PThinkingAbout1c
+SAY @839 // ~Thinking? Not of much. Although what do you think of this: Archery from a Pegasus's back. Just have to find a Pegasus!~
+IF ~~ EXIT  
+END
+
+IF ~~ Flirt 
+SAY @791 
+ +~RandomNum(3,1)~+ @836 + Emily.PThinkingAbout1a //~What are you thinking about?~
+ +~RandomNum(3,2)~+ @836 + Emily.PThinkingAbout1b //~What are you thinking about?~
+ +~RandomNum(3,3)~+ @836 + Emily.PThinkingAbout1c  //~What are you thinking about?~
++~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
++~RandomNum(3,2)~+ @191 + Emily.PArchery2
++~RandomNum(3,3)~+ @191 + Emily.PArchery3
++~RandomNum(3,1)~+ @793 + Watch1
++~RandomNum(3,2)~+ @793 + Watch2
++~RandomNum(3,3)!Race("X3mily",AASIMAR)~+ @793 + Watch3A
++~RandomNum(3,3)Race("X3mily",AASIMAR)~+ @793 + Watch3B
++~RandomNum(3,1)~+ @794 + TellJoke1
++~RandomNum(3,2)~+ @794 + TellJoke2
++~RandomNum(3,3)~+ @794 + TellJoke3
++~RandomNum(3,1)~+ @795 + Tickle1
++~RandomNum(3,2)~+ @795 + Tickle2
++~RandomNum(3,3)~+ @795 + Tickle3
++~RandomNum(3,1)~+ @796 + Brush1
++~RandomNum(3,2)~+ @796 + Brush2
++~RandomNum(3,3)~+ @796 + Brush3
++~RandomNum(3,1)~+ @803 + Cheek1
++~RandomNum(3,2)~+ @803 + Cheek2
++~RandomNum(3,3)~+ @803 + Cheek3
++~RandomNum(3,1)~+ @797 + Hair1
++~RandomNum(3,2)~+ @797 + Hair2
++~RandomNum(3,3)~+ @797 + Hair3
++~RandomNum(3,1)~+ @798 + Archer1
++~RandomNum(3,2)~+ @798 + Archer2
++~RandomNum(3,3)~+ @798 + Archer3
++~RandomNum(3,1)~+ @799 + Drink1
++~RandomNum(3,2)~+ @799 + Drink2
++~RandomNum(3,3)~+ @799 + Drink3
++~RandomNum(3,1)~+ @800 + With1
++~RandomNum(3,2)~+ @800 + With2
++~RandomNum(3,3)~+ @800 + With3
++~RandomNum(3,1)~+ @801 + Smile1
++~RandomNum(3,2)~+ @801 + Smile2
++~RandomNum(3,3)~+ @801 + Smile3
++~RandomNum(3,1)~+ @802 + Eyes1
++~RandomNum(3,2)~+ @802 + Eyes2
++~RandomNum(3,3)~+ @802 + Eyes3
+++ @792 EXIT 
+END 
+
+
+IF ~~ Watch1 
+SAY @804
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch2
+SAY @805
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch3A
+SAY @806
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch3B
+SAY @807
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke1 
+SAY @808
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke2 
+SAY @809 
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke3 
+SAY @810
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle1 
+SAY @811 
+= @812
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle2 
+SAY @813
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle3 
+SAY @814
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush1 
+SAY @815
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush2 
+SAY @816
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush3
+SAY @817
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair1
+SAY @818 
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair2 
+SAY @819
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair3 
+SAY @820 
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer1 
+SAY @821
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer2 
+SAY @822
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer3 
+SAY @823
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink1 
+SAY @824
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink2
+SAY @825
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink3 
+SAY @826
+IF ~~ EXIT 
+END 
+
+IF ~~ With1 
+SAY @827
+IF ~~ EXIT 
+END 
+
+IF ~~ With2
+SAY @828
+IF ~~ EXIT 
+END 
+
+IF ~~ With3 
+SAY @829
+IF ~~ EXIT 
+END
+
+IF ~~ Smile1
+SAY @830
+IF ~~ EXIT 
+END 
+
+IF ~~ Smile2
+SAY @831
+IF ~~ EXIT 
+END 
+
+IF ~~ Smile3 
+SAY @832
+IF ~~ EXIT 
+END 
+
+IF ~~ Cheek1 
+SAY @840 
+IF ~~ EXIT 
+END 
+
+IF ~~ Cheek2
+SAY @841 
+IF ~~ EXIT 
+END 
+
+IF ~~ Cheek3 
+SAY @842
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes1
+SAY @833
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes2
+SAY @834
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes3 
+SAY @835
+IF ~~ EXIT 
+END 
+
 IF ~~ FixString
 SAY @471
 IF ~~ DO ~ClearAllActions() 
       StartCutSceneMode() 
-      StartCutScene("X3EReset")~ EXIT 
+      StartCutScene("X3EmiR")~ EXIT 
 END 
  
 END

@@ -1,17 +1,12 @@
 BEGIN X3Adv 
 
-CHAIN IF ~!AreaCheck("%bg1_eet_symbol%1300")!Dead("X3Rodwyn")~ THEN X3Adv OneLiner
+CHAIN IF ~!AreaCheck("%bg1_eet_symbol%1300")~ THEN X3Adv OneLiner
 @0
 EXIT 
 
-CHAIN IF ~!AreaCheck("%bg1_eet_symbol%1300")Dead("X3Rodwyn")~ THEN X3Adv OneLiner2
-@10
-EXIT 
-
-
 CHAIN IF ~AreaCheck("%bg1_eet_symbol%1300")~ THEN X3Adv OneLiner
 @1
-DO ~AddJournalEntry(@10018,QUEST)SetGlobal("X3milyBookTalk","GLOBAL",8)~ //This will skip all the book talks.
+DO ~AddJournalEntry(@10018,QUEST)SetGlobal("X3milyBookTalk","GLOBAL",8)~
 == X3milyJ @2
 == X3Adv @3
 == X3milyJ @4

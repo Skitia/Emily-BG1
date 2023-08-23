@@ -30,11 +30,11 @@ CombatCounter(0)
 Global("X3milyAjantis1","GLOBAL",0)~ THEN X3milyB X3milyAjantis1
 @7 // ~Ajantis, do you think your order would take someone like me?~
 DO ~SetGlobal("X3milyAjantis1","GLOBAL",1)~
-== BAJANT @8 // ~You are no knight, Emily, nor squire. Your heart is noble, but such a life is not for everyone.~
+== %AJANTIS_BANTER% @8 // ~You are no knight, Emily, nor squire. Your heart is noble, but such a life is not for everyone.~
 == X3milyB @9 // ~But I feel the same compelling and call as your order. Surely as an ally, at least?
-== BAJANT @10 // ~Your dedication is admirable. You would be a fine ally, Emily.~
+== %AJANTIS_BANTER% @10 // ~Your dedication is admirable. You would be a fine ally, Emily.~
 == X3milyB @11 // ~Thank you, Ajantis. I will keep you safe.~
-== BAJANT @12 // ~And I, you, Emily, by my honor.~
+== %AJANTIS_BANTER% @12 // ~And I, you, Emily, by my honor.~
 EXIT
 
 //Alora 1
