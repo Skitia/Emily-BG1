@@ -1,5 +1,5 @@
 /* x3bd3000.baf
-Moves Emily into the Coalition Camp if she was not in party */
+Moves Emily and Isaac into the Coalition Camp if she was not in party */
 
 IF
     InParty("X3mily")
@@ -32,3 +32,45 @@ THEN
     ActionOverride("X3mily",SetDialogue("X32mily"))
     Continue()
 END
+
+IF
+    InParty("X3Isaac")
+	Global("X3Isaac_MoveCamp","BD3000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("X3Isaac_MoveCamp","BD3000",1)
+END
+
+IF
+  Global("X3Isaac_MoveCamp","bd3000",0)
+  !Dead("X3Isaac")
+  !InPartyAllowDead("X3Isaac")
+THEN
+  RESPONSE #100
+    SetGlobal("X3Isaac_MoveCamp","bd3000",1)
+    MoveGlobal("bd3000","X3Isaac",[1395.1457]) 
+    ActionOverride("X3Isaac",Face(SW))
+    ReallyForceSpellDeadRES("bdrejuve","X3Isaac")
+    ChangeEnemyAlly("X3Isaac",NEUTRAL)
+    ChangeSpecifics("X3Isaac",ALLIES)
+    ActionOverride("X3Isaac",SetGlobal("bd_joined","locals",0))
+    ActionOverride("X3Isaac",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("X3Isaac",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3Isaac",ChangeAIScript("X32Isaa",OVERRIDE))
+    ActionOverride("X3Isaac",ChangeAIScript("bdasc3",CLASS))
+    ActionOverride("X3Isaac",ChangeAIScript("BDSHOUT",RACE))
+    ActionOverride("X3Isaac",ChangeAIScript("BDTHIE10",GENERAL))
+    ActionOverride("X3Isaac",ChangeAIScript("",DEFAULT))
+    ActionOverride("X3Isaac",SetDialogue("X32Isaa"))
+    Continue()
+END
+
+IF 
+	InParty("X3Isaac")
+	Global("X3IsaacPHSpaw","bd3000",0)
+	GlobalLT("X32milyQuestSpawn","GLOBAL",2)
+THEN RESPONSE #100
+	SetGlobal("X3IsaacPHSpaw","bd3000",1)
+	CreateCreature("X32EHK3S",[2170.448],SW)
+	Continue()
+END 

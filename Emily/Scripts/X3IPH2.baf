@@ -1,0 +1,6 @@
+IF 
+IsValidForPartyDialogue("X3Isaac")
+Global("X3IConOnce","LOCALS",0)
+THEN RESPONSE #100
+StartDialogueNoSet(Player1)
+END 

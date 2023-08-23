@@ -10,3 +10,17 @@ THEN
 		SetGlobal("bd_ot_X3mily","bd5300",1)
 		DisplayStringHead("X3mily",@0) 
 END
+
+
+IF
+	Global("BD_AREA_HOSTILE","BD5300",1)
+	!GlobalTimerNotExpired("bd_sdd350b_ot_timer","bd2000")
+	Global("bd_ot_X3Isaac","bd5300",0)
+	IsValidForPartyDialog("X3Isaac")  
+	TriggerOverride("X3Isaac",Range([ENEMY.0.0.0.HOSTILES3],30))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_sdd350b_ot_timer","bd2000",THREE_MINUTES)
+		SetGlobal("bd_ot_X3Isaac","bd5300",1)
+		DisplayStringHead("X3Isaac",@1) 
+END

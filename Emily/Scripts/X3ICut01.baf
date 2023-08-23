@@ -1,0 +1,26 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		DisplayStringHead("X3ARBEX",@0) // ~It is a pleasure to finally make your acquantince, Miss Mavis.~
+		Wait(5)
+		DisplayStringHead("X3Mavis",@1) // ~Arbex. I hate to rush you, but we are being pursued. You can assure me this is possible?~
+		Wait(6)
+		DisplayStringHead("X3Arbex",@2) // ~With certainity? None whatsoever, madam. But it is mad enough to try. If it works, your idea will be revolutionary.~
+		Wait(6)
+		DisplayStringHead("X3Arbex",@3) // ~A permament state of adjustment such as you are proposing...it would equalize everything.~
+		Wait(5)
+		DisplayStringHead("X3Caim",@4) // ~It appears the company you were concerned about has arrived, Mavis.~	
+		Wait(2)
+		ActionOverride(Player2, MoveToPoint([773.1956]))
+		ActionOverride(Player3, MoveToPoint([762.1862]))
+		ActionOverride(Player4, MoveToPoint([717.1827]))
+		ActionOverride(Player5, MoveToPoint([761.1995]))
+		ActionOverride(Player6, MoveToPoint([678.1891]))	
+		MoveToPoint([800.1907])		
+		Wait(4)
+		ActionOverride("X3Mavis",StartDialogueNoSet(Player1))		
+END
+

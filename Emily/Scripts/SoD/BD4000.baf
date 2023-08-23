@@ -1,4 +1,23 @@
 IF 
+!Global("X3IsaacSoDQuest","GLOBAL",4)
+GlobalGT("bd_plot","global",390)
+GlobalGT("BernadetteSeen","GLOBAL",0)
+THEN RESPONSE #100 
+SetGlobal("X3IsaacSoDQuest","GLOBAL",4)
+AddJournalEntry(@60024,QUEST_DONE)
+Continue()
+END 
+
+IF
+Global("X32milyQuestSpawn","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("X32milyQuestSpawn","GLOBAL",1) 
+CreateCreature("X32JACOB",[3121.2751],SE)
+Continue()
+END 
+
+IF 
 Global("chapter","global",11)
 Global("X32milyQuestSpawn","GLOBAL",1) 
 InMyArea("X32Jacob") 
@@ -10,6 +29,8 @@ END
 
 IF 
 Dead("X32Jacob")
+OR(2)
+Global("X32milyQuestSpawn","GLOBAL",3) //Should catch weird niche situation of removing Emily from party and then killing Jacob. The string may not be shown if not in area, but that is fine.
 InParty("X3mily")
 Global("X32milyJacobDeadComment","BD4000",0)
 THEN 
@@ -21,6 +42,16 @@ SetGlobal("X32milyJacobDeadComment","BD4000",1)
 Wait(1)
 DisplayStringWait("X3mily",@0) 
 SetInterrupt(TRUE)
+END 
+//If not in party, fire so this doesn't happen anyway.
+IF 
+Dead("X32Jacob")
+!InParty("X3mily")
+!Global("X32milyQuestSpawn","GLOBAL",3)
+Global("X32milyJacobDeadComment","BD4000",0)
+THEN 
+RESPONSE #100 
+SetGlobal("X32milyJacobDeadComment","BD4000",1)
 END 
 
 IF 
@@ -53,11 +84,3 @@ DisplayStringWait("X3mily",@2)
 SetInterrupt(TRUE)
 END 
 
-IF
-Global("X32milyQuestSpawn","GLOBAL",0)
-THEN
-RESPONSE #100
-SetGlobal("X32milyQuestSpawn","GLOBAL",1) 
-CreateCreature("X32JACOB",[3121.2751],SE)
-Continue()
-END 

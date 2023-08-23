@@ -10,6 +10,17 @@ THEN
 		ActionOverride("X3EHK1",Enemy())
 END
 
+ IF
+    AttackedBy([GOODCUTOFF],DEFAULT)
+	InParty("X3Isaac")
+  THEN
+    RESPONSE #100
+	  ActionOverride("X3Isaac",ChangeAIScript("",DEFAULT))
+	  ActionOverride("X3Isaac",ChangeAIScript("",GENERAL))
+	  ActionOverride("X3Isaac",LeaveParty())
+	  ActionOverride("X3Isaac",Enemy())
+ END 
+
 IF
 	See([PC])
 	!Allegiance(Myself,ENEMY)

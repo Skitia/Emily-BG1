@@ -16,3 +16,22 @@ THEN
 	RESPONSE #100
 		ActionOverride("X3mily",StartDialogueNoSet(Player1))
 END
+
+IF
+	Global("X32IsaaTalk","GLOBAL",11)
+	Global("bd_plot","global",495)
+	InParty("X3Isaac")  
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaTalk","GLOBAL",12)
+END
+
+IF
+	Global("X32IsaaTalk","GLOBAL",12)
+	InParty("X3Isaac")  // X3Isaac
+	IsValidForPartyDialogue("X3Isaac")  // X3Isaac
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		ActionOverride("X3Isaac",StartDialogueNoSet(Player1))
+END

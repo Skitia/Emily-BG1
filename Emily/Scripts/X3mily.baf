@@ -22,6 +22,171 @@ IncrementGlobal("X3milyBookTalk","GLOBAL",1)
 StartDialogueNoSet(Player1)
 END
 
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3Isaac")
+!Dead("X3Rodwyn")
+!Global("X3Hostile","LOCALS",1)
+THEN RESPONSE #100 
+JoinParty()
+END 
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3Isaac")
+Dead("X3Rodwyn")
+!Global("X3Hostile","LOCALS",1)
+THEN RESPONSE #100 
+SetGlobal("X3EmiRodwynIsaacDuel","GLOBAL",2)
+JoinParty()
+END 
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",2)
+Dead("X3Isaac")
+Dead("X3Rodwyn")
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+//Non Duel Rodwyn Dead Conversation
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",0)
+Dead("X3Rodwyn")
+AreaCheck("%bg1_eet_symbol%3352")
+GlobalLT("X3milyTalk","GLOBAL",12)
+InParty(Myself)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+Global("X3EmiRodwynDeadConvo","LOCALS",0)
+THEN RESPONSE #100 
+SetGlobal("X3EmiRodwynDeadConvo","LOCALS",1)
+END 
+
+IF 
+Global("X3EmiRodwynDeadConvo","LOCALS",1)
+GlobalLT("X3milyTalk","GLOBAL",12)
+InParty(Myself)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+Global("X3EmiRodwynDeadConvo","LOCALS",1)
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+//Approval Shifts 
+
+IF 
+InParty(Myself)
+Switch("X3EmilyAppChange","GLOBAL")
+THEN RESPONSE #1
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",-10)
+DisplayStringNoNameDlg(Player1,@100109)
+RESPONSE #2
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",-8)
+DisplayStringNoNameDlg(Player1,@100109)
+RESPONSE #3
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",-6)
+DisplayStringNoNameDlg(Player1,@100106)
+RESPONSE #4
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",-4)
+DisplayStringNoNameDlg(Player1,@100106)
+RESPONSE #5
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",-2)
+DisplayStringNoNameDlg(Player1,@100103)
+RESPONSE #6
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+RESPONSE #7
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",2)
+DisplayStringNoNameDlg(Player1,@100113)
+RESPONSE #8
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",4)
+DisplayStringNoNameDlg(Player1,@100116)
+RESPONSE #9
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",6)
+DisplayStringNoNameDlg(Player1,@100116)
+RESPONSE #10
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",8)
+DisplayStringNoNameDlg(Player1,@100119)
+RESPONSE #11
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+IncrementGlobal("X3EmilyApp","GLOBAL",10)
+DisplayStringNoNameDlg(Player1,@100119)
+END 
+
+// If not in party, it should be reset with no approval changes. 
+IF 
+!InParty(Myself) 
+!Global("X3EmilyAppChange","GLOBAL",0)
+THEN RESPONSE #100 
+SetGlobal("X3EmilyAppChange","GLOBAL",0)
+END
+
+//Reset to 120 if past max/reward bonus stats.
+IF 
+GlobalGT("X3EmilyApp","GLOBAL",120)
+InParty(Myself)
+Switch("X3EmilyAppMaxBonus","LOCALS")
+THEN RESPONSE #0
+SetGlobal("X3EmilyApp","GLOBAL",120)
+SetGlobal("X3EmilyAppMaxBonus","LOCALS",1)
+ChangeStat(Myself,CON,1,ADD)
+DisplayStringNoNameDlg(Player1,@10099)
+RESPONSE #1 
+SetGlobal("X3EmilyApp","GLOBAL",120)
+END 
+
+IF 
+GlobalLT("X3EmilyApp","GLOBAL",-39)
+InParty(Myself)
+Switch("X3Leave","LOCALS")
+THEN RESPONSE #0
+SetGlobal("X3Break","LOCALS",1)
+StartDialogueNoSet(Player1)
+RESPONSE #2
+SetGlobal("X3Break","LOCALS",3)
+StartDialogueNoSet(Player1) // Leaves for Good
+END
+
+//Custom Approval Shifts - Any Shifts not accompanied directly by dialogue. Make sure they are blocked if they are not in the party.
+
+IF
+Dead("MARL")
+Global("X3AppMarlDeadCheck","LOCALS",0)
+InParty(Myself)
+THEN RESPONSE #100
+SetGlobal("X3AppMarlDeadCheck","LOCALS",1)
+IncrementGlobal("X3EmilyApp","GLOBAL",-4)
+DisplayStringNoNameDlg(Player1,@100106)
+END 
+
+IF
+Dead("MARL")
+Global("X3AppMarlDeadCheck","LOCALS",0)
+!InParty(Myself)
+THEN RESPONSE #100
+SetGlobal("X3AppMarlDeadCheck","LOCALS",1)
+END 
 
 // Craft Timer 
 
@@ -76,7 +241,9 @@ END
 // Quest Reminder.
 IF 
 	InParty(Myself)
+	OR(2)
 	AreaCheck("%bg1_eet_symbol%0800")
+	AreaCheck("%bg1_eet_symbol%1300")
 	Global("X3milyQuestStart","Global",0)
 	GlobalLT("X3DalTalk","GLOBAL",1)
 THEN
@@ -165,7 +332,7 @@ CombatCounter(0)
 !AreaType(DUNGEON)
 GlobalTimerExpired("X3milyOneHour","GLOBAL")
 Global("X3milyHour","GLOBAL",1)
-OR(3)
+OR(2)
 Global("X3milyBookTalk","GLOBAL",0) // V1.1 Edit: Changing into a separate talk.
 Global("X3milyBookTalk","GLOBAL",3)
 THEN 
@@ -184,11 +351,12 @@ See(Player1)
 CombatCounter(0)
 !See([ENEMY])
 !AreaType(DUNGEON)
-Dead("X3Rodwyn")
-Global("X3milyTalk","GLOBAL",11)
+!AreaCheck("%bg1_eet_symbol%3351")
+!AreaCheck("%bg1_eet_symbol%3352")
 OR(2)
-Dead("X3dal")
-Dead("X3HL")
+Dead("X3Rodwyn")
+GlobalGT("X3EmiRodwynMessageSpawn","GLOBAL",2)
+Global("X3milyTalk","GLOBAL",11)
 THEN RESPONSE #100 
 IncrementGlobal("X3milyTalk","GLOBAL",1)
 END 
@@ -285,25 +453,63 @@ THEN
 	StartDialogueNoSet(Player1)
 END
 
+IF 
+	Global("X3milyWatchedMomDie","GLOBAL",1)
+	!InPartyAllowDead(Myself)
+THEN RESPONSE #100 
+	SetGlobal("X3milyWatchedMomDie","GLOBAL",0)
+END 
+
 IF
+	Global("X3milyWatchedMomDie","GLOBAL",1)
 	InParty(Myself)
 	Dead("X3Dal")	
 	Global("X3milyMomDead","GLOBAL",0)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])	
 THEN
   RESPONSE #100
-	Wait(1)
 	SetGlobal("X3milyMomDead","GLOBAL",1)
+END
+
+IF
+	Global("X3milyMomDead","GLOBAL",1)
+	InParty(Myself)
+	See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+  RESPONSE #100
 	StartDialogueNoSet(Player1)
 END
 
 IF
+	Global("X3milyMomDead","GLOBAL",2)
+	InParty(Myself)
+	PartyHasItem("X3EJorn")
+THEN
+  RESPONSE #100
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	Global("X3milySixthTalk","GLOBAL",1)
 	InParty(Myself)
 	!Dead("X3Dal")	
 	PartyHasItem("X3EJorn")
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])	
 	Global("X3milyMomAlive","GLOBAL",0)
 THEN
   RESPONSE #100
-	Wait(1)
 	SetGlobal("X3milyMomAlive","GLOBAL",1)
 	StartDialogueNoSet(Player1)
 END
@@ -320,4 +526,80 @@ THEN
 	Wait(1)
 	SetGlobal("X3milySexChange","GLOBAL",1)
 	StartDialogueNoSet(Player1)
+END
+
+//Experience
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,31999)
+	XPLT(Myself,32000)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_JOINXP","LOCALS",1)
+		ChangeStat(Myself,XP,32000,SET)
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,15999)
+	XPLT(Myself,16000)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_JOINXP","LOCALS",1)
+		ChangeStat(Myself,XP,16000,SET)
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,7999)
+	XPLT(Myself,8000)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_JOINXP","LOCALS",1)
+		ChangeStat(Myself,XP,8000,SET)
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,3999)
+	XPLT(Myself,4000)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_JOINXP","LOCALS",1)
+		ChangeStat(Myself,XP,4000,SET)
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,1999)
+	XPLT(Myself,2000)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_JOINXP","LOCALS",1)
+		ChangeStat(Myself,XP,2000,SET)
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_JOINXP","LOCALS",1)
+		SetInterrupt(TRUE)
 END

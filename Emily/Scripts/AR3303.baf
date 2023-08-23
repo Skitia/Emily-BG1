@@ -1,0 +1,17 @@
+IF 
+Global("X3IQuest","GLOBAL",2)
+Global("X3IQuestSpawn","%bg1_eet_symbol%3303",0)
+THEN RESPONSE #100 
+SetGlobal("X3IQuestSpawn","%bg1_eet_symbol%3303",1)
+CreateCreature("X3Yusmin",[486.660],NW)
+Continue()
+END 
+
+IF 
+GlobalGT("X3IQuest","GLOBAL",5)
+Global("X3IQuestSpawn","%bg1_eet_symbol%3303",1)
+THEN RESPONSE #100 
+SetGlobal("X3IQuestSpawn","%bg1_eet_symbol%3303",0)
+ActionOverride("X3Yusmin",DestroySelf())
+Continue()
+END 

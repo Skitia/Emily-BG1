@@ -1,0 +1,15 @@
+IF 
+HPLT(Myself,10)
+Global("X3VernSurrender","LOCALS",0)
+THEN RESPONSE #100
+SetGlobal("X3VernSurrender","LOCALS",1)
+ChangeEnemyAlly(Myself,NEUTRAL)
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+Die()
+!Global("X3IQuest","GLOBAL",4)
+THEN RESPONSE #100
+SetGlobal("X3IQuest","GLOBAL",4)
+END 

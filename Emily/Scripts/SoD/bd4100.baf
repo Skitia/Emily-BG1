@@ -23,3 +23,29 @@ THEN
     SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",9)
     DisplayStringHead("X3mily",@1)
 END
+
+IF
+  Global("bd_plot","global",591)
+  !GlobalTimerNotExpired("bd_mdd1352_ot_timer","bd4100")
+  Global("bd_X3Isaac_ot","bd4100",0)
+  ReputationLT(Player1,10)
+  InParty("X3Isaac")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_X3Isaac_ot","bd4100",1)
+    SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",ONE_ROUND)
+    DisplayStringHead("X3Isaac",@2)
+END
+
+IF
+  Global("bd_plot","global",591)
+  !GlobalTimerNotExpired("bd_mdd1352_ot_timer","bd4100")
+  Global("bd_X3Isaac_ot","bd4100",0)
+  !ReputationLT(Player1,10)
+  InParty("X3Isaac")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_X3Isaac_ot","bd4100",1)
+    SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",9)
+    DisplayStringHead("X3Isaac",@3)
+END

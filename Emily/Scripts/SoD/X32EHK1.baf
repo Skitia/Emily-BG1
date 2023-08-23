@@ -10,6 +10,24 @@ THEN
 		ActionOverride("X32EHK2",Enemy())
 		ActionOverride("X32EHK3S",Enemy())
 END
+
+IF 
+	GlobalGT("X3FightEmily","GLOBAL",0)
+	Dead("X3mily")
+	OR(2)
+	Dead("X3Isaac")
+	Global("X3FightEmily","GLOBAL",3)
+THEN RESPONSE #100 
+	EscapeArea()
+END 
+
+IF 
+Global("X3FightEmily","GLOBAL",1)
+!Dead("X3mily")
+THEN RESPONSE #100 
+Attack("X3mily")
+Continue()
+END
 	
 IF
     HPPercentLT(Myself,50)

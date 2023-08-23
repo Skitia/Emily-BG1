@@ -1,7 +1,8 @@
+
 IF
 Global("X3HuntSpawn","GLOBAL",0)
-InParty("X3mily")
-AreaCheck("%bg1_eet_symbol%1300")
+OR(2)InParty("X3mily")
+InParty("X3Isaac")
 THEN
 RESPONSE #100
 SetGlobal("X3HuntSpawn","GLOBAL",1)
@@ -10,3 +11,38 @@ CreateCreature("X3EHK3",[2019.417],SW)
 CreateCreature("X3EHK2",[2068.447],SW)
 Continue()
 END
+
+IF 
+Global("X3HuntSpawn","GLOBAL",1)
+InParty("X3Isaac")
+Global("X3IQuest","GLOBAL",5)
+Dead("X3EHK1")
+Dead("X3EHK2")
+Dead("X3EHK3")
+THEN RESPONSE #100 
+SetGlobal("X3HuntSpawn","GLOBAL",2)
+END 
+
+IF 
+Global("X3HuntSpawn","GLOBAL",1)
+InParty("X3Isaac")
+Global("X3IQuest","GLOBAL",5)
+OR(2)
+Global("X3milySixthTalk","GLOBAL",1)
+Global("X3AttackEmily","GLOBAL",1)
+THEN RESPONSE #100
+SetGlobal("X3HuntSpawn","GLOBAL",2)
+CreateCreature("X3EHK2",[-1.-1],15)
+ActionOverride("X3EHK2",StartDialogueNoSet(Player1))
+Continue()
+END 
+
+IF 
+Global("X3EmiRodwynMessageSpawn","GLOBAL",1)
+InParty("X3mily")
+!Global("X3milySixthTalk","GLOBAL",1)
+THEN RESPONSE #100
+SetGlobal("X3EmiRodwynMessageSpawn","GLOBAL",2)
+CreateCreature("X3Adv1",[198.867],N)
+Continue()
+END 

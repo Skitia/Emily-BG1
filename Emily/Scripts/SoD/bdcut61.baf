@@ -10,3 +10,14 @@ THEN
 		ActionOverride("X3mily",DestroyAllFragileEquipment(ADAMANTINE)) //this destroys all drow equipment, just in case the NPC had any.
 END
 
+IF
+	InParty("X3Isaac")  
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("X3Isaac",LeaveParty())
+		SetGlobal("X3Isaac_SoDparty_epilogue","GLOBAL",1) 
+		SetGlobal("X3IsaacKickedOut","GLOBAL",1) //this is for inner mod detection, for example if the game's a continuous EET game. Put here whatever you need for your own mod.
+		ActionOverride("X3Isaac",DestroyAllFragileEquipment(ADAMANTINE)) //this destroys all drow equipment, just in case the NPC had any.
+END
+

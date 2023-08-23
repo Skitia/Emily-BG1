@@ -6,6 +6,16 @@ THEN
 		ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
 		CutSceneId("X3mily")
 		ActionOverride("X3mily",SetDialogue("X32milyJ"))
-		ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
-		
+		ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))	
+END
+
+IF
+	Global("SOD_fromimport","global",1)
+	InMyArea("X3Isaac")
+THEN
+	RESPONSE #100
+		ActionOverride("X3Isaac",ChangeAIScript("X32Isaa",OVERRIDE))
+		CutSceneId("X3Isaac")
+		ActionOverride("X3Isaac",SetDialogue("X32IsaaJ"))
+		ActionOverride("X3Isaac",ChangeAIScript("X32Isaa",OVERRIDE))	
 END

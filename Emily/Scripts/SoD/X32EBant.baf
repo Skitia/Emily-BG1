@@ -1364,19 +1364,19 @@ SetGlobal("X32milyC0Sirene2","MYAREA",20)
 RESPONSE #20
 DisplayStringHead("X3mily",@233)
 SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
-SetGlobal("X32milyC0Sirene2","MYAREA",30)
+SetGlobal("X32milyC0Sirene2","MYAREA",20)
 RESPONSE #30
 DisplayStringHead("C0Sirene",@234)
 SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
-SetGlobal("X32milyC0Sirene2","MYAREA",40)
+SetGlobal("X32milyC0Sirene2","MYAREA",30)
 RESPONSE #40
 DisplayStringHead("X3mily",@235)
 SetGlobalTimer("BD_BANTER_DELAY","MYAREA",8)
-SetGlobal("X32milyC0Sirene2","MYAREA",50)
+SetGlobal("X32milyC0Sirene2","MYAREA",40)
 RESPONSE #50
 DisplayStringHead("X3mily",@236)
 SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
-SetGlobal("X32milyC0Sirene2","MYAREA",60)
+SetGlobal("X32milyC0Sirene2","MYAREA",50)
 RESPONSE #60
 DisplayStringHead("C0Sirene",@237)
 SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)

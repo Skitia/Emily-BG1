@@ -1,0 +1,31 @@
+IF 
+!GlobalGT("X3IQuest","GLOBAL",5)
+InParty("X3Isaac")
+!Global("X3IQuestTask1Pass","GLOBAL",1)
+Global("X3IQuest","%bg1_eet_symbol%4809",0)
+THEN RESPONSE #100
+CreateCreature("X3Vern",[359.129],SE)
+SetGlobal("X3IQuest","GLOBAL",3)
+SetGlobal("X3IQuest","%bg1_eet_symbol%4809",1)
+Continue()
+END 
+
+IF 
+InParty("X3Isaac")
+!GlobalGT("X3IQuest","GLOBAL",5)
+Global("X3IQuestTask1Pass","GLOBAL",1)
+Global("X3IQuest","%bg1_eet_symbol%4809",0)
+THEN RESPONSE #100
+CreateCreature("X3Vern",[359.129],SE)
+SetGlobal("X3IQuest","%bg1_eet_symbol%4809",1)
+Continue()
+END 
+
+IF 
+GlobalGT("X3IQuest","GLOBAL",5)
+Global("X3IQuest","%bg1_eet_symbol%4809",1)
+THEN RESPONSE #100 
+SetGlobal("X3IQuest","%bg1_eet_symbol%4809",0)
+ActionOverride("X3Vern",DestroySelf())
+Continue()
+END 

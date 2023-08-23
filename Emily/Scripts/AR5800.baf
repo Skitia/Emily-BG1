@@ -1,0 +1,25 @@
+IF
+Global("X3IsaacForceEncounter","GLOBAL",1)
+THEN RESPONSE #100
+		FadeFromColor([60.0],0)
+		SetGlobal("X3IsaacForceEncounter","GLOBAL",2)
+		ActionOverride(Player1,JumpToPoint([455.406]))
+		ActionOverride(Player2,JumpToPoint([269.396]))
+		ActionOverride(Player3,JumpToPoint([235.441]))
+		ActionOverride(Player4,JumpToPoint([239.495]))
+		ActionOverride(Player5,JumpToPoint([265.542]))
+		ActionOverride(Player6,JumpToPoint([369.562]))
+		StartRainNow()
+		CreateCreature("X3Isaac",[568.301],SW)  // Isaac
+		ActionOverride(Player1,FaceObject("X3Isaac"))
+		ActionOverride(Player2,FaceObject("X3Isaac"))
+		ActionOverride(Player3,FaceObject("X3Isaac"))
+		ActionOverride(Player4,FaceObject("X3Isaac"))
+		ActionOverride(Player5,FaceObject("X3Isaac"))
+		ActionOverride(Player6,FaceObject("X3Isaac"))
+		CreateCreature("X3IPH1",[615.432],SW)		
+		SetGlobalTimer("RandomSpawn","MYAREA",FOUR_HOURS)
+		PlaySound("ERROR10")
+		Wait(1)
+		ActionOverride("X3Isaac",StartDialogueNoSet(Player1))
+END 

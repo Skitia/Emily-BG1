@@ -1,0 +1,684 @@
+/* If Companion is Dead->go to surrender dialogue after a short while. */
+IF 
+HP(Myself,1)
+!Dead("X3IPH1")
+Global("X3IDefeated","LOCALS",0)
+THEN RESPONSE #100 
+SetGlobal("X3IDefeated","LOCALS",1)
+ChangeEnemyAlly(Myself,NEUTRAL)
+ClearAllActions()
+StartCutSceneMode()
+DisplayStringHead(Myself,~Ugh!~)
+DisplayStringHead("X3IPH1",~Damn it!~)
+ActionOverride("X3IPH1",EscapeAreaDestroy(3))
+PlayDead(75)
+SmallWait(1)
+DestroyItem("ImoenHP1")
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+HP(Myself,1)
+Dead("X3IPH1")
+Global("X3IDefeated","LOCALS",0)
+THEN RESPONSE #100 
+SetGlobal("X3IDefeated","LOCALS",1)
+ChangeEnemyAlly(Myself,NEUTRAL)
+ClearAllActions()
+StartCutSceneMode()
+DisplayStringHead(Myself,~Ugh!~)
+PlayDead(75)
+SmallWait(1)
+DestroyItem("ImoenHP1")
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3mily")
+!Dead("X3Rodwyn")
+THEN RESPONSE #100
+Attack("Rodwyn")
+Continue()
+END 
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3Rodwyn")
+Dead("X3mily")
+!Dead("X3Adv1")
+THEN RESPONSE #100
+Attack("X3Adv1")
+Continue()
+END
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3Rodwyn")
+Dead("X3mily")
+Dead("X3Adv1")
+!Dead("X3Adv2")
+THEN RESPONSE #100
+Attack("X3Adv2")
+Continue()
+END
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+!Global("X3Hostile","LOCALS",1)
+Dead("X3Rodwyn")
+Dead("X3mily")
+Dead("X3Adv1")
+Dead("X3Adv2")
+THEN RESPONSE #100
+JoinParty()
+SetGlobal("X3EmiRodwynisaacDuel","GLOBAL",2)
+END 
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",2)
+!Allegiance(Player1,ENEMY)
+Dead("X3mily")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100
+StartDialogueNoSet(Player1)
+END 
+
+
+IF 
+Global("X3IFinalBattle","GLOBAL",2)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+Dead("X3Caim")
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+SetGlobal("X3IFinalBattle","GLOBAL",3)
+END
+
+IF 
+Global("X3IFinalBattle","GLOBAL",3)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1) 
+END 
+
+IF 
+InParty(Myself)
+AreaType(CITY)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+GlobalGT("X3IQuest","GLOBAL",4)
+GlobalLT("X3IQuest","GLOBAL",7)
+Dead("X3EHK3")
+Global("X3IPH2Spawn","LOCALS",0)
+THEN RESPONSE #100 
+SetGlobal("X3IPH2Spawn","LOCALS",1)
+CreateCreature("X3IPH2",[-1.-1],15)
+END 
+//If Isaac's quest hasn't gotten this far  yet, but the planar hunter is dead, prevent betrayal flag.
+IF 
+OR(3)
+Dead("X3EHK3")
+Dead("X3EHK2")
+Dead("X3EHK1")
+GlobalLT("X3IQuest","GLOBAL",6)
+Global("X3IsaacAdalBetrayal","GLOBAL",0)
+THEN RESPONSE #100
+SetGlobal("X3IsaacAdalBetrayal","GLOBAL",-1)
+END 
+//If Hunger was killed, and the quest got this far, flag betrayal.
+IF 
+OR(3)
+Dead("X3EHK3")
+Dead("X3EHK2")
+Dead("X3EHK1")
+Global("X3IQuest","GLOBAL",6)
+Global("X3IsaacAdalBetrayal","GLOBAL",0)
+THEN RESPONSE #100
+SetGlobal("X3IsaacAdalBetrayal","GLOBAL",1)
+END 
+
+IF 
+Global("X3IsaacAdalBetrayal","GLOBAL",1)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END
+
+IF 
+Global("X3IQuest","GLOBAL",6)
+OR(2)
+!IsValidForPartyDialogue("X3mily")
+GlobalGT("X3IsaacLiedTo","GLOBAL",0)
+OR(2)
+Dead("X3dal")
+GlobalGT("X3IsaacLiedTo","GLOBAL",0)
+OR(2)
+PartyHasItem("X3EJorn")
+PartyHasItem("X3EBlood")
+Global("X3ItemCheck","LOCALS",0)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100
+SetGlobal("X3ItemCheck","LOCALS",1)
+END 
+//Second chance check.
+IF
+Global("X3IQuest","GLOBAL",6)
+PartyHasItem("X3EJorn")
+PartyHasItem("X3EBlood")
+Global("X3ItemCheck","LOCALS",2)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100
+SetGlobal("X3ItemCheck","LOCALS",1)
+END 
+
+IF 
+Global("X3IQuest","GLOBAL",6)
+OR(2)
+PartyHasItem("X3EJorn")
+PartyHasItem("X3EBlood")
+Global("X3ItemCheck","LOCALS",1)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100
+Wait(2)
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3mily")
+Dead("X3Rodwyn")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+SetGlobal("X3EmiRodwynIsaacDuel","GLOBAL",2)
+JoinParty()
+SmallWait(1)
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+!AreaCheck("%bg1_eet_symbol%3303")
+!AreaCheck("%bg1_eet_symbol%3305")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+Global("X3IQuestProgress","GLOBAL",0)
+Global("X3IQuestTask1Pass","GLOBAL",1)
+THEN RESPONSE #100 
+SetGlobal("X3IQuestProgress","GLOBAL",1)
+END 
+
+IF 
+!AreaCheck("%bg1_eet_symbol%3303")
+!AreaCheck("%bg1_eet_symbol%3305")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+Global("X3IQuestProgress","GLOBAL",0)
+OR(2)
+Global("X3YusminSawIsaac","GLOBAL",1)
+Dead("X3Yusmin")
+OR(2)
+Dead("X3Avarn")
+Global("X3AvarnSawIsaac","GLOBAL",1)
+THEN RESPONSE #100 
+SetGlobal("X3IQuestProgress","GLOBAL",1)
+END 
+
+IF 
+!AreaCheck("%bg1_eet_symbol%3303")
+!AreaCheck("%bg1_eet_symbol%3305")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+Global("X3IQuestProgress","GLOBAL",1)
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+
+
+IF 
+Global("X3IQuest","GLOBAL",3)
+Global("X3IQuestTask1Pass","GLOBAL",1)
+AreaCheck("%bg1_eet_symbol%4800")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+Global("X3IQuest","GLOBAL",3)
+!Global("X3IQuestTask1Pass","GLOBAL",1)
+AreaCheck("%bg1_eet_symbol%4809")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+Global("X3IQuest","GLOBAL",4)
+OR(2)
+Dead("X3Vern")
+GlobalGT("X3IQuestTask2Pass","GLOBAL",0)
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+!AreaCheck("%bg1_eet_symbol%5800")
+IsValidForPartyDialogue(Myself)
+IsValidForPartyDialogue(Player1)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+AreaType(OUTDOOR)
+Global("X3IQuest","GLOBAL",1)
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+//Approval Shifts 
+
+IF 
+InParty(Myself)
+Switch("X3IsaacAppChange","GLOBAL")
+THEN RESPONSE #1
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-10)
+DisplayStringNoNameDlg(Player1,@600609)
+RESPONSE #2
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-8)
+DisplayStringNoNameDlg(Player1,@600609)
+RESPONSE #3
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-6)
+DisplayStringNoNameDlg(Player1,@600606)
+RESPONSE #4
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-4)
+DisplayStringNoNameDlg(Player1,@600606)
+RESPONSE #5
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-2)
+DisplayStringNoNameDlg(Player1,@600603)
+RESPONSE #6
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+RESPONSE #7
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",2)
+DisplayStringNoNameDlg(Player1,@600613)
+RESPONSE #8
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",4)
+DisplayStringNoNameDlg(Player1,@600616)
+RESPONSE #9
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",6)
+DisplayStringNoNameDlg(Player1,@600616)
+RESPONSE #10
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",8)
+DisplayStringNoNameDlg(Player1,@600619)
+RESPONSE #11
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",10)
+DisplayStringNoNameDlg(Player1,@600619)
+END 
+
+// If not in party, it should be reset with no approval changes. 
+IF 
+!InParty(Myself) 
+!Global("X3IsaacAppChange","GLOBAL",0)
+THEN RESPONSE #100 
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+END
+
+//Reset to 90 if past max/reward bonus stats.
+IF 
+GlobalGT("X3IsaacApp","GLOBAL",90)
+InParty(Myself)
+Switch("X3IsaacAppMaxBonus","LOCALS")
+THEN RESPONSE #0
+SetGlobal("X3IsaacApp","GLOBAL",90)
+SetGlobal("X3IsaacAppMaxBonus","LOCALS",1)
+ChangeStat(Myself,INT,1,ADD)
+DisplayStringNoNameDlg(Player1,@60099)
+RESPONSE #1 
+SetGlobal("X3IsaacApp","GLOBAL",90)
+END 
+
+//Custom Approval Shifts - Any Shifts not accompanied directly by dialogue. Make sure they are blocked if they are not in the party.
+
+IF
+Dead("MARL")
+Global("X3AppMarlDeadCheck","LOCALS",0)
+InParty(Myself)
+THEN RESPONSE #100
+SetGlobal("X3AppMarlDeadCheck","LOCALS",1)
+IncrementGlobal("X3IsaacApp","GLOBAL",4)
+DisplayStringNoNameDlg(Player1,@600616)
+END 
+
+IF
+Dead("MARL")
+Global("X3AppMarlDeadCheck","LOCALS",0)
+!InParty(Myself)
+THEN RESPONSE #100
+SetGlobal("X3AppMarlDeadCheck","LOCALS",1)
+END 
+
+
+//Breaks 
+IF 
+GlobalLT("X3IsaacApp","GLOBAL",-39)
+InParty(Myself)
+Switch("X3Leave","LOCALS")
+THEN RESPONSE #0
+SetGlobal("X3Break","LOCALS",1)
+StartDialogueNoSet(Player1)
+RESPONSE #2
+SetGlobal("X3Break","LOCALS",3)
+StartDialogueNoSet(Player1) // Leaves for Good
+END
+
+IF 
+InParty("X3Isaac") 
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+OR(2)
+Global("X3X3IsaacBreak","GLOBAL",2)
+Global("X3X3IsaacBreak","GLOBAL",4)
+THEN RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+/* This sets the initial timer. REMEMBER the reseting of the timer must happen in the condition of the Dialogue file, not here. */
+IF 
+InParty(Myself)
+Global("X3IsaacTalk","GLOBAL",0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("X3IsaacTimer","GLOBAL",3200) // TESTING will have this set at a VERY low number. Actual number will be 3200
+SetGlobal("X3IsaacTalk","GLOBAL",1)       // Each block must run only once.
+END
+
+// This block controls Isaac's timer. 
+IF
+InParty(Myself)
+RealGlobalTimerExpired("X3IsaacTimer","GLOBAL")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)    
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)                          
+!See([ENEMY])
+!AreaType(DUNGEON)			  
+OR(7)                       // YOU WILL NEED TO ADD +1 TO THIS OR NUMBER FOR EVERY ADDITONAL TALK YOU ADD          
+Global("X3IsaacTalk","GLOBAL",1)
+Global("X3IsaacTalk","GLOBAL",3)
+Global("X3IsaacTalk","GLOBAL",5)
+Global("X3IsaacTalk","GLOBAL",7)
+Global("X3IsaacTalk","GLOBAL",11)
+Global("X3IsaacTalk","GLOBAL",13)
+Global("X3IsaacTalk","GLOBAL",19)
+THEN
+RESPONSE #100
+IncrementGlobal("X3IsaacTalk","GLOBAL",1)
+END
+
+IF 
+PartyRested()
+InParty(Myself)
+RealGlobalTimerExpired("X3IsaacTimer","GLOBAL")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)    
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)                          
+!See([ENEMY])
+!AreaType(DUNGEON)			  
+OR(2)     
+Global("X3IsaacTalk","GLOBAL",9)                  // YOU WILL NEED TO ADD +1 TO THIS OR NUMBER FOR EVERY ADDITONAL TALK YOU ADD          
+Global("X3IsaacTalk","GLOBAL",17)
+THEN RESPONSE #100
+IncrementGlobal("X3IsaacTalk","GLOBAL",1)
+END
+//Second block to handle Dialogue.
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+OR(9)                                    // YOU WILL NEED TO ADD +1 TO THIS OR NUMBER FOR EVERY ADDITONAL TALK YOU ADD  
+Global("X3IsaacTalk","GLOBAL",2)
+Global("X3IsaacTalk","GLOBAL",4)
+Global("X3IsaacTalk","GLOBAL",6)
+Global("X3IsaacTalk","GLOBAL",8)
+Global("X3IsaacTalk","GLOBAL",10)
+Global("X3IsaacTalk","GLOBAL",12)
+Global("X3IsaacTalk","GLOBAL",14)
+Global("X3IsaacTalk","GLOBAL",16)
+Global("X3IsaacTalk","GLOBAL",20) // The 14th talk is arrived to as per normal.
+THEN
+RESPONSE #100
+PlaySong(0)
+StartDialogueNoSet(Player1)
+END
+
+
+
+
+//Reputation Shifts 
+IF
+ReputationGT(Player1,16)
+Global("X3IsaacRepPenalty","GLOBAL",0)
+InParty("X3Isaac")
+THEN RESPONSE #100
+SetGlobal("X3IsaacRepPenalty","GLOBAL",1)
+IncrementGlobal("X3IsaacApp","GLOBAL",-2)
+DisplayStringNoNameDlg(Player1,@600603)
+END
+
+IF
+ReputationGT(Player1,19)
+Global("X3IsaacRepPenalty","GLOBAL",1)
+InParty("X3Isaac")
+THEN RESPONSE #100
+SetGlobal("X3IsaacRepPenalty","GLOBAL",2)
+IncrementGlobal("X3IsaacApp","GLOBAL",-4)
+DisplayStringNoNameDlg(Player1,@600606)
+END
+
+
+
+
+
+// SEX CHANGE
+
+IF
+    InParty(Myself)
+	Gender(Myself,FEMALE)
+	HasItemEquiped("belt05",Myself)
+    Global("X3IsaacSexChange","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("X3IsaacSexChange","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+
+// These blocks set up Isaac's experience based off of the PC's level.
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPLT(Player1,1250)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,1249)
+	XPLT(Player1,2500)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,1250,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,2499)
+	XPLT(Player1,5000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,2500,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,4999)
+	XPLT(Player1,10000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,5000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,9999)
+	XPLT(Player1,20000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,10000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,19999)
+	XPLT(Player1,40000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,20000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,39999)
+	XPLT(Player1,70000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,40000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,69999)
+	XPLT(Player1,110000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,70000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,109999)
+	XPLT(Player1,160000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,110000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,159999)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,160000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END

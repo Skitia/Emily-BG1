@@ -16,3 +16,20 @@ THEN
     ActionOverride("X3mily",DestroySelf())
     Continue()
 END
+
+IF
+  OR(2)
+  InMyArea("X3Isaac")
+  InPartyAllowDead("X3Isaac")
+  GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+  RESPONSE #100
+    ApplySpellRES("bdresurr","X3Isaac") //resurrection
+    SmallWait(1)
+    ActionOverride("PlayerChest00",TakeCreatureItems("X3Isaac",BACKPACK))
+    SmallWait(1)
+    ActionOverride("X3Isaac",LeaveParty())
+    SmallWait(1)
+    ActionOverride("X3Isaac",DestroySelf())
+    Continue()
+END

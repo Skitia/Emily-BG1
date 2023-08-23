@@ -1,8 +1,89 @@
 IF 
+!See([PC])
+Global("X3IsaacSoDQuest","GLOBAL",1)
+!InParty("X3mily")
+!Global("JacobEmilyMeet","GLOBAL",1)
+OR(2)
+Global("X3JacobWarning","GLOBAL",0)
+Global("X3JacobWarning","GLOBAL",2)
+THEN RESPONSE #100 
+IncrementGlobal("X3JacobWarning","GLOBAL",1)
+END 
+
+IF 
+See([PC])
+Global("X3IsaacSoDQuest","GLOBAL",1)
+!InParty("X3mily")
+!Global("JacobEmilyMeet","GLOBAL",1)
+!PartyHasItem("X3ESWRD")
+OR(2)
+Global("X3JacobWarning","GLOBAL",1)
+Global("X3JacobWarning","GLOBAL",3)
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+
+IF 
+Global("X3IsaacSoDQuest","GLOBAL",4)
+GlobalGT("X32milyQuestSpawn","GLOBAL",3)
+THEN RESPONSE #100
+EscapeArea()
+END 
+
+IF 
 See("X3mily")
 Global("X32milyQuestSpawn","GLOBAL",1) // They have spawned 
 THEN RESPONSE #100 
 SetGlobal("X32milyQuestSpawn","GLOBAL",2) //Turn Off 
-DisplayStringHead("X32mily",@57)
-Dialogue(Player1)
+DisplayStringHead(Myself,@57)
 END
+
+IF 
+!See("X3mily")
+See("X3Isaac")
+Global("X32milyQuestSpawn","GLOBAL",1) // They have spawned 
+THEN RESPONSE #100 
+SetGlobal("X32milyQuestSpawn","GLOBAL",2) //Turn Off 
+DisplayStringHead(Myself,@58)
+END
+
+IF 
+Global("X32milyQuestSpawn","GLOBAL",2)
+!Global("X3IsaacSoDQuest","GLOBAL",1)
+THEN RESPONSE #100
+Dialogue([PC])
+END 
+
+IF 
+Die()
+GlobalLT("X3IsaacSoDQuest","GLOBAL",2)
+!InPartyAllowDead("X3mily")
+InPartyAllowDead("X3Isaac")
+THEN RESPONSE #100
+AddexperienceParty(1400)
+SetGlobal("X3IsaacSoDQuest","GLOBAL",-1)
+AddJournalEntry(@60018,QUEST_DONE)
+END 
+
+IF 
+Die()
+GlobalLT("X3IsaacSoDQuest","GLOBAL",2)
+!InPartyAllowDead("X3Isaac")
+GlobalGT("BernadetteSeen","GLOBAL",0)
+THEN RESPONSE #100
+AddexperienceParty(1400)
+SetGlobal("X3IsaacSoDQuest","GLOBAL",4)
+AddJournalEntry(@60018,QUEST_DONE)
+END 
+
+IF 
+Die()
+GlobalLT("X3IsaacSoDQuest","GLOBAL",2)
+InPartyAllowDead("X3mily")
+InPartyAllowDead("X3Isaac")
+THEN RESPONSE #100
+SetGlobal("X3IsaacSoDQuest","GLOBAL",2)
+END 
+
+

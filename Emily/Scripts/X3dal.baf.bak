@@ -1,21 +1,3 @@
-IF 
-	Die()
-	!Dead("X3EHK3")
-THEN 
-	RESPONSE #100
-		SetGlobal("X3milyWatchedMomDie","GLOBAL",1)
-		AddJournalEntry(@100053,QUEST)
-END 
-
-IF 
-	Die()
-	!Dead("X3EHK3")
-	!InMyArea("X3mily")
-THEN 
-	RESPONSE #100
-		AddJournalEntry(@100053,QUEST)
-END 
-
 IF
 	See([PC])
 	AttackedBy([GOODCUTOFF],DEFAULT)
@@ -34,12 +16,17 @@ THEN
 		SetGlobal("X3DalReveal","GLOBAL",1)
 		CreateVisualEffectObject("SPHOLY","X3dal")
 		CreateVisualEffectObject("SPHOLY","X3mily")
-		CreateVisualEffectObject("SPUNHOLY","C0Sirene")
 		Wait(2)
 		StartDialogueNoSet([PC])		
 END
 
-
+IF 
+	Dead("X3dal")
+	!Dead("X3EHK3")
+THEN 
+	RESPONSE #100
+		AddJournalEntry(@100053,QUEST)
+END 
 
 IF
 	See(NearestEnemyOf(Myself))
