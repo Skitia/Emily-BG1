@@ -32,6 +32,7 @@ SAY @9
 IF ~~ DO ~SetGlobal("X32milyDornConflict","LOCALS",-2)
 SetGlobal("bd_joined","locals",0)
 SetGlobal("bd_npc_camp","locals",1)
+SetGlobal("X3EmilyAppChange","GLOBAL",3)
 ChangeAIScript("bdparty",DEFAULT)LeaveParty()~
 EXIT 
 END 
@@ -57,7 +58,7 @@ IF ~~ T1.2
 SAY @20
 ++ @11 + T1.1
 ++ @13 + T1.3
-++ @21 + T1.Exit
+++ @21 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + T1.Exit
 END 
 
 IF ~~ T1.3 
@@ -99,7 +100,7 @@ END
 IF ~~ T1.8 
 SAY @35
 = @36
-++ @37 + T1.10
+++ @37 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~ + T1.10
 ++ @38 + T1.11
 ++ @27 + T1.7
 ++ @33 + T1.9
@@ -117,16 +118,16 @@ END
 
 IF ~~ T1.11 
 SAY @41
-IF ~~ + T1.9
+IF ~~ DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + T1.9
 END 
 
 // Talk 2
 
 IF ~Global("X32milyTalk","GLOBAL",4)~ Talk2 
 SAY @42
-++ @43 + Talk2.A 
-++ @44 + Talk2.B 
-++ @45 + Talk2.C 
+++ @43 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk2.A 
+++ @44 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk2.B 
+++ @45 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",5)~ + Talk2.C 
 END 
 
 IF ~~ Talk2.A 
@@ -182,7 +183,7 @@ IF ~~ Talk2.H
 SAY @58
 ++ @59 + Talk2.I 
 ++ @60 + Talk2.J
-++ @61 + Talk2.Exit 
+++ @61 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-1)~ + Talk2.Exit 
 END 
 
 IF ~~ Talk2.I 
@@ -193,7 +194,7 @@ END
 IF ~~ Talk2.J 
 SAY @63
 = @64
-++ @65 + Talk2.K
+++ @65 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk2.K
 ++ @66 + Talk2.L 
 ++ @67 + Talk2.K
 END 
@@ -210,9 +211,9 @@ END
 
 IF ~Global("X32milyTalk","GLOBAL",6)~ Talk3
 SAY @70
-++ @71 + Talk3.A 
-++ @72 + Talk3.B
-++ @73 + Talk3.C 
+++ @71 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk3.A 
+++ @72 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",5)~ + Talk3.B
+++ @73 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk3.C 
 END 
 
 IF ~~ Talk3.A 
@@ -240,7 +241,7 @@ END
 IF ~~ Talk3.E 
 SAY @81
 = @82
-+~Global("X32milyRomanceActive","GLOBAL",3)~+ @83 + Talk3.G
++~!Global("X32milyRomanceActive","GLOBAL",3)~+ @83 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",2)~ + Talk3.G
 ++ @84 + Talk3.H
 ++ @85 + Talk3.Exit 
 END 
@@ -248,7 +249,7 @@ END
 IF ~~ Talk3.F 
 SAY @86
 = @87
-+~!Global("X32milyRomanceActive","GLOBAL",3)~+ @88 + Talk3.G
++~!Global("X32milyRomanceActive","GLOBAL",3)~+ @88 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",2)~ + Talk3.G
 ++ @89 + Talk3.I 
 ++ @90 + Talk3.I
 END 
@@ -280,6 +281,7 @@ END
 
 IF ~Global("X32milyTalk","GLOBAL",8)~ Talk4
 SAY @96
++~InParty("X3Isaac")~+ @855 + Talk4.New
 ++ @97 + Talk4.A
 ++ @98 + Talk4.B
 +~Dead("X32EHK3S")~+ @99 + Talk4.C 
@@ -303,9 +305,9 @@ END
 
 IF ~~ Talk4.D 
 SAY @104 
-+~Global("X32milyInBG1","GLOBAL",1)~+ @105 + Talk4.E 
-+~!Global("X32milyInBG1","GLOBAL",1)~+ @105 + Talk4.F 
-++ @106 + Talk4.G 
++~Global("X32milyInBG1","GLOBAL",1)~+ @105 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",9)~ + Talk4.E 
++~!Global("X32milyInBG1","GLOBAL",1)~+ @105 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~ + Talk4.F 
+++ @106 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + Talk4.G 
 ++ @107 + Talk4.H 
 END 
 
@@ -356,67 +358,71 @@ SAY @119
 IF ~~ DO ~SetGlobalTimer("X32milyGameTalkTimer","GLOBAL",THREE_DAYS)RealSetGlobalTimer("X32milyRealTalkTimer","GLOBAL",ONE_HOUR)IncrementGlobal("X32milyTalk","GLOBAL",1)~ EXIT 
 END
 
+IF ~~ Talk4.New 
+SAY @856
+IF ~~ + Talk4.D 
+END 
 
 IF ~Global("X32milyTalk","GLOBAL",10)~ Talk5 
 SAY @120
-++ @121 + Talk5.A 
-++ @122 + Talk5.A  
-++ @123 + Talk5.A 
-++ @124 + Talk5.P
-++ @125 + Talk5.O 
+++ @121 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk5.A 
+++ @122 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk5.A  
+++ @123 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk5.A 
+++ @124 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk5.P
+++ @125 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",5)~ + Talk5.O 
 END 
 
 IF ~~ Talk5.P 
 SAY @126
 ++ @127 + Talk5.A 
 ++ @128 + Talk5.A 
-++ @129 + Talk5.B 
+++ @129 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk5.B 
 ++ @130 + Talk5.A  
 END 
 
 IF ~~ Talk5.A 
 SAY @131
 = @132
-++ @133 + Talk5.C 
+++ @133 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk5.C 
 ++ @134 + Talk5.D 
-++ @135 + Talk5.O
+++ @135 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O
 END 
 
 IF ~~ Talk5.B 
 SAY @136
 = @137
-++ @138 + Talk5.C 
+++ @138 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk5.C 
 ++ @134 + Talk5.D 
-++ @135 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O
+++ @135 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O
 END 
 
 IF ~~ Talk5.C 
 SAY @139
-++ @140 + Talk5.E  
+++ @140 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk5.E  
 ++ @141 + Talk5.I 
 ++ @142  + Talk5.XH 
-++ @143 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O  
+++ @143 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O  
 END
 
 IF ~~ Talk5.XH 
 SAY @144
-++ @145 + Talk5.E
+++ @145 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk5.E
 ++ @146 + Talk5.I 
-++ @143 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O  
+++ @143 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O  
 END
 
 IF ~~ Talk5.D 
 SAY @147
-++ @140 + Talk5.E 
-++ @141 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I 
-++ @148 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O 
+++ @140 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)~ + Talk5.E 
+++ @141 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I 
+++ @148 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.O 
 END
 
 IF ~~ Talk5.E 
 SAY @149
 IF ~!Race(Player1,HUMAN)Global("X32milyRomanceActive","GLOBAL",1)~ + Talk5.F 
 IF ~Race(Player1,HUMAN)Global("X32milyRomanceActive","GLOBAL",1)~ + Talk5.G 
-IF ~!Global("X32milyRomanceActive","GLOBAL",1)~ DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.R 
+IF ~!Global("X32milyRomanceActive","GLOBAL",1)~ DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-3)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.R 
 END 
 
 IF ~~ Talk5.F 
@@ -424,8 +430,8 @@ SAY @150
 = @151
 ++ @152 + Talk5.H
 ++ @153 + Talk5.H 
-++ @154 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I 
-++ @155 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.M 
+++ @154 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I 
+++ @155 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-4)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.M 
 END 
 
 IF ~~ Talk5.G 
@@ -433,8 +439,8 @@ SAY @156
 = @157
 ++ @152 + Talk5.H
 ++ @153 + Talk5.H 
-++ @154 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I
-++ @155 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.M 
+++ @154 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I
+++ @155 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-4)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.M 
 END 
 
 IF ~~ Talk5.H 
@@ -442,7 +448,7 @@ SAY @158
 = @159
 ++ @160 + Talk5.J
 ++ @161 + Talk5.K 
-++ @154 DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I
+++ @154 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",1)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ + Talk5.I
 END 
 
 IF ~~ Talk5.I 
@@ -465,7 +471,7 @@ IF ~~ Talk5.R
 SAY @165
 ++ @166 + Talk5.L
 ++ @154 + Talk5.I 
-++ @155 + Talk5.M
+++ @155 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-4)~ + Talk5.M
 END 
 
 IF ~~ Talk5.L 
@@ -491,9 +497,9 @@ END
 
 IF ~Global("X32milyTalk","GLOBAL",12)~ Talk6
 SAY @172
-++ @173 + Talk6.A 
-++ @174 + Talk6.B 
-++ @175 + Talk6.C 
+++ @173 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + Talk6.A 
+++ @174 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",6)~ + Talk6.B 
+++ @175 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",4)~ + Talk6.C 
 END 
 
 IF ~~ Talk6.A 
@@ -518,10 +524,10 @@ IF ~~ Talk6.D
 SAY @179
 = @180
 = @181
-++ @182 + Talk6.E 
-++ @183 + Talk6.F
+++ @182 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",2)~ + Talk6.E 
+++ @183 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",3)~ + Talk6.F
 ++ @184 + Talk6.G
-++ @185 + Talk6.H 
+++ @185 DO ~IncrementGlobal("X3EmilyAppChange","GLOBAL",-4)~ + Talk6.H 
 END 
 
 IF ~~ Talk6.E 
@@ -556,9 +562,9 @@ SAY @191
 + ~!Global("X32_thrix_mark_Emily","global",1)~ + @192 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk2
 + ~Global("X32_thrix_mark_Emily","global",1)~ + @193 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
 + ~!Global("X32_thrix_mark_Emily","global",1)~ + @194 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk3
++ ~Global("X32_thrix_mark_Emily","global",1)~ + @194 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
++ ~!Global("X32_thrix_mark_Emily","global",1)~ + @195 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk4
 + ~Global("X32_thrix_mark_Emily","global",1)~ + @195 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
-+ ~!Global("X32_thrix_mark_Emily","global",1)~ + @196 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk4
-+ ~Global("X32_thrix_mark_Emily","global",1)~ + @196 DO ~SetGlobal("X32milySacrifice","bd4500",2)~ + ThrixTalk1
 END
 
 IF ~~ ThrixTalk1
@@ -591,7 +597,7 @@ END
 
 IF ~~ ThrixTalk5
  SAY @201
-IF ~~ DO ~SetGlobal("X32milyRomanceActive","GLOBAL",3)~ EXIT
+IF ~~ DO ~SetGlobal("X3EmilyAppChange","GLOBAL",1)SetGlobal("X32milyRomanceActive","GLOBAL",3)~ EXIT
 END
 
 IF ~~ ThrixTalk6
@@ -610,6 +616,10 @@ IF ~Global("X3milyAtWork","GLOBAL",5)~ + Emily.PCraftEagleDone
 IF ~Global("X3milyAtWork","GLOBAL",6)~ + Emily.PCraftHeavyXDone
 IF ~Global("X3milyAtWork","GLOBAL",7)~ + Emily.PCraftLightXDone
 IF ~Global("X3milyAtWork","GLOBAL",8)~ + Emily.PCraftLongXDone
+IF ~Global("X3milyAtWork","GLOBAL",9)~ + Emily.PCraftIBoltDone
+IF ~Global("X3milyAtWork","GLOBAL",10)~ + Emily.PCraftIArrowDone
+IF ~Global("X3milyAtWork","GLOBAL",11)~ + Emily.PCraftBDFleshBowDone
+IF ~Global("X3milyAtWork","GLOBAL",12)~ + Emily.PCraftBDBansheeBowDone
 END
 
 // Dorn Conflict 
@@ -829,7 +839,52 @@ SetGlobal("bd_sdd302_rat_hunt","global",4)
 SetGlobal("bd_sdd302_blackthorn","global",1)~
 EXIT
 
+//Other 
+
+I_C_T BDCORINT 27 X32EmilyBDCORINT27
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @847
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",10)~
+== BDCORINT @848
+END 
+
+I_C_T BDCHORST 9 X32EmilyBDCHORST
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @849
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",9)~
+END
+
+I_C_T BDJAMVEN 24 X32EmilyBDJAMVEN
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @850
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",3)~
+END
+
+I_C_T BDWORIS 8 X32EmilyBDWORIS
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @851
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~
+END
+
+I_C_T BDPWATER 6 X32EmilyBDPWATER
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @852
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~
+END
+
+I_C_T BDPCRUS 17 X32IsaacBDPCRUS
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !InParty("X3Isaac") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @853
+DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~
+END
+
+ADD_TRANS_ACTION BDDARNAS BEGIN 3 END BEGIN END ~SetGlobal("X3EmilyAppChange","GLOBAL",3)~
+
 // Thrix the Profane
+
+I_C_T BDTHRIX 15 X32milyJBDTHRIX15
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !InParty("X3Isaac") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @854
+END
+
+I_C_T BDTHRIX 17 X32milyJBDTHRIX15
+== X32milyJ IF ~InParty("X3mily") InMyArea("X3mily") !InParty("X3Isaac") !StateCheck("X3mily",CD_STATE_NOTVALID)~ THEN @854
+END 
+
+ADD_TRANS_ACTION BDTHRIX BEGIN 116 END BEGIN END ~SetGlobal("X3EmilyAppChange","GLOBAL",3)~
 
 EXTEND_BOTTOM BDTHRIX 21
 IF ~Global("X32_Saved_Emily","bd4500",0)
@@ -1216,6 +1271,7 @@ END
 
 CHAIN BDTHRIX ThrixWager4
 @251
+DO ~SetGlobal("X3EmilyAppChange","Global",1)~
 END
 ++ @252 DO ~SetGlobal("X32_thrix_mark_Emily","global",1)~ EXTERN X32milyJ ThrixWager5
 ++ @253 EXTERN BDTHRIX 10
@@ -1294,6 +1350,7 @@ IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) GlobalGT("Chapter","GLOB
 +~Global("X3milyEnhancedBow","GLOBAL",0)OR(4)PartyHasItemIdentified("BOW08")PartyHasItemIdentified("BOW07")PartyHasItemIdentified("XBOW06")PartyHasItemIdentified("XBOW03")~+ @271 + Emily.PBow2 // One of the bows is worthy. This fires only once.
  +~GlobalGT("X3milyAtWork","GLOBAL",0)!GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @272  + Emily.PCraftCheckN // @272 // Not Ready. 
  +~GlobalGT("X3milyAtWork","GLOBAL",0)GlobalTimerExpired("X3milyCraftTimer","GLOBAL")~+ @272  + Emily.PCraftCheckY // @272 // Ready. 
+ +~OR(2)Global("X32milyRomanceActive","GLOBAL",1)Global("X32milyRomanceActive","GLOBAL",2)~+ @790 + Flirt
  ++ @273 + FixString
  ++ @274  EXIT
  END 
@@ -1471,9 +1528,29 @@ SAY @316
 +~PartyHasItemIdentified("BOW07")~+ @320 + Emily.PBowSure4 // ~This Longbow of the Marksman.~
 +~PartyHasItemIdentified("BDBOW03")~+ @321 + Emily.PBowSure5 // ~The Fleshripper.~ 
 +~PartyHasItemIdentified("BDBOW04")~+ @322 + Emily.PBowSure6
++~PartyHasItemIdentified("BDBOW02")~+ @322 + Emily.PBowSure7 // Corinth's bow 
++~PartyHasItemIdentified("BDBOW05")~+ @322 + Emily.PBowSure8 // Savage Shortbow 
++~PartyHasItemIdentified("BDBOW06")~+ @322 + Emily.PBowNo1
++~PartyHasItemIdentified("BDBOW01")~+ @322 + Emily.PBowNo2
 ++ @323  + Emily.PTalk // @323 
 ++ @311 EXIT // @311
 END
+
+IF ~~ Emily.PBowNo1
+SAY @857
+IF ~~ + Emily.PBowNoEnd
+END 
+
+IF ~~ Emily.PBowNo2
+SAY @859
+IF ~~ + Emily.PBowNoEnd
+END 
+
+IF ~~ Emily.PBowNoEnd
+SAY @858
+++ @323  + Emily.PTalk // @323 
+++ @311 EXIT // @311
+END 
 
 IF ~~ Emily.PBowSure1 
 SAY @324 // @324
@@ -1517,20 +1594,34 @@ SAY @327 // @324
 ++ @311 EXIT // @311
 END 
 
+IF ~~ Emily.PBowSure7 
+SAY @327 // @324
+++ @325 DO ~TakePartyItem("BDBOW02")~ + Emily.PBowProceed7  // Yes, I'm sure. 
+++ @323  + Emily.PTalk // @323 
+++ @311 EXIT // @311
+END 
+
+IF ~~ Emily.PBowSure8 
+SAY @327 // @324
+++ @325 DO ~TakePartyItem("BDBOW05")~ + Emily.PBowProceed8  // Yes, I'm sure. 
+++ @323  + Emily.PTalk // @323 
+++ @311 EXIT // @311
+END 
+
 
 IF ~~ Emily.PBowProceed1
 SAY @328
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",5)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~DestroyItem("BOW08")SetGlobal("X3milyAtWork","GLOBAL",5)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
 END 
 
 IF ~~ Emily.PBowProceed2
 SAY @328
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",6)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~DestroyItem("XBOX03")SetGlobal("X3milyAtWork","GLOBAL",6)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
 END 
 
 IF ~~ Emily.PBowProceed3
 SAY @328
-IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",7)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+IF ~~ DO ~DestroyItem("XBOX06")SetGlobal("X3milyAtWork","GLOBAL",7)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
 END 
 
 IF ~~ Emily.PBowProceed4
@@ -1546,6 +1637,16 @@ END
 IF ~~ Emily.PBowProceed6
 SAY @328
 IF ~~ DO ~DestroyItem("BDBOW04")SetGlobal("X3milyAtWork","GLOBAL",12)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+END 
+
+IF ~~ Emily.PBowProceed7
+SAY @328
+IF ~~ DO ~DestroyItem("BDBOW02")SetGlobal("X3milyAtWork","GLOBAL",13)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
+END 
+
+IF ~~ Emily.PBowProceed8
+SAY @328
+IF ~~ DO ~DestroyItem("BDBOW05")SetGlobal("X3milyAtWork","GLOBAL",14)SetGlobal("X3milyEnhancedBow","GLOBAL",1) SetGlobalTimer("X3milyCraftTimer","GLOBAL",THREE_DAYS)~ EXIT 
 END 
 
 IF ~~ Emily.PCraftCheckN
@@ -1568,6 +1669,8 @@ IF ~Global("X3milyAtWork","GLOBAL",9)~ + Emily.PCraftIBoltDone
 IF ~Global("X3milyAtWork","GLOBAL",10)~ + Emily.PCraftIArrowDone
 IF ~Global("X3milyAtWork","GLOBAL",11)~ + Emily.PCraftBDFleshBowDone
 IF ~Global("X3milyAtWork","GLOBAL",12)~ + Emily.PCraftBDBansheeBowDone
+IF ~Global("X3milyAtWork","GLOBAL",13)~ + Emily.PCraftBDCorinthBowDone
+IF ~Global("X3milyAtWork","GLOBAL",14)~ + Emily.PCraftBDSavageBowDone
 END 
 
 IF ~~ Emily.PCraftSBoltDone 
@@ -1630,24 +1733,33 @@ SAY @333
 IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3Bow04",Player1,1,0,0)~ EXIT  
 END 
 
+IF ~~ Emily.PCraftBDCorinthBowDone
+SAY @860
+IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3Bow05",Player1,1,0,0)~ EXIT  
+END 
+
+IF ~~ Emily.PCraftBDSavageBowDone 
+SAY @861
+IF ~~ DO ~SetGlobal("X3milyAtWork","GLOBAL",0)GiveItemCreate("X3Bow06",Player1,1,0,0)~ EXIT  
+END 
+
  
 IF ~~ Emily.PTalk 
 SAY  @334 
 /*Options will  vary as the game goes on.*/ 
 // Companion Thoughts 
 + ~NumInPartyAliveGT(2)~ + @335  + Emily.PCompanionThoughts // @335 
-+ ~NumInPartyAliveLT(3)ReputationGT(Player1,12)~ + @336 + Em.Me1 // @336
++ ~NumInPartyAliveLT(3)!GlobalGT("X3EmilyApp","GLOBAL",20)ReputationGT(Player1,12)~ + @336 + Em.Me1 // @336
 + ~NumInPartyAliveLT(3)ReputationLT(Player1,13)~ + @336 + Em.Me2 // @336
++~ReputationGT(Player1,12)GlobalGT("X3EmilyApp","GLOBAL",20)!GlobalGT("X3EmilyApp","GLOBAL",44)~+ @336 + Em.Me3 // @336
++~ReputationGT(Player1,12)GlobalGT("X3EmilyApp","GLOBAL",45)~+ @336 + Em.Me4 
 // Dialogue From Talk Expansions. These fire once. 
 +~Global("X3milyTalkJacob","GLOBAL",0)GlobalGT("X3milyTalk","GLOBAL",2)~+ @337 DO ~SetGlobal("X3milyTalkJacob","GLOBAL",1)~ + Emily.PIDTalk1
-+~Global("X3milyTalkJacob2","GLOBAL",0)GlobalGT("X32milyQuestSpawn","GLOBAL",3)~+ @338 + Emily.PIDTalk2
++~Global("X3milyTalkJacob2","GLOBAL",0)GlobalGT("X32milyQuestSpawn","GLOBAL",3)~+ @338 DO ~SetGlobal("X3milyTalkJacob2","GLOBAL",1)~ + Emily.PIDTalk2
 +~Global("X3milyFlirtTalk","GLOBAL",0)Global("X32milyRomanceActive","GLOBAL",1)~+ @339 DO ~SetGlobal("X3milyFlirtTalk","GLOBAL",1)~ + Emily.PIDTalk3
 //Old P.I.D. Talks
-+~Global("X3milyPTethyrTopic","GLOBAL",0)~+ @340 DO ~SetGlobal("X3milyPTethyrTopic","GLOBAL",1)~ + Emily.PTethyr // @340 For Kale, Gullykin. For Vienxay, Evermeet. 
-+~RandomNum(3,1)~+ @341  + Emily.PArchery1 // @341 
-+~RandomNum(3,2)~+ @341  + Emily.PArchery2
-+~RandomNum(3,3)~+ @341  + Emily.PArchery3
-+~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @342 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching // @342 For Kale, replace with Sewing. For Vienxay, replace with wand crafting. 
++~Global("X3milyPTethyrTopic","GLOBAL",0)~+ @340 DO ~SetGlobal("X3milyPTethyrTopic","GLOBAL",1)~ + Emily.PTethyr 
++~Global("X3milyCraft","GLOBAL",1)Global("X3milyFletchTopic","GLOBAL",0)~+ @342 DO ~SetGlobal("X3milyFletchTopic","GLOBAL",1)~ + Emily.PFletching 
 END 
 
 IF ~~ Emily.PCompanionThoughts 
@@ -1678,11 +1790,14 @@ SAY @343
 +~InParty("c0aura")~+ @362 + Em.Aura 
 +~InParty("c0Drake")~+ @363 + Em.Drake 
 +~InParty("C0Sirene")~+ @364 + Em.Sirene
++~InParty("SUFinch")~+ @843 + Em.Finch
 +~InParty("L#1DVER")~ + @365 + Em.Verrsza
 +~InParty("#Ishy")~ + @366 + Em.Ishy 
 // Myself 
-+~ReputationGT(Player1,12)~+ @367 + Em.Me1 
++~ReputationGT(Player1,12)!GlobalGT("X3EmilyApp","GLOBAL",20)~+ @367 + Em.Me1 
 +~ReputationLT(Player1,13)~+ @367 + Em.Me2
++~ReputationGT(Player1,12)GlobalGT("X3EmilyApp","GLOBAL",20)!GlobalGT("X3EmilyApp","GLOBAL",44)~+ @367 + Em.Me3 // @336
++~ReputationGT(Player1,12)GlobalGT("X3EmilyApp","GLOBAL",45)~+ @367 + Em.Me4 
 ++ @368 EXIT  
 END 
 
@@ -1742,21 +1857,6 @@ SAY @379
 IF ~~ EXIT 
 END 
 
-IF ~~ Em.Glint 
-SAY @380
-IF ~~ EXIT 
-END 
-
-IF ~~ Em.Corwin 
-SAY @381
-IF ~~ EXIT 
-END 
-
-IF ~~ Em.MKhiin 
-SAY @382
-IF ~~ EXIT 
-END 
-
 IF ~~ Em.Helga 
 SAY @383
 IF ~~ EXIT 
@@ -1774,6 +1874,21 @@ END
 
 IF ~~ Em.Vienxay 
 SAY @386
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Glint 
+SAY @380
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Corwin 
+SAY @381
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.MKhiin 
+SAY @382
 IF ~~ EXIT 
 END 
 
@@ -1807,6 +1922,11 @@ SAY @392
 IF ~~ EXIT 
 END 
 
+IF ~~ Em.Finch
+SAY @844
+IF ~~ EXIT 
+END 
+
 IF ~~ Em.Me1 
 SAY @393
 IF ~~ EXIT 
@@ -1817,13 +1937,23 @@ SAY @394
 IF ~~ EXIT 
 END 
 
+IF ~~ Em.Me3 
+SAY @845
+IF ~~ EXIT 
+END 
+
+IF ~~ Em.Me4 
+SAY @846 
+IF ~~ EXIT 
+END 
+
 IF ~~ Emily.PIDTalk1
 SAY @395
 = @396
 = @397
 ++ @398 + Emily.PIDTalk1Flock 
 ++ @399 + Emily.PIDTalk1Hunters
-++ @400 + Emily.PIDTalk1Entice  
+++ @400 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + Emily.PIDTalk1Entice  
 END 
 
 IF ~~ Emily.PIDTalk1Entice
@@ -1836,7 +1966,6 @@ END
 IF ~~ Emily.PIDTalk1Flock 
 SAY @403
 ++ @404 + Emily.PIDTalk1Others
-++ @323  + Emily.PTalk // @323 
 ++ @405 EXIT // @405
 END 
 
@@ -1844,8 +1973,7 @@ IF ~~ Emily.PIDTalk1Hunters
 SAY @406
 = @407
 = @408
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT //As of the latest update, this will exit in case of approval gain.
 END 
 
 IF ~~ Emily.PIDTalk1Others
@@ -1860,20 +1988,17 @@ END
 IF ~~ Emily.PIDTalk1Secret 
 SAY @415
 = @416
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ Emily.PIDTalk1Protective 
 SAY @417
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ Emily.PIDTalk1Power 
 SAY @418
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ Emily.PIDTalk2 
@@ -1889,21 +2014,21 @@ SAY @420
 = @422
 ++ @423 + PID2.D 
 ++ @424 + PID2.E 
-++ @425 + PID2.D 
+++ @425 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + PID2.D 
 END 
 
 IF ~~ PID2.B 
 SAY @426
 ++ @427 + PID2.G 
-++ @428 + PID2.H
-++ @425 + PID2.G 
+++ @428 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~ + PID2.H
+++ @425 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + PID2.G 
 END 
 
 IF ~~ PID2.C 
 SAY @429
-++ @430 + PID2.I 
-++ @431 + PID2.J 
-++ @432 + PID2.F 
+++ @430 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + PID2.I 
+++ @431 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",5)~ + PID2.J 
+++ @432 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + PID2.F 
 END 
 
 IF ~~ PID2.D 
@@ -1918,8 +2043,7 @@ END
 
 IF ~~ PID2.F 
 SAY @435
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ PID2.G
@@ -1934,27 +2058,24 @@ END
 
 IF ~~ PID2.I 
 SAY @438
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ PID2.J 
 SAY @439
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ Emily.PIDTalk3
 SAY @440
 ++ @441 + PIDTalk3.A 
-++ @442 + PIDTalk3.B 
-++ @443 + PIDTalk3.O 
+++ @442 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~ + PIDTalk3.B 
+++ @443 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",7)~ + PIDTalk3.O 
 END 
 
 IF ~~ PIDTalk3.A 
 SAY @444
-++ @442 + PIDTalk3.B 
-++ @323  + Emily.PTalk // @323 
+++ @442 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~ + PIDTalk3.B 
 ++ @405 EXIT // @405
 END 
 
@@ -1972,14 +2093,12 @@ END
 
 IF ~~ PIDTalk3.C
 SAY @447 
-++ @323  + Emily.PTalk // @323 
-++ @405 EXIT // @405
+IF ~~ EXIT 
 END 
 
 IF ~~ PIDTalk3.O
 SAY @448
-++ @442 + PIDTalk3.B 
-++ @323  + Emily.PTalk // @323 
+++ @442 DO ~SetGlobal("X3EmilyAppChange","GLOBAL",8)~ + PIDTalk3.B 
 ++ @405 EXIT // @405
 END 
 
@@ -2079,11 +2198,243 @@ SAY @470
 IF ~~ EXIT 
 END
 
+IF ~~ Emily.PThinkingAbout1a
+SAY @837 // ~I am thinking about food. I'm getting this feeling of hunger in my stomach. What's for our next meal anyway?~
+IF ~~ EXIT  
+END
+
+IF ~~ Emily.PThinkingAbout1b
+SAY @838 // ~I'm just thinking of some of the poor people I've managed to help since I've set out. So much suffering, everywhere. It never seems to end.~
+IF ~~ EXIT  
+END
+
+IF ~~ Emily.PThinkingAbout1c
+SAY @839 // ~Thinking? Not of much. Although what do you think of this: Archery from a Pegasus's back. Just have to find a Pegasus!~
+IF ~~ EXIT  
+END
+
+IF ~~ Flirt 
+SAY @791 
+ +~RandomNum(3,1)~+ @836 + Emily.PThinkingAbout1a //~What are you thinking about?~
+ +~RandomNum(3,2)~+ @836 + Emily.PThinkingAbout1b //~What are you thinking about?~
+ +~RandomNum(3,3)~+ @836 + Emily.PThinkingAbout1c  //~What are you thinking about?~
++~RandomNum(3,1)~+ @191 + Emily.PArchery1 // ~Can you give me any tips about archery?~  
++~RandomNum(3,2)~+ @191 + Emily.PArchery2
++~RandomNum(3,3)~+ @191 + Emily.PArchery3
++~RandomNum(3,1)~+ @793 + Watch1
++~RandomNum(3,2)~+ @793 + Watch2
++~RandomNum(3,3)!Race("X3mily",AASIMAR)~+ @793 + Watch3A
++~RandomNum(3,3)Race("X3mily",AASIMAR)~+ @793 + Watch3B
++~RandomNum(3,1)~+ @794 + TellJoke1
++~RandomNum(3,2)~+ @794 + TellJoke2
++~RandomNum(3,3)~+ @794 + TellJoke3
++~RandomNum(3,1)~+ @795 + Tickle1
++~RandomNum(3,2)~+ @795 + Tickle2
++~RandomNum(3,3)~+ @795 + Tickle3
++~RandomNum(3,1)~+ @796 + Brush1
++~RandomNum(3,2)~+ @796 + Brush2
++~RandomNum(3,3)~+ @796 + Brush3
++~RandomNum(3,1)~+ @803 + Cheek1
++~RandomNum(3,2)~+ @803 + Cheek2
++~RandomNum(3,3)~+ @803 + Cheek3
++~RandomNum(3,1)~+ @797 + Hair1
++~RandomNum(3,2)~+ @797 + Hair2
++~RandomNum(3,3)~+ @797 + Hair3
++~RandomNum(3,1)~+ @798 + Archer1
++~RandomNum(3,2)~+ @798 + Archer2
++~RandomNum(3,3)~+ @798 + Archer3
++~RandomNum(3,1)~+ @799 + Drink1
++~RandomNum(3,2)~+ @799 + Drink2
++~RandomNum(3,3)~+ @799 + Drink3
++~RandomNum(3,1)~+ @800 + With1
++~RandomNum(3,2)~+ @800 + With2
++~RandomNum(3,3)~+ @800 + With3
++~RandomNum(3,1)~+ @801 + Smile1
++~RandomNum(3,2)~+ @801 + Smile2
++~RandomNum(3,3)~+ @801 + Smile3
++~RandomNum(3,1)~+ @802 + Eyes1
++~RandomNum(3,2)~+ @802 + Eyes2
++~RandomNum(3,3)~+ @802 + Eyes3
+++ @792 EXIT 
+END 
+
+
+IF ~~ Watch1 
+SAY @804
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch2
+SAY @805
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch3A
+SAY @806
+IF ~~ EXIT 
+END 
+
+IF ~~ Watch3B
+SAY @807
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke1 
+SAY @808
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke2 
+SAY @809 
+IF ~~ EXIT 
+END 
+
+IF ~~ TellJoke3 
+SAY @810
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle1 
+SAY @811 
+= @812
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle2 
+SAY @813
+IF ~~ EXIT 
+END 
+
+IF ~~ Tickle3 
+SAY @814
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush1 
+SAY @815
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush2 
+SAY @816
+IF ~~ EXIT 
+END 
+
+IF ~~ Brush3
+SAY @817
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair1
+SAY @818 
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair2 
+SAY @819
+IF ~~ EXIT 
+END 
+
+IF ~~ Hair3 
+SAY @820 
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer1 
+SAY @821
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer2 
+SAY @822
+IF ~~ EXIT 
+END 
+
+IF ~~ Archer3 
+SAY @823
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink1 
+SAY @824
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink2
+SAY @825
+IF ~~ EXIT 
+END 
+
+IF ~~ Drink3 
+SAY @826
+IF ~~ EXIT 
+END 
+
+IF ~~ With1 
+SAY @827
+IF ~~ EXIT 
+END 
+
+IF ~~ With2
+SAY @828
+IF ~~ EXIT 
+END 
+
+IF ~~ With3 
+SAY @829
+IF ~~ EXIT 
+END
+
+IF ~~ Smile1
+SAY @830
+IF ~~ EXIT 
+END 
+
+IF ~~ Smile2
+SAY @831
+IF ~~ EXIT 
+END 
+
+IF ~~ Smile3 
+SAY @832
+IF ~~ EXIT 
+END 
+
+IF ~~ Cheek1 
+SAY @840 
+IF ~~ EXIT 
+END 
+
+IF ~~ Cheek2
+SAY @841 
+IF ~~ EXIT 
+END 
+
+IF ~~ Cheek3 
+SAY @842
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes1
+SAY @833
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes2
+SAY @834
+IF ~~ EXIT 
+END 
+
+IF ~~ Eyes3 
+SAY @835
+IF ~~ EXIT 
+END 
+
 IF ~~ FixString
 SAY @471
 IF ~~ DO ~ClearAllActions() 
       StartCutSceneMode() 
-      StartCutScene("X3EReset")~ EXIT 
+      StartCutScene("X3EmiR")~ EXIT 
 END 
  
 END
