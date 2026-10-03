@@ -1,6 +1,6 @@
 @0 = ~BG:EE detected - Baeloth interdia.2da append - set Baeloth's banter file (BBAELOTH)~
 @1 = ~Emily~
-@2 = ~"It’s that day of the week, is it?" Emily would quip, before telling you a story of her father’s estate in the lands of Tethyr. She kept mostly out of the spotlight, or so she claims. She was bored of the strict regulations and etiquette, and when talks of deciding who would be the heir between herself and her brother became tense, it was an easy excuse to ask to leave to help "mend their relationship." She is not fond of her brother, and is not eager for the day she must return to resolve the dilemma of the heir.~
+@2 = ~It’s that day of the week, is it?” Emily would quip, before telling you a story of her father’s estate in the lands of Tethyr. She kept mostly out of the spotlight, or so she claims. She was bored of the strict regulations and etiquette, and when talks of deciding who would be the heir between herself and her brother became tense, it was an easy excuse to ask to leave to help "mend their relationship." She is not fond of her brother, and is not eager for the day she must return to resolve the dilemma of the heir.~
 @3 = ~I need to fall back.~ [Emilfear]
 @4 = ~I am quite pleased with how you have led us. We are actually making a difference.~ [Emilhap]
 /////
@@ -40,7 +40,7 @@
 @37 = ~Bullseye.~ [Emilcrit]
 @38 = ~Come on, *come on*!~ [Emilcm]
 @39 = ~This isn't working.~ [Emilnoth]
-@40 = ~I can't carry anymore.~ [Emilin]
+@40 = ~I can't carry anymore.~ [Emilin] 
 @41 = ~I knew I shouldn't have skipped magic theory!~ [Emilspel]
 @42 = ~~
 @43 = ~Invisible as the wind.~ [Emilhide]
@@ -50,20 +50,20 @@
 @47 = ~Their death won't be in vain. I promise.~ [X3Ereact]
 @48 = ~Adding crossmod banter between Emily and Kale~
 @49 = ~Adding crossmod banter between Emily and Vienxay~
-// Journal
+// Journal 
 @10000	= ~Emily's Tale~
 
 @10001	= ~Emily's Tale
 
-I have accepted the service of a noble archer named Emily within my group. She has joined me in hopes of venturing to Baldur's Gate to find her birth mother. Perhaps we may find her there.~
+I have accepted the service of a noble archer named Emily within my group. She has joined me in hopes of venturing to Baldur's gate to find her birth mother. Perhaps we may find her there.~
 
 @10002 = ~Emily's Tale
 
-Emily suggests we ask around the Blade and Stars for her mother's whereabouts. It appears she is really uncertain where she may even be within the city.~
+Emily suggests we ask around the the Blade and Stars for her mother's whereabouts. It appears she is really uncertain where she may even be within the city.~
 
 @10003 = ~Emily's Tale
 
-Emily discovered the elf we killed was her mother. She was angry and left our party..~
+Emily discovered the elf we killed was her mother. She was angry and left our party.~
 
 @10004 = ~Emily's Tale
 
@@ -77,7 +77,41 @@ Apparently the elf we aided was Emily's mother. She gave Emily a journal explain
 
 The Innkeeper of the Blade and Stars suggested we try looking at the inn southeast of here, as his own did not have many elven patrons.~
 
-@100045 = ~The Planar Hunters~
+@10018 = ~Emily's Tale
+
+We have been pointed to a man named Rodwyn, who may know of Emily's mother and/or her fate. We can find him in the Feldepost inn.~
+
+@10019 = ~Emily's Tale
+
+Rodwyn informed us that the Adalgisa we killed was Alina all along. He turned Emily against us, and we were forced to fight.~
+
+@10020 = ~Emily's Tale
+
+Rodwyn informed us that the Adalgisa we killed was Alina all along. He held Isaac responsible, and we let them fight it out.~
+
+@10021 = ~Emily's Tale
+
+Rodwyn informed us that the Adalgisa we killed was Alina all along. Despite trying to turn Emily against us, she remained on our side, defending us against Rodwyn. But I can only imagine that now she knows the truth, that it will take her some time to process everything.~
+
+@10022 = ~Emily's Tale
+
+Rodwyn informed us that the Adalgisa we killed was Alina all along. He held Isaac responsible, and we helped them take out Isaac.~
+
+@10023 = ~Emily's Tale 
+
+We learned from Rodwyn that Aldagisa was really Alina, Emily's mother, and that they had killed his fellow adventurers, and spared his life in an attempt to lure Alina to him. With no further use for him, the planar hunters slew him before asking for Emily. I agreed with Isaac, and took the gold in exchange for Emily. Emily ran for her life. Even if she survives and eludes them, I will probably never see her again.~
+
+@10024 = ~Emily's Tale 
+
+We learned from Rodwyn that Aldagisa was really Alina, Emily's mother, and that they had killed his fellow adventurers, and spared his life in an attempt to lure Alina to him. With no further use for him, the planar hunters slew him before asking for Emily. I disagreed with Isaac, and protected Emily, while Isaac stood on the side of his fellows. Still, Emily has at last learned of her mother, and a bit more than she bargained for.~
+
+@10025 = ~Emily's Tale 
+
+We learned from Rodwyn that Aldagisa was really Alina, Emily's mother, and that they had killed his fellow adventurers, and spared his life in an attempt to lure Alina to him. With no further use for him, the planar hunters slew him before asking for Emily. Isaac stayed loyal to us, and helped us fight against the planar hunters. Still, Emily has at last learned of her mother, and a bit more than she bargained for.~
+
+
+
+@100045 = ~The Planar Hunters~ 
 
 @100046 = ~The Planar Hunters
 
@@ -87,35 +121,55 @@ Some Planar Hunters are hunting an elf within the city. They've asked for our ai
 
 Some Planar Hunters are hunting an elf within the city. They've asked for our aid, and given us a gem that will reveal her, though we only have one, and should be certain.~
 
-@100048 = ~The Planar Hunters
+@100048 = ~The Planar Hunters 
 
 We used a gem on an elf we believed to be our target, and it seemed to reveal both the elf and Emily. The gem could be faulty, or perhaps Emily may be planar-touched herself.~
 
-@100049 = ~The Planar Hunters
+@100049 = ~The Planar Hunters 
 
 We betrayed Emily to the Planar Hunters, and accepted our reward.~
 
-@100050 = ~The Planar Hunters
+@100050 = ~The Planar Hunters 
 
 We killed the elf and accepted our reward.~
 
-@100051 = ~The Planar Hunters
+@100044 = ~The Planar Hunters 
+
+We gave the Planater hunters the elf's blood without informing them we spared the elf, and accepted our reward. Hopefully they never learn the truth.~
+
+@100051 = ~The Planar Hunters 
 
 We killed the Planar Hunters. We should tell the elf of our success.~
 
-@100052 = ~The Planar Hunters
+@100052 = ~The Planar Hunters 
 
 The elf gave us our gratitude, and Emily a strange book written in celestial. Perhaps she is connected to Emily somehow, though only the book will reveal it once Emily reads through it.~
 
-@100053 = ~The Planar Hunters
+@100053 = ~The Planar Hunters 
 
 We have killed the elf. We should inform the Planar Hunters.~
 
-@100054 = ~The Planar Hunters
+@100054 = ~The Planar Hunters 
 
 An elf has asked for our help in taking down planar hunters that seem to be going after her. They should be in Baldur's Gate Southeast section.~
 
-@101 = ~The Planar Hunters
+@100055 = ~The Planar Hunters 
+
+A group of Isaac's fellow planar hunters seek an elf's blood, and Isaac her journal. We've already killed her, we just need to get both items.~
+
+@100056 = ~The Planar Hunters 
+
+A group of Isaac's fellow planar hunters seek an elf's blood, and Isaac her journal. We've already killed her and given her blood to the hunters, but we should go back and find the journal if we can.~
+
+@100057 = ~The Planar Hunters 
+
+We used a gem on an elf we believed to be our target, and it revealed her for what she truly was. Let's see what she has to say now.~
+
+@100058 = ~The Planar Hunters 
+
+The elf gave us our gratitude. She will stay a while longer until she believes it is safe to depart Baldur's Gate.~
+
+@101 = ~The Planar Hunters 
 
 We have come across some planar hunters hunting Caelar. They gave us a blade for revealing we helped give them another plane touched to them back in Baldur's Gate.~
 
@@ -125,24 +179,78 @@ The Aasimar Emily has joined my party. She reveals she was traveling with a seco
 
 @1003 = ~The Aasimar~
 
-@1004 = ~The Aasimar
+@1004 = ~The Aasimar 
 
 We met Emily's former companion, Jacob. He's agreed to talk to us privately. I could attempt to get information from him, or get him to leave the crusade.~
 
-@1005 = ~The Aasimar
+@1005 = ~The Aasimar 
 
 Jacob refused to join us. We couldn't risk him revealing us, and attacked.~
 
-@1006 = ~The Aasimar
+@1006 = ~The Aasimar 
 
 We couldn't persuade Jacob to take our cause. We can only hope he is not one of the people we have to kill in battle.~
 
-@1007 = ~The Aasimar
+@1007 = ~The Aasimar 
 
 We managed to convince Jacob to leave the crusade.~
 
+@1008 = ~The Aasimar 
 
-// Items
+A fellow Planar Hunter of Isaac's revealed that Jacob was in Dragonspear, to the east side of the encampment.~
+
+@60016 = ~Neverending Chase~
+
+@60017 = ~Neverending Chase
+
+We encountered the aasimar Jacob that Isaac was seeking. We were lucky he did not out us to the rest of Caelar's forces. Despite his hostility, he's agreed to tell us where Mavis is if we give him a special blade held by the Planar Hunter Bernadette. Presumably, it would give him an advantage in the fight against the Planar Hunters.~
+
+@60018 = ~Neverending Chase 
+
+We killed the aasimar Jacob, making Isaac's hunt cold once again.~
+
+@60019 = ~Neverending Chase 
+
+We killed the aasimar Jacob. Emily reluctantly told Isaac that Mavis was in Althkata. He left to hunt her there.~
+
+@60020 = ~Neverending Chase 
+
+We killed the aasimar Jacob. Emily reluctantly told Isaac that Mavis was in Althkata. When the fight against Caelar is over, Isaac will resume his hunt for her.~
+
+@60021 = ~Neverending Chase
+
+We gave the aasimar Jacob the sword he sought. He told us Mavis was in Althkata. When the fight against Caelar is over, Isaac will resume his hunt for her.~
+
+@60022 = ~Neverending Chase
+
+Bernadette gave us the blade that Jacob seeks. We should return to him with the blade in hand.~
+
+@60023 = ~Neverending Chase
+
+We encountered the aasimar Jacob that Isaac was seeking. We were lucky he did not out us to the rest of Caelar's forces. Despite his hostility, he's agreed to tell us where Mavis is if we give him a special blade held by the Planar Hunter Bernadette. Presumably, it would give him an advantage in the fight against the Planar Hunters. He has bid us unwelcome for the present, and if we return and he see us without the blade, he will treat us like an enemy.~
+
+@60024 = ~Neverending Chase
+
+There will be no time to find Jacob and question him about Mavis's location now. Isaac will have to find Mavis's trail on his own.~
+
+@60025 = ~Neverending Chase 
+
+Emily revealed to Isaac that Mavis was in Althkata. When the fight against Caelar is over, Isaac will resume his hunt for her.~
+
+@60026 = ~Neverending Chase 
+
+Frustrated after the lack of my support after finding out that Emily knew all along and was unwilling to tell him Mavis's location, Isaac left the party. The trail may be cold, but he will never stop trying to find Mavis for his revenge.~
+
+@60027 = ~Neverending Chase 
+
+We found out after Jacob's death that Emily knew where Mavis was all along. She refused to share, and left the party instead. Isaac will have to track her down after this is over to have a chance in finding Mavis.~
+
+@60028 = ~Neverending Chase 
+
+We found out after Jacob's death that Emily knew where Mavis was all along. She refused to share, but the two seem agreed to focus on Caelar for now. Isaac's revenge on Mavis can wait.~
+
+
+// Items 
 
 @50 = ~The Dead Shot +2, Enhanced~
 @51 = ~Longbow of Marksmanship: The Dead Shot
@@ -150,11 +258,9 @@ Driven by years of rivalry, the dukes of Spandeliyon and Delthuntle decided to o
 
 STATISTICS:
 
-Equipped abilities:
-– Dexterity: +1
-
 THAC0: +3
 Damage: +2
+Dexterity: +1
 Speed Factor: 5
 Proficiency Type: Longbow
 Type: Two-handed
@@ -167,7 +273,7 @@ Weight: 2~
 @53 = ~Light Crossbow of Speed: The Army Scythe
 A short-lived outpost of humans in the Frozen Forest unearthed this weapon, and many others, from the ruins of an ancient settlement deep within that cold land. Never knowing the names of their extinct benefactors, the colonists used these "tools" to carve a large territory for themselves, though in the end it was for naught. Crushed by a superior number of hobgoblins, these unfortunate souls have joined the ancients in their anonymity.
 
-Emily has modified The Army Scythe, enhancing its ability to help the user be more agile and accurate.
+Emily has modified The Army Scythe, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
 
@@ -188,15 +294,13 @@ Weight: 5~
 @59 = ~Enhanced Heavy Crossbow of Accuracy: The Guide
 A favored siege weapon of King Shastir Longeve, crossbows of this type were designed for the systematic removal of defensive forces thought safe behind the battlements of castles. Scant few of these weapons survive to this day, mainly due to the eventual annihilation of the king's forces by a coalition of subjugated lands.
 
-Emily has modified the string of The Guide, enhancing its ability to help the user be more agile and accurate.
+Emily has modified the string of The Guide, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
 
-Equipped abilities:
-– Dexterity: +1
-
 THAC0: +5
 Damage: +2
+Dexterity: +1
 Speed Factor: 7
 Proficiency Type: Crossbow
 Type: Two-handed
@@ -206,18 +310,16 @@ Requires:
 Weight: 10~
 
 @99 = ~Enhanced Protector of the Dryads +2~
-@60 = ~Enhanced Eagle Bow: Protector of the Dryads
+@60 = ~Enhanced Eagle Bow: Protector of the Dryads 
 In order to protect their community from an encroaching orc logging encampment, the hero Hannable the White was given this magnificent bow by the dryads of Gulthmere Forest. A deadly confrontation followed when the loggers dared to try to cut down a great oak tree, nearly killing the dryad linked to it. With the help of powerful forest animals, Hannable slew entire bands of orcs before any more damage was inflicted upon the wood. The orcs were forced to abandon their plans, lest they suffer the continued wrath of Hannable and the forest. Needless to say, the hero who aided the grateful dryads lived happily... nay, VERY happily ever after!
 
-Emily has modified the string of the Eagle Bow, enhancing its ability to help the user be more agile and accurate.
+Emily has modified the string of the Eagle Bow, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
 
-Equipped abilities:
-– Dexterity: +1
-
 THAC0: +2
 Damage: +2
+Dexterity: +1
 Speed Factor: 4
 Proficiency Type: Shortbow
 Type: Two-handed
@@ -233,9 +335,9 @@ Weight: 2~
 @56 = ~Aasimar~
 @57 = ~aasimar~
 
-//Items again
+//Items again 
 @61 = ~Planar Revealing Gem~
-@62 = ~This precious looking gem appears magical, and oddly fragile. You could easily break it with your hands to unleash its magic, but it certainly seems you can only do it once.~
+@62 = ~This precious looking gem appears magical, and oddly fragile. You could easily break it with your hands to unleash its magic, but it certainly seems you can only do it once.~ 
 
 @63 = ~Celestial Journal~
 @64 = ~This journal seems to be entirely written in the language of celestial. It's letters and words remain gibberish to you, but your companion, Emily, appears to be able to read it.~
@@ -248,29 +350,29 @@ Weight: 2~
 
 STATISTICS:
 
-THAC0: +1, +4 against aasimar, tieflings, and demonic entities
-Damage: +1, +4 against aasimar, tieflings, and demonic entities
+THACO: +1,+4 against aasimar, tieflings, and demonic entities
+Damage: +1,+4 against aasimar, tieflings, and demonic entities 
 Speed Factor: 5
 Proficiency Type: Long sword
-Type: One-handed
-Requires:
+Type: Large Sword
+Requires: 
 10 Strength
 
 Weight: 10~
 
-@69 = ~Enhanced Fleshripper +2~
+@69 = ~Enhanced Fleshripper +2~ 
 @70 = ~Despite this short bow's intimidating name, it carries no gruesome history. Kitsana, an elven ranger, designed this bow for her own use and could fire it with astonishing rapidity. One night at camp Kitsana's party each took a turn trying to master the unusually thin bowstring and uniquely curved grip of the weapon. None shot as poorly as the fighter, a braggart named Tirrel, who not only missed his target by a foot but who snapped the bowstring down the length of his forearm and tore off a strip of skin. Kitsana and her party faded into obscurity decades ago but her bow still circulates.
 
-Emily has modified the string of the Fleshripper, enhancing its ability to help the user be more agile and accurate.
+Emily has modified the string of the Fleshripper, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
 
-Equipped abilities:
-– Movement Speed: +2
-– Dexterity: +1
-
 Combat abilities:
 – 5% chance per hit of hasting the wielder for 4 rounds
+
+Equipped abilities: 
+– Movement Speed: +2
+- Dexterity: +1
 
 THAC0: +2
 Damage: +2
@@ -293,142 +395,136 @@ Weight: 1~
 @77 = ~Enchanted Bolt II~
 @78 = ~Enchanted Bolt III~
 @79 = ~Enchanted Bolt IV~
-@80 = ~Fletch Arrow~
+@80 = ~Fletch Arrow~ 
 @81 = ~Fletch Bolt~
-@82 = ~This arrow fletched by Emily is a basic enchanted arrow, fast and light. It strikes with the enchantment of four different elements.
+@82 = ~This arrow fletched by Emily is a basic enchanted arrow, fast and light. It strikes with the enchantment of four different elements. 
 
 STATISTICS:
 
-Damage: 1d6, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Bow
 
 Weight: 0~
-@83 = ~This arrow fletched by Emily is a simple enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements.
+@83 = ~This arrow fletched by Emily is a simple enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements. 
 
 STATISTICS:
 
-THAC0: +1
-Damage: 1d6, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Bow
 
 Weight: 0~
-@84 = ~This arrow fletched by Emily is a heavily enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements, and its arrowhead splinters upon contact, possibly slowing its target.
+@84 = ~This arrow fletched by Emily is a heavily enchanted arrow, fast, light, and precise. It strikes with the enchantment of four different elements, and its arrowhead splinters upon contact, possibly slowing its target. 
 
 STATISTICS:
 
-Combat abilities
-– Target must make a save vs. Spell or have their movement speed halved for one round.
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved for one round.
 
-THAC0: +1
-Damage: 1d6, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Bow
 
 Weight: 0~
-@85 = ~This arrow represents Emily's finest fletching. The arrow is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half.
+@85 = ~This arrow represents Emily's finest fletching. The arrow is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. 
 
 STATISTICS:
 
-Combat abilities
-– Target must make a save vs. Spell or have their movement speed halved for one round.
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved for one round.
 
-THAC0: +2
-Damage: 1d6, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+THACO: +2
+Damage: 1d6 (missile) +1 Acid/Cold/Fire/Electrical Damage (Save vs. Spell for none)
 Launcher: Bow
 
 Weight: 0~
-@86 = ~This bolt fletched by Emily is a basic enchanted bolt, fast and light. It strikes with the enchantment of four different elements. Only she can make use of this bolt.
+@86 = ~This Bolt fletched by Emily is a basic enchanted bolt, fast and light. It strikes with the enchantment of four different elements. Only she can make use of this Bolt.
 
 STATISTICS:
 
-Damage: 1d8, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Crossbow
 
 Weight: 0~
-@87 = ~This bolt fletched by Emily is a simple enchanted bolt, fast, light, and precise. It strikes with the enchantment of four different elements. Only she can make use of this bolt.
+@87 = ~This Bolt fletched by Emily is a simple enchanted bolt, fast, light, and precise. It strikes with the enchantment of four different elements. Only Emily can make use of this Bolt.
 
 STATISTICS:
 
-THAC0: +1
-Damage: 1d8, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Crossbow
 
 Weight: 0~
-@88 = ~This bolt fletched by Emily is a heavily enchanted bolt, fast, light, and precise. It strikes with the enchantment of four different elements, and its Bolthead splinters upon contact, possibly slowing its target. Only she can make use of this Bolt.
+@88 = ~This Bolt fletched by Emily is a heavily enchanted bolt, fast, light, and precise. It strikes with the enchantment of four different elements, and its Bolthead splinters upon contact, possibly slowing its target. Only Emily can make use of this Bolt.
 
 STATISTICS:
 
-Combat abilities
-– Target must make a save vs. Spell or have their movement speed halved for one round.
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved for one round.
 
-THAC0: +1
-Damage: 1d8, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+THACO: +1
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Crossbow
 
 Weight: 0~
-@89 = ~This bolt represents Emily's finest fletching. The bolt is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. Only she may make use of its power.
+@89 = ~This Bolt represents Emily's finest fletching. The bolt is fast and precise, and sends its surging energy of four elements into its victim, possibly slowing their movement by half. Only she may make use of its power.
 
 STATISTICS:
 
-Combat abilities
-– Target must make a save vs. Spell or have their movement speed halved for one round.
+Combat Abilities
+-Target must make a save versus spell or have their movement speed halved for one round.
 
-THAC0: +2
-Damage: 1d8, +1 acid, cold, electrical, and fire damage (save vs. Spell for none)
-Damage type: Missile
+THACO: +2
+Damage: 1d6 (missile) +1 Acid/Cold/Electrical/Fire Damage (Save vs. Spell for none)
 Launcher: Crossbow
 
 Weight: 0~
-@90 = ~Fletch Arrow: Emily fletches a dozen enchanted arrows. She may only fletch while not in combat. As she gains levels, her skill with enchanting and fletching increases, changing the properties of the arrows:
-
-Level 1: +1 acid, cold, electrical, and fire damage (save vs. Spell for none).
-Level 6: +1 acid, cold, electrical, and fire damage (save vs. Spell for none), +1 THAC0
-Level 12: +50% Movement speed penalty for one round and +1 acid, cold, electrical, and fire damage (save vs. Spell to avoid all effects), +1 THAC0
-Level 18: +50% Movement speed penalty for one round and +1 acid, cold, electrical, and fire damage (save vs. Spell to avoid all effects), +2 THAC0~
-@91 = ~Fletch Bolt: Emily fletches a dozen enchanted bolts. She may only fletch them while not in combat. As she gains levels, her skill with enchanting and fletching increases, changing the properties of the bolts:
-
-Level 1: +1 acid, cold, electrical, and fire damage (save vs. Spell for none).
-Level 6: +1 acid, cold, electrical, and fire damage (save vs. Spell for none), +1 THAC0
-Level 12: +50% movement speed penalty for one round and +1 acid, cold, electrical, and fire damage (save vs. Spell to avoid all effects), +1 THAC0
-Level 18: +50% movement speed penalty for one round and +1 acid, cold, electrical, and fire damage (save vs. Spell to avoid all effects), +2 THAC0~
+@90 = ~Fletch Arrow: Emily fletches a dozen enchanted arrows. She may only fletch while not in combat. 
+	As she gains levels, her skill with enchanting and fletching increases, changing the arrows properties:
+	
+	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
+	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
+	Level 12: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
+	Level 18: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~
+@91 = ~Fletch Bolt: Emily fletches a dozen enchanted bolts. She may only fletch them while not in combat. 
+	As she gains levels, her skill with enchanting and fletching increases, changing the bolts properties:
+	
+	Level 1: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None). 
+	Level 6: +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for None), +1 Thaco
+	Level 12: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +1 Thaco
+	Level 18: +50% Movement Speed Penalty for one round and +1 Acid/Cold/Electrical/Fire Damage (Save vs Spell for No Damage, no penalty), +2 Thaco~ 
 // New Items for 1.53+
 @92 = ~Emily's Wing Necklace~
-@93 = ~This silver wing threaded into a necklace contains warm, soothing magic. When a hand is put onto another being, the wearer of the necklace may let its magic thread from them into their target, curing them of any paralysis once, where it will then need time to restore its magic within after a period of rest. This necklace is the only possession Emily has that she believes is from her birth mother, and she is unwilling to part with it for any reason.
+@93 = ~Emily's Wing Necklace: This silver wing threaded into a necklace contains warm, soothing magic.
+When a hand is put onto another being, the wearer of the necklace may let its magic thread from them into their target, curing them of any paralysis once, where it will then 
+need time to restore its magic within after a period of rest. This necklace is the only possession Emily has that she believes is from her birth mother, and she is unwilling to part with it for any reason.
 
 STATISTICS:
 
-Charge abilities:
-– Cure Paralysis once per day
+Charge abilities (Once per day):
+-Cure Paralysis
 
 Weight: 1~
 @94 = ~Emily's Silver Circlet~
-@95 = ~These silver circlets are worn by the nobility of House Castilla, and gifted to them when they reach adulthood. Each is enchanted with magic unique to the wearer. Emily's circlet enhances her concentration with the bow, allowing her hits to be sharper. However, unlike a helmet, circlets do not protect against critical hits.
+@95 = ~Emily's Silver Circlet: These silver circlets are worn by the nobility of House Castilla, and gifted to them when they reach adulthood. Each is enchanted with magic unique to the wearer. 
+Emily's Silver Circlet enhances her concentration with the bow, allowing her hits to be sharper. However, unlike a helmet, circlets do not protect against critical hits.
 
 STATISTICS:
 
 Equipped abilities:
-– Critical Hit Chance: +5% (ranged attacks)
-– Does not protect against critical hits
+-Ranged Critical Chance: +5%
+-Does not protect against critical hits
 
-Weight: 1~
+Weight: 1~ 
 @96 = ~Sorry, <CHARNAME>. I can't give that up.~
 
 @97 = ~Enhanced Bow of the Banshee +2~
 
 @98 = ~A wooden face carved mid-scream stares out from the shaft of this hardwood bow. It's whispered that the half-orc archer Zavruk had an elven soul bound into the bow, but the bow's lack of a necromantic aura casts doubt on the story. What's certain is that the bowstring makes a horrible screeching noise whenever fired, instilling fear in the wielder's enemies.
 
-Emily has modified the string of the Bow of the Banshee, enhancing its ability to help the user be more agile and accurate.
+Emily has modified the string of the Bow of the Banshee, enhancing it's ability to help the user be more agile and accurate.
 
 STATISTICS:
-
-Equipped abilities:
-– Dexterity: +1
 
 Combat abilities:
 – 10% chance per hit of casting Cloak of Fear centered on the wielder
@@ -436,6 +532,7 @@ Combat abilities:
 
 THAC0: +3
 Damage: +2
+Dexterity: +1
 Speed Factor: 5
 Proficiency Type: Longbow
 Type: Two-handed
@@ -450,20 +547,77 @@ Weight: 3~
 @113 = ~Adding Crossmod between Drake and Emily.~
 //1.62
 //@114 = ~Rodwyn~
-@10015 = ~Emily's Tale
+@10015 = ~Emily's Tale 
 Emily has learned of a name Rodwyn from the book she received. She wants to see if this last hopeful lead she has found has any information on her mother. Apparently he is in the Feldepost Inn in Beregost, perhaps on the upper level.~
-@10016 = ~Emily's Tale
-Upon learning we slew Aldagisa, who turned out to be Alina, Emily's mother, Rodwyn and his fellow adventurers attacked us. Emily is understandably devastated.~
-@10017 = ~Emily's Tale
+@10016 = ~Emily's Tale 
+Upon learning we slew Aldagisa, who turned out to be Alina, Emily's mother, Rodwyn and his fellow adventurers attacked us. Emily is understandably devestated.~
+@10017 = ~Emily's Tale 
 We learned from Rodwyn that Aldagisa was really Alina, Emily's mother, and that they had killed his fellow adventurers, and spared his life in an attempt to lure Alina to him. Learning of his betrayal, the planar hunters slew him before attacking us, though Emily has at last learned of her mother, and a bit more than she bargained for.~
 @118 = ~Adventurer~
-@119 = ~Rodwyn~
+@119 = ~Rodwyn~ 
 @120 = ~Planar Hunter Leader~
 @121 = ~Alina's Letter to Rodwyn.~
-@122 = ~The planar hunters continue to give chase, but I think I have lost them in the city, and I am hopeful the lockdown will buy me time to make a plan. I've adopted the name Adalgisa for now, and will come visit you once the gates are open and I'm sure they aren't following me.
+@122 = ~The planar hunters continue to give chase, but I think I have lost them in the city, and I am hopeful the lockdown will buy me time to make a plan. I've adopted the name Adalgisa for now, and will come visit you once the gates are open and I'm sure they aren't following me. 
 I could use your help in taking them down. It will be just like the good old days, except we aren't in Cormyr this time. Once they leave us alone, perhaps it is worth a second visit?
 
 -Alina~
+@123 = ~Loyalty~
+@124 = ~Isaac's personal dagger has seen much use, old blood stains still noticeable on the handle. He can use it in melee or throw it, where it will always return to his hand a moment later.
+
+THAC0: +1
+Damage (melee): 1d4+1
+Damage (ranged): 1d4+1
+Damage Type (melee): Piercing
+Damage Type (ranged): Missile
+Speed Factor (melee): 1
+Speed Factor (ranged): 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 1~
+@125 = ~Planar Hunter Camilla.~
+@126 = ~Planar Hunter Sol~
+@127 = ~Planar Hunter Rowan~
+//New Bows 
+@128 = ~Corinth's Bow~ 
+@129 = ~Though obviously well-used, someone has taken excellent care of this finely crafted bow. A small golden seal on one side appears to be a family crest.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: +1
+
+Combat abilities: 
+– After scoring a critical hit, the wielder is affected by the Luck spell
+
+THAC0: +3
+Damage: +4
+Speed Factor: 5
+Proficiency Type: Longbow
+Type: Two-handed
+Requires:
+ 17 Strength
+
+Weight: 8~
+@130 = ~Savage Bow~
+@131 = ~This bow appears crudely made. The knotty length of wood has numerous stumps where twigs were pruned away, and living leaves still spring from it. In spite of its apparent poor quality, the bow has clearly been enhanced with nature magic. It is rumored the wild elves of the Chondalwood make good use of such weapons, especially against invading orcs and ogres.
+
+STATISTICS:
+
+Equipped abilities:
+– Constitution: +1 (elves and half-elves)
+- 3 shots per round
+THAC0: +2
+Damage: +2, +3 extra vs. orcs, half-orcs, and ogres
+Speed Factor: 4
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
 @2000 = ~Done and done.~
 @2001 = ~12 pieces of ammunition, ready for use!~
 @2002 = ~A fresh batch of ammunition ready.~
@@ -474,3 +628,66 @@ I could use your help in taking them down. It will be just like the good old day
 @2007 = ~You should repay me with a nice pair of new boots for all this fletching. I'm kidding! Kind of.~
 @2008 = ~Just a warning, I've only enough supplies for only one more quiver, then I'm all out.~
 @2009 = ~That's the last of the supplies. Let's use these last ones well.~
+
+@60000 = ~Isaac's Hunt~
+@60001 = ~Isaac's Hunt
+
+We've invited Isaac, a Planar Hunter seeking to hunt down a tiefling named Mavis. He seems honorable, though he also tried to kill us. It remains to be seen if he can be trusted.~ 
+@60002 = ~Isaac's Hunt
+
+Isaac mentioned how we can get started in his hunt for Mavis. He knows of two people who were last in contact with her, a mage named Yusmin who is staying in the Red Sheaf, and a merchant Avarn, who is staying in the Jovial Juggler. We should talk with one of them to find out where she is. Neither will cooperate with a planar hunter, so we should keep Isaac out of their sight when we speak to them.~
+@60003 = ~Isaac's Hunt 
+
+Yusmin attacked us, refusing to give any information on Mavis's whereabouts.~
+@60004 = ~Isaac's Hunt 
+
+Yusmin revealed to us a lead. An apprentice of Mavis's associate named Vern is waiting in Nashkel at the Belching Dragon Tavern for some spell components that Yusmin has no desire to deliver. We can track down Vern there and get answers on where Mavis may be.~
+@60005 = ~Isaac's Hunt 
+
+Avarn saw we were with Isaac and refused to work with us.~
+@60006 = ~Isaac's Hunt 
+
+Avarn revealed to us a lead. An apprentice of Mavis's associate named Vern is waiting in Nashkel for some gems that Avarn has no desire to deliver. We can track down Vern there and get answers on where Mavis may be.~
+@60007 = ~Isaac's Hunt 
+
+Avarn attacked us, refusing to give any information on Mavis's whereabouts.~
+
+@60008 = ~Isaac's Hunt 
+
+Isaac's hunt now turns to Baldur's Gate, where Caim's apprentice reports his master and Mavis are currently located, meeting with an Aasimar. He suggests we move there when we can and find some associates of his, who will be within the city.~
+
+@60009 = ~Isaac's Hunt 
+
+Vern was slain. Isaac says the only hope he has left is to regroup with his associates, hoping they have some idea where the hunt can turn to next.~
+
+@60010 = ~Isaac's Hunt 
+
+Fed up with our failures with his hunt for Mavis, Isaac has left the party.~
+
+@60011 = ~Isaac's Hunt 
+
+Vern was slain. Fed up with our failures, we moved to finish our fight we started against one another.~
+
+@60012 = ~Isaac's Hunt 
+
+Isaac met up with his fellow planar hunter's in Baldur's Gate, who informed him they seen the aasimar associate in the district, and advised checking the local inns. They suggested through her, dead or alive, we can learn where Mavis is.~
+
+@60013 = ~Isaac's Hunt 
+
+We told Isaac that his fellows were slain by us. Infuriated, he attacked us.~
+
+@60014 = ~Isaac's Hunt 
+
+Isaac learned that Mavis is around the temple in Beregost. He is eager to face off with her there.~
+
+@60015 = ~Isaac's Hunt 
+
+We finally came face to face with Mavis. But before Isaac could have his revenge, her cohort, Caim, teleported her and the gnome Arbex to somewhere unknown. We killed Caim, but he succeeded in making the hunt cold. For now, the pursuit of Mavis is at an end.~
+
+@100103  = ~^REmily slightly disapproves.^-~
+@100106  = ~^REmily disapproves.^-~
+@100109  = ~^REmily greatly disapproves.^-~
+@100113  = ~^GEmily slightly approves^-~
+@100116  = ~^GEmily approves^-~
+@100119  = ~^GEmily greatly approves^-~
+@10099 = ~^0xFFFF00FFYou have established a deep bond with Emily. Your synergy has improved her capabilities.^-~

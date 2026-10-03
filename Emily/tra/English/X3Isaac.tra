@@ -1,0 +1,113 @@
+@0 = ~What do we have here? You must be coming from the Friendly Arm. Well met.~ [X3IPick]
+
+@1 = ~That one, she has horns! Her kind must be cleansed.~
+
+@2 = ~She is not the one we are hunting, Ector.~
+
+@3 = ~The cause is to remove them all from Faerûn!~
+
+@4 = ~I am sorry, strangers, but we must remove the taint. Do not interfere, and by my honor your life will be spared.~
+
+@5 = ~Forget your honor! Those who associate with filth will be fed to the dirt.~
+
+@6 = ~So be it, Ector. Let us fight with honor.~
+
+@7 = ~There is a bounty on that one's head. For enough coins that it is worth a momentary diversion from our mission.~
+
+@8 = ~Our cause is for those who do not  belong on the prime. And this bounty is of no government's.~
+
+@9 = ~The cause needs gold, Isaac. You know that as well as I.~
+
+@10 = ~I do not need gold to kill an outsider. Only my blade.~
+
+@11 = ~With the iron crisis we will need several, and for that we will need gold. Their life is forfeit.~
+
+@12 = ~*Grunt* You fight hard. I concede.~ [X3IDam]
+
+@13 = ~*Grunt* It seems my partner was all bite and no courage. I concede.~ [X3IDam]
+
+@14 = ~You are stronger than I had estimated. I have a proposal, should you choose to spare me.~
+
+@15 = ~Assist me with my hunt. In return, I swear to you my unwavering loyalty, and my life.~
+
+@16 = ~I need to know who you are, and what your hunt is, before I answer.~
+
+@17 = ~Forget it. Your life is over.~
+
+@18 = ~I have no interest in your hunt or your life. Flee my presence.~
+
+@19 = ~Then I welcome the darkness. Fight me!~ [X3IBat5]
+ 
+@20 = ~Then I will accept your act of mercy and take flight. Goodbye.~
+
+@21 = ~I am Isaac, a member of the Planar Hunters. We track down humans and others who have been tainted by the planes, and remove them from Faerûn.~ [X3Isaac]
+
+@22 = ~Those such as your companion.~
+
+@23 = ~I am hunting a tiefling named Mavis. They are involved with another plane-touched, a fire genasi named Caim who has burned entire villages with their pyromania. For that and more, penance is demanded, and I will deliver it.~
+
+@24 = ~Mavis has personally seen to the death of many of my fellow members, and even harmed myself. The stakes are very personal, but she is stronger than the rest of us. With you though, there may be a chance.~
+
+@25 = ~I will not harm her for as long as I am sworn into your service, and you agree to my hunt. My priority is to those who pose the greatest danger to our realm.~
+
+@26 = ~Very well then. What will you do with me?~
+
+@27 = ~Good. I swear to you my loyalty, and my life, for as long as you wish to have it. But know I am not your slave, if our paths become... incompatible, we will part ways.~
+
+@28 = ~I believe this will be a good partnership for us both. Let us proceed.~
+
+@29 = ~I travel with Sirene. Won't that be a problem for you?~
+
+@30 = ~I will help you. Join us.~
+
+@31 = ~I will not help you.~
+
+@32 = ~I will not be letting you live, Isaac.~
+
+@33 = ~You can go. Do what you will with your life.~
+
+@34 = ~I think I will go to the Friendly Arm Inn for a time. Baldur's Gate is closed and I cannot return to the other Planar Hunters. If you change your mind, I will be there.~
+
+@35 = ~I have no more room for anyone else in my party.~
+
+@36 = ~Then I will wait. You may find me in the Friendly Arm Inn for a time. Baldur's Gate is closed and I cannot return to the other Planar Hunters. If you change your mind, I will be there.~
+
+@37 = ~For a guy who just tried to kill us, he does seem...nice. Let's hope he doesn't try to kill us again while we sleep.~
+
+@38 = ~I assure you, I have no ill intentions.~
+
+@39 = ~Well, I'll be the judge of that, hmm?~
+
+@40 = ~Welcome back to the Friendly Arm Inn. Have you changed your mind, or are you here just to rest?~
+
+@41 = ~I have. Join us.~
+
+@42 = ~Just to rest. Farewell.~
+
+@43 = ~That is our business, not yours.~
+
+@44 = ~So be it. Farewell.~
+
+@45 = ~You wish to part ways? We have not finished the hunt. I ask you reconsider.~
+
+@46 = ~Very well, stay.~
+
+@47 = ~My decision is made, Isaac.~
+
+@48 = ~Wait here. I will be back when I need you.~
+
+@49 = ~I will be back in the Friendly Arm Inn if you change your mind.~
+
+@50 = ~The hunt remains incomplete. Do you wish to rejoin with me and finish our task?~
+
+@51 = ~I do. Welcome aboard.~
+
+@52 = ~Not at this time.~
+
+@53 = ~Good. I have been idle too long.~
+
+@54 = ~I will be here if you change your mind.~
+
+@55 = ~You wish to part ways? I ask you reconsider.~
+
+@56 = ~Greetings, friend. Do you wish me to rejoin you?~
