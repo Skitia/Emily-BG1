@@ -7,6 +7,26 @@ DisplayStringHead("X32EHK3S",@31)
 Dialogue(Player1)
 END
 
+IF 
+See("X3Isaac")
+AreaCheck("BD3000")
+Global("X3IsaacJacob","LOCALS",0)// They have spawned 
+THEN RESPONSE #100 
+SetGlobal("X3IsaacJacob","LOCALS",1)//Turn Off 
+DisplayStringHead("X32EHK3S",@92)
+Dialogue(Player1)
+END
+
+IF 
+	GlobalGT("X3FightEmily","GLOBAL",0)
+	Dead("X3mily")
+	OR(2)
+	Dead("X3Isaac")
+	Global("X3FightEmily","GLOBAL",3)
+THEN RESPONSE #100 
+	EscapeArea()
+END 
+
 IF
 	See([PC])
 	AttackedBy([GOODCUTOFF],DEFAULT)
@@ -26,6 +46,8 @@ END
 
 
 IF
+	OR(2)
+	Global("X3FightEmily","GLOBAL",1)
     See(NearestEnemyOf(Myself))
 	Global("X3SpellFire","LOCALS",0)
  THEN
@@ -34,6 +56,14 @@ IF
 	ForceSpell(Myself,WIZARD_MIRROR_IMAGE)
 	ForceSpell(Myself,WIZARD_GHOST_ARMOR)
 	ForceSpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF 
+	Global("X3FightEmily","GLOBAL",1)
+	!Dead("X3mily")
+THEN RESPONSE #100 
+	Attack("X3mily")
+	Continue()
 END
 
 IF

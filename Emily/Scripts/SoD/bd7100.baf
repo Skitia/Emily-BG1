@@ -46,3 +46,31 @@ THEN
     ActionOverride("X3mily",ChangeAIScript("BDFIGH01",GENERAL))
     Continue()
 END
+
+IF
+    InParty("X3Isaac")
+	Global("X3IsaacMoveCamp","BD7100",0)
+THEN
+  RESPONSE #100
+    SetGlobal("X3IsaacMoveCamp","BD7100",1)
+END
+
+IF
+  Global("X3IsaacMoveCamp","BD7100",0)
+  !Dead("X3Isaac")
+  !InPartyAllowDead("X3Isaac")
+THEN
+  RESPONSE #100
+    SetGlobal("X3IsaacMoveCamp","BD7100",1)
+    MoveGlobal("BD7100","X3Isaac",[295.3179])
+    ActionOverride("X3Isaac",Face(SE))
+    ReallyForceSpellDeadRES("BDREJUVE","X3Isaac")
+    ChangeEnemyAlly("X3Isaac",NEUTRAL)
+    ChangeSpecifics("X3Isaac",ALLIES)
+    ActionOverride("X3Isaac",SetGlobal("bd_joined","LOCALS",0))
+    ActionOverride("X3Isaac",SetGlobal("bd_retreat","LOCALS",0))
+    ActionOverride("X3Isaac",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3Isaac",ChangeAIScript("X32Isaa",OVERRIDE))
+    ActionOverride("X3Isaac",ChangeAIScript("BDTHIE10",GENERAL))
+    Continue()
+END

@@ -1,0 +1,7 @@
+IF 
+Global("X3EmiRodwynIsaacDuel","GLOBAL",1)
+Dead("X3Isaac")
+!Global("X3Hostile","LOCALS",1)
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 

@@ -1,0 +1,47 @@
+IF 
+Global("X3IQuest","GLOBAL",7)
+THEN RESPONSE #100
+SetGlobal("X3IQuest","GLOBAL",8)
+		FadeToColor([0.0],0)
+		Wait(1)
+		Explore()
+		StartCutSceneMode()		
+		CreateCreature("X3ARBEX",[1036.1847],E) //Arbex 
+		CreateCreature("X3MAVIS",[1263.1835],W) //Mavis
+		CreateCreature("X3CAIM",[1174.1745],SW)  //Caim
+		CreateCreature("cutspy",[1263.1835],15)  // Cutscene Spy
+		Wait(1)
+		ActionOverride(Player1,JumpToPoint([265.1933]))
+		ActionOverride(Player2,JumpToPoint([245.1982]))
+		ActionOverride(Player3,JumpToPoint([233.1889]))
+		ActionOverride(Player4,JumpToPoint([197.1853]))
+		ActionOverride(Player5,JumpToPoint([230.2034]))
+		ActionOverride(Player6,JumpToPoint([165.1932]))		
+		SmallWait(1)
+		SetInterrupt(FALSE)
+		ClearAllActions()
+		Wait(1)
+		MoveViewObject("X3MAVIS",INSTANT)
+		FadeFromColor([30.0],0)
+		Wait(1)
+		StartCutScene("X3ICut01")	
+		Continue()
+END 
+
+IF 
+Global("X3IFinalBattle","GLOBAL",1)
+THEN RESPONSE #100
+SetGlobal("X3IFinalBattle","GLOBAL",2)
+		ActionOverride("cutspy",DestroySelf())
+		CreateVisualEffect("SPPORTAL",[1036.1847]) 
+		CreateCreature("X3IFire1",[1036.1847],E) //Lesser Fire Elemental
+		Wait(12)
+		CreateVisualEffect("SPPORTAL",[1036.1847]) 
+		CreateCreature("X3IFire2",[1036.1847],E) //Fire Elemental
+		Wait(12)
+		CreateVisualEffect("SPPORTAL",[1036.1847]) 
+		CreateCreature("X3IFire3",[1036.1847],E) //Greater Fire Elemental		
+		Wait(12)
+		CreateVisualEffect("SPPORTAL",[1036.1847]) 
+		CreateCreature("X3IFire4",[1036.1847],E) //Elder Fire Elemental				
+END

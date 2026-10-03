@@ -11,7 +11,28 @@ THEN
 		ActionOverride("X32EHK1",Enemy())
 END
 
+IF 
+	GlobalGT("X3FightEmily","GLOBAL",0)
+	Dead("X3mily")
+	OR(2)
+	Dead("X3Isaac")
+	Global("X3FightEmily","GLOBAL",3)
+THEN RESPONSE #100 
+	EscapeArea()
+END 
+
+
+IF 
+	Global("X3FightEmily","GLOBAL",1)
+	!Dead("X3mily")
+THEN RESPONSE #100 
+	Attack("X3mily")
+	Continue()
+END
+
 IF
+	OR(2)
+	Global("X3FightEmily","GLOBAL",1)
     See(NearestEnemyOf(Myself))
     HasItem("potn10",Myself)
  THEN

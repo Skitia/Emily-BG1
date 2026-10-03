@@ -1,0 +1,7 @@
+IF 
+Global("X3IsaacForceEncounter","GLOBAL",0)
+THEN 
+RESPONSE #100 
+SetGlobal("X3IsaacForceEncounter","GLOBAL",1)
+ForceRandomEncounter("%bg1_eet_symbol%5800") 
+END 

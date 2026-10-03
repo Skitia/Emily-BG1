@@ -1,0 +1,9 @@
+IF 
+OR(2)
+Dead("X3mily")
+!InMyArea("X3mily")
+Global("IsaacBetrayParty","GLOBAL",0)
+Global("IsaacLoyalEmily","GLOBAL",0)
+THEN RESPONSE #100 
+EscapeArea()
+END 

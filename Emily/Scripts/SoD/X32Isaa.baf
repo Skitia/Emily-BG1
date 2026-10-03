@@ -1,0 +1,1830 @@
+// These blocks set up Isaac's experience based off of the PC's level.
+
+IF
+  Global("BD_JOINXP","LOCALS",1)
+  Global("BD_SAFEHOUSE_DONE","GLOBAL",1)
+  Global("BDSODXP","LOCALS",0)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BDSODXP","LOCALS",1)
+    SetGlobal("BD_JOINXP","LOCALS",0)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPLT(Player1,70000)
+  XPLT(Myself,64000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+	ChangeStat(Myself,XP,64000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPLT(Player1,70000)
+  !XPLT(Myself,64000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,70000)
+	XPLT(Player1,110000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,70000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,109999)
+	XPLT(Player1,160000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,110000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,159999)
+	XPLT(Player1,220000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,160000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,219999)
+	XPLT(Player1,440000)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,220000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	Global("BD_JOINXP","LOCALS",0)
+	InParty(Myself)
+	XPGT(Player1,439999)
+THEN RESPONSE #100
+	SetInterrupt(FALSE)
+	ChangeStat(Myself,XP,440000,SET)
+	SetGlobal("BD_JOINXP","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+//Talk Timers 
+
+IF 
+InParty(Myself)
+!AreaType(DUNGEON)
+Global("X32IsaaTalk","GLOBAL",0)
+THEN
+RESPONSE #100 
+SetGlobalTimer("X32IsaaGameTalkTimer","GLOBAL",ONE_DAY)
+IncrementGlobal("X32IsaaTalk","GLOBAL",1) 
+END 
+
+IF 
+GlobalTimerExpired("X32IsaGameTalkTimer","GLOBAL")
+InParty("X3Isa")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+Global("X32IsaTalk","GLOBAL",1)
+THEN RESPONSE #100 
+IncrementGlobal("X32IsaTalk","GLOBAL",1)
+END 
+
+IF 
+GlobalTimerExpired("X32IsaGameTalkTimer","GLOBAL")
+RealGlobalTimerExpired("X32IsaRealTalkTimer","GLOBAL")
+InParty("X3Isa")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+OR(4)
+Global("X32IsaTalk","GLOBAL",3)
+Global("X32IsaTalk","GLOBAL",5)
+Global("X32IsaTalk","GLOBAL",7)
+Global("X32IsaTalk","GLOBAL",11)
+THEN RESPONSE #100 
+IncrementGlobal("X32IsaTalk","GLOBAL",1)
+END 
+
+IF 
+GlobalTimerExpired("X32IsaGameTalkTimer","GLOBAL")
+RealGlobalTimerExpired("X32IsaRealTalkTimer","GLOBAL")
+InParty("X3Isa")
+Gender(Player1,FEMALE)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+Global("X32IsaTalk","GLOBAL",9)
+THEN RESPONSE #100 
+IncrementGlobal("X32IsaTalk","GLOBAL",1)
+END 
+
+IF 
+GlobalTimerExpired("X32IsaGameTalkTimer","GLOBAL")
+RealGlobalTimerExpired("X32IsaRealTalkTimer","GLOBAL")
+InParty("X3Isa")
+!Gender(Player1,FEMALE)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+Global("X32IsaTalk","GLOBAL",9)
+THEN RESPONSE #100 
+SetGlobalTimer("X32IsaaGameTalkTimer","GLOBAL",THREE_DAYS)
+RealSetGlobalTimer("X32IsaaRealTalkTimer","GLOBAL",ONE_HOUR)
+IncrementGlobal("X32IsaTalk","GLOBAL",2)
+END 
+
+
+
+IF
+InParty("X3Isa")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+!AreaType(DUNGEON)
+OR(6)
+Global("X32IsaTalk","GLOBAL",2)
+Global("X32IsaTalk","GLOBAL",4)
+Global("X32IsaTalk","GLOBAL",6)
+Global("X32IsaTalk","GLOBAL",8)
+Global("X32IsaTalk","GLOBAL",10)
+Global("X32IsaTalk","GLOBAL",12)
+THEN RESPONSE #100 
+PlaySong(0)
+StartDialogueNoSet(Player1)
+END 
+
+IF 
+See(NearestEnemyOf(Myself))
+GlobalGT("X32PlanarHunterEnemy","GLOBAL",2)
+THEN RESPONSE #100
+Attack(NearestEnemyOf(Myself)) 
+END 
+
+IF 
+	Global("X3FightEmily","GLOBAL",1)
+	!Dead("X3mily")
+THEN RESPONSE #100 
+	Attack("X3mily")
+	Continue()
+END
+
+IF 
+	Global("X3FightEmily","GLOBAL",1)
+	Dead("X3mily")
+THEN RESPONSE #100 
+	SetGlobal("X3FightEmily","GLOBAL",2)
+	StartDialogueNoSet(Player1)
+END 
+
+IF 
+Global("X3IsaacSoDQuest","GLOBAL",-1)
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+DisplayStringHead("X3Isaac",@105)
+SetGlobal("X3IsaacSoDQuest","GLOBAL",4)
+END 
+
+IF 
+Global("X3IsaacSoDQuest","GLOBAL",3)
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+DisplayStringHead("X3Isaac",@106)
+SetGlobal("X3IsaacSoDQuest","GLOBAL",4)
+END 
+
+IF 
+Global("X3IsaacSoDQuest","GLOBAL",2)
+InParty(Myself)
+InParty("X3mily")
+See(Player1)
+Range(Player1,16)
+!StateCheck("X3mily",CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN RESPONSE #100 
+StartDialogueNoSet(Player1)
+END 
+
+
+//Approval Shifts 
+
+IF 
+InParty(Myself)
+Switch("X3IsaacAppChange","GLOBAL")
+THEN RESPONSE #1
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-10)
+DisplayStringNoNameDlg(Player1,@600609)
+RESPONSE #2
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-8)
+DisplayStringNoNameDlg(Player1,@600609)
+RESPONSE #3
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-6)
+DisplayStringNoNameDlg(Player1,@600606)
+RESPONSE #4
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-4)
+DisplayStringNoNameDlg(Player1,@600606)
+RESPONSE #5
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",-2)
+DisplayStringNoNameDlg(Player1,@600603)
+RESPONSE #6
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+RESPONSE #7
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",2)
+DisplayStringNoNameDlg(Player1,@600613)
+RESPONSE #8
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",4)
+DisplayStringNoNameDlg(Player1,@600616)
+RESPONSE #9
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",6)
+DisplayStringNoNameDlg(Player1,@600616)
+RESPONSE #10
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",8)
+DisplayStringNoNameDlg(Player1,@600619)
+RESPONSE #11
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+IncrementGlobal("X3IsaacApp","GLOBAL",10)
+DisplayStringNoNameDlg(Player1,@600619)
+END 
+
+// If not in party, it should be reset with no approval changes. 
+IF 
+!InParty(Myself) 
+!Global("X3IsaacAppChange","GLOBAL",0)
+THEN RESPONSE #100 
+SetGlobal("X3IsaacAppChange","GLOBAL",0)
+END
+
+//Reset to 90 if past max/reward bonus stats.
+IF 
+GlobalGT("X3IsaacApp","GLOBAL",90)
+InParty(Myself)
+Switch("X3IsaacAppMaxBonus","LOCALS")
+THEN RESPONSE #0
+SetGlobal("X3IsaacApp","GLOBAL",90)
+SetGlobal("X3IsaacAppMaxBonus","LOCALS",1)
+ChangeStat(Myself,INT,1,ADD)
+DisplayStringNoNameDlg(Player1,@60099)
+RESPONSE #1 
+SetGlobal("X3IsaacApp","GLOBAL",90)
+END 
+
+IF 
+GlobalLT("X3IsaacApp","GLOBAL",-39)
+InParty(Myself)
+Switch("X3Leave","LOCALS")
+THEN RESPONSE #0
+SetGlobal("X3Break","LOCALS",1)
+StartDialogueNoSet(Player1)
+RESPONSE #2
+SetGlobal("X3Break","LOCALS",3)
+StartDialogueNoSet(Player1) // Leaves for Good
+END
+
+//Reputation Shifts 
+IF
+ReputationGT(Player1,16)
+Global("X3IsaacRepPenalty","GLOBAL",0)
+InParty("X3Isaac")
+THEN RESPONSE #100
+SetGlobal("X3IsaacRepPenalty","GLOBAL",1)
+IncrementGlobal("X3IsaacApp","GLOBAL",-2)
+DisplayStringNoNameDlg(Player1,@600603)
+END
+
+IF
+ReputationGT(Player1,19)
+Global("X3IsaacRepPenalty","GLOBAL",1)
+InParty("X3Isaac")
+THEN RESPONSE #100
+SetGlobal("X3IsaacRepPenalty","GLOBAL",2)
+IncrementGlobal("X3IsaacApp","GLOBAL",-4)
+DisplayStringNoNameDlg(Player1,@600606)
+END
+
+// Romance Start 
+IF
+	InParty(Myself)
+	Gender(Player1,FEMALE)
+	GlobalGT("X3IsaacApp","GLOBAL",29)
+	Global("X32IsaaMatch","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetGlobal("X32IsaaMatch","GLOBAL",1)
+	SetGlobal("X32IsaaRomanceActive","GLOBAL",1)
+END
+
+// Auto-kill romance if another reaches 2
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",1)
+	OR(10)
+	Global("bd_neera_romanceactive","global",2)
+	Global("bd_rasaad_romanceactive","global",2)
+	Global("bd_dorn_romanceactive","global",2)
+	Global("bd_corwin_romanceactive","global",2)
+	Global("bd_glint_romanceactive","global",2)
+	Global("bd_voghiln_romanceactive","global",2)
+	Global("bd_viconia_romanceactive","global",2)
+	Global("bd_safana_romanceactive","global",2)
+	Global("C02SireneRomanceActive","GLOBAL",2)
+	Global("C02DrakeRomanceActive","GLOBAL",2)
+	Global("C02AuraRomanceActive","GLOBAL",2)
+	Global("X32KaleRomanceActive","GLOBAL",2)
+	Global("X32VienRomanceActive","GLOBAL",2)
+	Global("X32RecRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+	SetGlobal("X32IsaaRomanceActive","GLOBAL",3)
+END
+
+// Auto-kill all other romances
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_neera_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_neera_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_rasaad_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_rasaad_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_dorn_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_dorn_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_corwin_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_corwin_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_glint_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_glint_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_voghiln_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_voghiln_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_viconia_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_viconia_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("bd_safana_romanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("bd_safana_romanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("C02Sireneromanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C02Sireneromanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("C02Drakeromanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C02Drakeromanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("C02Auraromanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C02Auraromanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("X32KaleRomanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("X32KaleRomanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("X32VienRomanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("X32VienRomanceactive","global",3)
+END
+
+IF
+	Global("X32IsaaRomanceActive","GLOBAL",2)
+	Global("X32RecRomanceactive","global",1)
+THEN
+  RESPONSE #100
+	SetGlobal("X32RecRomanceactive","global",3)
+END
+
+//Banters 
+// Viconia
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Viconia")
+	Global("X32IsaaViconia","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaViconiaTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaViconia","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Viconia")
+	Global("X32IsaaViconia","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaViconia","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaViconia_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaViconiaTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaViconia_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaViconia","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Viconia")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaViconia","LOCALS",2)
+	    SetGlobal("X32IsaaViconia1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaViconia_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaViconiaTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaViconia_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaViconia","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Viconia")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaViconiaTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaViconia","LOCALS",3)
+	    SetGlobal("X32IsaaViconia2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+// Corwin
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Corwin")
+	Global("X32IsaaCorwin","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaCorwinTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaCorwin","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Corwin")
+	Global("X32IsaaCorwin","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaCorwin","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaCorwin_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaCorwinTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaCorwin_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaCorwin","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Corwin")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaCorwin","LOCALS",2)
+	    SetGlobal("X32IsaaCorwin1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaCorwin_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaCorwinTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaCorwin_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaCorwin","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Corwin")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaCorwinTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaCorwin","LOCALS",3)
+	    SetGlobal("X32IsaaCorwin2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+// DORN
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("DORN")
+	Global("X32IsaaDORN","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaDORNTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaDORN","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("DORN")
+	Global("X32IsaaDORN","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaDORN","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaDORN_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaDORNTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaDORN_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaDORN","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("DORN")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaDORN","LOCALS",2)
+	    SetGlobal("X32IsaaDORN1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaDORN_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaDORNTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaDORN_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaDORN","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("DORN")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaDORNTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaDORN","LOCALS",3)
+	    SetGlobal("X32IsaaDORN2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+// Glint
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Glint")
+	Global("X32IsaaGlint","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaGlintTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaGlint","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Glint")
+	Global("X32IsaaGlint","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaGlint","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaGlint_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaGlintTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaGlint_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaGlint","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Glint")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaGlint","LOCALS",2)
+	    SetGlobal("X32IsaaGlint1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaGlint_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaGlintTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaGlint_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaGlint","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Glint")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaGlintTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaGlint","LOCALS",3)
+	    SetGlobal("X32IsaaGlint2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Rasaad
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Rasaad")
+	Global("X32IsaaRasaad","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaRasaadTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaRasaad","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Rasaad")
+	Global("X32IsaaRasaad","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaRasaad","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaRasaad_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaRasaadTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaRasaad_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaRasaad","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Rasaad")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaRasaad","LOCALS",2)
+	    SetGlobal("X32IsaaRasaad1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaRasaad_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaRasaadTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaRasaad_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaRasaad","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Rasaad")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaRasaadTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaRasaad","LOCALS",3)
+	    SetGlobal("X32IsaaRasaad2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Dynaheir
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Dynaheir")
+	Global("X32IsaaDynaheir","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaDynaheirTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaDynaheir","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Dynaheir")
+	Global("X32IsaaDynaheir","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaDynaheir","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaDynaheir_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaDynaheirTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaDynaheir_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaDynaheir","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Dynaheir")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaDynaheir","LOCALS",2)
+	    SetGlobal("X32IsaaDynaheir1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaDynaheir_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaDynaheirTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaDynaheir_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaDynaheir","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Dynaheir")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaDynaheirTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaDynaheir","LOCALS",3)
+	    SetGlobal("X32IsaaDynaheir2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Edwin
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Edwin")
+	Global("X32IsaaEdwin","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaEdwinTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaEdwin","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Edwin")
+	Global("X32IsaaEdwin","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaEdwin","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaEdwin_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaEdwinTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaEdwin_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaEdwin","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Edwin")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaEdwin","LOCALS",2)
+	    SetGlobal("X32IsaaEdwin1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaEdwin_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaEdwinTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaEdwin_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaEdwin","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Edwin")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaEdwinTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaEdwin","LOCALS",3)
+	    SetGlobal("X32IsaaEdwin2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Voghlin
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Voghlin")
+	Global("X32IsaaVoghlin","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaVoghlinTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaVoghlin","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Voghlin")
+	Global("X32IsaaVoghlin","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaVoghlin","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaVoghlin_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaVoghlinTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaVoghlin_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaVoghlin","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Voghlin")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaVoghlin","LOCALS",2)
+	    SetGlobal("X32IsaaVoghlin1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaVoghlin_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaVoghlinTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaVoghlin_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaVoghlin","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Voghlin")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaVoghlinTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaVoghlin","LOCALS",3)
+	    SetGlobal("X32IsaaVoghlin2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+
+//Safana
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Safana")
+	Global("X32IsaaSafana","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaSafanaTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaSafana","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Safana")
+	Global("X32IsaaSafana","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaSafana","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaSafana_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaSafanaTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaSafana_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaSafana","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Safana")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaSafana","LOCALS",2)
+	    SetGlobal("X32IsaaSafana1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaSafana_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaSafanaTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaSafana_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaSafana","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Safana")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaSafanaTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaSafana","LOCALS",3)
+	    SetGlobal("X32IsaaSafana2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//X3mily
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("X3mily")
+	Global("X32IsaaX3mily","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaX3milyTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3mily","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("X3mily")
+	Global("X32IsaaX3mily","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaX3mily","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3mily_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3milyTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3mily_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3mily","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3mily")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaX3mily","LOCALS",2)
+	    SetGlobal("X32IsaaX3mily1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3mily_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3milyTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3mily_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3mily","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3mily")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaX3milyTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3mily","LOCALS",3)
+	    SetGlobal("X32IsaaX3mily2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+
+//X3Helga
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("X3Helga")
+	Global("X32IsaaX3Helga","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaX3HelgaTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Helga","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("X3Helga")
+	Global("X32IsaaX3Helga","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaX3Helga","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Helga_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3HelgaTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Helga_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Helga","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Helga")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaX3Helga","LOCALS",2)
+	    SetGlobal("X32IsaaX3Helga1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Helga_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3HelgaTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Helga_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Helga","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Helga")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaX3HelgaTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Helga","LOCALS",3)
+	    SetGlobal("X32IsaaX3Helga2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Neera
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Neera")
+	Global("X32IsaaNeera","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaNeeraTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaNeera","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Neera")
+	Global("X32IsaaNeera","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaNeera","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaNeera_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaNeeraTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaNeera_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaNeera","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Neera")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaNeera","LOCALS",2)
+	    SetGlobal("X32IsaaNeera1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaNeera_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaNeeraTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaNeera_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaNeera","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Neera")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaNeeraTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaNeera","LOCALS",3)
+	    SetGlobal("X32IsaaNeera2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//X3Vien
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("X3Vien")
+	Global("X32IsaaX3Vien","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaX3VienTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Vien","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("X3Vien")
+	Global("X32IsaaX3Vien","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaX3Vien","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Vien_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3VienTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Vien_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Vien","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Vien")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaX3Vien","LOCALS",2)
+	    SetGlobal("X32IsaaX3Vien1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Vien_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3VienTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Vien_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Vien","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Vien")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaX3VienTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Vien","LOCALS",3)
+	    SetGlobal("X32IsaaX3Vien2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+
+//X3Kale
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("X3Kale")
+	Global("X32IsaaX3Kale","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaX3KaleTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Kale","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("X3Kale")
+	Global("X32IsaaX3Kale","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaX3Kale","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Kale_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3KaleTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Kale_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Kale","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Kale")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaX3Kale","LOCALS",2)
+	    SetGlobal("X32IsaaX3Kale1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Kale_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3KaleTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Kale_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Kale","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Kale")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaX3KaleTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Kale","LOCALS",3)
+	    SetGlobal("X32IsaaX3Kale2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Minsc
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Minsc")
+	Global("X32IsaaMinsc","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaMinscTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaMinsc","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Minsc")
+	Global("X32IsaaMinsc","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaMinsc","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaMinsc_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaMinscTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaMinsc_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaMinsc","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Minsc")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaMinsc","LOCALS",2)
+	    SetGlobal("X32IsaaMinsc1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaMinsc_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaMinscTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaMinsc_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaMinsc","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Minsc")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaMinscTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaMinsc","LOCALS",3)
+	    SetGlobal("X32IsaaMinsc2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Baeloth
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("Baeloth")
+	Global("X32IsaaBaeloth","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaBaelothTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaBaeloth","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("Baeloth")
+	Global("X32IsaaBaeloth","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaBaeloth","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaBaeloth_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaBaelothTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaBaeloth_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaBaeloth","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Baeloth")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaBaeloth","LOCALS",2)
+	    SetGlobal("X32IsaaBaeloth1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaBaeloth_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaBaelothTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaBaeloth_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaBaeloth","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("Baeloth")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaBaelothTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaBaeloth","LOCALS",3)
+	    SetGlobal("X32IsaaBaeloth2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//JAHEIRA
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("JAHEIRA")
+	Global("X32IsaaJAHEIRA","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaJAHEIRATalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaJAHEIRA","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("JAHEIRA")
+	Global("X32IsaaJAHEIRA","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaJAHEIRA","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaJAHEIRA_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaJAHEIRATalk","LOCALS")
+	OR(2)
+		Global("X32IsaaJAHEIRA_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaJAHEIRA","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("JAHEIRA")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaJAHEIRA","LOCALS",2)
+	    SetGlobal("X32IsaaJAHEIRA1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaJAHEIRA_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaJAHEIRATalk","LOCALS")
+	OR(2)
+		Global("X32IsaaJAHEIRA_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaJAHEIRA","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("JAHEIRA")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaJAHEIRATalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaJAHEIRA","LOCALS",3)
+	    SetGlobal("X32IsaaJAHEIRA2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Mkhiin
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("MKHIIN")
+	Global("X32IsaaMKHIIN","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaMKHIINTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaMKHIIN","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("MKHIIN")
+	Global("X32IsaaMKHIIN","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaMKHIIN","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaMKHIIN_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaMKHIINTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaMKHIIN_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaMKHIIN","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("MKHIIN")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaMKHIIN","LOCALS",2)
+	    SetGlobal("X32IsaaMKHIIN1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaMKHIIN_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaMKHIINTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaMKHIIN_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaMKHIIN","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("MKHIIN")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaMKHIINTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaMKHIIN","LOCALS",3)
+	    SetGlobal("X32IsaaMKHIIN2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+//Recorder
+
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("X3Rec")
+	Global("X32IsaaX3Rec","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("X32IsaaX3RecTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Rec","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("X3Rec")
+	Global("X32IsaaX3Rec","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("X32IsaaX3Rec","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Rec_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3RecTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Rec_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Rec","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Rec")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("X32IsaaX3Rec","LOCALS",2)
+	    SetGlobal("X32IsaaX3Rec1","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("X32IsaaX3Rec_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("X32IsaaX3RecTalk","LOCALS")
+	OR(2)
+		Global("X32IsaaX3Rec_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("X32IsaaX3Rec","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("X3Rec")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("X32IsaaX3RecTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("X32IsaaX3Rec","LOCALS",3)
+	    SetGlobal("X32IsaaX3Rec2","MYAREA",1)
+		SetAreaScript("X32IBANT",GENERAL)
+END
+

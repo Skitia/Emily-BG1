@@ -4,6 +4,55 @@
 IF // Conditions
 GlobalGT("bd_plot","global",169) // They will only spawn after the hero has spoken to Caelar.
 Global("X32Hunterspawn","GLOBAL",0) // This will only fire once.
+BeenInParty("X3Isaac")
+!Dead("X3Isaac")
+THEN RESPONSE #100 // Actions
+SetGlobal("X32Hunterspawn","GLOBAL",1) // Turn Off. 
+CreateCreature("X32EHK1",[2534.1516],SE) // First Hunter Spawn
+CreateCreature("X32EHK2",[2667.1391],SE) // Second Hunter Spawn 
+CreateCreature("X32EHK3S",[2632.1516],SE) // Third, Lead Hunter Spawn
+CreateCreature("X32EHK4",[2611.1552],SE) // Fourth Hunter Spawn 
+MoveGlobal("BD1000","X3Isaac",[2683.1489]) // Isaac
+	SmallWait(1) // This line prevents the game from crashing, interestingly enough.
+    ApplySpellRES("bdresurr","X3Isaac")
+    SmallWait(1)
+	ApplySpellRES("bdrejuve","X3Isaac")
+    ChangeEnemyAlly("X3Isaac",NEUTRAL)
+    ChangeSpecifics("X3Isaac",ALLIES)
+    ActionOverride("X3Isaac",SetGlobal("X3milyJoined","locals",0))
+    ActionOverride("X3Isaac",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("X3Isaac",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3Isaac",ChangeAIScript("X32Isaa",OVERRIDE))
+    ActionOverride("X3Isaac",ChangeAIScript("DEFAULT",CLASS))
+    ActionOverride("X3Isaac",ChangeAIScript("",RACE))
+    ActionOverride("X3Isaac",ChangeAIScript("",GENERAL))
+    ActionOverride("X3Isaac",ChangeAIScript("",DEFAULT))
+    ActionOverride("X3Isaac",SetDialog("X32Isaa"))
+	ActionOverride("X3Isaac",SetPlayerSound(Myself,@100002,EXISTANCE5)) //Test this line, points to Emily.tra
+	Continue()
+END
+
+IF // Conditions
+GlobalGT("bd_plot","global",169) // They will only spawn after the hero has spoken to Caelar.
+Global("X32Hunterspawn","GLOBAL",0) // This will only fire once.
+!BeenInParty("X3Isaac")
+!Dead("X3Isaac")
+THEN RESPONSE #100 // Actions
+SetGlobal("X32Hunterspawn","GLOBAL",1) // Turn Off. 
+CreateCreature("X32EHK1",[2534.1516],SE) // First Hunter Spawn
+CreateCreature("X32EHK2",[2667.1391],SE) // Second Hunter Spawn 
+CreateCreature("X32EHK3S",[2632.1516],SE) // Third, Lead Hunter Spawn
+CreateCreature("X32EHK4",[2611.1552],SE) // Fourth Hunter Spawn 
+CreateCreature("X32Isaa",[2683.1489],SE) //Isaac
+SmallWait(1)
+ActionOverride("X3Isaac",MakeGlobal())
+Continue() // Necessary for Extend Tops. 
+END
+
+IF // Conditions
+GlobalGT("bd_plot","global",169) // They will only spawn after the hero has spoken to Caelar.
+Global("X32Hunterspawn","GLOBAL",0) // This will only fire once.
+Dead("X3Isaac")
 THEN RESPONSE #100 // Actions
 SetGlobal("X32Hunterspawn","GLOBAL",1) // Turn Off. 
 CreateCreature("X32EHK1",[2534.1516],SE) // First Hunter Spawn
@@ -29,10 +78,10 @@ Dead("X32EHK1")
 Dead("X32EHK2")
 Dead("X32EHK3S")
 Dead("X32EHK4")
+CombatCounter(0)
+!See([ENEMY])
 Global("X32ECutSceneStart","GLOBAL",0)
 THEN RESPONSE #100 
-SetGlobal("X3EKilledThemAll","GLOBAL",1)// We will need this to prevent their later spawn in.
-Wait(1)
 SetGlobal("X32ECutSceneStart","GLOBAL",1)
 Continue()
 END 
@@ -45,6 +94,7 @@ ActionOverride("X32EHK1",EscapeArea()
 ActionOverride("X32EHK2",EscapeArea()
 ActionOverride("X32EHK4",EscapeArea()
 ActionOverride("X32EHK3S",EscapeArea()
+ActionOverride("X3Isaac",EscapeArea()
 SetGlobal("X32ECutSceneStart","GLOBAL",1)
 Continue()
 END 
@@ -79,7 +129,7 @@ Wait(2)
     ActionOverride("X3mily",ChangeAIScript("",GENERAL))
     ActionOverride("X3mily",ChangeAIScript("",DEFAULT))
     ActionOverride("X3mily",SetDialog("X32mily"))
-	ActionOverride("X3mily",SetPlayerSound(Myself,@100002,EXISTANCE5))
+	ActionOverride("X3mily",SetPlayerSound(Myself,@100001,EXISTANCE5))
 	PlaySound("ACT_07")
 	Wait(1)
 	ActionOverride("X3mily",MoveToObject(Player1))
@@ -106,8 +156,78 @@ MoveViewObject(Player1,INSTANT)
 	PlaySound("ACT_07")
 	ActionOverride("X3mily",MakeGlobal())
 	Wait(1)
+	ActionOverride("X3Isaac",FaceObject("X3mily"))
 	ActionOverride("X3mily",MoveToObjectOffset(Player1,[10.10]))
 	Wait(2)
 	ActionOverride("X3mily",StartDialogueNoSet(Player1))
+	Continue()
+END 	
+
+//Starting Method 3
+
+
+IF 
+Global("X32ICutSceneStart","GLOBAL",1)
+!Global("X32milyInBG1","GLOBAL",-1) // ~If this was set she will not spawn.
+BeenInParty("X3mily")
+THEN RESPONSE #100 
+	SetGlobal("X32ECutSceneStart","GLOBAL",2) // Set this to 2 to prevent it from firing if we kill the Planar Hunters.
+	SetGlobal("X32ICutSceneStart","GLOBAL",2)
+	ClearAllActions()
+	StartCutSceneMode()
+	SmallWait(1)
+	MoveGlobal("BD1000","X3mily",[3150.1716])
+	SmallWait(1)
+	PlaySound("ACT_07")
+	ZoomLock(TRUE)
+	SmallWait(1)
+	MoveViewObject("X3mily",VERY_FAST)
+	SmallWait(1)
+	ApplySpellRES("bdresurr","X3mily")
+	SmallWait(1)
+	ApplySpellRES("bdrejuve","X3mily")
+    ChangeEnemyAlly("X3mily",NEUTRAL)
+    ChangeSpecifics("X3mily",ALLIES)
+    ActionOverride("X3mily",SetGlobal("X3milyJoined","locals",0))
+    ActionOverride("X3mily",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("X3mily",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("X3mily",ChangeAIScript("X32mily",OVERRIDE))
+    ActionOverride("X3mily",ChangeAIScript("DEFAULT",CLASS))
+    ActionOverride("X3mily",ChangeAIScript("",RACE))
+    ActionOverride("X3mily",ChangeAIScript("",GENERAL))
+    ActionOverride("X3mily",ChangeAIScript("",DEFAULT))
+    ActionOverride("X3mily",SetDialog("X32mily"))
+	ActionOverride("X3mily",SetPlayerSound(Myself,@100002,EXISTANCE5))	
+	Wait(1)
+	ActionOverride("X3mily", MoveToPoint([2984.1649]))
+	Wait(1)
+	ActionOverride("X3Isaac",FaceObject("X3mily")
+	Wait(2)
+	ActionOverride("X3Isaac",StartDialogueNoSet(Player1))
+	Continue()
+END 
+	
+IF 
+Global("X32ICutSceneStart","GLOBAL",1)
+!Global("X32milyInBG1","GLOBAL",-1) // ~If this was set she will not spawn.
+!BeenInParty("X3mily") // Was not in the party
+THEN RESPONSE #100 
+SetGlobal("X32ECutSceneStart","GLOBAL",2)
+SetGlobal("X32ICutSceneStart","GLOBAL",2)
+ClearAllActions()
+StartCutSceneMode() 
+SmallWait(1)
+	CreateCreature("X32mily",[3150.1716],NW)
+	SmallWait(1)	
+	ZoomLock(TRUE)
+	MoveViewObject("X3mily",VERY_FAST)
+	PlaySound("ACT_07")
+	ActionOverride("X3mily",MakeGlobal())
+	SmallWait(1)
+	ActionOverride("X3mily", MoveToPoint([2984.1649]))
+	Wait(1)
+	ActionOverride("X3Isaac",FaceObject("X3mily")
+	Wait(1)
+	ActionOverride("X3Isaac",StartDialogueNoSet(Player1))
 	Continue()
 END 	

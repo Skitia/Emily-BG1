@@ -22,3 +22,16 @@ THEN
 		SetGlobalTimer("bd_betrayal_discuss_timer","bd2000",ONE_MINUTE)
 		DisplayStringHead("X3mily",@1)  // @1
 END
+
+IF
+	Global("bd_plot","global",250)
+	!GlobalTimerNotExpired("bd_mdd410z_ot_timer","bd2000")
+	Global("bd_ot_X3Isaac","bd2000",0)
+	IfValidForPartyDialogue("X3Isaac") // Isaac
+	TriggerOverride("X3Isaac",Range([ENEMY.0.0.0.CRUSADERS],30))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_mdd410z_ot_timer","bd2000",THREE_MINUTES)
+		SetGlobal("bd_ot_X3Isaac","bd2000",1)
+		DisplayStringHead("X3Isaac",@2)  
+END

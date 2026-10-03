@@ -11,8 +11,21 @@ THEN
 		ActionOverride("X32EHK3S",Enemy())
 END
 
+IF 
+	GlobalGT("X3FightEmily","GLOBAL",0)
+	Dead("X3mily")
+	OR(2)
+	Dead("X3Isaac")
+	Global("X3FightEmily","GLOBAL",3)
+THEN RESPONSE #100 
+	EscapeArea()
+END 
+
+
 IF
+OR(2)
     See(NearestEnemyOf(Myself))
+	Global("X3FightEmily","GLOBAL",1)
 		Global("X3SpellFire","LOCALS",0)
  THEN
  RESPONSE #100
@@ -39,14 +52,22 @@ IF
 END
 
 IF
+OR(2)
     See(NearestEnemyOf(Myself))
+	Global("X3FightEmily","GLOBAL",1)
 	HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
  THEN
  RESPONSE #100
 	Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
 END
 
-
+IF 
+Global("X3FightEmily","GLOBAL",1)
+!Dead("X3mily")
+THEN RESPONSE #100 
+Attack("X3mily")
+Continue()
+END
 
 
 

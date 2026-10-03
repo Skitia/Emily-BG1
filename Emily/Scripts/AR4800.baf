@@ -1,0 +1,9 @@
+IF 
+InParty("X3Isaac")
+Global("X3IQuestTask1Pass","GLOBAL",1)
+GlobalLT("X3IQuest","GLOBAL",3)
+THEN RESPONSE #100
+//CreateCreature("X3Vern",[359.129],SE)
+SetGlobal("X3IQuest","GLOBAL",3)
+END 
+
