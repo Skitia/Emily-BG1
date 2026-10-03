@@ -184,5 +184,9 @@ COPY_EXISTING ~%MOD_FOLDER%/Item/X3ELET.itm~ ~override/X3ELET.itm~
 SAY NAME1 @121
 SAY NAME2 @121
 SAY DESC @122
+
+COPY	"Emily/Item/x3iblade.itm" override
+SAY NAME2 @123
+SAY DESC  @124
 	
 LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~	
