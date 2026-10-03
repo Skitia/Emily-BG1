@@ -38,7 +38,7 @@ EXIT
 CHAIN IF
 ~IsValidForPartyDialogue("C0Drake")
 See("C0Drake")
-Race("X3Emi",AASIMAR)
+Race("X3mily",AASIMAR)
 !StateCheck("C0Drake",CD_STATE_NOTVALID)
 !StateCheck("X3mily",CD_STATE_NOTVALID)
 CombatCounter(0)

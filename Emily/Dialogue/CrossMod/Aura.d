@@ -22,6 +22,7 @@ EXIT
 CHAIN IF WEIGHT #-1
 ~IsValidForPartyDialogue("C0Aura")
 See("C0Aura")
+LevelGT("C0Aura",5)
 !StateCheck("C0Aura",CD_STATE_NOTVALID)
 !StateCheck("X3mily",CD_STATE_NOTVALID)
 CombatCounter(0)

@@ -40,7 +40,7 @@ CHAIN IF ~InParty("X3Kale")
 See("X3Kale")
 !StateCheck("X3mily",CD_STATE_NOTVALID)
 !StateCheck("X3Kale",CD_STATE_NOTVALID)
-Global("KaleBrother","GLOBAL",2) // Replace this with Kale's post brother variable 
+GlobalGT("X3KaleQuestAccept","GLOBAL",0) // Replace this with Kale's post brother variable 
 Global("CrossEmilKale","LOCALS",2)~ THEN X3milyB KaEmiBanter3
 @32 // ~You don't seem to get along with your brother anymore than I do mine.~ 
 DO ~SetGlobal("CrossEmilKale","LOCALS",3)~
@@ -74,4 +74,69 @@ DO ~SetGlobal("CrossEmilKale","LOCALS",4)~
 == X3milyB @49 // ~Because I don't want to talk about it.~
 == X3KaleB @50 // ~Sheesh, touchy. Well, go back to constantly thinking about it, then. Keep it all inside, that's working out well for you, lass.~
 == X3milyB @51 // ~Just leave me alone.~
+EXIT 
+
+
+//Kale - Isaac 1
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Kale",CD_STATE_NOTVALID)
+Global("CrossEmilKale","LOCALS",0)~ THEN X3KaleB KalIsaBanter1
+@52 //  ~I never heard of you Planar Hunter lot. Not in Gullykin, anyway.~
+DO ~SetGlobal("CrossEmilKale","LOCALS",1)~
+== X3IsaacB @53 
+== X3KaleB @54
+== X3IsaacB @55 
+EXIT
+
+//Kale - Isaac 2
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Kale",CD_STATE_NOTVALID)
+Global("CrossIsaacKale","LOCALS",1)~ THEN X3KaleB KalIsaBanter2
+@56 //  ~So mate, what's with the obession with the tiny weapons?~
+DO ~SetGlobal("CrossIsaacKale","LOCALS",2)~
+== X3IsaacB @57 
+== X3KaleB @58
+== X3IsaacB @59
+== X3KaleB @60
+== X3IsaacB @61
+== X3KaleB @62 
+EXIT 
+
+//Kale - Isaac 3
+CHAIN IF ~InParty("X3Isaac")
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Kale",CD_STATE_NOTVALID)
+GlobalGT("X3KaleQuestAccept","GLOBAL",0)
+Global("CrossIsaacKale","LOCALS",2)~ THEN X3IsaacB KalIsaBanter3
+@63 //  ~You should treat your brother with more care. You only have one in this world.~
+DO ~SetGlobal("CrossIsaacKale","LOCALS",3)~
+== X3KaleB @64
+== X3IsaacB @65
+== X3KaleB @66
+== X3IsaacB @67
+== X3KaleB @68
+EXIT 
+
+//Kale - Isaac 4 
+CHAIN IF ~InParty("X3Isaac")
+InParty("X3mily")
+Race("X3mily",Aasimar) 
+See("X3Isaac")
+!StateCheck("X3Isaac",CD_STATE_NOTVALID)
+!StateCheck("X3Kale",CD_STATE_NOTVALID)
+Global("CrossIsaacKale","LOCALS",3)~ THEN X3KaleB KalIsaBanter4
+@69 //  ~You sure like to give the lass Emily a hard time, mate. Not her fault, you know, and I don't see what the big deal is about her blood.~
+DO ~SetGlobal("CrossIsaacKale","LOCALS",4)~
+== X3IsaacB @70
+== X3KaleB @71
+== X3IsaacB @72
+== X3KaleB @73
+== X3IsaacB @74
+== X3milyB IF ~IsValidForPartyDialogue("X3mily")~ THEN @75
+== X3KaleB @76
 EXIT 
