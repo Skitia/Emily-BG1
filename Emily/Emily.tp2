@@ -30,6 +30,10 @@ LANGUAGE ~English~
          ~english~
          ~Emily/tra/english/Emily.TRA~
 
+LANGUAGE ~Schinese~
+         ~schinese~
+         ~Emily/tra/schinese/Emily.TRA~
+
 BEGIN @56 /* Emily for BG1EE */
   REQUIRE_PREDICATE (GAME_IS ~bgee eet~) @57 /* This component must be installed on BG:EE. */
 
