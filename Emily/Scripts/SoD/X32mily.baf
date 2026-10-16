@@ -2,8 +2,8 @@ IF
 	PartyRested()
 	GlobalGT("X3ECraft","GLOBAL",29)
 THEN RESPONSE #100 
-	RemoveSpellRES("X3EFA")
-	RemoveSpellRES("X3EFB")
+	RemoveSpellRES("X3EFA",Myself)
+	RemoveSpellRES("X3EFB",Myself)
 	//Just need to check this doesn't loop forever...
 END 
 

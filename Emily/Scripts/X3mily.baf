@@ -235,8 +235,8 @@ DisplayStringHead(Myself,@2008)
 RESPONSE #29 // 20
 IncrementGlobal("X3ECraft","GLOBAL",1)
 DisplayStringHead(Myself,@2009)
-RemoveSpellRES("X3EFA")
-RemoveSpellRES("X3EFB")
+RemoveSpellRES("X3EFA",Myself)
+RemoveSpellRES("X3EFB",Myself)
 END 
 // Quest Reminder.
 IF 
