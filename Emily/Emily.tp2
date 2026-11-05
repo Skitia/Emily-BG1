@@ -56,7 +56,7 @@ END
 		COPY ~%MOD_FOLDER%/portraits/EmilyL.bmp~ ~override/EmilyL.bmp~
 		COPY ~%MOD_FOLDER%/portraits/EmilyM.bmp~ ~override/EmilyM.bmp~
 
-LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emil_bg1.tra~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~x3KaleB.dlg~
 THEN BEGIN
@@ -94,7 +94,7 @@ THEN BEGIN
 COMPILE ~Emily/dialogue/CrossMod/Drake.d~
 END  
 		
-LOAD_TRA ~Emily/tra/English/Emily.tra~	
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emily.tra~	
 		
 
 //BEGIN @52
@@ -128,7 +128,7 @@ SUBCOMPONENT @55 (FILE_EXISTS_IN_GAME ~C0IVB00.SPL~)
 
 BEGIN @54
 SUBCOMPONENT @55 (FILE_EXISTS_IN_GAME ~C0IVB00.SPL~)
-LOAD_TRA ~Emily/tra/English/Isaac.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Isaac.tra~
 COPY ~%MOD_FOLDER%/creatures/C0Isaac.cre~ ~override/X3Isaac.cre~
   SAY NAME1 @52 //~Isaac~
   SAY NAME2 @52 //~Isaac~

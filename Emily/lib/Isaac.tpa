@@ -1,4 +1,4 @@
-LOAD_TRA ~Emily/tra/English/Isaac.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Isaac.tra~
 
 ADD_KIT ~X3EIB~
 
@@ -333,4 +333,4 @@ COMPILE EVALUATE_BUFFER ~Emily/dialogue/X3Caim.d~
 COMPILE EVALUATE_BUFFER ~Emily/dialogue/X3Mavis.d~
 COMPILE EVALUATE_BUFFER ~Emily/dialogue/X3IPH2.d~
 
-LOAD_TRA ~Emily/tra/English/Emily.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emily.tra~
