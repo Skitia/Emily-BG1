@@ -1,4 +1,4 @@
-LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emil_bg1.tra~
 
 // BAM 
 COPY ~Emily/Item/cX3En.bam~ ~override/cX3En.bam~
@@ -189,4 +189,4 @@ COPY	"Emily/Item/x3iblade.itm" override
 SAY NAME2 @123
 SAY DESC  @124
 	
-LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~	
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emil_bg1.tra~	

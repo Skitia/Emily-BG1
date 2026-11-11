@@ -3,7 +3,7 @@
 //////////////////////////Siege of Dragonspear////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emil_bg1.tra~
 /* Also includes Isaac's data. */
 
 APPEND ~bddialog.2da~ ~X3mily X32mily X32milyJ X32milyD~ 
@@ -93,4 +93,4 @@ SAY NAME1 @130
 SAY NAME2 @130
 SAY DESC @131
   
-LOAD_TRA ~Emily/tra/English/Emily.tra~  
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emily.tra~  

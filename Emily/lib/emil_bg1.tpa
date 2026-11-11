@@ -1,4 +1,4 @@
-LOAD_TRA ~Emily/tra/English/Emil_bg1.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emil_bg1.tra~
 
 APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
   ~0x80101FEF CD_STATE_NOTVALID~
@@ -318,4 +318,4 @@ COPY ~%MOD_FOLDER%/creatures/X3H2.cre~ ~override/X3H2.cre~
 
 
 
-LOAD_TRA ~Emily/tra/English/Emily.tra~
+LOAD_TRA ~Emily/tra/%LANGUAGE%/Emily.tra~
